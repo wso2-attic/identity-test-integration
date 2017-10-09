@@ -8,6 +8,12 @@ public class TestBase {
     private static final Logger logger = LoggerFactory.getLogger(TestBase.class);
 
     public String getMgtConsoleURL() {
-        return "https://localhost:9443/carbon/admin/login.jsp";
+        logger.info("accessing Management Console Login page");
+        return "https://localhost:9443/carbon/admin/index.jsp";
+    }
+
+    public String getMgtConsoleLogout() {
+        logger.info("logging out of Management Console");
+        return "https://localhost:9443/carbon/admin/logout_action.jsp";
     }
 }
