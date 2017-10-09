@@ -8,7 +8,7 @@ public class TestBase {
     private static final Logger logger = LoggerFactory.getLogger(TestBase.class);
 
     public String getMgtConsoleURL() {
-        logger.info("accessing Management Console Login page");
+        logger.info("accessing Management Console LoginOperations page");
         return "https://localhost:9443/carbon/admin/index.jsp";
     }
 

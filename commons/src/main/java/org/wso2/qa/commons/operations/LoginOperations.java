@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.wso2.qa.commons.pageobjects.LoginPage;
 import org.wso2.qa.commons.testbase.TestBase;
 
-public class Login {
+public class LoginOperations {
 
     private TestBase base = new TestBase();
 
