@@ -2,14 +2,13 @@ package org.wso2.qa.solution18;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
-import org.wso2.qa.commons.operations.Login;
+import org.wso2.qa.commons.operations.LoginOperations;
 import org.wso2.qa.commons.pageobjects.MenuItems;
-import org.wso2.qa.commons.testbase.TestBase;
 
 public class LoginTest {
 
     private org.wso2.qa.commons.testbase.DriverManager driverManager = new org.wso2.qa.commons.testbase.DriverManager();
-    private Login login = new Login();
+    private LoginOperations login = new LoginOperations();
 
     private WebDriver driver;
 
@@ -34,6 +33,12 @@ public class LoginTest {
         MenuItems.userStoresList(driver).click();
         MenuItems.claimsAdd(driver).click();
         MenuItems.claimsList(driver).click();
+        MenuItems.spAdd(driver).click();
+        MenuItems.spList(driver).click();
+        MenuItems.spResident(driver).click();
+        MenuItems.idpAdd(driver).click();
+        MenuItems.idpList(driver).click();
+        MenuItems.idpResident(driver).click();
 
         login.executeLogout(driver);
         driver.close();

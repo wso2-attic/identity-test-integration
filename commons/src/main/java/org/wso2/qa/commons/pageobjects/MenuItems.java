@@ -32,17 +32,20 @@ public class MenuItems {
         return element;
     }
 
+    // Main tab --> Identity tab
     public static WebElement mainTabIdentity(WebDriver webDriver) {
         element = webDriver.findElement(By.xpath("//*[@id=\"region1_identity_menu\"]"));
         return element;
     }
 
+    // Main --> Identity --> Users and Roles add
     public static WebElement userNrolesAdd(WebDriver webDriver) {
         element = webDriver.findElement(By.xpath
                 ("/html/body/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/div/ul/li[3]/ul/li[2]/ul/li[1]/a"));
         return element;
     }
 
+    // Main --> Identity --> Users and Roles list
     public static WebElement userNrolesList(WebDriver webDriver) {
         element = webDriver.findElement(By.xpath
                 ("/html/body/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/div/ul/li[3]/ul/li[2]/ul/li[2]/a"));
@@ -70,6 +73,42 @@ public class MenuItems {
     public static WebElement claimsList(WebDriver webDriver) {
         element = webDriver.findElement(By.xpath
                 ("/html/body/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/div/ul/li[3]/ul/li[6]/ul/li[2]/a"));
+        return element;
+    }
+
+    public static WebElement spAdd(WebDriver webDriver) {
+        element = webDriver.findElement(By.xpath
+                ("/html/body/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/div/ul/li[3]/ul/li[8]/ul/li[1]/a"));
+        return element;
+    }
+
+    public static WebElement spList(WebDriver webDriver) {
+        element = webDriver.findElement(By.xpath
+                ("/html/body/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/div/ul/li[3]/ul/li[8]/ul/li[2]/a"));
+        return element;
+    }
+
+    public static WebElement spResident(WebDriver webDriver) {
+        element = webDriver.findElement(By.xpath
+                ("/html/body/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/div/ul/li[3]/ul/li[8]/ul/li[3]/a"));
+        return element;
+    }
+
+    public static WebElement idpAdd(WebDriver webDriver) {
+        element = webDriver.findElement(By.xpath
+                ("/html/body/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/div/ul/li[3]/ul/li[8]/ul/li[1]/a"));
+        return element;
+    }
+
+    public static WebElement idpList(WebDriver webDriver) {
+        element = webDriver.findElement(By.xpath
+                ("/html/body/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/div/ul/li[3]/ul/li[10]/ul/li[2]/a"));
+        return element;
+    }
+
+    public static WebElement idpResident(WebDriver webDriver) {
+        element = webDriver.findElement(By.xpath
+                ("/html/body/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/div/ul/li[3]/ul/li[10]/ul/li[3]/a"));
         return element;
     }
 
