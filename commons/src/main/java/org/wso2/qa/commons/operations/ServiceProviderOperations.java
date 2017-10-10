@@ -16,22 +16,16 @@
  *  under the License.
  */
 
-package org.wso2.qa.commons.testbase;
+package org.wso2.qa.commons.operations;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.wso2.qa.commons.Identityobjects.ServiceProvider;
+import org.wso2.qa.commons.testbase.TestBase;
 
-public class TestBase {
+public class ServiceProviderOperations {
 
-    private static final Logger logger = LoggerFactory.getLogger(TestBase.class);
+    TestBase testBase = new TestBase();
 
-    public String getMgtConsoleURL() {
-        logger.info("accessing Management Console LoginOperations page");
-        return "https://localhost:9443/carbon/admin/index.jsp";
-    }
+    public void createServiceProviderStep1(ServiceProvider serviceProvider) {
 
-    public String getMgtConsoleLogout() {
-        logger.info("logging out of Management Console");
-        return "https://localhost:9443/carbon/admin/logout_action.jsp";
     }
 }

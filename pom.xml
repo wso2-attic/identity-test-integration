@@ -15,16 +15,6 @@
         <module>solution18</module>
     </modules>
 
-    <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>${testng.version}</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
-
     <properties>
         <testng.version>6.9.10</testng.version>
     </properties>

@@ -24,27 +24,34 @@ import org.openqa.selenium.WebElement;
 import org.wso2.qa.commons.util.LocatorProperties;
 
 /**
- * Page Object Model for login page
+ * Service Provider creator page locator class
+ * <p>
  */
-public class LoginPage {
+public class ServiceProviderCreatePage {
 
     private static WebElement element = null;
 
-    public static WebElement txtBoxUsername(WebDriver webDriver) {
+    public static WebElement txtBoxServiceProviderName(WebDriver webDriver) {
         element = webDriver.findElement(By.xpath
-                (LocatorProperties.getInstance().getElement("page.login.txtbox.username")));
+                (LocatorProperties.getInstance().getElement("page.spcreate.txtbox.spname")));
         return element;
     }
 
-    public static WebElement txtBoxPassword(WebDriver webDriver) {
+    public static WebElement txtBoxServiceProvierDescription(WebDriver webDriver) {
         element = webDriver.findElement(By.xpath
-                (LocatorProperties.getInstance().getElement("page.login.txtbox.password")));
+                (LocatorProperties.getInstance().getElement("page.spcreate.txtbox.spdescription")));
         return element;
     }
 
-    public static WebElement btnSignIn(WebDriver webDriver) {
+    public static WebElement btnRegister(WebDriver webDriver) {
         element = webDriver.findElement(By.xpath
-                (LocatorProperties.getInstance().getElement("page.login.btn.signin")));
+                (LocatorProperties.getInstance().getElement("page.spcreate.btn.register")));
+        return element;
+    }
+
+    public static WebElement btnCancel(WebDriver webDriver) {
+        element = webDriver.findElement(By.xpath
+                (LocatorProperties.getInstance().getElement("page.spcreate.btn.cancel")));
         return element;
     }
 }
