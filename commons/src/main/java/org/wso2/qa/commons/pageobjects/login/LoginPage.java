@@ -16,35 +16,40 @@
  *  under the License.
  */
 
-package org.wso2.qa.commons.pageobjects;
+package org.wso2.qa.commons.pageobjects.login;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.wso2.qa.commons.util.LocatorProperties;
+import org.wso2.qa.commons.util.ElementLocatorProperties;
 
 /**
  * Page Object Model for login page
  */
 public class LoginPage {
 
-    private static WebElement element = null;
+    private WebElement element;
+    private WebDriver driver;
 
-    public static WebElement txtBoxUsername(WebDriver webDriver) {
-        element = webDriver.findElement(By.xpath
-                (LocatorProperties.getInstance().getElement("page.login.txtbox.username")));
+    public LoginPage(WebDriver driver) {
+        this.driver = driver;
+    }
+
+    public WebElement txtBoxUsername() {
+        element = driver.findElement(By.xpath
+                (ElementLocatorProperties.getInstance().getElement("page.login.txtbox.username")));
         return element;
     }
 
-    public static WebElement txtBoxPassword(WebDriver webDriver) {
-        element = webDriver.findElement(By.xpath
-                (LocatorProperties.getInstance().getElement("page.login.txtbox.password")));
+    public WebElement txtBoxPassword() {
+        element = driver.findElement(By.xpath
+                (ElementLocatorProperties.getInstance().getElement("page.login.txtbox.password")));
         return element;
     }
 
-    public static WebElement btnSignIn(WebDriver webDriver) {
-        element = webDriver.findElement(By.xpath
-                (LocatorProperties.getInstance().getElement("page.login.btn.signin")));
+    public WebElement btnSignIn() {
+        element = driver.findElement(By.xpath
+                (ElementLocatorProperties.getInstance().getElement("page.login.btn.signin")));
         return element;
     }
 }

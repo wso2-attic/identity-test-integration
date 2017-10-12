@@ -1,46 +1,68 @@
 package org.wso2.qa.solution18;
 
-import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.wso2.qa.commons.operations.LoginOperations;
-import org.wso2.qa.commons.pageobjects.MenuItems;
+import org.wso2.qa.commons.pageobjects.menus.MenuItems;
+import org.wso2.qa.commons.pageobjects.serviceprovider.ServiceProviderConfigurePage;
+import org.wso2.qa.commons.pageobjects.serviceprovider.ServiceProviderCreatePage;
+import org.wso2.qa.commons.testbase.TestBase;
 
-public class LoginTest {
+import java.io.IOException;
 
-    private org.wso2.qa.commons.testbase.DriverManager driverManager = new org.wso2.qa.commons.testbase.DriverManager();
-    private LoginOperations login = new LoginOperations();
+public class LoginTest extends TestBase {
 
-    private WebDriver driver;
+    @BeforeClass
+    public void init() {
+        super.init();
+    }
 
     @Test
-    public void loginTest() throws InterruptedException {
+    public void loginTest() throws InterruptedException, IOException {
+
         String username = "admin";
         String password = "admin";
-        driver = driverManager.getWebDriver("chrome");
-        login.executeLogin(username, password, driver);
+        driver.get(getMgtConsoleURL());
+        LoginOperations login = new LoginOperations(driver);
+        login.executeLogin(username, password);
 
         // check menu items
-        MenuItems.tabMain(driver).click();
-        MenuItems.tabMonitor(driver).click();
-        MenuItems.tabConfigure(driver).click();
-        MenuItems.tabTools(driver).click();
+        MenuItems menuItems = new MenuItems(driver);
+        menuItems.tabMain().click();
+        menuItems.tabMonitor().click();
+        menuItems.tabConfigure().click();
+        menuItems.tabTools().click();
 
         // check main menu items
-        MenuItems.tabMain(driver).click();
-        MenuItems.userNrolesAdd(driver).click();
-        MenuItems.userNrolesList(driver).click();
-        MenuItems.userStoresAdd(driver).click();
-        MenuItems.userStoresList(driver).click();
-        MenuItems.claimsAdd(driver).click();
-        MenuItems.claimsList(driver).click();
-        MenuItems.spAdd(driver).click();
-        MenuItems.spList(driver).click();
-        MenuItems.spResident(driver).click();
-        MenuItems.idpAdd(driver).click();
-        MenuItems.idpList(driver).click();
-        MenuItems.idpResident(driver).click();
+        menuItems.tabMain().click();
+        menuItems.userNrolesAdd().click();
+        menuItems.userNrolesList().click();
+        menuItems.userStoresAdd().click();
+        menuItems.userStoresList().click();
+        menuItems.claimsAdd().click();
+        menuItems.claimsList().click();
+        menuItems.spAdd().click();
+        menuItems.spList().click();
+        menuItems.spResident().click();
+        menuItems.idpAdd().click();
+        menuItems.idpList().click();
+        menuItems.idpResident().click();
 
-        login.executeLogout(driver);
+        // SP
+        menuItems.spAdd().click();
+        ServiceProviderCreatePage.txtBoxServiceProviderName(driver).sendKeys("sample");
+        ServiceProviderCreatePage.txtBoxServiceProvierDescription(driver).sendKeys("Sample Desc");
+        ServiceProviderCreatePage.btnRegister(driver).click();
+        Thread.sleep(3000);
+
+        ServiceProviderConfigurePage.tabInboundAuthenticationConfiguration(driver).click();
+
+        getlLogout().click();
+    }
+
+    @AfterClass
+    private void clearnUp() {
         driver.close();
     }
 }
