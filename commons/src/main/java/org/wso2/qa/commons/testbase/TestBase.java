@@ -18,12 +18,26 @@
 
 package org.wso2.qa.commons.testbase;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.wso2.qa.commons.util.ElementLocatorProperties;
+import org.wso2.qa.commons.util.TestSuiteProperties;
+
+import java.io.IOException;
 
 public class TestBase {
 
     private static final Logger logger = LoggerFactory.getLogger(TestBase.class);
+    DriverManager driverManager = new DriverManager();
+
+    protected WebDriver driver;
+
+    protected void init() {
+        this.driver = driverManager.getWebDriver(TestSuiteProperties.getInstance().getElement("driver"));
+    }
 
     public String getMgtConsoleURL() {
         logger.info("accessing Management Console LoginOperations page");
@@ -33,5 +47,10 @@ public class TestBase {
     public String getMgtConsoleLogout() {
         logger.info("logging out of Management Console");
         return "https://localhost:9443/carbon/admin/logout_action.jsp";
+    }
+
+    protected WebElement getlLogout() throws IOException {
+        return driver.findElement(By.xpath
+                (ElementLocatorProperties.getInstance().getElement("link.logout")));
     }
 }

@@ -22,29 +22,29 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class LocatorProperties {
+public class TestSuiteProperties {
 
     private static final Properties properties = new Properties();
-    private static LocatorProperties instance;
+    private static TestSuiteProperties instance;
 
     static {
         try {
             getResourceStream();
-            instance = new LocatorProperties();
+            instance = new TestSuiteProperties();
         } catch (IOException e) {
             throw new ExceptionInInitializerError("Failed to read file. Locator mappings not set");
         }
     }
 
-    private LocatorProperties() {
+    private TestSuiteProperties() {
     }
 
-    public static LocatorProperties getInstance() {
+    public static TestSuiteProperties getInstance() {
         return instance;
     }
 
     private static Properties getResourceStream() throws IOException {
-        InputStream inputStream = LocatorProperties.class.getResourceAsStream("/locator.properties");
+        InputStream inputStream = TestSuiteProperties.class.getResourceAsStream("/test-suite.properties");
         if (inputStream.available() > 0) {
             properties.load(inputStream);
             inputStream.close();

@@ -16,18 +16,20 @@
  *  under the License.
  */
 
-package org.wso2.qa.commons.Identityobjects;
+package org.wso2.qa.commons.pageobjects.serviceprovider;
 
-public class ServiceProvider {
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.wso2.qa.commons.util.ElementLocatorProperties;
 
-    private String serviceProviderName;
-    private String serviceProviderDescription;
-    private Boolean isSaas;
+public class ServiceProviderListPage {
 
-    // SAML SSO
-    private Boolean isManualConfiguration;
-    private Boolean isMetadataConfiguration;
-    private Boolean isUrlConfiguration;
+    private static WebElement element = null;
 
-    private String issuer;
+    public static WebElement txtBoxServiceProviderName(WebDriver webDriver) {
+        element = webDriver.findElement(By.xpath
+                (ElementLocatorProperties.getInstance().getElement("page.spcreate.txtbox.spname")));
+        return element;
+    }
 }

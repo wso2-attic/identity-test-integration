@@ -16,12 +16,12 @@
  *  under the License.
  */
 
-package org.wso2.qa.commons.pageobjects;
+package org.wso2.qa.commons.pageobjects.serviceprovider;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.wso2.qa.commons.util.LocatorProperties;
+import org.wso2.qa.commons.util.ElementLocatorProperties;
 
 /**
  * Service Provider creator page locator class
@@ -33,25 +33,25 @@ public class ServiceProviderCreatePage {
 
     public static WebElement txtBoxServiceProviderName(WebDriver webDriver) {
         element = webDriver.findElement(By.xpath
-                (LocatorProperties.getInstance().getElement("page.spcreate.txtbox.spname")));
+                (ElementLocatorProperties.getInstance().getElement("page.spcreate.txtbox.spname")));
         return element;
     }
 
     public static WebElement txtBoxServiceProvierDescription(WebDriver webDriver) {
         element = webDriver.findElement(By.xpath
-                (LocatorProperties.getInstance().getElement("page.spcreate.txtbox.spdescription")));
+                (ElementLocatorProperties.getInstance().getElement("page.spcreate.txtbox.spdescription")));
         return element;
     }
 
     public static WebElement btnRegister(WebDriver webDriver) {
         element = webDriver.findElement(By.xpath
-                (LocatorProperties.getInstance().getElement("page.spcreate.btn.register")));
+                (ElementLocatorProperties.getInstance().getElement("page.spcreate.btn.register")));
         return element;
     }
 
     public static WebElement btnCancel(WebDriver webDriver) {
         element = webDriver.findElement(By.xpath
-                (LocatorProperties.getInstance().getElement("page.spcreate.btn.cancel")));
+                (ElementLocatorProperties.getInstance().getElement("page.spcreate.btn.cancel")));
         return element;
     }
 }

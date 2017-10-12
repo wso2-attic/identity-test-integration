@@ -16,7 +16,7 @@
  *  under the License.
  */
 
-package org.wso2.qa.commons.pageobjects;
+package org.wso2.qa.commons.pageobjects.serviceprovider;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
