@@ -4,8 +4,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.wso2.qa.commons.operations.LoginOperations;
+import org.wso2.qa.commons.operations.ServiceProviderOperations;
 import org.wso2.qa.commons.pageobjects.menus.MenuItems;
-import org.wso2.qa.commons.pageobjects.serviceprovider.ServiceProviderConfigurePage;
 import org.wso2.qa.commons.pageobjects.serviceprovider.ServiceProviderCreatePage;
 import org.wso2.qa.commons.testbase.TestBase;
 
@@ -51,13 +51,15 @@ public class LoginTest extends TestBase {
 
         // SP
         menuItems.spAdd().click();
-        ServiceProviderCreatePage.txtBoxServiceProviderName(driver).sendKeys("sample");
-        ServiceProviderCreatePage.txtBoxServiceProvierDescription(driver).sendKeys("Sample Desc");
-        ServiceProviderCreatePage.btnRegister(driver).click();
-        Thread.sleep(3000);
+        ServiceProviderCreatePage serviceProviderCreatePage = new ServiceProviderCreatePage(driver);
+        serviceProviderCreatePage.txtBoxServiceProviderName().sendKeys("sample");
+        serviceProviderCreatePage.txtBoxServiceProvierDescription().sendKeys("Sample Desc");
+        serviceProviderCreatePage.btnRegister().click();
+        menuItems.spList().click();
 
-        ServiceProviderConfigurePage.tabInboundAuthenticationConfiguration(driver).click();
-
+        ServiceProviderOperations serviceProviderOperations = new ServiceProviderOperations(driver);
+        System.out.println(serviceProviderOperations.getRecordCount());
+        serviceProviderOperations.clickServiceProviderDeleteElement("sample");
         getlLogout().click();
     }
 

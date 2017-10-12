@@ -29,28 +29,33 @@ import org.wso2.qa.commons.util.ElementLocatorProperties;
  */
 public class ServiceProviderCreatePage {
 
-    private static WebElement element = null;
+    private WebElement element;
+    private WebDriver driver;
 
-    public static WebElement txtBoxServiceProviderName(WebDriver webDriver) {
-        element = webDriver.findElement(By.xpath
+    public ServiceProviderCreatePage(WebDriver driver) {
+        this.driver = driver;
+    }
+
+    public WebElement txtBoxServiceProviderName() {
+        element = driver.findElement(By.xpath
                 (ElementLocatorProperties.getInstance().getElement("page.spcreate.txtbox.spname")));
         return element;
     }
 
-    public static WebElement txtBoxServiceProvierDescription(WebDriver webDriver) {
-        element = webDriver.findElement(By.xpath
+    public WebElement txtBoxServiceProvierDescription() {
+        element = driver.findElement(By.xpath
                 (ElementLocatorProperties.getInstance().getElement("page.spcreate.txtbox.spdescription")));
         return element;
     }
 
-    public static WebElement btnRegister(WebDriver webDriver) {
-        element = webDriver.findElement(By.xpath
+    public WebElement btnRegister() {
+        element = driver.findElement(By.xpath
                 (ElementLocatorProperties.getInstance().getElement("page.spcreate.btn.register")));
         return element;
     }
 
-    public static WebElement btnCancel(WebDriver webDriver) {
-        element = webDriver.findElement(By.xpath
+    public WebElement btnCancel() {
+        element = driver.findElement(By.xpath
                 (ElementLocatorProperties.getInstance().getElement("page.spcreate.btn.cancel")));
         return element;
     }
