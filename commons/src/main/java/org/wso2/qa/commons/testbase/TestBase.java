@@ -41,12 +41,12 @@ public class TestBase {
 
     public String getMgtConsoleURL() {
         logger.info("accessing Management Console LoginOperations page");
-        return "https://localhost:9443/carbon/admin/index.jsp";
+        return "https://is.dev.wso2.org/carbon/admin/index.jsp";
     }
 
     public String getMgtConsoleLogout() {
         logger.info("logging out of Management Console");
-        return "https://localhost:9443/carbon/admin/logout_action.jsp";
+        return "https://is.dev.wso2.org/carbon/admin/logout_action.jsp";
     }
 
     protected WebElement getlLogout() throws IOException {

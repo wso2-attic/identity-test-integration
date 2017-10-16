@@ -118,7 +118,7 @@ public class MenuItems {
 
     public WebElement spResident() {
         element = driver.findElement(By.xpath
-                ("/html/body/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/div/ul/li[3]/ul/li[8]/ul/li[3]/a"));
+                ("/html/body/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td/div/ul/li[3]/ul/li[10]/ul/li[3]/a"));
         return element;
     }
 

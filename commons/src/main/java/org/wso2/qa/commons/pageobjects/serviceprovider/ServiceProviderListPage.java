@@ -33,7 +33,7 @@ public class ServiceProviderListPage {
     }
 
     public WebElement txtBoxServiceProviderName() {
-        element = driver.findElement(By.xpath
+        element = driver.findElement(By.id
                 (ElementLocatorProperties.getInstance().getElement("page.spcreate.txtbox.spname")));
         return element;
     }
