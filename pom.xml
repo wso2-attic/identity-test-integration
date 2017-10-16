@@ -11,12 +11,7 @@
     <url>https://wso2.com</url>
 
     <modules>
-        <module>commons</module>
         <module>solution18</module>
     </modules>
-
-    <properties>
-        <testng.version>6.9.10</testng.version>
-    </properties>
 </project>
 
