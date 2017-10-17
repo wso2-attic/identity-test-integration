@@ -12,6 +12,7 @@
 
     <modules>
         <module>solution18</module>
+        <module>solution10</module>
     </modules>
 </project>
 
