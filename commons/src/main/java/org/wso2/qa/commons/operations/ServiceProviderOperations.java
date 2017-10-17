@@ -18,14 +18,64 @@
 
 package org.wso2.qa.commons.operations;
 
-import org.wso2.qa.commons.Identityobjects.ServiceProvider;
-import org.wso2.qa.commons.testbase.TestBase;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.wso2.qa.commons.pageobjects.login.LoginPage;
+import org.wso2.qa.commons.util.ElementLocatorProperties;
+
+import java.io.IOException;
+import java.util.List;
 
 public class ServiceProviderOperations {
 
-    TestBase testBase = new TestBase();
+    private static final Logger logger = LoggerFactory.getLogger(LoginPage.class);
+    private WebDriver driver;
 
-    public void createServiceProviderStep1(ServiceProvider serviceProvider) {
+    // Initialize and verify page
+    public ServiceProviderOperations(WebDriver driver) throws IOException {
+        this.driver = driver;
+        if (!(driver.getCurrentUrl().contains("list-service-providers.jsp"))) {
+            throw new IllegalStateException("This is not the service provider page");
+        }
+    }
 
+    // Get record count from SP List
+    public Integer getRecordCount() {
+        List<WebElement> rows = driver.findElements
+                (By.xpath(ElementLocatorProperties.getInstance().getElement("page.splist.table.count")));
+        return rows.size();
+    }
+
+    // Click Edit element for SP
+    public void clickServiceProviderEditElement(String spName) {
+        for (int i = 1; i <= getRecordCount(); i++) {
+            String temp = driver.findElement(By.xpath
+                    ("/html/body/table/tbody/tr[2]/td[3]/table/tbody/tr[2]/td/div/div/table[1]/tbody/tr/td/table/" +
+                            "tbody/tr[" + i + "]/td[1]")).getText();
+            if (temp.equals(spName)) {
+                driver.findElement(By.xpath
+                        ("/html/body/table/tbody/tr[2]/td[3]/table/tbody/tr[2]/td/div/div/" +
+                                "table[1]/tbody/tr/td/table/tbody/tr[" + i + "]/td[3]/a[1]")).click();
+            }
+        }
+    }
+
+
+    // Click Edit element for SP
+    public void clickServiceProviderDeleteElement(String spName) {
+        for (int i = 1; i <= getRecordCount(); i++) {
+            String temp = driver.findElement(By.xpath
+                    ("/html/body/table/tbody/tr[2]/td[3]/table/tbody/tr[2]/td/div/div/table[1]/tbody/tr/td/table/" +
+                            "tbody/tr[" + i + "]/td[1]")).getText();
+            if (temp.equals(spName)) {
+                driver.findElement(By.xpath
+                        ("/html/body/table/tbody/tr[2]/td[3]/table/tbody/tr[2]/td/div/div/" +
+                                "table[1]/tbody/tr/td/table/tbody/tr[" + i + "]/td[3]/a[2]")).click();
+            }
+        }
+        driver.findElement(By.xpath("/html/body/div[3]/div[2]/button[1]")).click();
     }
 }

@@ -25,10 +25,15 @@ import org.wso2.qa.commons.util.ElementLocatorProperties;
 
 public class ServiceProviderListPage {
 
-    private static WebElement element = null;
+    private WebElement element;
+    private WebDriver driver;
 
-    public static WebElement txtBoxServiceProviderName(WebDriver webDriver) {
-        element = webDriver.findElement(By.xpath
+    public ServiceProviderListPage(WebDriver driver) {
+        this.driver = driver;
+    }
+
+    public WebElement txtBoxServiceProviderName() {
+        element = driver.findElement(By.id
                 (ElementLocatorProperties.getInstance().getElement("page.spcreate.txtbox.spname")));
         return element;
     }

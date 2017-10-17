@@ -29,19 +29,24 @@ import org.openqa.selenium.WebElement;
  */
 public class ServiceProviderConfigurePage {
 
-    private static WebElement element = null;
+    private WebElement element;
+    private WebDriver driver;
 
-    public static WebElement txtBoxServiceProviderName(WebDriver webDriver) {
-        element = webDriver.findElement(By.xpath("//*[@id=\"spName\"]"));
+    public ServiceProviderConfigurePage(WebDriver driver) {
+        this.driver = driver;
+    }
+
+    public WebElement txtBoxServiceProviderName() {
+        element = driver.findElement(By.xpath("//*[@id=\"spName\"]"));
         return element;
     }
 
-    public static WebElement txtBoxServiceProviderDescription(WebDriver driver) {
+    public WebElement txtBoxServiceProviderDescription() {
         element = driver.findElement(By.xpath("//*[@id=\"sp-description\"]"));
         return element;
     }
 
-    public static WebElement chkBoxSAAS(WebDriver driver) {
+    public WebElement chkBoxSAAS() {
         element = driver.findElement(By.xpath("//*[@id=\"isSaasApp\"]"));
         return element;
     }
@@ -50,37 +55,37 @@ public class ServiceProviderConfigurePage {
      * Configuration tabs
      */
 
-    public static WebElement tabClaimConfiguration(WebDriver driver) {
+    public WebElement tabClaimConfiguration() {
         element = driver.findElement(By.xpath
                 ("//*[@id=\"claims_head\"]"));
         return element;
     }
 
-    public static WebElement tabRolePermissionConfiguration(WebDriver driver) {
+    public WebElement tabRolePermissionConfiguration() {
         element = driver.findElement(By.xpath
                 ("//*[@id=\"authorization_permission_head\"]"));
         return element;
     }
 
-    public static WebElement tabInboundAuthenticationConfiguration(WebDriver driver) {
+    public WebElement tabInboundAuthenticationConfiguration() {
         element = driver.findElement(By.xpath
                 ("//*[@id=\"app_authentication_head\"]"));
         return element;
     }
 
-    public static WebElement tabLocalOutboundAuthenticationConfiguration(WebDriver driver) {
+    public WebElement tabLocalOutboundAuthenticationConfiguration() {
         element = driver.findElement(By.xpath
                 ("//*[@id=\"app_authentication_advance_head\"]"));
         return element;
     }
 
-    public static WebElement tabInboundProvisioningConfiguration(WebDriver driver) {
+    public WebElement tabInboundProvisioningConfiguration() {
         element = driver.findElement(By.xpath
                 ("//*[@id=\"inbound_provisioning_head\"]"));
         return element;
     }
 
-    public static WebElement tabOutboundProvisioningConfiguration(WebDriver driver) {
+    public WebElement tabOutboundProvisioningConfiguration() {
         element = driver.findElement(By.xpath
                 ("//*[@id=\"outbound_provisioning_head\"]"));
         return element;
