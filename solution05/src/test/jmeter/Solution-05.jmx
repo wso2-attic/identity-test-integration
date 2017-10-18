@@ -172,7 +172,7 @@
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Register carbonServer" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Register carbonServer" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -247,7 +247,7 @@
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get ServiceIndex" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get ServiceIndex" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -316,7 +316,7 @@
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create SP" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create SP" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -467,10 +467,167 @@
             &lt;!--Optional:--&gt;&#xd;
             &lt;xsd1:applicationID&gt;${appID}&lt;/xsd1:applicationID&gt;&#xd;
             &lt;xsd1:applicationName&gt;${sp_name}&lt;/xsd1:applicationName&gt; &#xd;
-            &lt;xsd1:claimConfig&gt; &#xd;
-               &lt;xsd1:alwaysSendMappedLocalSubjectId&gt;true&lt;/xsd1:alwaysSendMappedLocalSubjectId&gt; &#xd;
-               &lt;xsd1:localClaimDialect&gt;true&lt;/xsd1:localClaimDialect&gt;&#xd;
-            &lt;/xsd1:claimConfig&gt; &#xd;
+	   &lt;xsd:claimConfig&gt;&#xd;
+    	       &lt;xsd:alwaysSendMappedLocalSubjectId&gt;true&lt;/xsd:alwaysSendMappedLocalSubjectId&gt;&#xd;
+               &lt;!--Zero or more repetitions:--&gt;&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;1&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/nickname&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;1&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;id&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+        		               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;2&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/fullname&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;2&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;name&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;3&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/gender&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;3&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;gender&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;4&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/emailaddress&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;4&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;email&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;5&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/givenname&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;5&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;first_name&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;6&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/lastname&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;6&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;last_name&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;7&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/dob&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;7&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;age_range&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;8&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/url&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;8&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;link&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+        		&#xd;
+        	 &lt;xsd:idpClaims&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:claimId&gt;1&lt;/xsd:claimId&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:claimUri&gt;ids&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+               &#xd;
+               &lt;xsd:localClaimDialect&gt;false&lt;/xsd:localClaimDialect&gt;&#xd;
+               &lt;xsd:roleClaimURI&gt;email&lt;/xsd:roleClaimURI&gt;&#xd;
+               &#xd;
+        &lt;/xsd:claimConfig&gt;&#xd;
+&#xd;
+&#xd;
+&#xd;
             &lt;xsd1:description&gt;${sp_description}&lt;/xsd1:description&gt; &#xd;
             &lt;xsd1:inboundAuthenticationConfig&gt;            &#xd;
                 &lt;xsd1:inboundAuthenticationRequestConfigs&gt;&#xd;
@@ -514,7 +671,7 @@
                &lt;xsd1:authenticationStepForAttributes xsd:nil=&quot;true&quot;/&gt; &#xd;
                &lt;xsd1:authenticationStepForSubject xsd:nil=&quot;true&quot;/&gt; &#xd;
                &lt;xsd1:authenticationType&gt;default&lt;/xsd1:authenticationType&gt; &#xd;
-               &lt;xsd1:subjectClaimUri xsd:nil=&quot;true&quot;/&gt; &#xd;
+               &lt;xsd1:subjectClaimUri&gt;id&lt;/xsd1:subjectClaimUri&gt;&#xd;
             &lt;/xsd1:localAndOutBoundAuthenticationConfig&gt; &#xd;
             &lt;xsd1:outboundProvisioningConfig&gt; &#xd;
                &lt;xsd1:provisionByRoleList xsd:nil=&quot;true&quot;/&gt; &#xd;
@@ -580,8 +737,234 @@
           </HeaderManager>
           <hashTree/>
         </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Update SP with Claims" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xsd=&quot;http://org.apache.axis2/xsd&quot; xmlns:xsd1=&quot;http://model.common.application.identity.carbon.wso2.org/xsd&quot;&gt;&#xd;
+   &lt;soapenv:Header/&gt;&#xd;
+   &lt;soapenv:Body&gt;&#xd;
+      &lt;xsd:updateApplication&gt;&#xd;
+         &lt;!--Optional:--&gt;&#xd;
+         &lt;xsd:serviceProvider&gt;&#xd;
+            &lt;!--Optional:--&gt;&#xd;
+            &lt;xsd1:applicationID&gt;${appID}&lt;/xsd1:applicationID&gt;&#xd;
+            &lt;xsd1:applicationName&gt;${sp_name}&lt;/xsd1:applicationName&gt; &#xd;
+ 	   &lt;xsd:claimConfig&gt;&#xd;
+    	       &lt;xsd:alwaysSendMappedLocalSubjectId&gt;true&lt;/xsd:alwaysSendMappedLocalSubjectId&gt;&#xd;
+               &lt;!--Zero or more repetitions:--&gt;&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;1&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/nickname&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;true&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;1&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;id&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+        		               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;2&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/fullname&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;2&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;name&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;3&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/gender&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;3&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;gender&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;4&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/emailaddress&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;4&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;email&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;5&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/givenname&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;5&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;first_name&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;6&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/lastname&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;6&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;last_name&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;7&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/dob&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;7&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;age_range&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;8&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/url&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;8&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;link&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+        		&#xd;
+        	 &lt;xsd:idpClaims&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:claimId&gt;1&lt;/xsd:claimId&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:claimUri&gt;ids&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+               &#xd;
+               &lt;xsd:localClaimDialect&gt;false&lt;/xsd:localClaimDialect&gt;&#xd;
+               &lt;xsd:roleClaimURI&gt;http://wso2.org/claims/role &lt;/xsd:roleClaimURI&gt;&#xd;
+               &lt;xsd:userClaimURI&gt;http://wso2.org/claims/organization&lt;/xsd:userClaimURI&gt;&#xd;
+        &lt;/xsd:claimConfig&gt;&#xd;
+&#xd;
+&#xd;
+         &lt;/xsd:serviceProvider&gt;&#xd;
+      &lt;/xsd:updateApplication&gt;&#xd;
+   &lt;/soapenv:Body&gt;&#xd;
+&lt;/soapenv:Envelope&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
+          <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService.IdentityApplicationManagementServiceHttpsSoap11Endpoint/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200 OK HTTP Code Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1606201635">HTTP/1.1 200 OK</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Basic ${adminCredentials}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">SOAPAction</stringProp>
+                <stringProp name="Header.value">urn:updateApplication</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">text/xml</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Create IDP for Facebook" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Create IDP for Facebook" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -984,13 +1367,153 @@
  	   &lt;xsd:claimConfig&gt;&#xd;
     	       &lt;xsd:alwaysSendMappedLocalSubjectId&gt;true&lt;/xsd:alwaysSendMappedLocalSubjectId&gt;&#xd;
                &lt;!--Zero or more repetitions:--&gt;&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;1&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/nickname &lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;true&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;1&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;id&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+        	 &lt;xsd:idpClaims&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:claimId&gt;1&lt;/xsd:claimId&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:claimUri&gt;ids&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+               &#xd;
+               &lt;xsd:localClaimDialect&gt;false&lt;/xsd:localClaimDialect&gt;&#xd;
+               &lt;xsd:roleClaimURI&gt;http://wso2.org/claims/role &lt;/xsd:roleClaimURI&gt;&#xd;
+               &lt;xsd:userClaimURI&gt;http://wso2.org/claims/organization&lt;/xsd:userClaimURI&gt;&#xd;
+        &lt;/xsd:claimConfig&gt;&#xd;
+      &#xd;
+             &#xd;
+	/** Add Facebook as Fed Authenticator */&#xd;
+            &lt;federatedAuthenticatorConfigs xmlns=&quot;http://model.common.application.identity.carbon.wso2.org/xsd&quot;&gt;&#xd;
+               &lt;displayName&gt;facebook&lt;/displayName&gt;&#xd;
+               &lt;AuthDefault&gt;true&lt;/AuthDefault&gt;                 &#xd;
+               &lt;enabled&gt;true&lt;/enabled&gt;&#xd;
+               &lt;name&gt;FacebookAuthenticator&lt;/name&gt;&#xd;
+               &lt;properties&gt;&#xd;
+                  &lt;name&gt;ClientId&lt;/name&gt;&#xd;
+                  &lt;value&gt;1163928820418820&lt;/value&gt;&#xd;
+               &lt;/properties&gt;&#xd;
+               &lt;properties&gt;&#xd;
+                  &lt;confidential&gt;true&lt;/confidential&gt;&#xd;
+                  &lt;name&gt;ClientSecret&lt;/name&gt;&#xd;
+                  &lt;value&gt;7cd6347b49f8b03fd393e48c9c9c7eec&lt;/value&gt;&#xd;
+               &lt;/properties&gt;&#xd;
+               &lt;properties&gt;&#xd;
+                  &lt;name&gt;Scope&lt;/name&gt;&#xd;
+                  &lt;value&gt;email&lt;/value&gt;&#xd;
+               &lt;/properties&gt;&#xd;
+               &lt;properties&gt;&#xd;
+                  &lt;name&gt;UserInfoFields&lt;/name&gt;&#xd;
+                  &lt;value&gt;id,name,gender,email,first_name,last_name,age_range,link&lt;/value&gt;&#xd;
+               &lt;/properties&gt;&#xd;
+               &lt;properties&gt;&#xd;
+                  &lt;name&gt;callBackUrl&lt;/name&gt;&#xd;
+                  &lt;value&gt;https://localhost:9443/commonauth&lt;/value&gt;&#xd;
+               &lt;/properties&gt;                                           &#xd;
+		   &lt;/federatedAuthenticatorConfigs&gt;&#xd;
+         &lt;/mgt:identityProvider&gt;&#xd;
+      &lt;/mgt:updateIdP&gt;&#xd;
+   &lt;/soapenv:Body&gt;&#xd;
+&lt;/soapenv:Envelope&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
+          <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">services/IdentityProviderMgtService.IdentityProviderMgtServiceHttpsSoap11Endpoint/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200 OK HTTP Code Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1606201635">HTTP/1.1 200 OK</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Basic ${adminCredentials}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">SOAPAction</stringProp>
+                <stringProp name="Header.value">urn:updateIdP</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">text/xml</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Update IDP1" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:mgt=&quot;http://mgt.idp.carbon.wso2.org&quot; xmlns:xsd=&quot;http://model.common.application.identity.carbon.wso2.org/xsd&quot;&gt;&#xd;
+   &lt;soapenv:Header/&gt;&#xd;
+   &lt;soapenv:Body&gt;&#xd;
+      &lt;mgt:updateIdP&gt;&#xd;
+         &lt;!--Optional:--&gt;&#xd;
+         &lt;mgt:oldIdPName&gt;${idp_name}&lt;/mgt:oldIdPName&gt;&#xd;
+         &lt;!--Optional:--&gt;&#xd;
+         &lt;mgt:identityProvider&gt;&#xd;
+            &lt;xsd:identityProviderName&gt;${idp_name}&lt;/xsd:identityProviderName&gt;           &#xd;
+            &lt;xsd:displayName&gt;${idp_name}&lt;/xsd:displayName&gt;&#xd;
+            &lt;xsd:enable&gt;true&lt;/xsd:enable&gt;&#xd;
+            &lt;xsd:identityProviderDescription&gt;${idp_description}&lt;/xsd:identityProviderDescription&gt;&#xd;
+            &lt;xsd:alias&gt;https://${is_host}:${is_port}/oauth2/token/&lt;/xsd:alias&gt;&#xd;
+            &lt;xsd:primary&gt;true&lt;/xsd:primary&gt;&#xd;
+            &lt;xsd:provisioningRole&gt;-&lt;/xsd:provisioningRole&gt;&#xd;
+&#xd;
+	/** Configure Claims */&#xd;
+			 	  &#xd;
+ 	   &lt;xsd:claimConfig&gt;&#xd;
+    	       &lt;xsd:alwaysSendMappedLocalSubjectId&gt;true&lt;/xsd:alwaysSendMappedLocalSubjectId&gt;&#xd;
+               &lt;!--Zero or more repetitions:--&gt;&#xd;
 &#xd;
 	          &lt;xsd:idpClaims&gt;&#xd;
                    &lt;xsd:claimId&gt;1&lt;/xsd:claimId&gt;&#xd;
                    &lt;xsd:claimUri&gt;http://wso2.org/claims/location&lt;/xsd:claimUri&gt;&#xd;
                &lt;/xsd:idpClaims&gt;&#xd;
+			&lt;xsd:idpClaims&gt;&#xd;
+                   &lt;xsd:claimId&gt;2&lt;/xsd:claimId&gt;&#xd;
+                   &lt;xsd:claimUri&gt;http://wso2.org/claims/url&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
                &#xd;
-               &lt;xsd:localClaimDialect&gt;false&lt;/xsd:localClaimDialect&gt;&#xd;
+&#xd;
                &lt;xsd:roleClaimURI&gt;http://wso2.org/claims/role &lt;/xsd:roleClaimURI&gt;&#xd;
                &lt;xsd:userClaimURI&gt;http://wso2.org/claims/organization&lt;/xsd:userClaimURI&gt;&#xd;
         &lt;/xsd:claimConfig&gt;&#xd;
