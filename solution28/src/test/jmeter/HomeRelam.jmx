@@ -30,13 +30,13 @@
           <collectionProp name="Arguments.arguments">
             <elementProp name="ServerHost" elementType="Argument">
               <stringProp name="Argument.name">ServerHost</stringProp>
-              <stringProp name="Argument.value">localhost</stringProp>
+              <stringProp name="Argument.value">is.dev.wso2.org</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
               <stringProp name="Argument.desc">Hostname of the server</stringProp>
             </elementProp>
             <elementProp name="ServerPort" elementType="Argument">
               <stringProp name="Argument.name">ServerPort</stringProp>
-              <stringProp name="Argument.value">9443</stringProp>
+              <stringProp name="Argument.value">443</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
               <stringProp name="Argument.desc">Server Port</stringProp>
             </elementProp>
@@ -66,19 +66,19 @@
             </elementProp>
             <elementProp name="FBClientId" elementType="Argument">
               <stringProp name="Argument.name">FBClientId</stringProp>
-              <stringProp name="Argument.value">135495700419136</stringProp>
+              <stringProp name="Argument.value">136614760319918</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
               <stringProp name="Argument.desc">Facebook client ID</stringProp>
             </elementProp>
             <elementProp name="FBSecret" elementType="Argument">
               <stringProp name="Argument.name">FBSecret</stringProp>
-              <stringProp name="Argument.value">0f63f1f04756dd1d436263dd4739a990</stringProp>
+              <stringProp name="Argument.value">c91a9d07949e23efe1d3d85bd9edc1b6</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
               <stringProp name="Argument.desc">Facebook Secret</stringProp>
             </elementProp>
             <elementProp name="FBCallbackUrl" elementType="Argument">
               <stringProp name="Argument.name">FBCallbackUrl</stringProp>
-              <stringProp name="Argument.value">https://localhost:9443/commonauth</stringProp>
+              <stringProp name="Argument.value">https://is.dev.wso2.org:443/commonauth</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
               <stringProp name="Argument.desc">Facebook Callback Url</stringProp>
             </elementProp>
@@ -96,7 +96,7 @@
             </elementProp>
             <elementProp name="Alias" elementType="Argument">
               <stringProp name="Argument.name">Alias</stringProp>
-              <stringProp name="Argument.value">https://localhost:9443/oauth2/token</stringProp>
+              <stringProp name="Argument.value">https://is.dev.wso2.org:443/oauth2/token</stringProp>
               <stringProp name="Argument.desc">Alias of the Identity Provider</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
@@ -126,7 +126,7 @@
             </elementProp>
             <elementProp name="GoogleCallbackUrl" elementType="Argument">
               <stringProp name="Argument.name">GoogleCallbackUrl</stringProp>
-              <stringProp name="Argument.value">https://localhost:9443/commonauth</stringProp>
+              <stringProp name="Argument.value">https://is.dev.wso2.org:443/commonauth</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
               <stringProp name="Argument.desc">Google Callback URL</stringProp>
             </elementProp>
@@ -150,17 +150,22 @@
             </elementProp>
             <elementProp name="travelocityIssuer" elementType="Argument">
               <stringProp name="Argument.name">travelocityIssuer</stringProp>
-              <stringProp name="Argument.value">travelocity.com</stringProp>
+              <stringProp name="Argument.value">travelocitysolution28.com</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="tomcatHost" elementType="Argument">
               <stringProp name="Argument.name">tomcatHost</stringProp>
-              <stringProp name="Argument.value">wso2is.local</stringProp>
+              <stringProp name="Argument.value">192.168.57.31</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="tomcatPort" elementType="Argument">
               <stringProp name="Argument.name">tomcatPort</stringProp>
               <stringProp name="Argument.value">8080</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="TravelocityAssertionConsumerURL" elementType="Argument">
+              <stringProp name="Argument.name">TravelocityAssertionConsumerURL</stringProp>
+              <stringProp name="Argument.value">http://192.168.57.31:8080/solution28travelocity.com/home.jsp</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
           </collectionProp>
@@ -383,9 +388,9 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:addRPServiceProvider&gt;      &#xd;
          &lt;xsd:spDto&gt;        &#xd;
-            &lt;xsd1:assertionConsumerUrl&gt;http://${tomcatHost}:${tomcatPort}/travelocity.com/home.jsp&lt;/xsd1:assertionConsumerUrl&gt;&#xd;
-            &lt;xsd1:assertionConsumerUrls&gt;http://${tomcatHost}:${tomcatPort}/travelocity.com/home.jsp&lt;/xsd1:assertionConsumerUrls&gt;&#xd;
-            &lt;xsd1:defaultAssertionConsumerUrl&gt;http://${tomcatHost}:${tomcatPort}/travelocity.com/home.jsp&lt;/xsd1:defaultAssertionConsumerUrl&gt;&#xd;
+            &lt;xsd1:assertionConsumerUrl&gt;${TravelocityAssertionConsumerURL}&lt;/xsd1:assertionConsumerUrl&gt;&#xd;
+            &lt;xsd1:assertionConsumerUrls&gt;${TravelocityAssertionConsumerURL}&lt;/xsd1:assertionConsumerUrls&gt;&#xd;
+            &lt;xsd1:defaultAssertionConsumerUrl&gt;${TravelocityAssertionConsumerURL}&lt;/xsd1:defaultAssertionConsumerUrl&gt;&#xd;
             &lt;xsd1:digestAlgorithmURI&gt;http://www.w3.org/2000/09/xmldsig#sha1&lt;/xsd1:digestAlgorithmURI&gt;&#xd;
             &lt;xsd1:doSignAssertions&gt;true&lt;/xsd1:doSignAssertions&gt;&#xd;
             &lt;xsd1:doSignResponse&gt;true&lt;/xsd1:doSignResponse&gt;&#xd;
@@ -809,40 +814,6 @@
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Deploy the application from Tomcat" enabled="true">
-          <stringProp name="TestPlan.comments">Deploy the travelocity application from tomcat</stringProp>
-        </GenericController>
-        <hashTree>
-          <SystemSampler guiclass="SystemSamplerGui" testclass="SystemSampler" testname="Deploy Travelocity Sample" enabled="true">
-            <boolProp name="SystemSampler.checkReturnCode">false</boolProp>
-            <stringProp name="SystemSampler.expectedReturnCode">0</stringProp>
-            <stringProp name="SystemSampler.command">/bin/bash</stringProp>
-            <elementProp name="SystemSampler.arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="" elementType="Argument">
-                  <stringProp name="Argument.name"></stringProp>
-                  <stringProp name="Argument.value">deploy_war.sh</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <elementProp name="SystemSampler.environment" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-              <collectionProp name="Arguments.arguments"/>
-            </elementProp>
-            <stringProp name="SystemSampler.directory">/home/sashika/Apps/auto</stringProp>
-          </SystemSampler>
-          <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="-1399748155">Tomcat started</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-              <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">16</intProp>
-            </ResponseAssertion>
-            <hashTree/>
-          </hashTree>
-        </hashTree>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Travelocity Login" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[Verification] Travelocity Login" enabled="true">
@@ -861,7 +832,7 @@
             <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">travelocity.com/samlsso</stringProp>
+            <stringProp name="HTTPSampler.path">/solution28travelocity.com/samlsso?SAML2.HTTPBinding=HTTP-Redirect</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
@@ -883,7 +854,7 @@
               <stringProp name="RegexExtractor.match_number">1</stringProp>
             </RegexExtractor>
             <hashTree/>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="[Verification] Facebook Login" enabled="true">
               <collectionProp name="Asserion.test_strings">
                 <stringProp name="1980761324">Log in to Facebook</stringProp>
               </collectionProp>
@@ -894,38 +865,9 @@
             <hashTree/>
           </hashTree>
           <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
-            <stringProp name="ConstantTimer.delay">30000</stringProp>
+            <stringProp name="ConstantTimer.delay">3000</stringProp>
           </ConstantTimer>
           <hashTree/>
-        </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Undeploy the application from tomcat" enabled="true">
-          <stringProp name="TestPlan.comments">Undeploy the travelocity application from tomcat</stringProp>
-        </GenericController>
-        <hashTree>
-          <SystemSampler guiclass="SystemSamplerGui" testclass="SystemSampler" testname="Undeploy Travelocity Sample" enabled="true">
-            <boolProp name="SystemSampler.checkReturnCode">false</boolProp>
-            <stringProp name="SystemSampler.expectedReturnCode">0</stringProp>
-            <stringProp name="SystemSampler.command">/bin/bash</stringProp>
-            <elementProp name="SystemSampler.arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="" elementType="Argument">
-                  <stringProp name="Argument.name"></stringProp>
-                  <stringProp name="Argument.value">undeploy_war.sh</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <elementProp name="SystemSampler.environment" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-              <collectionProp name="Arguments.arguments"/>
-            </elementProp>
-            <stringProp name="SystemSampler.directory">/home/sashika/Apps/auto</stringProp>
-          </SystemSampler>
-          <hashTree>
-            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
-              <stringProp name="ConstantTimer.delay">300</stringProp>
-            </ConstantTimer>
-            <hashTree/>
-          </hashTree>
         </hashTree>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Cleaning the artefacts" enabled="true">
           <stringProp name="TestPlan.comments">Remove the artefacts after the test</stringProp>
