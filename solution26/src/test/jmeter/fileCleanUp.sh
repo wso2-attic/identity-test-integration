@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo "Clear Role list"
-cp /dev/null /home/aparna/QAHackathon/IAM/JmeterScripts/roleList.csv
+cp /dev/null roleList.csv
 
 echo "Clear User List"
-cp /dev/null /home/aparna/QAHackathon/IAM/JmeterScripts/usersList.csv
+cp /dev/null usersList.csv
