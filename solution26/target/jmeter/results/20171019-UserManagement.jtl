@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testResults version="1.2">
-<httpSample t="410" it="0" lt="408" ct="296" ts="1508394073374" s="true" lb="Login to Super Tenant " rc="200" rm="OK" tn="Super Tenant 1-1" dt="text" by="642" sby="601" ng="1" na="1">
+<httpSample t="3086" it="0" lt="3085" ct="2959" ts="1508404255723" s="true" lb="Login to Super Tenant " rc="200" rm="OK" tn="Super Tenant - SOAP 1-1" dt="text" by="644" sby="602" ng="1" na="1">
   <assertionResult>
     <name>200 OK HTTP Code Response Assertion</name>
     <failure>false</failure>
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="45" it="0" lt="45" ct="7" ts="1508394073805" s="true" lb="Create Primary Store Role" rc="202" rm="Accepted" tn="Super Tenant 1-1" dt="text" by="250" sby="1292" ng="1" na="1"/>
-<httpSample t="33" it="0" lt="33" ct="0" ts="1508394073867" s="true" lb="Create Secondary Store Role" rc="202" rm="Accepted" tn="Super Tenant 1-1" dt="text" by="250" sby="1260" ng="1" na="1"/>
-<httpSample t="52" it="0" lt="52" ct="0" ts="1508394074905" s="true" lb="Create Normal Primary User" rc="202" rm="Accepted" tn="Super Tenant 1-1" dt="text" by="250" sby="1400" ng="1" na="1"/>
-<httpSample t="51" it="0" lt="51" ct="7" ts="1508394075965" s="true" lb="Create Normal Secondary User" rc="202" rm="Accepted" tn="Super Tenant 1-1" dt="text" by="250" sby="1476" ng="1" na="1"/>
-<httpSample t="11" it="0" lt="11" ct="0" ts="1508394076020" s="true" lb="List Users" rc="200" rm="OK" tn="Super Tenant 1-1" dt="text" by="872" sby="685" ng="1" na="1">
+<httpSample t="413" it="0" lt="413" ct="124" ts="1508404258825" s="true" lb="Create Primary Store Role" rc="202" rm="Accepted" tn="Super Tenant - SOAP 1-1" dt="text" by="276" sby="1294" ng="1" na="1"/>
+<httpSample t="498" it="0" lt="498" ct="0" ts="1508404259239" s="true" lb="Create Secondary Store Role" rc="202" rm="Accepted" tn="Super Tenant - SOAP 1-1" dt="text" by="276" sby="1262" ng="1" na="1"/>
+<httpSample t="100" it="0" lt="100" ct="0" ts="1508404260738" s="true" lb="Create Normal Primary User" rc="202" rm="Accepted" tn="Super Tenant - SOAP 1-1" dt="text" by="276" sby="1402" ng="1" na="1"/>
+<httpSample t="344" it="0" lt="344" ct="234" ts="1508404261860" s="true" lb="Create Normal Secondary User" rc="202" rm="Accepted" tn="Super Tenant - SOAP 1-1" dt="text" by="276" sby="1478" ng="1" na="1"/>
+<httpSample t="65" it="0" lt="65" ct="0" ts="1508404262212" s="true" lb="List Users" rc="200" rm="OK" tn="Super Tenant - SOAP 1-1" dt="text" by="898" sby="686" ng="1" na="1">
   <assertionResult>
     <name>Response Value Assertion</name>
     <failure>false</failure>
     <error>false</error>
   </assertionResult>
 </httpSample>
-<httpSample t="13" it="0" lt="13" ct="0" ts="1508394076032" s="true" lb="List Roles" rc="200" rm="OK" tn="Super Tenant 1-1" dt="text" by="948" sby="519" ng="1" na="1">
+<httpSample t="64" it="0" lt="64" ct="0" ts="1508404262278" s="true" lb="List Roles" rc="200" rm="OK" tn="Super Tenant - SOAP 1-1" dt="text" by="1021" sby="520" ng="1" na="1">
   <assertionResult>
     <name>Response Value Assertion</name>
     <failure>false</failure>
     <error>false</error>
   </assertionResult>
 </httpSample>
-<sample t="9" it="2" lt="0" ct="0" ts="1508394076046" s="true" lb="IsUser Existing" rc="200" rm="Number of samples in transaction : 2, number of failing samples : 0" tn="Super Tenant 1-1" dt="" by="1086" sby="1276" ng="1" na="1">
-  <httpSample t="2" it="0" lt="2" ct="0" ts="1508394076046" s="true" lb="IsUser Existing - Primary Userstore" rc="200" rm="OK" tn="Super Tenant 1-1" dt="text" by="543" sby="631" ng="1" na="1">
+<sample t="212" it="4" lt="0" ct="0" ts="1508404262344" s="true" lb="IsUser Existing" rc="200" rm="Number of samples in transaction : 2, number of failing samples : 0" tn="Super Tenant - SOAP 1-1" dt="" by="1138" sby="1278" ng="1" na="1">
+  <httpSample t="63" it="0" lt="63" ct="0" ts="1508404262344" s="true" lb="IsUser Existing - Primary Userstore" rc="200" rm="OK" tn="Super Tenant - SOAP 1-1" dt="text" by="569" sby="632" ng="1" na="1">
     <assertionResult>
       <name>Response Value Assertion</name>
       <failure>false</failure>
@@ -38,33 +38,7 @@
       <error>false</error>
     </assertionResult>
   </httpSample>
-  <httpSample t="7" it="0" lt="7" ct="0" ts="1508394076049" s="true" lb="IsUser Existing- Secondary Userstore" rc="200" rm="OK" tn="Super Tenant 1-1" dt="text" by="543" sby="645" ng="1" na="1">
-    <assertionResult>
-      <name>Response Value Assertion</name>
-      <failure>false</failure>
-      <error>false</error>
-    </assertionResult>
-    <assertionResult>
-      <name>HTTP/1.1 200 OK Assertion</name>
-      <failure>false</failure>
-      <error>false</error>
-    </assertionResult>
-  </httpSample>
-</sample>
-<sample t="11" it="2" lt="0" ct="0" ts="1508394076058" s="true" lb="IsRole Existing" rc="200" rm="Number of samples in transaction : 2, number of failing samples : 0" tn="Super Tenant 1-1" dt="" by="1086" sby="1278" ng="1" na="1">
-  <httpSample t="6" it="0" lt="6" ct="0" ts="1508394076058" s="true" lb="IsRole Existing - Primary Userstore" rc="200" rm="OK" tn="Super Tenant 1-1" dt="text" by="543" sby="632" ng="1" na="1">
-    <assertionResult>
-      <name>Response Value Assertion</name>
-      <failure>false</failure>
-      <error>false</error>
-    </assertionResult>
-    <assertionResult>
-      <name>HTTP/1.1 200 OK Assertion</name>
-      <failure>false</failure>
-      <error>false</error>
-    </assertionResult>
-  </httpSample>
-  <httpSample t="5" it="0" lt="5" ct="0" ts="1508394076065" s="true" lb="IsRole Existing- Secondary Userstore" rc="200" rm="OK" tn="Super Tenant 1-1" dt="text" by="543" sby="646" ng="1" na="1">
+  <httpSample t="149" it="0" lt="149" ct="0" ts="1508404262410" s="true" lb="IsUser Existing- Secondary Userstore" rc="200" rm="OK" tn="Super Tenant - SOAP 1-1" dt="text" by="569" sby="646" ng="1" na="1">
     <assertionResult>
       <name>Response Value Assertion</name>
       <failure>false</failure>
@@ -77,15 +51,41 @@
     </assertionResult>
   </httpSample>
 </sample>
-<sample t="49" it="5" lt="0" ct="0" ts="1508394076072" s="true" lb="Update Role names" rc="200" rm="Number of samples in transaction : 2, number of failing samples : 0" tn="Super Tenant 1-1" dt="" by="500" sby="1474" ng="1" na="1">
-  <httpSample t="17" it="0" lt="17" ct="0" ts="1508394076072" s="true" lb="Change Role name -  Primary" rc="202" rm="Accepted" tn="Super Tenant 1-1" dt="text" by="250" sby="723" ng="1" na="1">
+<sample t="118" it="3" lt="0" ct="0" ts="1508404262563" s="true" lb="IsRole Existing" rc="200" rm="Number of samples in transaction : 2, number of failing samples : 0" tn="Super Tenant - SOAP 1-1" dt="" by="1138" sby="1282" ng="1" na="1">
+  <httpSample t="57" it="0" lt="57" ct="0" ts="1508404262564" s="true" lb="IsRole Existing - Primary Userstore" rc="200" rm="OK" tn="Super Tenant - SOAP 1-1" dt="text" by="569" sby="634" ng="1" na="1">
+    <assertionResult>
+      <name>Response Value Assertion</name>
+      <failure>false</failure>
+      <error>false</error>
+    </assertionResult>
+    <assertionResult>
+      <name>HTTP/1.1 200 OK Assertion</name>
+      <failure>false</failure>
+      <error>false</error>
+    </assertionResult>
+  </httpSample>
+  <httpSample t="61" it="0" lt="61" ct="0" ts="1508404262622" s="true" lb="IsRole Existing- Secondary Userstore" rc="200" rm="OK" tn="Super Tenant - SOAP 1-1" dt="text" by="569" sby="648" ng="1" na="1">
+    <assertionResult>
+      <name>Response Value Assertion</name>
+      <failure>false</failure>
+      <error>false</error>
+    </assertionResult>
+    <assertionResult>
+      <name>HTTP/1.1 200 OK Assertion</name>
+      <failure>false</failure>
+      <error>false</error>
+    </assertionResult>
+  </httpSample>
+</sample>
+<sample t="375" it="11" lt="0" ct="0" ts="1508404262686" s="true" lb="Update Role names" rc="200" rm="Number of samples in transaction : 2, number of failing samples : 0" tn="Super Tenant - SOAP 1-1" dt="" by="552" sby="1478" ng="1" na="1">
+  <httpSample t="176" it="0" lt="176" ct="0" ts="1508404262687" s="true" lb="Change Role name -  Primary" rc="202" rm="Accepted" tn="Super Tenant - SOAP 1-1" dt="text" by="276" sby="725" ng="1" na="1">
     <assertionResult>
       <name>HTTP/1.1 202 Assertion</name>
       <failure>false</failure>
       <error>false</error>
     </assertionResult>
   </httpSample>
-  <httpSample t="32" it="0" lt="32" ct="0" ts="1508394076092" s="true" lb="Change Role name - Secondary" rc="202" rm="Accepted" tn="Super Tenant 1-1" dt="text" by="250" sby="751" ng="1" na="1">
+  <httpSample t="199" it="0" lt="199" ct="0" ts="1508404262868" s="true" lb="Change Role name - Secondary" rc="202" rm="Accepted" tn="Super Tenant - SOAP 1-1" dt="text" by="276" sby="753" ng="1" na="1">
     <assertionResult>
       <name>HTTP/1.1 202 Assertion</name>
       <failure>false</failure>
@@ -93,12 +93,12 @@
     </assertionResult>
   </httpSample>
 </sample>
-<sample t="176" it="0" lt="0" ct="0" ts="1508394076127" s="true" lb="Update User Profiles" rc="200" rm="Number of samples in transaction : 2, number of failing samples : 0" tn="Super Tenant 1-1" dt="" by="500" sby="3312" ng="1" na="1">
-  <httpSample t="80" it="0" lt="80" ct="0" ts="1508394076127" s="true" lb="User profile update - Primary userstore" rc="202" rm="Accepted" tn="Super Tenant 1-1" dt="text" by="250" sby="1649" ng="1" na="1"/>
-  <httpSample t="96" it="0" lt="96" ct="0" ts="1508394076207" s="true" lb="User profile update - Secondary userstore" rc="202" rm="Accepted" tn="Super Tenant 1-1" dt="text" by="250" sby="1663" ng="1" na="1"/>
+<sample t="517" it="0" lt="0" ct="0" ts="1508404263073" s="true" lb="Update User Profiles" rc="200" rm="Number of samples in transaction : 2, number of failing samples : 0" tn="Super Tenant - SOAP 1-1" dt="" by="552" sby="3314" ng="1" na="1">
+  <httpSample t="307" it="0" lt="307" ct="0" ts="1508404263073" s="true" lb="User profile update - Primary userstore" rc="202" rm="Accepted" tn="Super Tenant - SOAP 1-1" dt="text" by="276" sby="1650" ng="1" na="1"/>
+  <httpSample t="210" it="0" lt="210" ct="0" ts="1508404263380" s="true" lb="User profile update - Secondary userstore" rc="202" rm="Accepted" tn="Super Tenant - SOAP 1-1" dt="text" by="276" sby="1664" ng="1" na="1"/>
 </sample>
-<sample t="8" it="1" lt="0" ct="0" ts="1508394076303" s="true" lb="Negative Scenarios" rc="200" rm="Number of samples in transaction : 1, number of failing samples : 0" tn="Super Tenant 1-1" dt="" by="544" sby="630" ng="1" na="1">
-  <httpSample t="8" it="0" lt="8" ct="0" ts="1508394076303" s="true" lb="IsUser Existing [non existing user]" rc="200" rm="OK" tn="Super Tenant 1-1" dt="text" by="544" sby="630" ng="1" na="1">
+<sample t="64" it="0" lt="0" ct="0" ts="1508404263591" s="true" lb="Negative Scenarios" rc="200" rm="Number of samples in transaction : 1, number of failing samples : 0" tn="Super Tenant - SOAP 1-1" dt="" by="570" sby="631" ng="1" na="1">
+  <httpSample t="64" it="0" lt="64" ct="0" ts="1508404263591" s="true" lb="IsUser Existing [non existing user]" rc="200" rm="OK" tn="Super Tenant - SOAP 1-1" dt="text" by="570" sby="631" ng="1" na="1">
     <assertionResult>
       <name>Response Value Assertion</name>
       <failure>false</failure>
@@ -111,6 +111,6 @@
     </assertionResult>
   </httpSample>
 </sample>
-<httpSample t="3" it="0" lt="3" ct="0" ts="1508394076312" s="true" lb="Logout of Super Tenant " rc="202" rm="Accepted" tn="Super Tenant 1-1" dt="text" by="250" sby="552" ng="1" na="1"/>
+<httpSample t="51" it="0" lt="51" ct="0" ts="1508404263656" s="true" lb="Logout of Super Tenant " rc="202" rm="Accepted" tn="Super Tenant - SOAP 1-1" dt="text" by="276" sby="553" ng="1" na="1"/>
 
 </testResults>

@@ -1,4 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testResults version="1.2">
+<httpSample t="1950" it="0" lt="1949" ct="1855" ts="1508404265078" s="true" lb="Login to Super Tenant " rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="644" sby="602" ng="1" na="1">
+  <assertionResult>
+    <name>200 OK HTTP Code Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="3296" it="0" lt="3296" ct="3130" ts="1508404267041" s="true" lb="User delete" rc="202" rm="Accepted" tn="Thread Group 1-1" dt="text" by="276" sby="620" ng="1" na="1">
+  <assertionResult>
+    <name>HTTP/1.1 202 Accepted Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="4183" it="0" lt="4183" ct="3798" ts="1508404270338" s="true" lb="Role delete" rc="202" rm="Accepted" tn="Thread Group 1-1" dt="text" by="276" sby="625" ng="1" na="1">
+  <assertionResult>
+    <name>HTTP/1.1 202 Accepted Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="5121" it="0" lt="5121" ct="4984" ts="1508404274522" s="true" lb="User delete" rc="202" rm="Accepted" tn="Thread Group 1-1" dt="text" by="276" sby="634" ng="1" na="1">
+  <assertionResult>
+    <name>HTTP/1.1 202 Accepted Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="237" it="0" lt="237" ct="105" ts="1508404279644" s="true" lb="Role delete" rc="202" rm="Accepted" tn="Thread Group 1-1" dt="text" by="276" sby="639" ng="1" na="1">
+  <assertionResult>
+    <name>HTTP/1.1 202 Accepted Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="62" it="0" lt="62" ct="0" ts="1508404279885" s="true" lb="Logout of Super Tenant " rc="202" rm="Accepted" tn="Thread Group 1-1" dt="text" by="276" sby="553" ng="1" na="1"/>
+<sample t="7" it="0" lt="0" ct="0" ts="1508404279948" s="true" lb="OS Process Sampler" rc="127" rm="OK" tn="Thread Group 1-1" dt="text" by="33" sby="0" ng="1" na="1"/>
 
 </testResults>
