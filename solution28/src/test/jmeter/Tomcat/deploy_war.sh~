@@ -1,0 +1,4 @@
+#!/bin/bash
+tar xzvf ./Tomcat/apache-tomcat-7.0.68.tar.gz
+cp ./Tomcat/travelocity.com.war ./Tomcat/apache-tomcat-7.0.68/webapps/
+sh ./Tomcat/apache-tomcat-7.0.68/bin/startup.sh
