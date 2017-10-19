@@ -11,8 +11,9 @@
     <url>https://wso2.com</url>
 
     <modules>
-        <module>solution18</module>
-        <module>solution10</module>
+      <module>solution10</module>
+      <module>solution18</module>
+      <module>solution26</module>
     </modules>
 </project>
 
