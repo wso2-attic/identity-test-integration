@@ -61,7 +61,7 @@
           </collectionProp>
         </Arguments>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Add IdP SOAP Request" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Add IdP SOAP Request" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -74,7 +74,7 @@
          &lt;!--Optional:--&gt;&#xd;
          &lt;mgt:identityProvider&gt;&#xd;
             &lt;!--Optional:--&gt;&#xd;
-            &lt;xsd:alias&gt;&lt;/xsd:alias&gt;&#xd;
+            &lt;xsd:alias&gt;https://localhost:9443/oauth2/token&lt;/xsd:alias&gt;&#xd;
             &lt;!--Optional:--&gt;&#xd;
             &lt;xsd:certificate&gt;&lt;/xsd:certificate&gt;&#xd;
             &lt;!--Zero or more repetitions:--&gt;&#xd;
@@ -180,7 +180,7 @@
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Add SP SOAP Request" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Add SP SOAP Request" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
