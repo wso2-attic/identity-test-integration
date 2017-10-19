@@ -26,7 +26,7 @@
         <stringProp name="ThreadGroup.delay"></stringProp>
       </ThreadGroup>
       <hashTree>
-        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="false">
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
           <collectionProp name="Arguments.arguments">
             <elementProp name="ServerHost" elementType="Argument">
               <stringProp name="Argument.name">ServerHost</stringProp>
@@ -93,6 +93,11 @@
               <stringProp name="Argument.desc">Alias of the Identity Provider</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
+            <elementProp name="TomcatWorkingDirectory" elementType="Argument">
+              <stringProp name="Argument.name">TomcatWorkingDirectory</stringProp>
+              <stringProp name="Argument.value">/home/sashika/Apps/Applications/IS/identity-test-integration/solution28/src/test/jmeter/Tomcat</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
           </collectionProp>
         </Arguments>
         <hashTree/>
@@ -133,7 +138,7 @@
           <elementProp name="SystemSampler.environment" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="SystemSampler.directory">/home/sashika/Apps/Applications/IS/identity-test-integration/solution28/src/test/jmeter/Tomcat</stringProp>
+          <stringProp name="SystemSampler.directory">${TomcatWorkingDirectory}</stringProp>
         </SystemSampler>
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
@@ -162,11 +167,11 @@
           <elementProp name="SystemSampler.environment" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="SystemSampler.directory">/home/sashika/Apps/Applications/IS/identity-test-integration/solution28/src/test/jmeter/Tomcat</stringProp>
+          <stringProp name="SystemSampler.directory">${TomcatWorkingDirectory}</stringProp>
         </SystemSampler>
         <hashTree>
           <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
-            <stringProp name="ConstantTimer.delay">60000</stringProp>
+            <stringProp name="ConstantTimer.delay">30000</stringProp>
           </ConstantTimer>
           <hashTree/>
         </hashTree>
