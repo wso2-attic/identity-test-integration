@@ -2,12 +2,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.wso2.qa.integration.solution18</groupId>
-    <artifactId>solution18</artifactId>
+    <groupId>org.wso2.qa.integration.solution23</groupId>
+    <artifactId>solution23</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>solution18</name>
+    <name>solution23</name>
     <url>http://maven.apache.org</url>
 
     <properties>
