@@ -19,3 +19,4 @@ mvn clean verify --fae
 | 23  | Single Sign On between a legacy web app, which cannot change the user interface and service providers, which support standard SSO protocols  |
 | 26  | User administration operations from a third-party web app  |
 | 28  | Home realm discovery  |
+| 14  | Enforce password reset for expired passwords during the authentication flow  |
