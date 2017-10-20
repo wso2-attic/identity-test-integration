@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.wso2.qa.integration.solution21</groupId>
-    <artifactId>solution26</artifactId>
+    <artifactId>solution21</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
