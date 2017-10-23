@@ -11,14 +11,20 @@
     <url>https://wso2.com</url>
 
     <modules>
+        <module>solution02</module>
         <module>solution05</module>
         <module>solution09</module>
         <module>solution10</module>
+        <module>solution12</module>
+        <module>solution14</module>
         <module>solution18</module>
+        <module>solution21</module>
         <module>solution22</module>
         <module>solution23</module>
         <module>solution26</module>
         <module>solution28</module>
+
+
     </modules>
 </project>
 
