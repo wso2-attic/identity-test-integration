@@ -9,5 +9,12 @@ Scripts will be able to run for following:
 - Access second SP with automatically authenticated, as the previous step created a web session for the logged in user
 - Once all above done user will un-deploy the SPs
 
+**Request path authenticator**
+
+Using request path authenticator to authenticate requests that contain the user’s credentials, which means that you can use the Single-Sign-On mechanism without having an identity provider login page to prompt the end user for credentials. Figure shows how request path authenticator works.
+
+![alt text](https://github.com/kavithasub/identity-test-integration/blob/master/solution23/req.path.auth.png)
+
+***authentication request that contain the user’s credentials.*
 
 [1] https://medium.facilelogin.com/thirty-solution-patterns-with-the-wso2-identity-server-16f9fd0c0389
