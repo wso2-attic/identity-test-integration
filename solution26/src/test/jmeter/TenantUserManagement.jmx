@@ -11,18 +11,6 @@
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
     </TestPlan>
     <hashTree>
-      <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="false">
-        <collectionProp name="AuthManager.auth_list">
-          <elementProp name="" elementType="Authorization">
-            <stringProp name="Authorization.url">https://localhost:9444</stringProp>
-            <stringProp name="Authorization.username">admin</stringProp>
-            <stringProp name="Authorization.password">admin</stringProp>
-            <stringProp name="Authorization.domain"></stringProp>
-            <stringProp name="Authorization.realm"></stringProp>
-          </elementProp>
-        </collectionProp>
-      </AuthManager>
-      <hashTree/>
       <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
         <collectionProp name="HeaderManager.headers">
           <elementProp name="" elementType="Header">
