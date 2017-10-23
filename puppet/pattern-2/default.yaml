@@ -1,0 +1,319 @@
+# Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+---
+classes:
+  - wso2is
+
+wso2::service_name: wso2is
+wso2::hostname: is.dev.wso2.org
+wso2::mgt_hostname: is.dev.wso2.org
+
+wso2::enable_thrift_service: false
+
+wso2::template_list:
+  - repository/conf/datasources/bps-datasources.xml
+  - repository/conf/datasources/metrics-datasources.xml
+  - repository/conf/identity/identity.xml
+  - repository/conf/identity/sso-idp-config.xml
+  - repository/conf/identity/application-authentication.xml
+  - repository/conf/identity/EndpointConfig.properties
+  - repository/conf/datasources/am-datasources.xml
+#  - bin/ciphertool.sh
+
+# Provide the server list for setting up sso
+#wso2::sso_service_providers:
+#    wso2esb:
+#      assertion_consumer_service_url: https://esb.dev.wso2.org:9443/acs
+#      default_assertion_consumer_service_url: https://esb.dev.wso2.org:9443/acs
+#    wso2as:
+#      assertion_consumer_service_url: https://as.dev.wso2.org:9443/acs
+#      default_assertion_consumer_service_url: https://as.dev.wso2.org:9443/acs
+
+wso2::ports:
+  proxyPort:
+    http: 80
+    https: 443
+
+# File list to be copied to the product folder, if there are changes found in the files, the system
+# service will be restarted
+wso2::file_list:
+  - "repository/components/lib/mysql-connector-java-5.1.34-bin.jar"
+#  - repository/conf/security/cipher-tool.properties
+#  - repository/conf/security/cipher-text.properties
+#  - repository/conf/security/secret-conf.properties
+
+# Files to be copied to the product folder when restarting the system service
+#wso2::service_refresh_file_list:
+#  - password-tmp
+
+wso2::clustering:
+  enabled: true
+  local_member_host: "%{::ipaddress}"
+  local_member_port: 4000
+  domain: is.wso2.domain
+# WKA membership scheme
+  membership_scheme: wka
+  wka:
+    members:
+      -
+        hostname: 192.168.57.32
+        port: 4000
+      -
+        hostname: 192.168.57.33
+        port: 4000
+# AWS membership scheme
+#   membership_scheme: aws
+#   aws:
+#     access_key: access-key
+#     secret_key: secret-key
+#     security_group: security-group 
+#     host_header: host-header
+#     region: region
+#     tag_key: tag-key
+#     tag_value: tag-value
+
+wso2::registry_mounts:
+  wso2_config_db:
+    path: /_system/config
+    target_path: /_system/config/is
+    read_only: false
+    registry_root: /
+    enable_cache: true
+
+  wso2_gov_db:
+    path: /_system/governance
+    target_path: /_system/governance
+    read_only: false
+    registry_root: /
+    enable_cache: true
+
+wso2::usermgt_datasource: wso2_user_db
+wso2::is_datasource: wso2_identity_db
+
+
+# SSO Configuration
+wso2::sso_authentication:
+  enabled: false
+  login_page: /carbon/admin/login.jsp
+  service_provider_id: wso2is
+  sso_service_url: https://is.dev.wso2.org:9443/samlsso
+  consumer_service_url: https://is.dev.wso2.org:9443/acs
+
+wso2::master_datasources:
+ wso2_config_db:
+   name: WSO2_CONFIG_DB
+   description: The datasource used for config registry
+   driver_class_name: "%{hiera('wso2::datasources::mysql::driver_class_name')}"
+   url: jdbc:mysql://192.168.57.254:3306/WSO2_CONFIG_DB?autoReconnect=true
+   username: "%{hiera('wso2::datasources::mysql::username')}"
+   password: "%{hiera('wso2::datasources::mysql::password')}"
+   jndi_config: jdbc/WSO2_CONFIG_DB
+   max_active: "%{hiera('wso2::datasources::common::max_active')}"
+   max_wait: "%{hiera('wso2::datasources::common::max_wait')}"
+   test_on_borrow: "%{hiera('wso2::datasources::common::test_on_borrow')}"
+   default_auto_commit: "%{hiera('wso2::datasources::common::default_auto_commit')}"
+   validation_query: "%{hiera('wso2::datasources::mysql::validation_query')}"
+   validation_interval: "%{hiera('wso2::datasources::common::validation_interval')}"
+   testWhileIdle: true
+
+ wso2_identity_db:
+   name: WSO2_IDENTITY_DB
+   description: The datasource used for identity db
+   driver_class_name: "%{hiera('wso2::datasources::mysql::driver_class_name')}"
+   url: jdbc:mysql://192.168.57.254:3306/WSO2_IDENTITY_DB?autoReconnect=true
+   username: "%{hiera('wso2::datasources::mysql::username')}"
+   password: "%{hiera('wso2::datasources::mysql::password')}"
+   jndi_config: jdbc/WSO2_IDENTITY_DB
+   max_active: "%{hiera('wso2::datasources::common::max_active')}"
+   max_wait: "%{hiera('wso2::datasources::common::max_wait')}"
+   test_on_borrow: "%{hiera('wso2::datasources::common::test_on_borrow')}"
+   default_auto_commit: "%{hiera('wso2::datasources::common::default_auto_commit')}"
+   validation_query: "%{hiera('wso2::datasources::mysql::validation_query')}"
+   validation_interval: "%{hiera('wso2::datasources::common::validation_interval')}"
+   testWhileIdle: true
+
+ wso2_gov_db:
+   name: WSO2_GOV_DB
+   description: The datasource used for gov registry
+   driver_class_name: "%{hiera('wso2::datasources::mysql::driver_class_name')}"
+   url: jdbc:mysql://192.168.57.254:3306/WSO2_REG_DB?autoReconnect=true
+   username: "%{hiera('wso2::datasources::mysql::username')}"
+   password: "%{hiera('wso2::datasources::mysql::password')}"
+   jndi_config: jdbc/WSO2_GOV_DB
+   max_active: "%{hiera('wso2::datasources::common::max_active')}"
+   max_wait: "%{hiera('wso2::datasources::common::max_wait')}"
+   test_on_borrow: "%{hiera('wso2::datasources::common::test_on_borrow')}"
+   default_auto_commit: "%{hiera('wso2::datasources::common::default_auto_commit')}"
+   validation_query: "%{hiera('wso2::datasources::mysql::validation_query')}"
+   validation_interval: "%{hiera('wso2::datasources::common::validation_interval')}"
+   testWhileIdle: true
+
+ wso2_user_db:
+   name: WSO2_USER_DB
+   description: The datasource is used for user management and userstore
+   driver_class_name: "%{hiera('wso2::datasources::mysql::driver_class_name')}"
+   url: jdbc:mysql://192.168.57.254:3306/WSO2_USER_DB?autoReconnect=true
+   username: "%{hiera('wso2::datasources::mysql::username')}"
+   password: "%{hiera('wso2::datasources::mysql::password')}"
+   jndi_config: jdbc/WSO2USER_DB
+   max_active: "%{hiera('wso2::datasources::common::max_active')}"
+   max_wait: "%{hiera('wso2::datasources::common::max_wait')}"
+   test_on_borrow: "%{hiera('wso2::datasources::common::test_on_borrow')}"
+   default_auto_commit: "%{hiera('wso2::datasources::common::default_auto_commit')}"
+   validation_query: "%{hiera('wso2::datasources::mysql::validation_query')}"
+   validation_interval: "%{hiera('wso2::datasources::common::validation_interval')}"
+   testWhileIdle: true
+
+wso2::bps_datasources:
+  bps_ds:
+    name: BPS_DS
+    description: The datasource used for bps
+    driver_class_name: "%{hiera('wso2::datasources::mysql::driver_class_name')}"
+    url: jdbc:mysql://192.168.57.254:3306/WSO2_BPS_DB?autoReconnect=true
+    username: "%{hiera('wso2::datasources::mysql::username')}"
+    password: "%{hiera('wso2::datasources::mysql::password')}"
+    jndi_config: bpsds
+    max_active: "%{hiera('wso2::datasources::common::max_active')}"
+    max_idle: "%{hiera('wso2::datasources::common::max_idle')}"
+    max_wait: "%{hiera('wso2::datasources::common::max_wait')}"
+    test_on_borrow: "%{hiera('wso2::datasources::common::test_on_borrow')}"
+    use_datasource_factory: "%{hiera('wso2::datasources::common::use_datasource_factory')}"
+    default_auto_commit: "%{hiera('wso2::datasources::common::default_auto_commit')}"
+    validation_query: "%{hiera('wso2::datasources::mysql::validation_query')}"
+    validation_interval: "%{hiera('wso2::datasources::common::validation_interval')}"
+   testWhileIdle: true
+
+wso2::metrics_datasources:
+  metrics_ds:
+    name: WSO2_METRICS_DB
+    description: The default datasource used for WSO2 Carbon Metrics
+    driver_class_name: "%{hiera('wso2::datasources::mysql::driver_class_name')}"
+    url: jdbc:mysql://192.168.57.254:3306/WSO2_METRICS_DB?autoReconnect=true
+    username: "%{hiera('wso2::datasources::mysql::username')}"
+    password: "%{hiera('wso2::datasources::mysql::password')}"
+    jndi_config: jdbc/WSO2MetricsDB
+    max_active: "%{hiera('wso2::datasources::common::max_active')}"
+    max_idle: "%{hiera('wso2::datasources::common::max_idle')}"
+    max_wait: "%{hiera('wso2::datasources::common::max_wait')}"
+    test_on_borrow: "%{hiera('wso2::datasources::common::test_on_borrow')}"
+    use_datasource_factory: "%{hiera('wso2::datasources::common::use_datasource_factory')}"
+    default_auto_commit: "%{hiera('wso2::datasources::common::default_auto_commit')}"
+    validation_query: "%{hiera('wso2::datasources::mysql::validation_query')}"
+    validation_interval: "%{hiera('wso2::datasources::common::validation_interval')}"
+  
+wso2::am_datasources:
+  wso2_am_db:
+    name: WSO2AM_DB
+    description: The datasource used for API Manager database
+    driver_class_name: "%{hiera('wso2::datasources::mysql::driver_class_name')}"
+    url: jdbc:mysql://192.168.57.254:3306/WSO2_AM_DB?autoReconnect=true
+    username: "%{hiera('wso2::datasources::mysql::username')}"
+    password: "%{hiera('wso2::datasources::mysql::password')}"
+    jndi_config: jdbc/WSO2AM_DB
+    max_active: "%{hiera('wso2::datasources::common::max_active')}"
+    max_wait: "%{hiera('wso2::datasources::common::max_wait')}"
+    test_on_borrow: "%{hiera('wso2::datasources::common::test_on_borrow')}"
+    default_auto_commit: "%{hiera('wso2::datasources::common::default_auto_commit')}"
+    validation_query: "%{hiera('wso2::datasources::mysql::validation_query')}"
+    validation_interval: "%{hiera('wso2::datasources::common::validation_interval')}"
+
+# Secure vault configuration
+#wso2::enable_secure_vault: true
+# Properties in identity.xml
+wso2::session_persist:
+  enabled: true
+  temporary: true
+  pool_size: 0
+
+wso2::session_cleanUp:
+  enabled: true
+  timeout: true
+  period: 1140
+
+wso2::operation_cleanUp:
+  enabled: true
+  period: 720
+
+wso2::openID:
+  skip_user_consent: false
+  remember_me_timeout: 7200
+  disable_dumbmode   : false
+
+wso2::time_config:
+  session_idle_timeout : 15,
+  remember_me_timeout  : 20160,
+
+
+wso2::oAuth:
+  app_info_cache_timeout : -1
+  auth_grant_cache_timeout  : -1
+  session_data_cache_timeout   : -1
+  claim_cache_timeout   : -1
+  auth_code_default_validity_period : 300
+  access_token_default_validity_period : 3600
+  user_access_token_default_validity_period : 3600,
+  refresh_token_validity_period : 84600,
+  time_stamp_skew   : 300
+  enable_OAuth_cache : false
+  renew_refresh_token_for_refresh_grant : true
+  strict_client_credential_validation   : false
+  enable_assertions_UserName : false
+  enable_access_token_partitioning : false
+  auth_context_token_generation_enabled : false
+  auth_context_token_generation_TTL : 15
+  id_token_expiration : 3600
+  openIDConnect_skip_user_consent: false
+
+wso2::sso:
+  persistance_cache_timeout: 157680000
+  session_index_timeout: 157680000
+  single_logout_retry_count: 5
+  single_logout_retry_interval: 60000
+  sAMLresponse_validity_period: 5
+  use_authenticated_user_domain_crypto: false
+  slo_host_name_verifi_enabled: true
+
+wso2::passiveSTS:
+  slo_host_name_verifi_enabled: true
+
+wso2::evenet_listeners:
+  user_store_action_listener: true
+  identity_mgt_event_listener: false
+  identity_governance_event_listener: true
+  scimuser_operation_listener: true
+  identity_store_event_listener: true
+  daslogin_data_publisher: false
+  dassession_data_publisher: false
+  authn_data_publisher_proxy: true
+
+wso2::cache:
+  appauth_framework_session_context: false
+  authentication_context_cache    : false
+  appauth_framework_session_contex: false
+  authentication_request_cache : false
+  app_info_cache : false
+  authorization_grant_cache : false
+  oauth_cache : false
+  oauth_session_data_cache : false
+  samalsso_participant_cache : false
+  samalsso_session_index_cache : false
+  samalsso_session_data_cache : false
+  service_provider_cache: true
+  provisioning_connector_cache : true
+  provisioning_entity_cache : false
+  service_provider_provisioning_connector_cache: false
+  idP_cache_byauth_property : true
+  idp_cache_byhri : true
+  idp_cache_by_name: true
+
