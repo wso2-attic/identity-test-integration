@@ -588,7 +588,7 @@
           <elementProp name="SystemSampler.environment" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="SystemSampler.directory">./</stringProp>
+          <stringProp name="SystemSampler.directory">/home/aparna/QAHackathon/IAM/identity-test-integration/solution26/src/test/jmeter/</stringProp>
         </SystemSampler>
         <hashTree/>
       </hashTree>
