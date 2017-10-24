@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jmeterTestPlan version="1.2" properties="3.2" jmeter="3.2 r1790748">
   <hashTree>
-    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Create IDP" enabled="true">
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Create SP" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
       <boolProp name="TestPlan.functional_mode">false</boolProp>
       <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
@@ -13,60 +13,114 @@
     <hashTree>
       <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Server Variables" enabled="true">
         <collectionProp name="Arguments.arguments">
-          <elementProp name="is_host" elementType="Argument">
-            <stringProp name="Argument.name">is_host</stringProp>
-            <stringProp name="Argument.value">is.dev.wso2.org</stringProp>
+          <elementProp name="server_host" elementType="Argument">
+            <stringProp name="Argument.name">server_host</stringProp>
+            <stringProp name="Argument.value">${__property(server_host)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">is530.wso2.com </stringProp>
           </elementProp>
-          <elementProp name="is_port" elementType="Argument">
-            <stringProp name="Argument.name">is_port</stringProp>
-            <stringProp name="Argument.value">443</stringProp>
+          <elementProp name="server_port" elementType="Argument">
+            <stringProp name="Argument.name">server_port</stringProp>
+            <stringProp name="Argument.value">${__property(server_port)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">443</stringProp>
           </elementProp>
-          <elementProp name="adminCredentials" elementType="Argument">
-            <stringProp name="Argument.name">adminCredentials</stringProp>
-            <stringProp name="Argument.value">YWRtaW46YWRtaW4=</stringProp>
+          <elementProp name="created_credentials" elementType="Argument">
+            <stringProp name="Argument.name">created_credentials</stringProp>
+            <stringProp name="Argument.value">${__property(created_credentials)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">admin_credentials</stringProp>
+          </elementProp>
+          <elementProp name="created_username" elementType="Argument">
+            <stringProp name="Argument.name">created_username</stringProp>
+            <stringProp name="Argument.value">${__property(created_username)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="adminusername" elementType="Argument">
-            <stringProp name="Argument.name">adminusername</stringProp>
-            <stringProp name="Argument.value">admin</stringProp>
+          <elementProp name="created_password" elementType="Argument">
+            <stringProp name="Argument.name">created_password</stringProp>
+            <stringProp name="Argument.value">${__property(created_password)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="adminpassword" elementType="Argument">
-            <stringProp name="Argument.name">adminpassword</stringProp>
-            <stringProp name="Argument.value">admin</stringProp>
+          <elementProp name="sp_name" elementType="Argument">
+            <stringProp name="Argument.name">sp_name</stringProp>
+            <stringProp name="Argument.value">${__property(sp_name)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="sp_role_name" elementType="Argument">
+            <stringProp name="Argument.name">sp_role_name</stringProp>
+            <stringProp name="Argument.value">${__property(sp_role_name)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="consumer_key" elementType="Argument">
+            <stringProp name="Argument.name">consumer_key</stringProp>
+            <stringProp name="Argument.value">${__property(consumer_key)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="consumer_secret" elementType="Argument">
+            <stringProp name="Argument.name">consumer_secret</stringProp>
+            <stringProp name="Argument.value">${__property(consumer_secret)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="callback_url" elementType="Argument">
+            <stringProp name="Argument.name">callback_url</stringProp>
+            <stringProp name="Argument.value">${__property(callback_url)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
       </Arguments>
       <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Server Variables" enabled="false">
         <collectionProp name="Arguments.arguments">
-          <elementProp name="spname" elementType="Argument">
-            <stringProp name="Argument.name">spname</stringProp>
+          <elementProp name="server_host" elementType="Argument">
+            <stringProp name="Argument.name">server_host</stringProp>
+            <stringProp name="Argument.value">localhost</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">is530.wso2.com </stringProp>
+          </elementProp>
+          <elementProp name="server_port" elementType="Argument">
+            <stringProp name="Argument.name">server_port</stringProp>
+            <stringProp name="Argument.value">9443</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">443</stringProp>
+          </elementProp>
+          <elementProp name="created_credentials" elementType="Argument">
+            <stringProp name="Argument.name">created_credentials</stringProp>
+            <stringProp name="Argument.value">c29sMjI6cGFzc3dvcmQ=</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">admin_credentials</stringProp>
+          </elementProp>
+          <elementProp name="created_username" elementType="Argument">
+            <stringProp name="Argument.name">created_username</stringProp>
+            <stringProp name="Argument.value">sol22</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="created_password" elementType="Argument">
+            <stringProp name="Argument.name">created_password</stringProp>
+            <stringProp name="Argument.value">password</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="sp_name" elementType="Argument">
+            <stringProp name="Argument.name">sp_name</stringProp>
             <stringProp name="Argument.value">sol22jwt</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="rolename" elementType="Argument">
-            <stringProp name="Argument.name">rolename</stringProp>
+          <elementProp name="sp_role_name" elementType="Argument">
+            <stringProp name="Argument.name">sp_role_name</stringProp>
             <stringProp name="Argument.value">sol22jwt</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="consumerKey" elementType="Argument">
-            <stringProp name="Argument.name">consumerKey</stringProp>
+          <elementProp name="consumer_key" elementType="Argument">
+            <stringProp name="Argument.name">consumer_key</stringProp>
             <stringProp name="Argument.value">LYmOUflorq9jfBazpQfg3RqiWwYa</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="consumerSecret" elementType="Argument">
-            <stringProp name="Argument.name">consumerSecret</stringProp>
+          <elementProp name="consumer_secret" elementType="Argument">
+            <stringProp name="Argument.name">consumer_secret</stringProp>
             <stringProp name="Argument.value">hg86m6oZZL_a7_qlY5q1rLaXE1ca</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="callbackURL" elementType="Argument">
-            <stringProp name="Argument.name">callbackURL</stringProp>
+          <elementProp name="callback_url" elementType="Argument">
+            <stringProp name="Argument.name">callback_url</stringProp>
             <stringProp name="Argument.value">http://wso2is.local:8080/playground2/oauth2client</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
@@ -98,7 +152,7 @@
           <collectionProp name="HeaderManager.headers">
             <elementProp name="" elementType="Header">
               <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${adminCredentials}</stringProp>
+              <stringProp name="Header.value">Basic ${created_credentials}</stringProp>
             </elementProp>
           </collectionProp>
         </HeaderManager>
@@ -113,8 +167,8 @@
    &lt;soapenv:Header/&gt;&#xd;
    &lt;soapenv:Body&gt;&#xd;
       &lt;aut:login&gt;&#xd;
-         &lt;aut:username&gt;${adminusername}&lt;/aut:username&gt;&#xd;
-         &lt;aut:password&gt;${adminpassword}&lt;/aut:password&gt;&#xd;
+         &lt;aut:username&gt;${created_username}&lt;/aut:username&gt;&#xd;
+         &lt;aut:password&gt;${created_password}&lt;/aut:password&gt;&#xd;
       &lt;/aut:login&gt;&#xd;
    &lt;/soapenv:Body&gt;&#xd;
 &lt;/soapenv:Envelope&gt;</stringProp>
@@ -122,8 +176,8 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-          <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+          <stringProp name="HTTPSampler.domain">${server_host}</stringProp>
+          <stringProp name="HTTPSampler.port">${server_port}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/services/AuthenticationAdmin.AuthenticationAdminHttpsSoap11Endpoint/</stringProp>
@@ -150,7 +204,7 @@
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">Basic ${adminCredentials}</stringProp>
+                <stringProp name="Header.value">Basic ${created_credentials}</stringProp>
               </elementProp>
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">SOAPAction</stringProp>
@@ -175,7 +229,7 @@
    &lt;soapenv:Body&gt;&#xd;
        &lt;xsd:createApplication&gt; &#xd;
       &lt;xsd:serviceProvider&gt; &#xd;
-            &lt;xsd1:applicationName&gt;${spname}&lt;/xsd1:applicationName&gt; &#xd;
+            &lt;xsd1:applicationName&gt;${sp_name}&lt;/xsd1:applicationName&gt; &#xd;
          &lt;/xsd:serviceProvider&gt; &#xd;
       &lt;/xsd:createApplication&gt; &#xd;
    &lt;/soapenv:Body&gt;&#xd;
@@ -184,8 +238,8 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-          <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+          <stringProp name="HTTPSampler.domain">${server_host}</stringProp>
+          <stringProp name="HTTPSampler.port">${server_port}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService.IdentityApplicationManagementServiceHttpsSoap11Endpoint/</stringProp>
@@ -212,7 +266,7 @@
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">Basic ${adminCredentials}</stringProp>
+                <stringProp name="Header.value">Basic ${created_credentials}</stringProp>
               </elementProp>
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">SOAPAction</stringProp>
@@ -237,7 +291,7 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:getApplication&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;xsd:applicationName&gt;${spname}&lt;/xsd:applicationName&gt;&#xd;
+         &lt;xsd:applicationName&gt;${sp_name}&lt;/xsd:applicationName&gt;&#xd;
       &lt;/xsd:getApplication&gt;&#xd;
    &lt;/soapenv:Body&gt;&#xd;
 &lt;/soapenv:Envelope&gt;</stringProp>
@@ -245,8 +299,8 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-          <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+          <stringProp name="HTTPSampler.domain">${server_host}</stringProp>
+          <stringProp name="HTTPSampler.port">${server_port}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService.IdentityApplicationManagementServiceHttpsSoap11Endpoint/</stringProp>
@@ -283,7 +337,7 @@
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">Basic ${adminCredentials}</stringProp>
+                <stringProp name="Header.value">Basic ${created_credentials}</stringProp>
               </elementProp>
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">SOAPAction</stringProp>
@@ -311,14 +365,14 @@
          &lt;xsd:serviceProvider&gt;&#xd;
             &lt;!--Optional:--&gt;&#xd;
             &lt;xsd1:applicationID&gt;${appID}&lt;/xsd1:applicationID&gt;&#xd;
-                  &lt;xsd1:applicationName&gt;${spname}&lt;/xsd1:applicationName&gt; &#xd;
+                  &lt;xsd1:applicationName&gt;${sp_name}&lt;/xsd1:applicationName&gt; &#xd;
             &lt;xsd1:claimConfig&gt; &#xd;
                &lt;xsd1:alwaysSendMappedLocalSubjectId&gt;false&lt;/xsd1:alwaysSendMappedLocalSubjectId&gt; &#xd;
             &lt;/xsd1:claimConfig&gt; &#xd;
             &lt;xsd1:description&gt;jwt sp&lt;/xsd1:description&gt; &#xd;
             &lt;xsd1:inboundAuthenticationConfig&gt; &#xd;
                         &lt;xsd1:inboundAuthenticationRequestConfigs&gt; &#xd;
-                  &lt;xsd1:inboundAuthKey&gt;${consumerKey}&lt;/xsd1:inboundAuthKey&gt; &#xd;
+                  &lt;xsd1:inboundAuthKey&gt;${consumer_key}&lt;/xsd1:inboundAuthKey&gt; &#xd;
                   &lt;xsd1:inboundAuthType&gt;oauth2&lt;/xsd1:inboundAuthType&gt; &#xd;
                   &lt;xsd1:properties&gt; &#xd;
                      &lt;xsd1:confidential&gt;false&lt;/xsd1:confidential&gt; &#xd;
@@ -328,7 +382,7 @@
                      &lt;xsd1:name&gt;oauthConsumerSecret&lt;/xsd1:name&gt; &#xd;
                      &lt;xsd1:required&gt;true&lt;/xsd1:required&gt; &#xd;
                      &lt;xsd1:type xsd:nil=&quot;true&quot;/&gt; &#xd;
-                     &lt;xsd1:value&gt;${consumerSecretPrefix}&lt;/xsd1:value&gt; &#xd;
+                     &lt;xsd1:value&gt;${consumer_secret}&lt;/xsd1:value&gt; &#xd;
                   &lt;/xsd1:properties&gt; &#xd;
                &lt;/xsd1:inboundAuthenticationRequestConfigs&gt; &#xd;
             &lt;/xsd1:inboundAuthenticationConfig&gt; &#xd;
@@ -363,8 +417,8 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-          <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+          <stringProp name="HTTPSampler.domain">${server_host}</stringProp>
+          <stringProp name="HTTPSampler.port">${server_port}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService</stringProp>
@@ -391,7 +445,7 @@
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">Basic ${adminCredentials}</stringProp>
+                <stringProp name="Header.value">Basic ${created_credentials}</stringProp>
               </elementProp>
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">SOAPAction</stringProp>
@@ -417,11 +471,11 @@
       &lt;xsd:registerOAuthApplicationData&gt;&#xd;
          &lt;xsd:application&gt;&#xd;
             &lt;xsd1:OAuthVersion&gt;OAuth-2.0&lt;/xsd1:OAuthVersion&gt;&#xd;
-            &lt;xsd1:applicationName&gt;${spname}&lt;/xsd1:applicationName&gt;&#xd;
-            &lt;xsd1:callbackUrl&gt;${callbackURL}&lt;/xsd1:callbackUrl&gt;&#xd;
+            &lt;xsd1:applicationName&gt;${sp_name}&lt;/xsd1:applicationName&gt;&#xd;
+            &lt;xsd1:callbackUrl&gt;${callback_url}&lt;/xsd1:callbackUrl&gt;&#xd;
             &lt;xsd1:grantTypes&gt;authorization_code implicit password client_credentials refresh_token urn:ietf:params:oauth:grant-type:saml2-bearer iwa:ntlm urn:ietf:params:oauth:grant-type:jwt-bearer&lt;/xsd1:grantTypes&gt;&#xd;
-            &lt;xsd1:oauthConsumerKey&gt;${consumerKey}&lt;/xsd1:oauthConsumerKey&gt;&#xd;
-            &lt;xsd1:oauthConsumerSecret&gt;${consumerSecret}&lt;/xsd1:oauthConsumerSecret&gt;&#xd;
+            &lt;xsd1:oauthConsumerKey&gt;${consumer_key}&lt;/xsd1:oauthConsumerKey&gt;&#xd;
+            &lt;xsd1:oauthConsumerSecret&gt;${consumer_secret}&lt;/xsd1:oauthConsumerSecret&gt;&#xd;
             &lt;xsd1:pkceMandatory&gt;false&lt;/xsd1:pkceMandatory&gt;&#xd;
             &lt;xsd1:pkceSupportPlain&gt;true&lt;/xsd1:pkceSupportPlain&gt;&#xd;
          &lt;/xsd:application&gt;&#xd;
@@ -432,8 +486,8 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-          <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+          <stringProp name="HTTPSampler.domain">${server_host}</stringProp>
+          <stringProp name="HTTPSampler.port">${server_port}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/services/OAuthAdminService.OAuthAdminServiceHttpsSoap11Endpoint/</stringProp>
@@ -460,7 +514,7 @@
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">Basic ${adminCredentials}</stringProp>
+                <stringProp name="Header.value">Basic ${created_credentials}</stringProp>
               </elementProp>
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">SOAPAction</stringProp>

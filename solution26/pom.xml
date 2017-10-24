@@ -30,7 +30,20 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <jmeterVersion>3.2</jmeterVersion>
+			<jmeterVersion>3.2</jmeterVersion>
+			<configuration>
+				<jmeterVersion>3.2</jmeterVersion>
+				<testFilesIncluded>
+					<jMeterTestFile></jMeterTestFile>
+					<jMeterTestFile></jMeterTestFile>
+					<jMeterTestFile></jMeterTestFile>
+					<jMeterTestFile></jMeterTestFile>
+				</testFilesIncluded>
+				<propertiesJMeter>
+					<log_level.jmeter>DEBUG</log_level.jmeter>
+				</propertiesJMeter>
+				<propertiesFilesDirectory>${basedir}/src/test/resources</propertiesFilesDirectory>
+			</configuration>
                 </configuration>
             </plugin>
         </plugins>
