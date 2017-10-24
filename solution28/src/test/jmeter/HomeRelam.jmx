@@ -54,7 +54,7 @@
             </elementProp>
             <elementProp name="FBIdentityProviderName" elementType="Argument">
               <stringProp name="Argument.name">FBIdentityProviderName</stringProp>
-              <stringProp name="Argument.value">FacebookIDP</stringProp>
+              <stringProp name="Argument.value">Sol28FacebookIDP</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
               <stringProp name="Argument.desc">Facebook Name</stringProp>
             </elementProp>
@@ -102,7 +102,7 @@
             </elementProp>
             <elementProp name="GoogleIdentityProviderName" elementType="Argument">
               <stringProp name="Argument.name">GoogleIdentityProviderName</stringProp>
-              <stringProp name="Argument.value">GoogleIDP</stringProp>
+              <stringProp name="Argument.value">Sol28GoogleIDP</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
               <stringProp name="Argument.desc">Google Name</stringProp>
             </elementProp>
@@ -138,7 +138,7 @@
             </elementProp>
             <elementProp name="SPName" elementType="Argument">
               <stringProp name="Argument.name">SPName</stringProp>
-              <stringProp name="Argument.value">TravelocityApp</stringProp>
+              <stringProp name="Argument.value">Sol28TravelocityApp</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
               <stringProp name="Argument.desc">Service Provider Name</stringProp>
             </elementProp>
