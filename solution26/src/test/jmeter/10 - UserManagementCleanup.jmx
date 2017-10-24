@@ -17,7 +17,7 @@
             <stringProp name="Argument.name">is_host</stringProp>
             <stringProp name="Argument.value">is.dev.wso2.org</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">is.dev.wso2.org </stringProp>
+            <stringProp name="Argument.desc">is.dev.wso2.org</stringProp>
           </elementProp>
           <elementProp name="is_port" elementType="Argument">
             <stringProp name="Argument.name">is_port</stringProp>
@@ -126,7 +126,7 @@
         <stringProp name="CookieManager.implementation">org.apache.jmeter.protocol.http.control.HC4CookieHandler</stringProp>
       </CookieManager>
       <hashTree/>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="User/Group Cleanup - SOAP" enabled="false">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="User/Group Cleanup - SOAP" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -588,7 +588,7 @@
           <elementProp name="SystemSampler.environment" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="SystemSampler.directory">./</stringProp>
+          <stringProp name="SystemSampler.directory">/home/aparna/QAHackathon/IAM/identity-test-integration/solution26/src/test/jmeter/</stringProp>
         </SystemSampler>
         <hashTree/>
       </hashTree>
