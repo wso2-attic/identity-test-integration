@@ -13,38 +13,77 @@
     <hashTree>
       <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Server Variables" enabled="true">
         <collectionProp name="Arguments.arguments">
-          <elementProp name="is_host" elementType="Argument">
-            <stringProp name="Argument.name">is_host</stringProp>
-            <stringProp name="Argument.value">is.dev.wso2.org</stringProp>
+          <elementProp name="server_host" elementType="Argument">
+            <stringProp name="Argument.name">server_host</stringProp>
+            <stringProp name="Argument.value">${__property(server_host)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">is530.wso2.com </stringProp>
           </elementProp>
-          <elementProp name="is_port" elementType="Argument">
-            <stringProp name="Argument.name">is_port</stringProp>
-            <stringProp name="Argument.value">443</stringProp>
+          <elementProp name="server_port" elementType="Argument">
+            <stringProp name="Argument.name">server_port</stringProp>
+            <stringProp name="Argument.value">${__property(server_port)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">443</stringProp>
           </elementProp>
-          <elementProp name="adminCredentials" elementType="Argument">
-            <stringProp name="Argument.name">adminCredentials</stringProp>
-            <stringProp name="Argument.value">YWRtaW46YWRtaW4=</stringProp>
+          <elementProp name="created_credentials" elementType="Argument">
+            <stringProp name="Argument.name">created_credentials</stringProp>
+            <stringProp name="Argument.value">${__property(created_credentials)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">admin_credentials</stringProp>
+          </elementProp>
+          <elementProp name="created_username" elementType="Argument">
+            <stringProp name="Argument.name">created_username</stringProp>
+            <stringProp name="Argument.value">${__property(created_username)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="adminusername" elementType="Argument">
-            <stringProp name="Argument.name">adminusername</stringProp>
-            <stringProp name="Argument.value">admin</stringProp>
+          <elementProp name="created_password" elementType="Argument">
+            <stringProp name="Argument.name">created_password</stringProp>
+            <stringProp name="Argument.value">${__property(created_password)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="adminpassword" elementType="Argument">
-            <stringProp name="Argument.name">adminpassword</stringProp>
-            <stringProp name="Argument.value">admin</stringProp>
+          <elementProp name="idp_name" elementType="Argument">
+            <stringProp name="Argument.name">idp_name</stringProp>
+            <stringProp name="Argument.value">${__property(idp_name)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="idp_description" elementType="Argument">
+            <stringProp name="Argument.name">idp_description</stringProp>
+            <stringProp name="Argument.value">${__property(idp_description)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
       </Arguments>
       <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Server Variables" enabled="false">
         <collectionProp name="Arguments.arguments">
+          <elementProp name="server_host" elementType="Argument">
+            <stringProp name="Argument.name">server_host</stringProp>
+            <stringProp name="Argument.value">localhost</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">is530.wso2.com </stringProp>
+          </elementProp>
+          <elementProp name="server_port" elementType="Argument">
+            <stringProp name="Argument.name">server_port</stringProp>
+            <stringProp name="Argument.value">9443</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">443</stringProp>
+          </elementProp>
+          <elementProp name="created_credentials" elementType="Argument">
+            <stringProp name="Argument.name">created_credentials</stringProp>
+            <stringProp name="Argument.value">c29sMjI6cGFzc3dvcmQ=</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">admin_credentials</stringProp>
+          </elementProp>
+          <elementProp name="created_username" elementType="Argument">
+            <stringProp name="Argument.name">created_username</stringProp>
+            <stringProp name="Argument.value">sol22</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="created_password" elementType="Argument">
+            <stringProp name="Argument.name">created_password</stringProp>
+            <stringProp name="Argument.value">password</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
           <elementProp name="idp_name" elementType="Argument">
             <stringProp name="Argument.name">idp_name</stringProp>
             <stringProp name="Argument.value">sol22idp</stringProp>
@@ -98,8 +137,8 @@
    &lt;soapenv:Header/&gt;&#xd;
    &lt;soapenv:Body&gt;&#xd;
       &lt;aut:login&gt;&#xd;
-         &lt;aut:username&gt;${adminusername}&lt;/aut:username&gt;&#xd;
-         &lt;aut:password&gt;${adminpassword}&lt;/aut:password&gt;&#xd;
+         &lt;aut:username&gt;${created_username}&lt;/aut:username&gt;&#xd;
+         &lt;aut:password&gt;${created_password}&lt;/aut:password&gt;&#xd;
       &lt;/aut:login&gt;&#xd;
    &lt;/soapenv:Body&gt;&#xd;
 &lt;/soapenv:Envelope&gt;</stringProp>
@@ -107,8 +146,8 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-          <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+          <stringProp name="HTTPSampler.domain">${server_host}</stringProp>
+          <stringProp name="HTTPSampler.port">${server_port}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/services/AuthenticationAdmin.AuthenticationAdminHttpsSoap11Endpoint/</stringProp>
@@ -135,7 +174,7 @@
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">Basic ${adminCredentials}</stringProp>
+                <stringProp name="Header.value">Basic ${created_credentials}</stringProp>
               </elementProp>
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">SOAPAction</stringProp>
@@ -176,8 +215,8 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-          <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+          <stringProp name="HTTPSampler.domain">${server_host}</stringProp>
+          <stringProp name="HTTPSampler.port">${server_port}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/services/IdentityProviderMgtService.IdentityProviderMgtServiceHttpsSoap11Endpoint/</stringProp>
@@ -204,7 +243,7 @@
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">Basic ${adminCredentials}</stringProp>
+                <stringProp name="Header.value">Basic ${created_credentials}</stringProp>
               </elementProp>
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">SOAPAction</stringProp>

@@ -11,7 +11,7 @@
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
     </TestPlan>
     <hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Home Relam - Negative Scenario" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -54,7 +54,7 @@
             </elementProp>
             <elementProp name="FBIdentityProviderName" elementType="Argument">
               <stringProp name="Argument.name">FBIdentityProviderName</stringProp>
-              <stringProp name="Argument.value">Sol28FacebookIDP</stringProp>
+              <stringProp name="Argument.value">Solution28FacebookIDP</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
               <stringProp name="Argument.desc">Facebook Name</stringProp>
             </elementProp>
@@ -102,7 +102,7 @@
             </elementProp>
             <elementProp name="GoogleIdentityProviderName" elementType="Argument">
               <stringProp name="Argument.name">GoogleIdentityProviderName</stringProp>
-              <stringProp name="Argument.value">Sol28GoogleIDP</stringProp>
+              <stringProp name="Argument.value">Solution28GoogleIDP</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
               <stringProp name="Argument.desc">Google Name</stringProp>
             </elementProp>
@@ -138,7 +138,7 @@
             </elementProp>
             <elementProp name="SPName" elementType="Argument">
               <stringProp name="Argument.name">SPName</stringProp>
-              <stringProp name="Argument.value">Sol28TravelocityApp</stringProp>
+              <stringProp name="Argument.value">Solution28TravelocityApp</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
               <stringProp name="Argument.desc">Service Provider Name</stringProp>
             </elementProp>
@@ -150,7 +150,7 @@
             </elementProp>
             <elementProp name="travelocityIssuer" elementType="Argument">
               <stringProp name="Argument.name">travelocityIssuer</stringProp>
-              <stringProp name="Argument.value">travelocitysolution28.com</stringProp>
+              <stringProp name="Argument.value">negativesolution28travelocity.com</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="tomcatHost" elementType="Argument">
@@ -165,7 +165,7 @@
             </elementProp>
             <elementProp name="TravelocityAssertionConsumerURL" elementType="Argument">
               <stringProp name="Argument.name">TravelocityAssertionConsumerURL</stringProp>
-              <stringProp name="Argument.value">http://192.168.57.31:8080/solution28travelocity.com/home.jsp</stringProp>
+              <stringProp name="Argument.value">http://192.168.57.31:8080/negativesolution28travelocity.com/home.jsp</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
           </collectionProp>
@@ -832,7 +832,7 @@
             <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">/solution28travelocity.com/samlsso?SAML2.HTTPBinding=HTTP-Redirect</stringProp>
+            <stringProp name="HTTPSampler.path">/negativesolution28travelocity.com/samlsso?SAML2.HTTPBinding=HTTP-Redirect</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
@@ -845,7 +845,7 @@
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="SAML Request Sesion Data key Expression Extractor" enabled="true">
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="SAML Request Sesion Data key Expression Extractor" enabled="false">
               <stringProp name="RegexExtractor.useHeaders">false</stringProp>
               <stringProp name="RegexExtractor.refname">sessionDataKey</stringProp>
               <stringProp name="RegexExtractor.regex">sessionDataKey=([a-z0-9-]+)\&amp;?</stringProp>
@@ -856,7 +856,8 @@
             <hashTree/>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="[Verification] Facebook Login" enabled="true">
               <collectionProp name="Asserion.test_strings">
-                <stringProp name="1980761324">Log in to Facebook</stringProp>
+                <stringProp name="-1386469453">${GoogleIdentityProviderName}</stringProp>
+                <stringProp name="89006512">${FBIdentityProviderName}</stringProp>
               </collectionProp>
               <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
               <boolProp name="Assertion.assume_success">false</boolProp>
