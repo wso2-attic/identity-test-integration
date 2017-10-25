@@ -40,7 +40,7 @@
           </elementProp>
           <elementProp name="sp_name" elementType="Argument">
             <stringProp name="Argument.name">sp_name</stringProp>
-            <stringProp name="Argument.value">ManagementConsole</stringProp>
+            <stringProp name="Argument.value">Sol5MgtConsole</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="sp_description" elementType="Argument">
@@ -55,7 +55,7 @@
           </elementProp>
           <elementProp name="idp_name" elementType="Argument">
             <stringProp name="Argument.name">idp_name</stringProp>
-            <stringProp name="Argument.value">sol5facebook</stringProp>
+            <stringProp name="Argument.value">sol5_facebook</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="idp_description" elementType="Argument">
@@ -118,7 +118,7 @@
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login" enabled="false">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
@@ -276,15 +276,6 @@
             <stringProp name="TestPlan.comments">Delete Created IDP</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200 OK HTTP Code Response Assertion" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="-1606201635">HTTP/1.1 200 OK</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
-              <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">2</intProp>
-            </ResponseAssertion>
-            <hashTree/>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
               <collectionProp name="HeaderManager.headers">
                 <elementProp name="" elementType="Header">
@@ -301,6 +292,15 @@
                 </elementProp>
               </collectionProp>
             </HeaderManager>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200 OK HTTP Code Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-1606201635">HTTP/1.1 200 OK</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
             <hashTree/>
           </hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Delete User" enabled="true">
@@ -433,68 +433,6 @@
           <boolProp name="useExpires">false</boolProp>
         </CacheManager>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login" enabled="false">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:aut=&quot;http://authentication.services.core.carbon.wso2.org&quot;&gt;&#xd;
-   &lt;soapenv:Header/&gt;&#xd;
-   &lt;soapenv:Body&gt;&#xd;
-      &lt;aut:login&gt;&#xd;
-         &lt;aut:username&gt;${usernamePrefix}1&lt;/aut:username&gt;&#xd;
-         &lt;aut:password&gt;${password}&lt;/aut:password&gt;&#xd;
-      &lt;/aut:login&gt;&#xd;
-   &lt;/soapenv:Body&gt;&#xd;
-&lt;/soapenv:Envelope&gt;</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-          <stringProp name="HTTPSampler.port">${is_port}</stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/services/AuthenticationAdmin.AuthenticationAdminHttpsSoap11Endpoint/</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.ipSource">https://${is_host}:${is_port}/samlsso</stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200 OK HTTP Code Response Assertion" enabled="true">
-            <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1606201635">HTTP/1.1 200 OK</stringProp>
-            </collectionProp>
-            <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
-            <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">2</intProp>
-          </ResponseAssertion>
-          <hashTree/>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">SOAPAction</stringProp>
-                <stringProp name="Header.value">urn:login</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">text/xml</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">Basic ${testAdminCredentials}</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
-          <hashTree/>
-        </hashTree>
       </hashTree>
       <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
