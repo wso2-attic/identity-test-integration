@@ -13,6 +13,7 @@ mvn clean verify --fae
 | 05  | Multi-factor authentication for WSO2 Identity Server management console  |
 | 09  | User management upon multi-layer approval  |
 | 10  | Single Sign On with delegated access control  |
+  11  | Identity federation between service providers and identity providers with incompatible identity federation protocols
 | 12  | Claim Mapper with Service provider travelocity and idp facebook  |
 | 14  | Enforce password reset for expired passwords during the authentication flow  |
 | 18  | Fine-grained access control for service providers  |
