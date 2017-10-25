@@ -15,6 +15,7 @@
         <module>solution05</module>
         <module>solution09</module>
         <module>solution10</module>
+        <module>solution11</module>
         <module>solution12</module>
         <module>solution14</module>
         <module>solution17</module>
@@ -25,7 +26,6 @@
         <module>solution26</module>
         <module>solution28</module>
         <module>solution29</module>
-        <module>solution11</module>
     </modules>
 </project>
 
