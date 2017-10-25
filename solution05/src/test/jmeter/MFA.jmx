@@ -65,12 +65,12 @@
           </elementProp>
           <elementProp name="fb_clientID" elementType="Argument">
             <stringProp name="Argument.name">fb_clientID</stringProp>
-            <stringProp name="Argument.value">1163928820418820</stringProp>
+            <stringProp name="Argument.value">2064260000461890</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="fb_clientSecret" elementType="Argument">
             <stringProp name="Argument.name">fb_clientSecret</stringProp>
-            <stringProp name="Argument.value">7cd6347b49f8b03fd393e48c9c9c7eec</stringProp>
+            <stringProp name="Argument.value">516241437cf3d9067dad45798f07e9be</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="rolename" elementType="Argument">
@@ -105,17 +105,17 @@
           </elementProp>
           <elementProp name="FBLogin_Email" elementType="Argument">
             <stringProp name="Argument.name">FBLogin_Email</stringProp>
-            <stringProp name="Argument.value">aiyosallifb@gmail.com</stringProp>
+            <stringProp name="Argument.value">testuser@gmail.com</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="FB_Username" elementType="Argument">
             <stringProp name="Argument.name">FB_Username</stringProp>
-            <stringProp name="Argument.value">babanona</stringProp>
+            <stringProp name="Argument.value">testuser</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="FB_Password" elementType="Argument">
             <stringProp name="Argument.name">FB_Password</stringProp>
-            <stringProp name="Argument.value">babanona</stringProp>
+            <stringProp name="Argument.value">testuser</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="testAdminCredentials" elementType="Argument">
