@@ -14,7 +14,7 @@ mvn clean verify --fae
 | 09  | User management upon multi-layer approval  |
 | 10  | Single Sign On with delegated access control  |
   11  | Identity federation between service providers and identity providers with incompatible identity federation protocols
-| 12  | Claim Mapper with Service provider travelocity and idp facebook  |
+| 12  | Claim Mapper with Service Provider Travelocity and Identity Provider Facebook and Google  |
 | 14  | Enforce password reset for expired passwords during the authentication flow  |
 | 18  | Fine-grained access control for service providers  |
 | 22  | Access a microservice from a web app protected with SAML 2.0 or OIDC  |
