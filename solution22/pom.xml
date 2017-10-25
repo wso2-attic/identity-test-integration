@@ -53,6 +53,7 @@
                         <jMeterTestFile>00-Create-Test-Users.jmx</jMeterTestFile>
                         <jMeterTestFile>01-Create-IDP.jmx</jMeterTestFile>
                         <jMeterTestFile>02-Create-SP.jmx</jMeterTestFile>
+                        <jMeterTestFile>03-SAML2_get_JWT_Token.jmx</jMeterTestFile>
                         <jMeterTestFile>04-Delete-SP.jmx</jMeterTestFile>
                         <jMeterTestFile>05-Delete-IDP.jmx</jMeterTestFile>
                         <jMeterTestFile>09-Remove-Test-Users.jmx</jMeterTestFile>
