@@ -12,6 +12,7 @@ mvn clean verify --fae
 |---|---|
 | 02  | Multiple login options by service provider  |
 | 05  | Multi-factor authentication for WSO2 Identity Server management console  |
+| 06  | Provision federated users to a tenant  |
 | 09  | User management upon multi-layer approval  |
 | 10  | Single Sign On with delegated access control  |
   11  | Identity federation between service providers and identity providers with incompatible identity federation protocols

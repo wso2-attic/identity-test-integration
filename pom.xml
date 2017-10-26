@@ -13,6 +13,7 @@
     <modules>
         <module>solution02</module>
         <module>solution05</module>
+	<!--module>solution06</module-->
         <module>solution09</module>
         <module>solution10</module>
         <module>solution11</module>
