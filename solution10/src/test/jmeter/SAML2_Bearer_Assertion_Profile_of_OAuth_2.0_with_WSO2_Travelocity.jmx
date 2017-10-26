@@ -99,7 +99,7 @@
             &lt;xsd1:defaultAssertionConsumerUrl&gt;http://${tomcat_host}:${tomcat_port}/${tomcat_prefix}travelocity.com/home.jsp&lt;/xsd1:defaultAssertionConsumerUrl&gt;&#xd;
             &lt;xsd1:signingAlgorithmURI&gt;http://www.w3.org/2000/09/xmldsig#rsa-sha1&lt;/xsd1:signingAlgorithmURI&gt;            &#xd;
             &lt;xsd1:digestAlgorithmURI&gt;http://www.w3.org/2000/09/xmldsig#sha1&lt;/xsd1:digestAlgorithmURI&gt;&#xd;
-            &lt;xsd1:doSignAssertions&gt;false&lt;/xsd1:doSignAssertions&gt;&#xd;
+            &lt;xsd1:doSignAssertions&gt;true&lt;/xsd1:doSignAssertions&gt;&#xd;
             &lt;xsd1:doSignResponse&gt;true&lt;/xsd1:doSignResponse&gt;&#xd;
             &lt;xsd1:doSingleLogout&gt;true&lt;/xsd1:doSingleLogout&gt;&#xd;
             &lt;xsd1:doValidateSignatureInRequests&gt;false&lt;/xsd1:doValidateSignatureInRequests&gt;&#xd;
@@ -370,7 +370,7 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:registerOAuthApplicationData&gt;&#xd;
          &lt;xsd:application&gt;&#xd;
-            &lt;xsd1:OAuthVersion&gt;2.0&lt;/xsd1:OAuthVersion&gt;&#xd;
+            &lt;xsd1:OAuthVersion&gt;OAuth-2.0&lt;/xsd1:OAuthVersion&gt;&#xd;
             &lt;xsd1:applicationName&gt;${tomcat_prefix}${sp_name}&lt;/xsd1:applicationName&gt;&#xd;
             &lt;xsd1:callbackUrl&gt;http://${tomcat_host}:${tomcat_port}/${tomcat_prefix}travelocity.com/acs&lt;/xsd1:callbackUrl&gt;&#xd;
             &lt;xsd1:grantTypes&gt;urn:ietf:params:oauth:grant-type:saml2-bearer&lt;/xsd1:grantTypes&gt;&#xd;
@@ -538,7 +538,25 @@
                      &lt;xsd1:type xsd:nil=&quot;true&quot;/&gt;&#xd;
                      &lt;xsd1:value&gt;${serviceIndex}&lt;/xsd1:value&gt;&#xd;
                   &lt;/xsd1:properties&gt;                  &#xd;
-               &lt;/xsd1:inboundAuthenticationRequestConfigs&gt;                                          &#xd;
+               &lt;/xsd1:inboundAuthenticationRequestConfigs&gt;   &#xd;
+&#xd;
+			&lt;xsd1:inboundAuthenticationRequestConfigs&gt;&#xd;
+                  &lt;xsd1:inboundAuthKey&gt;lKjE0YDVrXNJY8TN7AdzAgkgfJ0a&lt;/xsd1:inboundAuthKey&gt;&#xd;
+                  &lt;xsd1:inboundAuthType&gt;oauth2&lt;/xsd1:inboundAuthType&gt;&#xd;
+                  &lt;!--Zero or more repetitions:--&gt;&#xd;
+                  &lt;xsd1:properties&gt;&#xd;
+                     &lt;xsd1:advanced&gt;false&lt;/xsd1:advanced&gt;&#xd;
+                     &lt;xsd1:confidential&gt;false&lt;/xsd1:confidential&gt;&#xd;
+                     &lt;xsd1:defaultValue&gt;&lt;/xsd1:defaultValue&gt;&#xd;
+                     &lt;xsd1:description&gt;&lt;/xsd1:description&gt;&#xd;
+                     &lt;xsd1:displayName&gt;&lt;/xsd1:displayName&gt;&#xd;
+                     &lt;xsd1:name&gt;oauthConsumerSecret&lt;/xsd1:name&gt;&#xd;
+                     &lt;xsd1:required&gt;false&lt;/xsd1:required&gt;&#xd;
+                     &lt;xsd1:type&gt;&lt;/xsd1:type&gt;&#xd;
+                     &lt;xsd1:value&gt;KiAnWzcf9NaKCdL7B8wjGqffE70a&lt;/xsd1:value&gt;&#xd;
+                  &lt;/xsd1:properties&gt;&#xd;
+               &lt;/xsd1:inboundAuthenticationRequestConfigs&gt;&#xd;
+                                                      &#xd;
            &lt;/xsd1:inboundAuthenticationConfig&gt; &#xd;
             &lt;xsd1:inboundProvisioningConfig&gt; &#xd;
                &lt;xsd1:provisioningEnabled&gt;false&lt;/xsd1:provisioningEnabled&gt; &#xd;
@@ -760,7 +778,7 @@
           </XPathExtractor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST SAMLResponse travelocity.com" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST SAMLResponse travelocity.com" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments">
               <elementProp name="SAMLResponse" elementType="HTTPArgument">
