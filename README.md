@@ -22,3 +22,4 @@ mvn clean verify --fae
 | 26  | User administration operations from a third-party web app  |
 | 28  | Home realm discovery  |
 | 29  | Service provider-specific user stores  |
+| 02  | Multiple login options by service provider  |
