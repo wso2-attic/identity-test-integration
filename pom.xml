@@ -11,7 +11,8 @@
     <url>https://wso2.com</url>
 
     <modules>
-        <module>solution02</module>
+	<module>solution02</module>
+	<!-- module>solution03</module-->
         <module>solution05</module>
 	<!--module>solution06</module-->
         <module>solution09</module>
