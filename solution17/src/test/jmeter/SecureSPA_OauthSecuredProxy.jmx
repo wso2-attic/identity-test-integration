@@ -9,22 +9,22 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="host" elementType="Argument">
             <stringProp name="Argument.name">host</stringProp>
-            <stringProp name="Argument.value">is.dev.wso2.org</stringProp>
+            <stringProp name="Argument.value">${__property(server_host)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="port" elementType="Argument">
             <stringProp name="Argument.name">port</stringProp>
-            <stringProp name="Argument.value">443</stringProp>
+            <stringProp name="Argument.value">${__property(server_port)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="admin_username" elementType="Argument">
             <stringProp name="Argument.name">admin_username</stringProp>
-            <stringProp name="Argument.value">admin</stringProp>
+            <stringProp name="Argument.value">${__property(admin_username)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="admin_password" elementType="Argument">
             <stringProp name="Argument.name">admin_password</stringProp>
-            <stringProp name="Argument.value">admin</stringProp>
+            <stringProp name="Argument.value">${__property(admin_password)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="carbon" elementType="Argument">
@@ -48,73 +48,73 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="permission" elementType="Argument">
             <stringProp name="Argument.name">permission</stringProp>
-            <stringProp name="Argument.value">/permission/admin</stringProp>
+            <stringProp name="Argument.value">${__property(permission)}</stringProp>
             <stringProp name="Argument.desc">Permission for role</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="callback" elementType="Argument">
             <stringProp name="Argument.name">callback</stringProp>
-            <stringProp name="Argument.value">https://is.dev.wso2.org/oauth2-proxy/callback</stringProp>
+            <stringProp name="Argument.value">${__property(callback_url)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="tomcat_host" elementType="Argument">
             <stringProp name="Argument.name">tomcat_host</stringProp>
-            <stringProp name="Argument.value">192.168.57.31</stringProp>
+            <stringProp name="Argument.value">${__property(tomcat_host)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="tomcat_port" elementType="Argument">
             <stringProp name="Argument.name">tomcat_port</stringProp>
-            <stringProp name="Argument.value">8080</stringProp>
+            <stringProp name="Argument.value">${__property(tomcat_port)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="spaName" elementType="Argument">
             <stringProp name="Argument.name">spaName</stringProp>
-            <stringProp name="Argument.value">sample1</stringProp>
+            <stringProp name="Argument.value">${__property(spa_name)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="sp_target" elementType="Argument">
             <stringProp name="Argument.name">sp_target</stringProp>
-            <stringProp name="Argument.value">authenticationendpoint/login.do?</stringProp>
+            <stringProp name="Argument.value">${__property(sp_target)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="spaCode" elementType="Argument">
             <stringProp name="Argument.name">spaCode</stringProp>
-            <stringProp name="Argument.value">77D04D1E-FFFD-75E4-22E8-CA1C51CBC99A</stringProp>
+            <stringProp name="Argument.value">${__property(spa_code)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="sp_name" elementType="Argument">
             <stringProp name="Argument.name">sp_name</stringProp>
-            <stringProp name="Argument.value">SPASP</stringProp>
+            <stringProp name="Argument.value">${__property(sp_name)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="sp_description" elementType="Argument">
             <stringProp name="Argument.name">sp_description</stringProp>
-            <stringProp name="Argument.value">Service Provider for Single Page Application </stringProp>
+            <stringProp name="Argument.value">${__property(sp_description)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="role" elementType="Argument">
             <stringProp name="Argument.name">role</stringProp>
-            <stringProp name="Argument.value">sol17role</stringProp>
+            <stringProp name="Argument.value">${__property(created_role)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="username" elementType="Argument">
             <stringProp name="Argument.name">username</stringProp>
-            <stringProp name="Argument.value">sol17user</stringProp>
+            <stringProp name="Argument.value">${__property(created_username)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="password" elementType="Argument">
             <stringProp name="Argument.name">password</stringProp>
-            <stringProp name="Argument.value">sol17pw</stringProp>
+            <stringProp name="Argument.value">${__property(created_password)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="consumerKey" elementType="Argument">
             <stringProp name="Argument.name">consumerKey</stringProp>
-            <stringProp name="Argument.value">6ktdbCJgmQIqlO1tNiHBQoVelkUa</stringProp>
+            <stringProp name="Argument.value">${__property(consumer_key)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="consumerSecret" elementType="Argument">
             <stringProp name="Argument.name">consumerSecret</stringProp>
-            <stringProp name="Argument.value">cg5Gg8PfwI28NjLRy64pyffcK4Ia</stringProp>
+            <stringProp name="Argument.value">${__property(comsumer_secret)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
