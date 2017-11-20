@@ -48,13 +48,12 @@ SkipURIs=/Sol18travelocity.com/index.jsp
 SAML2.SPEntityId=Sol18travelocity.com
 
 #The URL of the SAML 2.0 Assertion Consumer
-# Replace with tomcat host and port
+#Replace with tomcat host and port
 SAML2.AssertionConsumerURL=http://192.168.57.31:8080/Sol18travelocity.com/home.jsp
 
 #The URL of the SAML 2.0 Identity Provider
 #Replace with IS host/port
 SAML2.IdPURL=https://is.dev.wso2.org/samlsso
-
 
 5. Restart the tomcat or web app.
 6. Go to solution18/src/test/resources/user.properties file and do the configurations as below.
