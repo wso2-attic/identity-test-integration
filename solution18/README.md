@@ -26,13 +26,8 @@
 
 Products: WSO2 Identity Server 5.0.0+
 
-To run solution 18 run the below command.
 
-```bash
-mvn clean verify --fae
-```
-
-#### Configurations
+### Configurations
 1. Deploy a travelocity web app (travelocity.com.war) in tomcat.
 2. Take a copy of travelocity.com.war and rename it as Sol18travelocity.com.war
 3. Once the Sol18travelocity web app is deployed, replace the travelocity.properties with solution18/src/test/resources/travelocity.properties
@@ -83,4 +78,11 @@ tomcat_host=< HOSTNAME OF THE TOMECAT >  192.168.57.31
 
 tomcat_port= <PORT OF THE TOMCAT> 8080
 
+###Run the test
+
+To run solution 18 run the below command.
+
+```bash
+mvn clean verify --fae
+```
 
