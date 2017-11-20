@@ -33,8 +33,31 @@ mvn clean verify --fae
 ```
 
 #### Configurations
+1. Deploy a travelocity web app (travelocity.com.war) in tomcat.
+2. Take a copy of travelocity.com.war and rename it as Sol18travelocity.com.war
+3. Once the Sol18travelocity web app is deployed, replace the travelocity.properties with solution18/src/test/resources/travelocity.properties
+4. Edit the travelocity.properties with correct values as given in its comments.
 
-Go to solution18/src/test/resources/user.properties file and do the configurations as below.
+#URIs to skip SSOAgentFilter; comma separated values
+#Replace with travelocity app name
+SkipURIs=/Sol18travelocity.com/index.jsp
+
+
+#A unique identifier for this SAML 2.0 Service Provider application
+#Replace with Service provider entity ID
+SAML2.SPEntityId=Sol18travelocity.com
+
+#The URL of the SAML 2.0 Assertion Consumer
+# Replace with tomcat host and port
+SAML2.AssertionConsumerURL=http://192.168.57.31:8080/Sol18travelocity.com/home.jsp
+
+#The URL of the SAML 2.0 Identity Provider
+#Replace with IS host/port
+SAML2.IdPURL=https://is.dev.wso2.org/samlsso
+
+
+5. Restart the tomcat or web app.
+6. Go to solution18/src/test/resources/user.properties file and do the configurations as below.
 
 ###### IS Server
 host=< HOST NAME OF IS SERVER >
