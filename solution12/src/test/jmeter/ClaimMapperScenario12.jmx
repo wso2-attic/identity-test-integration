@@ -41,7 +41,7 @@
           </elementProp>
           <elementProp name="adminpassword" elementType="Argument">
             <stringProp name="Argument.name">adminpassword</stringProp>
-            <stringProp name="Argument.value">${__property(adminpassword)}	</stringProp>
+            <stringProp name="Argument.value">${__property(adminpassword)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="sp_name" elementType="Argument">
