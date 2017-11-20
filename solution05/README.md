@@ -1,16 +1,12 @@
-# Solution 18 - Multi-factor authentication for WSO2 Identity Server management console
+# Solution 05 - Multi-factor authentication for WSO2 Identity Server management console
 
 ## SOLUTION DESCRIPTION
 
 ### Problem:
 
--The business users need to access multiple service providers supporting multiple heterogeneous identity federation protocols.
+-Enable MFA for the WSO2 Identity Server Management Console.
 
--Each service provider needs to define an authorization policy at the identity provider, to decide whether a given user is eligible to log into the corresponding service provider.
-
--For example, one service provider may have a requirement that only the admin users will be able to login into the system after 6 PM.
-
--Another service provider may have a requirement that only the users from North America should be able to login into the system.
+-In other words, the Identity Server’s Management Console itself must be protected with MFA.
 
 
 ### Solution:
@@ -29,41 +25,43 @@ Products: WSO2 Identity Server 5.0.0+
 1. Go to solution05/src/test/resources/user.properties file and change the values of configurations as below.
 
 #### IS Server
-is_host=< HOST NAME OF IS SERVER >
-is_port=< PORT OF THE IS SERVER >
+is_host=< HOST NAME OF IS SERVER > <br />
+is_port=< PORT OF THE IS SERVER > <br />
 
 
 #### User Management
-adminusername=< ADMIN USER NAME >
-adminpassword=< ADMIN PASSWORD >
-adminCredentials=< BASE64 Encoded ADMIN USERNAME:ADMIN PASSWORD >
-rolename= < NEW ADMIN ROLE NAME >
-usernamePrefix=< NEW ADMIN USERNAME >
-noOfUsers= < NUMBER OF USERS TO CREATE >
+adminusername=< ADMIN USER NAME > <br />
+adminpassword=< ADMIN PASSWORD > <br />
+adminCredentials=< BASE64 Encoded ADMIN USERNAME:ADMIN PASSWORD > <br />
+rolename= < NEW ADMIN ROLE NAME > <br />
+usernamePrefix=< NEW ADMIN USERNAME > <br />
+noOfUsers= < NUMBER OF USERS TO CREATE > <br />
 
 
 #### IDP
-idp_name=< IDP NAME >
-idp_description=< IDP DESCRIPTION >
-fb_clientID= < CLIENT ID OF fACEBOOK APPLICATION >
-fb_clientSecret= < CLIENT SECRET OF fACEBOOK APPLICATION >
+idp_name=< IDP NAME > <br />
+idp_description=< IDP DESCRIPTION > <br />
+fb_clientID= < CLIENT ID OF fACEBOOK APPLICATION > <br />
+fb_clientSecret= < CLIENT SECRET OF fACEBOOK APPLICATION > <br />
+
 
 #### SP
-sp_name=< SP NAME >
-sp_description=< SP DESCRIPTION >
-carbonServer=< ISSUER NAME >
+sp_name=< SP NAME > <br />
+sp_description=< SP DESCRIPTION > <br />
+carbonServer=< ISSUER NAME > <br />
+
 
 #### TestConfigs
-fbserver=facebook.com
-redirect=commonauth
-FBLogin_Email= < EMAIL ADDRESS OF AUTHORIZED FB USER >
-FB_Username= < USERNAME OF AUTHORIZED FB USER >
-FB_Password= < PASSWORD OF AUTHORIZED FB USER >
+fbserver=facebook.com <br />
+redirect=commonauth <br />
+FBLogin_Email= < EMAIL ADDRESS OF AUTHORIZED FB USER > <br />
+FB_Username= < USERNAME OF AUTHORIZED FB USER > <br />
+FB_Password= < PASSWORD OF AUTHORIZED FB USER > <br />
 
 
 #### How to Run
 
-To thry out the solution 05, run the below command.
+To try out the solution 05, run the below command.
 
 ```bash
 mvn clean verify --fae
