@@ -28,13 +28,13 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="is_host" elementType="Argument">
             <stringProp name="Argument.name">is_host</stringProp>
-            <stringProp name="Argument.value">is.dev.wso2.org</stringProp>
+            <stringProp name="Argument.value">${__property(server_host)} </stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">is.dev.wso2.org</stringProp>
           </elementProp>
           <elementProp name="is_port" elementType="Argument">
             <stringProp name="Argument.name">is_port</stringProp>
-            <stringProp name="Argument.value">443</stringProp>
+            <stringProp name="Argument.value">${__property(server_port)} </stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">443</stringProp>
           </elementProp>
@@ -711,6 +711,7 @@ catch (Throwable ex) {
           </RandomVariableConfig>
           <hashTree/>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Update Group" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
@@ -720,7 +721,6 @@ catch (Throwable ex) {
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
             <stringProp name="HTTPSampler.port">${is_port}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -775,6 +775,7 @@ catch (Throwable ex) {
         </TransactionController>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Assign User to Group" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
@@ -792,7 +793,6 @@ catch (Throwable ex) {
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
             <stringProp name="HTTPSampler.port">${is_port}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
