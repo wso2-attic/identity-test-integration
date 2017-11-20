@@ -67,16 +67,16 @@ admin_username=< ADMIN USER NAME >
 
 admin_password=< ADMIN PASSWORD >
 
-###### SP
+##### SP
 sp1=Sol18travelocity.com
 
-###### Application Details
+##### Application Details
 
 travelocityApp= < TRAVELOCITY APPLICATION NAME > E.g., Sol18travelocity.com
 
 travelocityIssuer= < ISSUER OF THE TRAVELOCITY APP > E.g., Sol18travelocity.com
 
-###### Tomcat
+##### Tomcat
 tomcat_host=< HOSTNAME OF THE TOMECAT >  192.168.57.31
 
 #tomcat_host=<HOSTNAME OF THE TOMCAT >  localhost
