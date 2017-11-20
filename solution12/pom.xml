@@ -31,6 +31,9 @@
                 </executions>
                 <configuration>
                     <jmeterVersion>3.2</jmeterVersion>
+                   <testFilesIncluded>
+                        <jMeterTestFile>ClaimMapperScenario12.jmx</jMeterTestFile>
+                   </testFilesIncluded>
 <propertiesFilesDirectory>${basedir}/src/test/resources</propertiesFilesDirectory>
                 </configuration>
             </plugin>
