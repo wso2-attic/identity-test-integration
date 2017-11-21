@@ -13,105 +13,120 @@
     <hashTree>
       <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
         <collectionProp name="Arguments.arguments">
-          <elementProp name="username" elementType="Argument">
-            <stringProp name="Argument.name">username</stringProp>
-            <stringProp name="Argument.value">testuserGoogle</stringProp>
+          <elementProp name="Gusername" elementType="Argument">
+            <stringProp name="Argument.name">Gusername</stringProp>
+            <stringProp name="Argument.value">${__property(Gusername)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="password" elementType="Argument">
-            <stringProp name="Argument.name">password</stringProp>
-            <stringProp name="Argument.value">google123</stringProp>
+          <elementProp name="Gpassword" elementType="Argument">
+            <stringProp name="Argument.name">Gpassword</stringProp>
+            <stringProp name="Argument.value">${__property(Gpassword)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="host" elementType="Argument">
             <stringProp name="Argument.name">host</stringProp>
-            <stringProp name="Argument.value">is.dev.wso2.org</stringProp>
+            <stringProp name="Argument.value">${__property(server_host)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="port" elementType="Argument">
             <stringProp name="Argument.name">port</stringProp>
-            <stringProp name="Argument.value"></stringProp>
+            <stringProp name="Argument.value">${__property(server_port)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="spName" elementType="Argument">
+            <stringProp name="Argument.name">spName</stringProp>
+            <stringProp name="Argument.value">${__property(spDescription)} </stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="spDescription" elementType="Argument">
             <stringProp name="Argument.name">spDescription</stringProp>
-            <stringProp name="Argument.value">travelocity</stringProp>
+            <stringProp name="Argument.value">${__property(spDescription)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="tomcatHost" elementType="Argument">
             <stringProp name="Argument.name">tomcatHost</stringProp>
-            <stringProp name="Argument.value">192.168.57.31</stringProp>
+            <stringProp name="Argument.value">${__property(tomcatHost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="tomcatPort" elementType="Argument">
             <stringProp name="Argument.name">tomcatPort</stringProp>
-            <stringProp name="Argument.value">8080</stringProp>
+            <stringProp name="Argument.value">${__property(tomcatport)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="travelocityIssuer" elementType="Argument">
-            <stringProp name="Argument.name">travelocityIssuer</stringProp>
-            <stringProp name="Argument.value">sol2googletravelocity.com</stringProp>
+          <elementProp name="GtravelocityIssuer" elementType="Argument">
+            <stringProp name="Argument.name">GtravelocityIssuer</stringProp>
+            <stringProp name="Argument.value">${__property(GtravelocityIssuer)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="permission" elementType="Argument">
-            <stringProp name="Argument.name">permission</stringProp>
-            <stringProp name="Argument.value">/permission/admin</stringProp>
+          <elementProp name="Gpermission" elementType="Argument">
+            <stringProp name="Argument.name">Gpermission</stringProp>
+            <stringProp name="Argument.value">${__property(Gpermission)}</stringProp>
             <stringProp name="Argument.desc">Permission for role</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="role" elementType="Argument">
-            <stringProp name="Argument.name">role</stringProp>
-            <stringProp name="Argument.value">roleGoogle</stringProp>
+          <elementProp name="Grole" elementType="Argument">
+            <stringProp name="Argument.name">Grole</stringProp>
+            <stringProp name="Argument.value">${__property(Grole)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="adminUsername" elementType="Argument">
             <stringProp name="Argument.name">adminUsername</stringProp>
-            <stringProp name="Argument.value">admin</stringProp>
+            <stringProp name="Argument.value">${__property(adminUsername)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="adminPassword" elementType="Argument">
             <stringProp name="Argument.name">adminPassword</stringProp>
-            <stringProp name="Argument.value">admin</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="TravelocityAssertionConsumerURL" elementType="Argument">
-            <stringProp name="Argument.name">TravelocityAssertionConsumerURL</stringProp>
-            <stringProp name="Argument.value">http://192.168.57.31:8080/sol2googletravelocity.com/home.jsp</stringProp>
+            <stringProp name="Argument.value">${__property(adminPassword)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="GoogleIdentityProviderName" elementType="Argument">
             <stringProp name="Argument.name">GoogleIdentityProviderName</stringProp>
-            <stringProp name="Argument.value">solution2GoogleIDP1</stringProp>
+            <stringProp name="Argument.value">${__property(GoogleIdentityProviderName)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="Alias" elementType="Argument">
             <stringProp name="Argument.name">Alias</stringProp>
-            <stringProp name="Argument.value">https://is.dev.wso2.org:443/oauth2/token</stringProp>
+            <stringProp name="Argument.value">${__property(Alias)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="GoogleClientId" elementType="Argument">
             <stringProp name="Argument.name">GoogleClientId</stringProp>
-            <stringProp name="Argument.value">1034373765339-gdvfue2smv2s7vtipjebp1ucek7a5ges.apps.googleusercontent.com</stringProp>
+            <stringProp name="Argument.value">${__property(GoogleClientId)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="GoogleSecret" elementType="Argument">
             <stringProp name="Argument.name">GoogleSecret</stringProp>
-            <stringProp name="Argument.value">vpm0YMUljMQHntvKs2ZGJvDe</stringProp>
+            <stringProp name="Argument.value">${__property(GoogleSecret)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="GoogleCallbackUrl" elementType="Argument">
             <stringProp name="Argument.name">GoogleCallbackUrl</stringProp>
-            <stringProp name="Argument.value">https://is.dev.wso2.org:443/commonauth</stringProp>
+            <stringProp name="Argument.value">${__property(GoogleCallbackUrl)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="Googlescope" elementType="Argument">
             <stringProp name="Argument.name">Googlescope</stringProp>
-            <stringProp name="Argument.value">scope=openid email profile</stringProp>
+            <stringProp name="Argument.value">${__property(Googlescope)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="GoogleSPName" elementType="Argument">
             <stringProp name="Argument.name">GoogleSPName</stringProp>
-            <stringProp name="Argument.value">sol2travelocityAppGoogle1</stringProp>
+            <stringProp name="Argument.value">${__property(GoogleSPName)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="adminUsername" elementType="Argument">
+            <stringProp name="Argument.name">adminUsername</stringProp>
+            <stringProp name="Argument.value">${__property(adminUsername)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="adminPassword" elementType="Argument">
+            <stringProp name="Argument.name">adminPassword</stringProp>
+            <stringProp name="Argument.value">${__property(adminPassword)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="TravelocityAssertionConsumerURL" elementType="Argument">
+            <stringProp name="Argument.name">TravelocityAssertionConsumerURL</stringProp>
+            <stringProp name="Argument.value">http://192.168.57.31:8080/sol2travelocity.com/home.jsp</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -167,10 +182,10 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:addRole&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;xsd:roleName&gt;${role}&lt;/xsd:roleName&gt;&#xd;
+         &lt;xsd:roleName&gt;${Grole}&lt;/xsd:roleName&gt;&#xd;
            &lt;xsd:userList&gt;${adminUsername}&lt;/xsd:userList&gt;&#xd;
          &lt;!--Zero or more repetitions:--&gt;&#xd;
-         &lt;xsd:permissions&gt;${permission}&lt;/xsd:permissions&gt;&#xd;
+         &lt;xsd:permissions&gt;${Gpermission}&lt;/xsd:permissions&gt;&#xd;
               &lt;!--Optional:--&gt;&#xd;
          &lt;xsd:isSharedRole&gt;false&lt;/xsd:isSharedRole&gt;&#xd;
       &lt;/xsd:addRole&gt;&#xd;
@@ -219,10 +234,10 @@
    &lt;soapenv:Header/&gt;&#xd;
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:addUser&gt;&#xd;
-         &lt;xsd:userName&gt;${username}&lt;/xsd:userName&gt;&#xd;
-         &lt;xsd:password&gt;${password}&lt;/xsd:password&gt;&#xd;
+         &lt;xsd:userName&gt;${Gusername}&lt;/xsd:userName&gt;&#xd;
+         &lt;xsd:password&gt;${Gpassword}&lt;/xsd:password&gt;&#xd;
          &lt;!--Zero or more repetitions:--&gt;&#xd;
-         &lt;xsd:roles&gt;${role}&lt;/xsd:roles&gt;&#xd;
+         &lt;xsd:roles&gt;${Grole}&lt;/xsd:roles&gt;&#xd;
          &lt;!--Zero or more repetitions:--&gt;&#xd;
        &lt;xsd:profileName&gt;Default&lt;/xsd:profileName&gt;&#xd;
       &lt;/xsd:addUser&gt;&#xd;
@@ -272,8 +287,8 @@
             <collectionProp name="AuthManager.auth_list">
               <elementProp name="" elementType="Authorization">
                 <stringProp name="Authorization.url"></stringProp>
-                <stringProp name="Authorization.username">${username}</stringProp>
-                <stringProp name="Authorization.password">${password}</stringProp>
+                <stringProp name="Authorization.username">${Gusername}</stringProp>
+                <stringProp name="Authorization.password">${Gpassword}</stringProp>
                 <stringProp name="Authorization.domain"></stringProp>
                 <stringProp name="Authorization.realm"></stringProp>
               </elementProp>
@@ -313,7 +328,7 @@
             &lt;xsd:federationHub&gt;false&lt;/xsd:federationHub&gt;&#xd;
             &lt;xsd:identityProviderDescription&gt;Google Identity Provider&lt;/xsd:identityProviderDescription&gt;&#xd;
             &lt;xsd:identityProviderName&gt;${GoogleIdentityProviderName}&lt;/xsd:identityProviderName&gt;&#xd;
-	    &lt;xsd:alias&gt;${Alias}&lt;/xsd:alias&gt;&#xd;
+	       &lt;xsd:alias&gt;https://${host}:${port}/${Alias}&lt;/xsd:alias&gt;&#xd;
             &lt;xsd:primary&gt;true&lt;/xsd:primary&gt;&#xd;
             &lt;xsd:defaultAuthenticatorConfig&gt;&#xd;
             &lt;xsd:displayName&gt;google&lt;/xsd:displayName&gt;&#xd;
@@ -333,7 +348,7 @@
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;callbackUrl&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;${GoogleCallbackUrl}&lt;/xsd:value&gt;&#xd;
+                  &lt;xsd:value&gt;https://${host}:${port}/${GoogleCallbackUrl}&lt;/xsd:value&gt;&#xd;
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;scope&lt;/xsd:name&gt;&#xd;
@@ -405,10 +420,10 @@
    &lt;soapenv:Header/&gt;&#xd;
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:addRPServiceProvider&gt;      &#xd;
-         &lt;xsd:spDto&gt;        &#xd;
-            &lt;xsd1:assertionConsumerUrl&gt;${TravelocityAssertionConsumerURL}&lt;/xsd1:assertionConsumerUrl&gt;&#xd;
-            &lt;xsd1:assertionConsumerUrls&gt;${TravelocityAssertionConsumerURL}&lt;/xsd1:assertionConsumerUrls&gt;&#xd;
-            &lt;xsd1:defaultAssertionConsumerUrl&gt;${TravelocityAssertionConsumerURL}&lt;/xsd1:defaultAssertionConsumerUrl&gt;&#xd;
+         &lt;xsd:spDto&gt;&#xd;
+            &lt;xsd1:assertionConsumerUrl&gt;http://${tomcatHost}:${tomcatPort}/${GtravelocityIssuer}/home.jsp&lt;/xsd1:assertionConsumerUrl&gt;&#xd;
+            &lt;xsd1:assertionConsumerUrls&gt;http://${tomcatHost}:${tomcatPort}/${GtravelocityIssuer}/home.jsp&lt;/xsd1:assertionConsumerUrls&gt;&#xd;
+            &lt;xsd1:defaultAssertionConsumerUrl&gt;http://${tomcatHost}:${tomcatPort}/${GtravelocityIssuer}/home.jsp&lt;/xsd1:defaultAssertionConsumerUrl&gt;&#xd;
             &lt;xsd1:digestAlgorithmURI&gt;http://www.w3.org/2000/09/xmldsig#sha1&lt;/xsd1:digestAlgorithmURI&gt;&#xd;
             &lt;xsd1:doSignAssertions&gt;true&lt;/xsd1:doSignAssertions&gt;&#xd;
             &lt;xsd1:doSignResponse&gt;true&lt;/xsd1:doSignResponse&gt;&#xd;
@@ -416,7 +431,7 @@
             &lt;xsd1:doValidateSignatureInRequests&gt;false&lt;/xsd1:doValidateSignatureInRequests&gt;&#xd;
             &lt;xsd1:enableAttributeProfile&gt;true&lt;/xsd1:enableAttributeProfile&gt;&#xd;
             &lt;xsd1:enableAttributesByDefault&gt;true&lt;/xsd1:enableAttributesByDefault&gt;&#xd;
-             &lt;xsd1:issuer&gt;${travelocityIssuer}&lt;/xsd1:issuer&gt;           &#xd;
+             &lt;xsd1:issuer&gt;${GtravelocityIssuer}&lt;/xsd1:issuer&gt;           &#xd;
             &lt;xsd1:signingAlgorithmURI&gt;http://www.w3.org/2000/09/xmldsig#rsa-sha1&lt;/xsd1:signingAlgorithmURI&gt;&#xd;
          &lt;/xsd:spDto&gt;&#xd;
       &lt;/xsd:addRPServiceProvider&gt;&#xd;
@@ -665,7 +680,7 @@
             &lt;xsd1:description&gt;${spDescription}&lt;/xsd1:description&gt;&#xd;
             &lt;xsd1:inboundAuthenticationConfig&gt;&#xd;
                &lt;xsd1:inboundAuthenticationRequestConfigs&gt;&#xd;
-                  &lt;xsd1:inboundAuthKey&gt;${travelocityIssuer}&lt;/xsd1:inboundAuthKey&gt;&#xd;
+                  &lt;xsd1:inboundAuthKey&gt;${GtravelocityIssuer}&lt;/xsd1:inboundAuthKey&gt;&#xd;
                   &lt;xsd1:inboundAuthType&gt;samlsso&lt;/xsd1:inboundAuthType&gt;&#xd;
                   &lt;xsd1:inboundConfigType&gt;standardAPP&lt;/xsd1:inboundConfigType&gt;&#xd;
                   &lt;xsd1:properties&gt;&#xd;
@@ -682,13 +697,13 @@
                &lt;/xsd1:inboundAuthenticationRequestConfigs&gt;&#xd;
                &lt;xsd1:inboundAuthenticationRequestConfigs&gt;&#xd;
                   &lt;xsd1:friendlyName xsd:nil=&quot;true&quot;/&gt;&#xd;
-                  &lt;xsd1:inboundAuthKey&gt;${travelocityIssuer}&lt;/xsd1:inboundAuthKey&gt;&#xd;
+                  &lt;xsd1:inboundAuthKey&gt;${GtravelocityIssuer}&lt;/xsd1:inboundAuthKey&gt;&#xd;
                   &lt;xsd1:inboundAuthType&gt;openid&lt;/xsd1:inboundAuthType&gt;&#xd;
                   &lt;xsd1:inboundConfigType&gt;standardAPP&lt;/xsd1:inboundConfigType&gt;&#xd;
                &lt;/xsd1:inboundAuthenticationRequestConfigs&gt;&#xd;
                &lt;xsd1:inboundAuthenticationRequestConfigs&gt;&#xd;
                   &lt;xsd1:friendlyName xsd:nil=&quot;true&quot;/&gt;&#xd;
-                  &lt;xsd1:inboundAuthKey&gt;${travelocityIssuer}&lt;/xsd1:inboundAuthKey&gt;&#xd;
+                  &lt;xsd1:inboundAuthKey&gt;${GtravelocityIssuer}&lt;/xsd1:inboundAuthKey&gt;&#xd;
                   &lt;xsd1:inboundAuthType&gt;passivests&lt;/xsd1:inboundAuthType&gt;&#xd;
                   &lt;xsd1:inboundConfigType&gt;standardAPP&lt;/xsd1:inboundConfigType&gt;&#xd;
                &lt;/xsd1:inboundAuthenticationRequestConfigs&gt;&#xd;
@@ -717,7 +732,7 @@
             &lt;/xsd1:outboundProvisioningConfig&gt;&#xd;
             &lt;xsd1:owner&gt;&#xd;
             &#xd;
-               &lt;xsd1:userName&gt;${username}&lt;/xsd1:userName&gt;&#xd;
+               &lt;xsd1:userName&gt;${Gusername}&lt;/xsd1:userName&gt;&#xd;
                       &lt;/xsd1:owner&gt;&#xd;
             &lt;xsd1:permissionAndRoleConfig&gt;&#xd;
                &lt;xsd1:idpRoles&gt;myapp1&lt;/xsd1:idpRoles&gt;&#xd;
@@ -807,7 +822,7 @@
           <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">${travelocityIssuer}/samlsso</stringProp>
+          <stringProp name="HTTPSampler.path">${GtravelocityIssuer}/samlsso</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
@@ -827,7 +842,7 @@
           <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">${travelocityIssuer}/samlsso?SAML2.HTTPBinding=HTTP-Redirect</stringProp>
+          <stringProp name="HTTPSampler.path">${GtravelocityIssuer}/samlsso?SAML2.HTTPBinding=HTTP-Redirect</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -884,8 +899,8 @@
             <collectionProp name="AuthManager.auth_list">
               <elementProp name="" elementType="Authorization">
                 <stringProp name="Authorization.url"></stringProp>
-                <stringProp name="Authorization.username">${username}</stringProp>
-                <stringProp name="Authorization.password">${password}</stringProp>
+                <stringProp name="Authorization.username">${Gusername}</stringProp>
+                <stringProp name="Authorization.password">${Gpassword}</stringProp>
                 <stringProp name="Authorization.domain"></stringProp>
                 <stringProp name="Authorization.realm"></stringProp>
               </elementProp>
@@ -1051,7 +1066,7 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:deleteUser&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;xsd:userName&gt;${username}&lt;/xsd:userName&gt;&#xd;
+         &lt;xsd:userName&gt;${Gusername}&lt;/xsd:userName&gt;&#xd;
       &lt;/xsd:deleteUser&gt;&#xd;
    &lt;/soapenv:Body&gt;&#xd;
 &lt;/soapenv:Envelope&gt;</stringProp>
@@ -1099,7 +1114,7 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:deleteRole&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;xsd:roleName&gt;${role}&lt;/xsd:roleName&gt;&#xd;
+         &lt;xsd:roleName&gt;${Grole}&lt;/xsd:roleName&gt;&#xd;
       &lt;/xsd:deleteRole&gt;&#xd;
    &lt;/soapenv:Body&gt;&#xd;
 &lt;/soapenv:Envelope&gt;</stringProp>

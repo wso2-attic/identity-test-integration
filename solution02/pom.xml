@@ -31,6 +31,14 @@
                 </executions>
                 <configuration>
                     <jmeterVersion>3.2</jmeterVersion>
+                    <testFilesIncluded>
+                        <jMeterTestFile>01-Soulution-02-Facebook.jmx</jMeterTestFile>
+                        <jMeterTestFile>02-Soulution-02-Google.jmx</jMeterTestFile>
+                    </testFilesIncluded>
+                    <propertiesJMeter>
+                        <log_level.jmeter>DEBUG</log_level.jmeter>
+                    </propertiesJMeter>
+                    <propertiesFilesDirectory>${basedir}/src/test/resources</propertiesFilesDirectory>
                 </configuration>
             </plugin>
         </plugins>
