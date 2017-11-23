@@ -31,6 +31,10 @@
                 </executions>
                 <configuration>
                     <jmeterVersion>3.2</jmeterVersion>
+                    <propertiesJMeter>
+                        <log_level.jmeter>DEBUG</log_level.jmeter>
+                    </propertiesJMeter>
+                    <propertiesFilesDirectory>${basedir}/src/test/resources</propertiesFilesDirectory>
                 </configuration>
             </plugin>
         </plugins>
