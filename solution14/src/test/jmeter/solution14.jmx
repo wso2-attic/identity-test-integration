@@ -15,82 +15,92 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="is_host" elementType="Argument">
             <stringProp name="Argument.name">is_host</stringProp>
-            <stringProp name="Argument.value">is.dev.wso2.org</stringProp>
+            <stringProp name="Argument.value">${__property(is_host)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">is.dev.wso2.org</stringProp>
           </elementProp>
           <elementProp name="is_port" elementType="Argument">
             <stringProp name="Argument.name">is_port</stringProp>
-            <stringProp name="Argument.value">443</stringProp>
+            <stringProp name="Argument.value">${__property(is_port)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">443</stringProp>
           </elementProp>
           <elementProp name="adminCredentials" elementType="Argument">
             <stringProp name="Argument.name">adminCredentials</stringProp>
-            <stringProp name="Argument.value">YWRtaW46YWRtaW4=</stringProp>
+            <stringProp name="Argument.value">${__property(adminCredentials)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">YWRtaW46YWRtaW4=</stringProp>
           </elementProp>
           <elementProp name="adminusername" elementType="Argument">
             <stringProp name="Argument.name">adminusername</stringProp>
-            <stringProp name="Argument.value">admin</stringProp>
+            <stringProp name="Argument.value">${__property(adminUsername)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">admin</stringProp>
           </elementProp>
           <elementProp name="adminpassword" elementType="Argument">
             <stringProp name="Argument.name">adminpassword</stringProp>
-            <stringProp name="Argument.value">admin</stringProp>
+            <stringProp name="Argument.value">${__property(adminPassword)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">admin</stringProp>
           </elementProp>
           <elementProp name="sp_name" elementType="Argument">
             <stringProp name="Argument.name">sp_name</stringProp>
-            <stringProp name="Argument.value">sol14travelocity.com</stringProp>
+            <stringProp name="Argument.value">${__property(spName)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">sol14travelocity</stringProp>
+            <stringProp name="Argument.desc">sol14travelocity.com</stringProp>
           </elementProp>
           <elementProp name="sp_description" elementType="Argument">
             <stringProp name="Argument.name">sp_description</stringProp>
-            <stringProp name="Argument.value">This is the password expiry SP for Scenario 14</stringProp>
+            <stringProp name="Argument.value">${__property(spDescription)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">This is the password expiry SP for Scenario 14</stringProp>
           </elementProp>
           <elementProp name="travelocityAppName" elementType="Argument">
             <stringProp name="Argument.name">travelocityAppName</stringProp>
-            <stringProp name="Argument.value">sol14travelocity.com</stringProp>
+            <stringProp name="Argument.value">${__property(travelocityAppName)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">// Rename as per the travelocity app</stringProp>
+            <stringProp name="Argument.desc">sol14travelocity.com</stringProp>
           </elementProp>
           <elementProp name="AssertionConsumerURL" elementType="Argument">
             <stringProp name="Argument.name">AssertionConsumerURL</stringProp>
-            <stringProp name="Argument.value">http://192.168.57.31:8080/sol14travelocity.com/home.jsp</stringProp>
+            <stringProp name="Argument.value">${__property(AssertionConsumerURL)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">// Rename to run locally</stringProp>
+            <stringProp name="Argument.desc">http://192.168.57.31:8080/sol14travelocity.com/home.jsp</stringProp>
           </elementProp>
           <elementProp name="rolename" elementType="Argument">
             <stringProp name="Argument.name">rolename</stringProp>
-            <stringProp name="Argument.value">sol14role</stringProp>
+            <stringProp name="Argument.value">${__property(rolename)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">sol14role</stringProp>
           </elementProp>
           <elementProp name="userNamePrefix" elementType="Argument">
             <stringProp name="Argument.name">userNamePrefix</stringProp>
-            <stringProp name="Argument.value">sol14user</stringProp>
+            <stringProp name="Argument.value">${__property(userNamePrefix)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">sol14user</stringProp>
           </elementProp>
           <elementProp name="userPassword" elementType="Argument">
             <stringProp name="Argument.name">userPassword</stringProp>
-            <stringProp name="Argument.value">123123</stringProp>
+            <stringProp name="Argument.value">${__property(userPassword)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">123123</stringProp>
           </elementProp>
           <elementProp name="travelocityURL" elementType="Argument">
             <stringProp name="Argument.name">travelocityURL</stringProp>
-            <stringProp name="Argument.value">192.168.57.31</stringProp>
+            <stringProp name="Argument.value">${__property(travelocityURL)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">// Check and rename</stringProp>
+            <stringProp name="Argument.desc">192.168.57.31</stringProp>
           </elementProp>
           <elementProp name="newPassword" elementType="Argument">
             <stringProp name="Argument.name">newPassword</stringProp>
-            <stringProp name="Argument.value">321321</stringProp>
+            <stringProp name="Argument.value">${__property(newPassword)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">321321</stringProp>
           </elementProp>
           <elementProp name="permission" elementType="Argument">
             <stringProp name="Argument.name">permission</stringProp>
-            <stringProp name="Argument.value">/permission/admin</stringProp>
-            <stringProp name="Argument.desc">Permission for role</stringProp>
+            <stringProp name="Argument.value">${__property(permission)}</stringProp>
+            <stringProp name="Argument.desc">/permission/admin</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
