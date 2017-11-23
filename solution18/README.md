@@ -28,10 +28,13 @@ Products: WSO2 Identity Server 5.0.0+
 
 
 ### Configurations
-1. Deploy a travelocity web app (travelocity.com.war) in tomcat.
-2. Take a copy of travelocity.com.war and rename it as Sol18travelocity.com.war
-3. Once the Sol18travelocity web app is deployed, replace the travelocity.properties with solution18/src/test/resources/travelocity.properties
-4. Edit the travelocity.properties with correct values as given in its comments.
+1. Follow the steps in this [1] and get a checkout of travelocity sample and build it
+svn co http://svn.wso2.org/repos/wso2/carbon/platform/branches/turing/products/is/5.0.0/modules/samples/sso/
+[1]https://docs.wso2.com/display/IS500/Configuring+Single+Sign-On+with+SAML+2.0#ConfiguringSingleSign-OnwithSAML2.0-Prerequisites
+2.  Deploy a travelocity web app (travelocity.com.war) in tomcat.
+3. Take a copy of travelocity.com.war and rename it as Sol18travelocity.com.war if you are goin gto customise it as Sol18travelocity.com.war. Otherwise you can continue with step 5.
+4. Once the Sol18travelocity web app is deployed, replace the travelocity.properties with solution18/src/test/resources/travelocity.properties
+5. Edit the travelocity.properties with correct values as given in its comments.
 
 #URIs to skip SSOAgentFilter; comma separated values
 #Replace with travelocity app name
