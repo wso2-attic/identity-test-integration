@@ -15,27 +15,133 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="username" elementType="Argument">
             <stringProp name="Argument.name">username</stringProp>
-            <stringProp name="Argument.value">TestFBuser25</stringProp>
+            <stringProp name="Argument.value">${__property(username)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="password" elementType="Argument">
             <stringProp name="Argument.name">password</stringProp>
-            <stringProp name="Argument.value">test12345#</stringProp>
+            <stringProp name="Argument.value">${__property(password)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="FbIdentityProviderName" elementType="Argument">
             <stringProp name="Argument.name">FbIdentityProviderName</stringProp>
-            <stringProp name="Argument.value">IDPfacebook21test3</stringProp>
+            <stringProp name="Argument.value">${__property(FbIdentityProviderName)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="FbClientId" elementType="Argument">
             <stringProp name="Argument.name">FbClientId</stringProp>
-            <stringProp name="Argument.value">486523028382606</stringProp>
+            <stringProp name="Argument.value">${__property(FbClientId)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="FbSecret" elementType="Argument">
             <stringProp name="Argument.name">FbSecret</stringProp>
-            <stringProp name="Argument.value">05ca26f98f4a542e139d82153d90920a</stringProp>
+            <stringProp name="Argument.value">${__property(FbSecret)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="FbCallbackUrl" elementType="Argument">
+            <stringProp name="Argument.name">FbCallbackUrl</stringProp>
+            <stringProp name="Argument.value">https://${__property(server_host)}:${__property(serve43r_port)}/commonauth</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="FbScope" elementType="Argument">
+            <stringProp name="Argument.name">FbScope</stringProp>
+            <stringProp name="Argument.value">${__property(FbScope)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="FbUserInfoFields" elementType="Argument">
+            <stringProp name="Argument.name">FbUserInfoFields</stringProp>
+            <stringProp name="Argument.value">${__property(FbUserInfoFields)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="server_host" elementType="Argument">
+            <stringProp name="Argument.name">server_host</stringProp>
+            <stringProp name="Argument.value">${__property(server_host)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="server_port" elementType="Argument">
+            <stringProp name="Argument.name">server_port</stringProp>
+            <stringProp name="Argument.value">${__property(server_port)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="spName" elementType="Argument">
+            <stringProp name="Argument.name">spName</stringProp>
+            <stringProp name="Argument.value">${__property(spName)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="spDescription" elementType="Argument">
+            <stringProp name="Argument.name">spDescription</stringProp>
+            <stringProp name="Argument.value">${__property(spDescription)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="tomcat_host" elementType="Argument">
+            <stringProp name="Argument.name">tomcat_host</stringProp>
+            <stringProp name="Argument.value">${__property(tomcat_host)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="tomcatPort" elementType="Argument">
+            <stringProp name="Argument.name">tomcatPort</stringProp>
+            <stringProp name="Argument.value">${__property(tomcatPort)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="travelocityIssuer" elementType="Argument">
+            <stringProp name="Argument.name">travelocityIssuer</stringProp>
+            <stringProp name="Argument.value">${__property(travelocityIssuer)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="permission" elementType="Argument">
+            <stringProp name="Argument.name">permission</stringProp>
+            <stringProp name="Argument.value">${__property(permission)}</stringProp>
+            <stringProp name="Argument.desc">Permission for role</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="role" elementType="Argument">
+            <stringProp name="Argument.name">role</stringProp>
+            <stringProp name="Argument.value">${__property(role)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="admin_username" elementType="Argument">
+            <stringProp name="Argument.name">admin_username</stringProp>
+            <stringProp name="Argument.value">${__property(admin_username)</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="admin_password" elementType="Argument">
+            <stringProp name="Argument.name">admin_password</stringProp>
+            <stringProp name="Argument.value">${__property(admin_password)</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="admin_credentials" elementType="Argument">
+            <stringProp name="Argument.name">admin_credentials</stringProp>
+            <stringProp name="Argument.value">${__property(admin_credentials)</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="false">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="username" elementType="Argument">
+            <stringProp name="Argument.name">username</stringProp>
+            <stringProp name="Argument.value">${__property(username)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="password" elementType="Argument">
+            <stringProp name="Argument.name">password</stringProp>
+            <stringProp name="Argument.value">${__property(password)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="FbIdentityProviderName" elementType="Argument">
+            <stringProp name="Argument.name">FbIdentityProviderName</stringProp>
+            <stringProp name="Argument.value">${__property(FbIdentityProviderName)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="FbClientId" elementType="Argument">
+            <stringProp name="Argument.name">FbClientId</stringProp>
+            <stringProp name="Argument.value">${__property(FbClientId)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="FbSecret" elementType="Argument">
+            <stringProp name="Argument.name">FbSecret</stringProp>
+            <stringProp name="Argument.value">${__property(FbSecret)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="FbCallbackUrl" elementType="Argument">
