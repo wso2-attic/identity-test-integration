@@ -19,13 +19,13 @@
       <hashTree/>
       <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Variables" enabled="true">
         <collectionProp name="Arguments.arguments">
-          <elementProp name="server_host" elementType="Argument">
-            <stringProp name="Argument.name">server_host</stringProp>
+          <elementProp name="is_host" elementType="Argument">
+            <stringProp name="Argument.name">is_host</stringProp>
             <stringProp name="Argument.value">${__property(server_host)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="server_port" elementType="Argument">
-            <stringProp name="Argument.name">server_port</stringProp>
+          <elementProp name="is_port" elementType="Argument">
+            <stringProp name="Argument.name">is_port</stringProp>
             <stringProp name="Argument.value">${__property(server_port)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
@@ -82,11 +82,6 @@
           <elementProp name="fb_clientSecret" elementType="Argument">
             <stringProp name="Argument.name">fb_clientSecret</stringProp>
             <stringProp name="Argument.value">${__property(fb_clientSecret)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="FbCallbackUrl" elementType="Argument">
-            <stringProp name="Argument.name">FbCallbackUrl</stringProp>
-            <stringProp name="Argument.value">${__property(FbCallbackUrl)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="FbScope" elementType="Argument">
