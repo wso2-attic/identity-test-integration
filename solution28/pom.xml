@@ -33,7 +33,7 @@
                     <jmeterVersion>3.2</jmeterVersion>
                     <testFilesIncluded>
                         <jMeterTestFile>HomeRelam.jmx</jMeterTestFile>
-                        <jMeterTestFile>HomeRelamNegative.jmx</jMeterTestFile>
+                        <!--jMeterTestFile>HomeRelamNegative.jmx</jMeterTestFile-->
                     </testFilesIncluded>
                     <propertiesJMeter>
                         <log_level.jmeter>DEBUG</log_level.jmeter>
