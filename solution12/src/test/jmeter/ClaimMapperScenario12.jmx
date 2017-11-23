@@ -332,7 +332,7 @@
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;callBackUrl&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;${FbCallbackUrl}&lt;/xsd:value&gt;&#xd;
+                  &lt;xsd:value&gt;https://${server_host}:${server_port}/commonauth&lt;/xsd:value&gt;&#xd;
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;UserInfoFields&lt;/xsd:name&gt;&#xd;
