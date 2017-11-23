@@ -69,14 +69,14 @@
             <stringProp name="Argument.value">${__property(Grole)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="adminUsername" elementType="Argument">
-            <stringProp name="Argument.name">adminUsername</stringProp>
-            <stringProp name="Argument.value">${__property(adminUsername)}</stringProp>
+          <elementProp name="admin_username" elementType="Argument">
+            <stringProp name="Argument.name">admin_username</stringProp>
+            <stringProp name="Argument.value">${__property(admin_username)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="adminPassword" elementType="Argument">
-            <stringProp name="Argument.name">adminPassword</stringProp>
-            <stringProp name="Argument.value">${__property(adminPassword)}</stringProp>
+          <elementProp name="admin_password" elementType="Argument">
+            <stringProp name="Argument.name">admin_password</stringProp>
+            <stringProp name="Argument.value">${__property(admin_password)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="GoogleIdentityProviderName" elementType="Argument">
@@ -114,19 +114,14 @@
             <stringProp name="Argument.value">${__property(GoogleSPName)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="adminUsername" elementType="Argument">
-            <stringProp name="Argument.name">adminUsername</stringProp>
-            <stringProp name="Argument.value">${__property(adminUsername)}</stringProp>
+          <elementProp name="admin_username" elementType="Argument">
+            <stringProp name="Argument.name">admin_username</stringProp>
+            <stringProp name="Argument.value">${__property(admin_username)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="adminPassword" elementType="Argument">
-            <stringProp name="Argument.name">adminPassword</stringProp>
-            <stringProp name="Argument.value">${__property(adminPassword)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="TravelocityAssertionConsumerURL" elementType="Argument">
-            <stringProp name="Argument.name">TravelocityAssertionConsumerURL</stringProp>
-            <stringProp name="Argument.value">http://192.168.57.31:8080/sol2travelocity.com/home.jsp</stringProp>
+          <elementProp name="admin_password" elementType="Argument">
+            <stringProp name="Argument.name">admin_password</stringProp>
+            <stringProp name="Argument.value">${__property(admin_password)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -153,7 +148,7 @@
         <hashTree/>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="setUp - UserCreation" enabled="true"/>
         <hashTree>
-          <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="false">
+          <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
             <collectionProp name="CookieManager.cookies"/>
             <boolProp name="CookieManager.clearEachIteration">true</boolProp>
             <stringProp name="CookieManager.implementation">org.apache.jmeter.protocol.http.control.HC4CookieHandler</stringProp>
@@ -163,8 +158,8 @@
             <collectionProp name="AuthManager.auth_list">
               <elementProp name="" elementType="Authorization">
                 <stringProp name="Authorization.url"></stringProp>
-                <stringProp name="Authorization.username">${adminUsername}</stringProp>
-                <stringProp name="Authorization.password">${adminPassword}</stringProp>
+                <stringProp name="Authorization.username">${admin_username}</stringProp>
+                <stringProp name="Authorization.password">${admin_password}</stringProp>
                 <stringProp name="Authorization.domain"></stringProp>
                 <stringProp name="Authorization.realm"></stringProp>
               </elementProp>
@@ -183,7 +178,7 @@
       &lt;xsd:addRole&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
          &lt;xsd:roleName&gt;${Grole}&lt;/xsd:roleName&gt;&#xd;
-           &lt;xsd:userList&gt;${adminUsername}&lt;/xsd:userList&gt;&#xd;
+           &lt;xsd:userList&gt;${admin_username}&lt;/xsd:userList&gt;&#xd;
          &lt;!--Zero or more repetitions:--&gt;&#xd;
          &lt;xsd:permissions&gt;${Gpermission}&lt;/xsd:permissions&gt;&#xd;
               &lt;!--Optional:--&gt;&#xd;
@@ -1038,8 +1033,8 @@
             <collectionProp name="AuthManager.auth_list">
               <elementProp name="" elementType="Authorization">
                 <stringProp name="Authorization.url"></stringProp>
-                <stringProp name="Authorization.username">${adminUsername}</stringProp>
-                <stringProp name="Authorization.password">${adminPassword}</stringProp>
+                <stringProp name="Authorization.username">${admin_username}</stringProp>
+                <stringProp name="Authorization.password">${admin_password}</stringProp>
                 <stringProp name="Authorization.domain"></stringProp>
                 <stringProp name="Authorization.realm"></stringProp>
               </elementProp>
