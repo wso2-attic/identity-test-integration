@@ -22,59 +22,57 @@ Following scenarios are covered through this automation script.
 <HideAdminServiceWSDLs> element to false in the <PRODUCT_HOME>/repository/conf/carbon.xml file.
 ```
 ##### Configurations
-1. Follow the steps in this [1] and get a checkout of travelocity sample and build
+1. Follow the steps in this [1] and get a checkout of travelocity sample and build 
     [1]https://docs.wso2.com/display/IS500/Configuring+Single+Sign-On+with+SAML+2.0#ConfiguringSingleSign-OnwithSAML2.0-Prerequisites
 2. Deploy a travelocity web app (travelocity.com.war) in tomcat.
 3.Change the configurations according to the environment in *user.properties* under *solution02*. (solution02/src/test/resources/user.properties)
 ```sh
 #server
-server_host=<HOST NAME OF IS SERVER >
-server_port=443
-admin_username=admin
-admin_password=admin
-
-# User Management
-adminUsername=admin
-adminPassword=admin
-
-# IDP
-idp_name=solution2FacebookIDP1
-idp_description=solution2FacebookIDP1
-GoogleIdentityProviderName=solution2GoogleIDP1
-GoogleIdentityProvider_description=solution2GoogleIDP1
+server_host=<Host name of IS server>
+server_port=<Port name of IS server>
 
 # Tomcat
 tomcat_host=192.168.57.31
 tomcat_port=8080
 
+# User Management
+adminUsername=<Admin username of IS server>
+adminPassword=<Admin password of IS server>
+
+# IDP
+FbIdentityProviderName=<Facebook IDP name>
+FbIdentityProvider_description=<Facebook IDP description>
+GoogleIdentityProviderName=<Google IDP name>
+GoogleIdentityProvider_description=<Google IDP description>
+
 # SP
-spName=travelocity.com
-spDescription=travelocity
-travelocityIssuer=travelocity.com
-GoogleSPName=travelocity.com
-GtravelocityIssuer=travelocity.com
-Gpermission=/permission/admin
-Grole=roleFacebook
-permission=/permission/admin
+spName=<Facebook SP name>
+spDescription=<Facebook SP description>
+travelocityIssuer=<Facebook Issuer>
+GoogleSPName=<Google SP name>
+GtravelocityIssuer=<Google Issuer>
 
 #Facebook
-Fusername=testuserFacebook
-Fpassword=facebook123
-FbIdentityProviderName=FacebookIdpsolution2
-FbClientId=1523286427713552
-FbSecret=895da2dfbb8d5437de8fcbc8f7c21e93
-FbCallbackUrl=https://is.dev.wso2.org:443/commonauth
-FbScope=email
-FbUserInfoFields=id,name,gender,email,first_name,last_name,age_range,link
+Fusername=<Username for user creation for Facebook> 
+Fpassword=<Password for user creation for Facebook> 
+role=<Role name for role creation for Facebook>
+permission=<Permission for role>
+FbClientId=<Username from the Facebook app>
+FbSecret=<Password from the Facebook app>
+FbCallbackUrl=<URL to which the browser should be redirected after the authentication is successful>
+FbScope=<Restrict the claims sent to the Identity Serve>
+FbUserInfoFields=<list of claims that you need to receive>
 
 #Google
-Gusername=testuserGoogle
-Gpassword=google123
+Gusername=<Username for user creation for Google> 
+Gpassword=<Password for user creation for Google> 
+Grole=<Role name for role creation for Google>
+Gpermission=<Permission for role>
+GoogleClientId=<Username from the Google app>
+GoogleSecret=<Password from the Google app>
+GoogleCallbackUrl=<URL to which the browser should be redirected after the authentication is successful>
+Googlescope	scope=<Restrict the claims sent to the Identity Serve>
 Alias=oauth2/token
-GoogleClientId=1034373765339-gdvfue2smv2s7vtipjebp1ucek7a5ges.apps.googleusercontent.com
-GoogleSecret=vpm0YMUljMQHntvKs2ZGJvDe
-GoogleCallbackUrl=commonauth
-Googlescope	scope=openid email profile
 ```
 ##### Run the test
 To run solution 02 run the below command.
