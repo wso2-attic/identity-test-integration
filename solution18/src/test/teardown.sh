@@ -1,6 +1,6 @@
 #these params need to be taken out
 #tomcat properties
-tomcat_host="ec2-54-152-226-196.compute-1.amazonaws.com"
+tomcat_host=$tomcat_host
 tomcat_port=8080
 tomcat_username=scriptuser
 tomcat_password=scriptuser
