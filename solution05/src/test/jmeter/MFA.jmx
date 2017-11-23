@@ -15,117 +15,117 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="is_host" elementType="Argument">
             <stringProp name="Argument.name">is_host</stringProp>
-            <stringProp name="Argument.value">is.dev.wso2.org</stringProp>
+            <stringProp name="Argument.value">${__property(server_host)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="is_port" elementType="Argument">
             <stringProp name="Argument.name">is_port</stringProp>
-            <stringProp name="Argument.value">443</stringProp>
+            <stringProp name="Argument.value">${__property(server_port)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="adminCredentials" elementType="Argument">
             <stringProp name="Argument.name">adminCredentials</stringProp>
-            <stringProp name="Argument.value">YWRtaW46YWRtaW4=</stringProp>
+            <stringProp name="Argument.value">${__property(adminCredentials)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="adminusername" elementType="Argument">
             <stringProp name="Argument.name">adminusername</stringProp>
-            <stringProp name="Argument.value">admin</stringProp>
+            <stringProp name="Argument.value">${__property(adminusername)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="adminpassword" elementType="Argument">
             <stringProp name="Argument.name">adminpassword</stringProp>
-            <stringProp name="Argument.value">admin</stringProp>
+            <stringProp name="Argument.value">${__property(adminpassword)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="sp_name" elementType="Argument">
             <stringProp name="Argument.name">sp_name</stringProp>
-            <stringProp name="Argument.value">Sol5MgtConsole</stringProp>
+            <stringProp name="Argument.value">${__property(sp_name)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="sp_description" elementType="Argument">
             <stringProp name="Argument.name">sp_description</stringProp>
-            <stringProp name="Argument.value">This is the SP that will use to login to management console itself</stringProp>
+            <stringProp name="Argument.value">${__property(sp_description)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="carbonServer" elementType="Argument">
             <stringProp name="Argument.name">carbonServer</stringProp>
-            <stringProp name="Argument.value">carbonServer</stringProp>
+            <stringProp name="Argument.value">${__property(carbonServer)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="idp_name" elementType="Argument">
             <stringProp name="Argument.name">idp_name</stringProp>
-            <stringProp name="Argument.value">sol5_facebook</stringProp>
+            <stringProp name="Argument.value">${__property(idp_name)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="idp_description" elementType="Argument">
             <stringProp name="Argument.name">idp_description</stringProp>
-            <stringProp name="Argument.value">This is the Facebook federated IDP</stringProp>
+            <stringProp name="Argument.value">${__property(idp_description)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="fb_clientID" elementType="Argument">
             <stringProp name="Argument.name">fb_clientID</stringProp>
-            <stringProp name="Argument.value">2064260000461890</stringProp>
+            <stringProp name="Argument.value">${__property(fb_clientID)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="fb_clientSecret" elementType="Argument">
             <stringProp name="Argument.name">fb_clientSecret</stringProp>
-            <stringProp name="Argument.value">516241437cf3d9067dad45798f07e9be</stringProp>
+            <stringProp name="Argument.value">${__property(fb_clientSecret)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="rolename" elementType="Argument">
             <stringProp name="Argument.name">rolename</stringProp>
-            <stringProp name="Argument.value">sol5admin</stringProp>
+            <stringProp name="Argument.value">${__property(rolename)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="usernamePrefix" elementType="Argument">
             <stringProp name="Argument.name">usernamePrefix</stringProp>
-            <stringProp name="Argument.value">sol5admin</stringProp>
+            <stringProp name="Argument.value">${__property(usernamePrefix)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="testuserpass" elementType="Argument">
             <stringProp name="Argument.name">testuserpass</stringProp>
-            <stringProp name="Argument.value">sol5admin1</stringProp>
+            <stringProp name="Argument.value">${__property(testuserpass)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="noOfUsers" elementType="Argument">
             <stringProp name="Argument.name">noOfUsers</stringProp>
-            <stringProp name="Argument.value">1</stringProp>
+            <stringProp name="Argument.value">${__property(noOfUsers)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="fbserver" elementType="Argument">
             <stringProp name="Argument.name">fbserver</stringProp>
-            <stringProp name="Argument.value">facebook.com</stringProp>
+            <stringProp name="Argument.value">${__property(fbserver)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="redirect" elementType="Argument">
             <stringProp name="Argument.name">redirect</stringProp>
-            <stringProp name="Argument.value">commonauth</stringProp>
+            <stringProp name="Argument.value">${__property(redirect)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="FBLogin_Email" elementType="Argument">
             <stringProp name="Argument.name">FBLogin_Email</stringProp>
-            <stringProp name="Argument.value">testuser@gmail.com</stringProp>
+            <stringProp name="Argument.value">${__property(FBLogin_Email)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="FB_Username" elementType="Argument">
             <stringProp name="Argument.name">FB_Username</stringProp>
-            <stringProp name="Argument.value">testuser</stringProp>
+            <stringProp name="Argument.value">${__property(FB_Username)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="FB_Password" elementType="Argument">
             <stringProp name="Argument.name">FB_Password</stringProp>
-            <stringProp name="Argument.value">testuser</stringProp>
+            <stringProp name="Argument.value">${__property(FB_Password)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="testAdminCredentials" elementType="Argument">
             <stringProp name="Argument.name">testAdminCredentials</stringProp>
-            <stringProp name="Argument.value">c29sNWFkbWluMTphZG1pbg==</stringProp>
+            <stringProp name="Argument.value">${__property(testAdminCredentials)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="incorrectadmin" elementType="Argument">
             <stringProp name="Argument.name">incorrectadmin</stringProp>
-            <stringProp name="Argument.value">admin991</stringProp>
+            <stringProp name="Argument.value">${__property(incorrectadmin)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -437,63 +437,6 @@
           <boolProp name="CounterConfig.per_user">false</boolProp>
         </CounterConfig>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login" enabled="false">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:aut=&quot;http://authentication.services.core.carbon.wso2.org&quot;&gt;&#xd;
-   &lt;soapenv:Header/&gt;&#xd;
-   &lt;soapenv:Body&gt;&#xd;
-      &lt;aut:login&gt;&#xd;
-         &lt;aut:username&gt;${adminusername}1&lt;/aut:username&gt;&#xd;
-         &lt;aut:password&gt;${adminpassword}&lt;/aut:password&gt;&#xd;
-      &lt;/aut:login&gt;&#xd;
-   &lt;/soapenv:Body&gt;&#xd;
-&lt;/soapenv:Envelope&gt;</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-          <stringProp name="HTTPSampler.port">${is_port}</stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/services/AuthenticationAdmin.AuthenticationAdminHttpsSoap11Endpoint/</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200 OK HTTP Code Response Assertion" enabled="true">
-            <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1606201635">HTTP/1.1 200 OK</stringProp>
-            </collectionProp>
-            <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
-            <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">2</intProp>
-          </ResponseAssertion>
-          <hashTree/>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">SOAPAction</stringProp>
-                <stringProp name="Header.value">urn:login</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">text/xml</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
-          <hashTree/>
-        </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create IDP" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
