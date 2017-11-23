@@ -15,77 +15,77 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="is_host" elementType="Argument">
             <stringProp name="Argument.name">is_host</stringProp>
-            <stringProp name="Argument.value">${__property(server_host)} </stringProp>
+            <stringProp name="Argument.value">${__property(server_host)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="is_port" elementType="Argument">
             <stringProp name="Argument.name">is_port</stringProp>
-            <stringProp name="Argument.value">${__property(server_port)} </stringProp>
+            <stringProp name="Argument.value">${__property(server_port)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="adminCredentials" elementType="Argument">
             <stringProp name="Argument.name">adminCredentials</stringProp>
-            <stringProp name="Argument.value">${__property(adminCredentials)} </stringProp>
+            <stringProp name="Argument.value">${__property(adminCredentials)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="adminusername" elementType="Argument">
             <stringProp name="Argument.name">adminusername</stringProp>
-            <stringProp name="Argument.value">${__property(adminusername)} </stringProp>
+            <stringProp name="Argument.value">${__property(adminusername)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="adminpassword" elementType="Argument">
             <stringProp name="Argument.name">adminpassword</stringProp>
-            <stringProp name="Argument.value">${__property(adminpassword)} </stringProp>
+            <stringProp name="Argument.value">${__property(adminpassword)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="sp_name" elementType="Argument">
             <stringProp name="Argument.name">sp_name</stringProp>
-            <stringProp name="Argument.value">${__property(sp_name)} </stringProp>
+            <stringProp name="Argument.value">${__property(sp_name)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="sp_description" elementType="Argument">
             <stringProp name="Argument.name">sp_description</stringProp>
-            <stringProp name="Argument.value">${__property(sp_description)} </stringProp>
+            <stringProp name="Argument.value">${__property(sp_description)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="carbonServer" elementType="Argument">
             <stringProp name="Argument.name">carbonServer</stringProp>
-            <stringProp name="Argument.value">${__property(carbonServer)} </stringProp>
+            <stringProp name="Argument.value">${__property(carbonServer)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="tomcat_port" elementType="Argument">
             <stringProp name="Argument.name">tomcat_port</stringProp>
-            <stringProp name="Argument.value">${__property(tomcat_port)} </stringProp>
+            <stringProp name="Argument.value">${__property(tomcat_port)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="SAMLRequest" elementType="Argument">
             <stringProp name="Argument.name">SAMLRequest</stringProp>
-            <stringProp name="Argument.value">${__property(SAMLRequest)} </stringProp>
+            <stringProp name="Argument.value">${__property(SAMLRequest)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="tomcat_host" elementType="Argument">
             <stringProp name="Argument.name">tomcat_host</stringProp>
-            <stringProp name="Argument.value">${__property(tomcat_host)} </stringProp>
+            <stringProp name="Argument.value">${__property(tomcat_host)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="idp_name" elementType="Argument">
             <stringProp name="Argument.name">idp_name</stringProp>
-            <stringProp name="Argument.value">${__property(idp_name)} </stringProp>
+            <stringProp name="Argument.value">${__property(idp_name)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="idp_description" elementType="Argument">
             <stringProp name="Argument.name">idp_description</stringProp>
-            <stringProp name="Argument.value">${__property(idp_description)} </stringProp>
+            <stringProp name="Argument.value">${__property(idp_description)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="idp_clientID" elementType="Argument">
             <stringProp name="Argument.name">idp_clientID</stringProp>
-            <stringProp name="Argument.value">${__property(idp_clientID)} </stringProp>
+            <stringProp name="Argument.value">${__property(idp_clientID)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="idp_clientSecret" elementType="Argument">
             <stringProp name="Argument.name">idp_clientSecret</stringProp>
-            <stringProp name="Argument.value">${__property(idp_clientSecret)} </stringProp>
+            <stringProp name="Argument.value">${__property(idp_clientSecret)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="travelocityIssuer" elementType="Argument">
@@ -95,12 +95,12 @@
           </elementProp>
           <elementProp name="travelocityApp" elementType="Argument">
             <stringProp name="Argument.name">travelocityApp</stringProp>
-            <stringProp name="Argument.value">${__property(travelocityApp)} </stringProp>
+            <stringProp name="Argument.value">${__property(travelocityApp)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="samlsso" elementType="Argument">
             <stringProp name="Argument.name">samlsso</stringProp>
-            <stringProp name="Argument.value">${__property(samlsso)} </stringProp>
+            <stringProp name="Argument.value">${__property(samlsso)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
