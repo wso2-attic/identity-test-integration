@@ -15,13 +15,13 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="is_host" elementType="Argument">
             <stringProp name="Argument.name">is_host</stringProp>
-            <stringProp name="Argument.value">${__property(is_host)}</stringProp>
+            <stringProp name="Argument.value">${__property(server_host)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">is.dev.wso2.org</stringProp>
           </elementProp>
           <elementProp name="is_port" elementType="Argument">
             <stringProp name="Argument.name">is_port</stringProp>
-            <stringProp name="Argument.value">${__property(is_port)}</stringProp>
+            <stringProp name="Argument.value">${__property(server_port)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">443</stringProp>
           </elementProp>
@@ -47,7 +47,7 @@
             <stringProp name="Argument.name">sp_name</stringProp>
             <stringProp name="Argument.value">${__property(spName)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">sol14travelocity.com</stringProp>
+            <stringProp name="Argument.desc">travelocity.com</stringProp>
           </elementProp>
           <elementProp name="sp_description" elementType="Argument">
             <stringProp name="Argument.name">sp_description</stringProp>
@@ -59,13 +59,13 @@
             <stringProp name="Argument.name">travelocityAppName</stringProp>
             <stringProp name="Argument.value">${__property(travelocityAppName)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">sol14travelocity.com</stringProp>
+            <stringProp name="Argument.desc">travelocity.com</stringProp>
           </elementProp>
           <elementProp name="AssertionConsumerURL" elementType="Argument">
             <stringProp name="Argument.name">AssertionConsumerURL</stringProp>
             <stringProp name="Argument.value">${__property(AssertionConsumerURL)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">http://192.168.57.31:8080/sol14travelocity.com/home.jsp</stringProp>
+            <stringProp name="Argument.desc">http://192.168.57.31:8080/travelocity.com/home.jsp</stringProp>
           </elementProp>
           <elementProp name="rolename" elementType="Argument">
             <stringProp name="Argument.name">rolename</stringProp>
@@ -87,7 +87,7 @@
           </elementProp>
           <elementProp name="travelocityURL" elementType="Argument">
             <stringProp name="Argument.name">travelocityURL</stringProp>
-            <stringProp name="Argument.value">${__property(travelocityURL)}</stringProp>
+            <stringProp name="Argument.value">${__property(tomcat_host)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">192.168.57.31</stringProp>
           </elementProp>
@@ -823,7 +823,7 @@
           <stringProp name="HTTPSampler.port">8080</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">sol14travelocity.com/samlsso</stringProp>
+          <stringProp name="HTTPSampler.path">travelocity.com/samlsso</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -1173,7 +1173,7 @@
           <stringProp name="HTTPSampler.port">8080</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">sol14travelocity.com/home.jsp</stringProp>
+          <stringProp name="HTTPSampler.path">travelocity.com/home.jsp</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -1230,7 +1230,7 @@
           <stringProp name="HTTPSampler.port">8080</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">sol14travelocity.com/samlsso</stringProp>
+          <stringProp name="HTTPSampler.path">travelocity.com/samlsso</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -1580,7 +1580,7 @@
           <stringProp name="HTTPSampler.port">8080</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">sol14travelocity.com/home.jsp</stringProp>
+          <stringProp name="HTTPSampler.path">travelocity.com/home.jsp</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
