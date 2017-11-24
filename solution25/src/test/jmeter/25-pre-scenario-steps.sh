@@ -1,4 +1,5 @@
-#!/bin/bash
+#! /bin/bash
+
 # Copyright (c) 2017, WSO2 Inc. (http://wso2.com) All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
