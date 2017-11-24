@@ -1,3 +1,4 @@
+#!/bin/bash
 #these params need to be taken out
 #tomcat properties
 tomcat_host=$tomcat_host

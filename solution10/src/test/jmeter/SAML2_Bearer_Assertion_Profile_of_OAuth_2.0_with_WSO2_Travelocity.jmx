@@ -30,47 +30,42 @@
           <collectionProp name="Arguments.arguments">
             <elementProp name="is_host" elementType="Argument">
               <stringProp name="Argument.name">is_host</stringProp>
-              <stringProp name="Argument.value">is.dev.wso2.org</stringProp>
+              <stringProp name="Argument.value">${__property(server_host)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="is_port" elementType="Argument">
               <stringProp name="Argument.name">is_port</stringProp>
-              <stringProp name="Argument.value">443</stringProp>
+              <stringProp name="Argument.value">${__property(server_port)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="adminCredentials" elementType="Argument">
               <stringProp name="Argument.name">adminCredentials</stringProp>
-              <stringProp name="Argument.value">YWRtaW46YWRtaW4=</stringProp>
+              <stringProp name="Argument.value">${__property(adminCredentials)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="issuer" elementType="Argument">
               <stringProp name="Argument.name">issuer</stringProp>
-              <stringProp name="Argument.value">travelocity.com</stringProp>
+              <stringProp name="Argument.value">${__property(issuer)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="sp_name" elementType="Argument">
               <stringProp name="Argument.name">sp_name</stringProp>
-              <stringProp name="Argument.value">travelocity.com</stringProp>
+              <stringProp name="Argument.value">${__property(sp_name)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="sp_description" elementType="Argument">
               <stringProp name="Argument.name">sp_description</stringProp>
-              <stringProp name="Argument.value">Service Provider</stringProp>
+              <stringProp name="Argument.value">${__property(sp_description)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="tomcat_host" elementType="Argument">
               <stringProp name="Argument.name">tomcat_host</stringProp>
-              <stringProp name="Argument.value">192.168.57.31</stringProp>
+              <stringProp name="Argument.value">${__property(tomcat_host)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="tomcat_port" elementType="Argument">
               <stringProp name="Argument.name">tomcat_port</stringProp>
-              <stringProp name="Argument.value">8080</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="tomcat_prefix" elementType="Argument">
-              <stringProp name="Argument.name">tomcat_prefix</stringProp>
-              <stringProp name="Argument.value">sol10</stringProp>
+              <stringProp name="Argument.value">${__property(tomcat_port)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
           </collectionProp>
@@ -93,10 +88,10 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:addRPServiceProvider&gt;      &#xd;
          &lt;xsd:spDto&gt;        &#xd;
-            &lt;xsd1:issuer&gt;${tomcat_prefix}${issuer}&lt;/xsd1:issuer&gt;   &#xd;
-            &lt;xsd1:assertionConsumerUrl&gt;http://${tomcat_host}:${tomcat_port}/${tomcat_prefix}travelocity.com/home.jsp&lt;/xsd1:assertionConsumerUrl&gt;&#xd;
-            &lt;xsd1:assertionConsumerUrls&gt;http://${tomcat_host}:${tomcat_port}/${tomcat_prefix}travelocity.com/home.jsp&lt;/xsd1:assertionConsumerUrls&gt;&#xd;
-            &lt;xsd1:defaultAssertionConsumerUrl&gt;http://${tomcat_host}:${tomcat_port}/${tomcat_prefix}travelocity.com/home.jsp&lt;/xsd1:defaultAssertionConsumerUrl&gt;&#xd;
+            &lt;xsd1:issuer&gt;${issuer}&lt;/xsd1:issuer&gt;   &#xd;
+            &lt;xsd1:assertionConsumerUrl&gt;http://${tomcat_host}:${tomcat_port}/travelocity.com/home.jsp&lt;/xsd1:assertionConsumerUrl&gt;&#xd;
+            &lt;xsd1:assertionConsumerUrls&gt;http://${tomcat_host}:${tomcat_port}/travelocity.com/home.jsp&lt;/xsd1:assertionConsumerUrls&gt;&#xd;
+            &lt;xsd1:defaultAssertionConsumerUrl&gt;http://${tomcat_host}:${tomcat_port}/travelocity.com/home.jsp&lt;/xsd1:defaultAssertionConsumerUrl&gt;&#xd;
             &lt;xsd1:signingAlgorithmURI&gt;http://www.w3.org/2000/09/xmldsig#rsa-sha1&lt;/xsd1:signingAlgorithmURI&gt;            &#xd;
             &lt;xsd1:digestAlgorithmURI&gt;http://www.w3.org/2000/09/xmldsig#sha1&lt;/xsd1:digestAlgorithmURI&gt;&#xd;
             &lt;xsd1:doSignAssertions&gt;true&lt;/xsd1:doSignAssertions&gt;&#xd;
@@ -236,8 +231,8 @@
    &lt;soapenv:Body&gt;&#xd;
        &lt;xsd:createApplication&gt; &#xd;
       &lt;xsd:serviceProvider&gt; &#xd;
-            &lt;xsd1:applicationName&gt;${tomcat_prefix}${sp_name}&lt;/xsd1:applicationName&gt; &#xd;
-            &lt;xsd1:description&gt;${tomcat_prefix} ${sp_description}&lt;/xsd1:description&gt;           &#xd;
+            &lt;xsd1:applicationName&gt;${sp_name}&lt;/xsd1:applicationName&gt; &#xd;
+            &lt;xsd1:description&gt;${sp_description}&lt;/xsd1:description&gt;           &#xd;
          &lt;/xsd:serviceProvider&gt; &#xd;
       &lt;/xsd:createApplication&gt; &#xd;
    &lt;/soapenv:Body&gt;&#xd;
@@ -299,7 +294,7 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:getApplication&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;xsd:applicationName&gt;${tomcat_prefix}${sp_name}&lt;/xsd:applicationName&gt;&#xd;
+         &lt;xsd:applicationName&gt;${sp_name}&lt;/xsd:applicationName&gt;&#xd;
       &lt;/xsd:getApplication&gt;&#xd;
    &lt;/soapenv:Body&gt;&#xd;
 &lt;/soapenv:Envelope&gt;</stringProp>
@@ -371,8 +366,8 @@
       &lt;xsd:registerOAuthApplicationData&gt;&#xd;
          &lt;xsd:application&gt;&#xd;
             &lt;xsd1:OAuthVersion&gt;OAuth-2.0&lt;/xsd1:OAuthVersion&gt;&#xd;
-            &lt;xsd1:applicationName&gt;${tomcat_prefix}${sp_name}&lt;/xsd1:applicationName&gt;&#xd;
-            &lt;xsd1:callbackUrl&gt;http://${tomcat_host}:${tomcat_port}/${tomcat_prefix}travelocity.com/acs&lt;/xsd1:callbackUrl&gt;&#xd;
+            &lt;xsd1:applicationName&gt;${sp_name}&lt;/xsd1:applicationName&gt;&#xd;
+            &lt;xsd1:callbackUrl&gt;http://${tomcat_host}:${tomcat_port}/travelocity.com/acs&lt;/xsd1:callbackUrl&gt;&#xd;
             &lt;xsd1:grantTypes&gt;urn:ietf:params:oauth:grant-type:saml2-bearer&lt;/xsd1:grantTypes&gt;&#xd;
             &lt;xsd1:oauthConsumerKey&gt;lKjE0YDVrXNJY8TN7AdzAgkgfJ0a&lt;/xsd1:oauthConsumerKey&gt;&#xd;
             &lt;xsd1:oauthConsumerSecret&gt;KiAnWzcf9NaKCdL7B8wjGqffE70a&lt;/xsd1:oauthConsumerSecret&gt;&#xd;
@@ -516,15 +511,15 @@
       &lt;xsd:updateApplication&gt;&#xd;
          &lt;xsd:serviceProvider&gt;&#xd;
             &lt;xsd1:applicationID&gt;${appID}&lt;/xsd1:applicationID&gt;&#xd;
-            &lt;xsd1:applicationName&gt;${tomcat_prefix}${sp_name}&lt;/xsd1:applicationName&gt; &#xd;
+            &lt;xsd1:applicationName&gt;${sp_name}&lt;/xsd1:applicationName&gt; &#xd;
             &lt;xsd1:claimConfig&gt; &#xd;
                &lt;xsd1:alwaysSendMappedLocalSubjectId&gt;true&lt;/xsd1:alwaysSendMappedLocalSubjectId&gt; &#xd;
                &lt;xsd1:localClaimDialect&gt;true&lt;/xsd1:localClaimDialect&gt;&#xd;
             &lt;/xsd1:claimConfig&gt; &#xd;
-            &lt;xsd1:description&gt;${tomcat_prefix} ${sp_description}&lt;/xsd1:description&gt; &#xd;
+            &lt;xsd1:description&gt; ${sp_description}&lt;/xsd1:description&gt; &#xd;
             &lt;xsd1:inboundAuthenticationConfig&gt;            &#xd;
                 &lt;xsd1:inboundAuthenticationRequestConfigs&gt;&#xd;
-                  &lt;xsd1:inboundAuthKey&gt;${tomcat_prefix}${issuer}&lt;/xsd1:inboundAuthKey&gt;&#xd;
+                  &lt;xsd1:inboundAuthKey&gt;${issuer}&lt;/xsd1:inboundAuthKey&gt;&#xd;
                   &lt;xsd1:inboundAuthType&gt;samlsso&lt;/xsd1:inboundAuthType&gt;                  &#xd;
                   &lt;xsd1:inboundConfigType&gt;standardAPP&lt;/xsd1:inboundConfigType&gt;&#xd;
 			   &lt;xsd1:properties&gt;&#xd;
@@ -639,7 +634,7 @@
           <stringProp name="HTTPSampler.port">${tomcat_port}</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/${tomcat_prefix}travelocity.com/index.jsp</stringProp>
+          <stringProp name="HTTPSampler.path">/travelocity.com/index.jsp</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
@@ -677,7 +672,7 @@
           <stringProp name="HTTPSampler.port">${tomcat_port}</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/${tomcat_prefix}travelocity.com/samlsso?SAML2.HTTPBinding=HTTP-Redirect</stringProp>
+          <stringProp name="HTTPSampler.path">/travelocity.com/samlsso?SAML2.HTTPBinding=HTTP-Redirect</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
@@ -794,7 +789,7 @@
           <stringProp name="HTTPSampler.port">${tomcat_port}</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/${tomcat_prefix}travelocity.com/home.jsp</stringProp>
+          <stringProp name="HTTPSampler.path">/travelocity.com/home.jsp</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -832,7 +827,7 @@
           <stringProp name="HTTPSampler.port">${tomcat_port}</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/${tomcat_prefix}travelocity.com/token</stringProp>
+          <stringProp name="HTTPSampler.path">/travelocity.com/token</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -864,7 +859,7 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:removeServiceProvider&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;xsd:issuer&gt;${tomcat_prefix}${issuer}&lt;/xsd:issuer&gt;&#xd;
+         &lt;xsd:issuer&gt;${issuer}&lt;/xsd:issuer&gt;&#xd;
       &lt;/xsd:removeServiceProvider&gt;&#xd;
    &lt;/soapenv:Body&gt;&#xd;
 &lt;/soapenv:Envelope&gt;</stringProp>
@@ -968,7 +963,7 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:deleteApplication&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;xsd:applicationName&gt;${tomcat_prefix}${sp_name}&lt;/xsd:applicationName&gt;&#xd;
+         &lt;xsd:applicationName&gt;${sp_name}&lt;/xsd:applicationName&gt;&#xd;
       &lt;/xsd:deleteApplication&gt;&#xd;
    &lt;/soapenv:Body&gt;&#xd;
 &lt;/soapenv:Envelope&gt;</stringProp>
