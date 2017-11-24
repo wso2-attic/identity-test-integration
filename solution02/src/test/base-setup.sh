@@ -30,6 +30,7 @@ SAML2AssertionConsumerURL="http://$tomcat_host:$tomcat_port/$app_name/home.jsp"
 SAML2IdPURL="https://$server_host/samlsso"
 SAML2SPEntityId="$app_name"
 SkipURIs="/$app_name/index.jsp"
+SAML2IdPEntityId=$server_host
 
 #create temporary directory
 mkdir $script_path/../temp
@@ -44,6 +45,8 @@ sed -i "s|^\(SAML2\.IdPURL\s*=\s*\).*\$|\1${SAML2IdPURL}|" $script_path/../temp/
 sed -i "s|^\(SAML2\.SPEntityId\s*=\s*\).*\$|\1${SAML2SPEntityId}|" $script_path/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
 sed -i "s|^\(SkipURIs\s*=\s*\).*\$|\1${SkipURIs}|" $script_path/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+
+sed -i "s|^\(SAML2\.IdPEntityId\s*=\s*\).*\$|\1${SAML2IdPEntityId}|" $script_path/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
 #repackaging travelocity app
 cd $script_path/../temp/travelocity.com/
