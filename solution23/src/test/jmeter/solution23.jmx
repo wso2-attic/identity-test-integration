@@ -15,13 +15,13 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="host_ip" elementType="Argument">
             <stringProp name="Argument.name">host_ip</stringProp>
-            <stringProp name="Argument.value">${__property(server_host)}</stringProp>
+            <stringProp name="Argument.value">${__property(severHost)}</stringProp>
             <stringProp name="Argument.desc">change it to cluster domain</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="host_port" elementType="Argument">
             <stringProp name="Argument.name">host_port</stringProp>
-            <stringProp name="Argument.value">${__property(server_port)}</stringProp>
+            <stringProp name="Argument.value">${__property(severPort)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="username" elementType="Argument">
@@ -77,12 +77,12 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="webapp_host" elementType="Argument">
             <stringProp name="Argument.name">webapp_host</stringProp>
-            <stringProp name="Argument.value">${__property(tomcat_host)}</stringProp>
+            <stringProp name="Argument.value">${__property(tomcatHost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="webapp_port" elementType="Argument">
             <stringProp name="Argument.name">webapp_port</stringProp>
-            <stringProp name="Argument.value">${__property(tomcat_port)}</stringProp>
+            <stringProp name="Argument.value">${__property(tomcatPort)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -131,13 +131,13 @@
           </elementProp>
           <elementProp name="acsurl1" elementType="Argument">
             <stringProp name="Argument.name">acsurl1</stringProp>
-            <stringProp name="Argument.value">http://${__property(tomcat_host)}:${__property(tomcat_port)}/${__property(issuer1)}/home.jsp</stringProp>
+            <stringProp name="Argument.value">http://${__property(tomcatHost)}:${__property(tomcatPort)}/${__property(issuer1)}/home.jsp</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">Assertion Consumer URL of travelocity.com</stringProp>
           </elementProp>
           <elementProp name="acsurl2" elementType="Argument">
             <stringProp name="Argument.name">acsurl2</stringProp>
-            <stringProp name="Argument.value">http://${__property(tomcat_host)}:${__property(tomcat_port)}/${__property(issuer2)}/home.jsp</stringProp>
+            <stringProp name="Argument.value">http://${__property(tomcatHost)}:${__property(tomcatPort)}/${__property(issuer2)}/home.jsp</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">Assertion Consumer URL of avis.com</stringProp>
           </elementProp>

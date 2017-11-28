@@ -54,11 +54,11 @@ travelocityIssuer= < ISSUER OF THE TRAVELOCITY APP > E.g., sol12travelocity.com
 
 Tomcat
 
-tomcat_host=< HOSTNAME OF THE TOMECAT > 192.168.57.31
+tomcatHost=< HOSTNAME OF THE TOMECAT > 192.168.57.31
 
-#tomcat_host= localhost
+#tomcatHost= localhost
 
-tomcat_port= 8080
+tomcatPort= 8080
 
 Run the test
 

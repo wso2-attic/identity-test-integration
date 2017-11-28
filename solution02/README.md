@@ -28,12 +28,12 @@ Following scenarios are covered through this automation script.
 3.Change the configurations according to the environment in *user.properties* under *solution02*. (solution02/src/test/resources/user.properties)
 ```sh
 #server
-server_host=<Host name of IS server>
-server_port=<Port name of IS server>
+scriptHost=<Host name of IS server>
+severPort=<Port name of IS server>
 
 # Tomcat
-tomcat_host=192.168.57.31
-tomcat_port=8080
+tomcatHost=192.168.57.31
+tomcatPort=8080
 
 # User Management
 adminUsername=<Admin username of IS server>

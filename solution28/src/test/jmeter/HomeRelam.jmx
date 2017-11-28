@@ -30,13 +30,13 @@
           <collectionProp name="Arguments.arguments">
             <elementProp name="ServerHost" elementType="Argument">
               <stringProp name="Argument.name">ServerHost</stringProp>
-              <stringProp name="Argument.value">${__property(server_host)}</stringProp>
+              <stringProp name="Argument.value">${__property(severHost)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
               <stringProp name="Argument.desc">Hostname of the server</stringProp>
             </elementProp>
             <elementProp name="ServerPort" elementType="Argument">
               <stringProp name="Argument.name">ServerPort</stringProp>
-              <stringProp name="Argument.value">${__property(server_port)}</stringProp>
+              <stringProp name="Argument.value">${__property(severPort)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
               <stringProp name="Argument.desc">Server Port</stringProp>
             </elementProp>
@@ -155,12 +155,12 @@
             </elementProp>
             <elementProp name="tomcatHost" elementType="Argument">
               <stringProp name="Argument.name">tomcatHost</stringProp>
-              <stringProp name="Argument.value">${__property(tomcat_host)}</stringProp>
+              <stringProp name="Argument.value">${__property(tomcatHost)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="tomcatPort" elementType="Argument">
               <stringProp name="Argument.name">tomcatPort</stringProp>
-              <stringProp name="Argument.value">${__property(tomcat_port)}</stringProp>
+              <stringProp name="Argument.value">${__property(tomcatPort)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
           </collectionProp>

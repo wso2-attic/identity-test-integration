@@ -14,18 +14,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-server_host=$server_host
+severHost=$severHost
 prgdir=$(dirname "$0")
-script_path=$(cd "$prgdir"; pwd)
+scriptPath=$(cd "$prgdir"; pwd)
 
 #run base-setup.sh to deploy artifacts
-source $script_path/../base-setup.sh > $script_path/basesetup.log
+source $scriptPath/../base-setup.sh > $scriptPath/basesetup.log
 
-echo "working directory : "$script_path
+echo "working directory : "$scriptPath
 #updating jmeter properties - user.properties
-sed -i "s|^\(server_host\s*=\s*\).*\$|\1${server_host}|" $script_path/../resources/user.properties
-sed -i "s|^\(server_port\s*=\s*\).*\$|\1${server_port}|" $script_path/../resources/user.properties
-sed -i "s|^\(tomcat_host\s*=\s*\).*\$|\1${tomcat_host}|" $script_path/../resources/user.properties
-sed -i "s|^\(tomcat_port\s*=\s*\).*\$|\1${tomcat_port}|" $script_path/../resources/user.properties
+sed -i "s|^\(severHost\s*=\s*\).*\$|\1${severHost}|" $scriptPath/../resources/user.properties
+sed -i "s|^\(severPort\s*=\s*\).*\$|\1${severPort}|" $scriptPath/../resources/user.properties
+sed -i "s|^\(tomcatHost\s*=\s*\).*\$|\1${tomcatHost}|" $scriptPath/../resources/user.properties
+sed -i "s|^\(tomcatPort\s*=\s*\).*\$|\1${tomcatPort}|" $scriptPath/../resources/user.properties
 
 echo "pre-steps are done..."
