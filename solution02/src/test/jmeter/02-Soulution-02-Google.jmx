@@ -69,14 +69,14 @@
             <stringProp name="Argument.value">${__property(Grole)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="admin_username" elementType="Argument">
-            <stringProp name="Argument.name">admin_username</stringProp>
-            <stringProp name="Argument.value">${__property(admin_username)}</stringProp>
+          <elementProp name="adminUsername" elementType="Argument">
+            <stringProp name="Argument.name">adminUsername</stringProp>
+            <stringProp name="Argument.value">${__property(adminUsername)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="admin_password" elementType="Argument">
-            <stringProp name="Argument.name">admin_password</stringProp>
-            <stringProp name="Argument.value">${__property(admin_password)}</stringProp>
+          <elementProp name="adminPassword" elementType="Argument">
+            <stringProp name="Argument.name">adminPassword</stringProp>
+            <stringProp name="Argument.value">${__property(adminPassword)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="GoogleIdentityProviderName" elementType="Argument">
@@ -114,14 +114,14 @@
             <stringProp name="Argument.value">${__property(GoogleSPName)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="admin_username" elementType="Argument">
-            <stringProp name="Argument.name">admin_username</stringProp>
-            <stringProp name="Argument.value">${__property(admin_username)}</stringProp>
+          <elementProp name="adminUsername" elementType="Argument">
+            <stringProp name="Argument.name">adminUsername</stringProp>
+            <stringProp name="Argument.value">${__property(adminUsername)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="admin_password" elementType="Argument">
-            <stringProp name="Argument.name">admin_password</stringProp>
-            <stringProp name="Argument.value">${__property(admin_password)}</stringProp>
+          <elementProp name="adminPassword" elementType="Argument">
+            <stringProp name="Argument.name">adminPassword</stringProp>
+            <stringProp name="Argument.value">${__property(adminPassword)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -158,8 +158,8 @@
             <collectionProp name="AuthManager.auth_list">
               <elementProp name="" elementType="Authorization">
                 <stringProp name="Authorization.url"></stringProp>
-                <stringProp name="Authorization.username">${admin_username}</stringProp>
-                <stringProp name="Authorization.password">${admin_password}</stringProp>
+                <stringProp name="Authorization.username">${adminUsername}</stringProp>
+                <stringProp name="Authorization.password">${adminPassword}</stringProp>
                 <stringProp name="Authorization.domain"></stringProp>
                 <stringProp name="Authorization.realm"></stringProp>
               </elementProp>
@@ -178,7 +178,7 @@
       &lt;xsd:addRole&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
          &lt;xsd:roleName&gt;${Grole}&lt;/xsd:roleName&gt;&#xd;
-           &lt;xsd:userList&gt;${admin_username}&lt;/xsd:userList&gt;&#xd;
+           &lt;xsd:userList&gt;${adminUsername}&lt;/xsd:userList&gt;&#xd;
          &lt;!--Zero or more repetitions:--&gt;&#xd;
          &lt;xsd:permissions&gt;${Gpermission}&lt;/xsd:permissions&gt;&#xd;
               &lt;!--Optional:--&gt;&#xd;
@@ -839,8 +839,8 @@
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">${GtravelocityIssuer}/samlsso?SAML2.HTTPBinding=HTTP-Redirect</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
@@ -1033,8 +1033,8 @@
             <collectionProp name="AuthManager.auth_list">
               <elementProp name="" elementType="Authorization">
                 <stringProp name="Authorization.url"></stringProp>
-                <stringProp name="Authorization.username">${admin_username}</stringProp>
-                <stringProp name="Authorization.password">${admin_password}</stringProp>
+                <stringProp name="Authorization.username">${adminUsername}</stringProp>
+                <stringProp name="Authorization.password">${adminPassword}</stringProp>
                 <stringProp name="Authorization.domain"></stringProp>
                 <stringProp name="Authorization.realm"></stringProp>
               </elementProp>
