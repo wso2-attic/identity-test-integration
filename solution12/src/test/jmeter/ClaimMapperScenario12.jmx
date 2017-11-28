@@ -21,112 +21,107 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="is_host" elementType="Argument">
             <stringProp name="Argument.name">is_host</stringProp>
-            <stringProp name="Argument.value">is.dev.wso2.org</stringProp>
+            <stringProp name="Argument.value">${__property(severHost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="is_port" elementType="Argument">
             <stringProp name="Argument.name">is_port</stringProp>
-            <stringProp name="Argument.value">443</stringProp>
+            <stringProp name="Argument.value">${__property(severPort)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="adminCredentials" elementType="Argument">
             <stringProp name="Argument.name">adminCredentials</stringProp>
-            <stringProp name="Argument.value">YWRtaW46YWRtaW4=</stringProp>
+            <stringProp name="Argument.value">${__property(adminCredentials)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="adminusername" elementType="Argument">
             <stringProp name="Argument.name">adminusername</stringProp>
-            <stringProp name="Argument.value">admin</stringProp>
+            <stringProp name="Argument.value">${__property(adminusername)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="adminpassword" elementType="Argument">
             <stringProp name="Argument.name">adminpassword</stringProp>
-            <stringProp name="Argument.value">admin</stringProp>
+            <stringProp name="Argument.value">${__property(adminpassword)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="sp_name" elementType="Argument">
             <stringProp name="Argument.name">sp_name</stringProp>
-            <stringProp name="Argument.value">sol12travelocity.com</stringProp>
+            <stringProp name="Argument.value">${__property(sp_name)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="sp_description" elementType="Argument">
             <stringProp name="Argument.name">sp_description</stringProp>
-            <stringProp name="Argument.value">This is the SP that will use to login to management console itself</stringProp>
+            <stringProp name="Argument.value">${__property(sp_description)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="carbonServer" elementType="Argument">
             <stringProp name="Argument.name">carbonServer</stringProp>
-            <stringProp name="Argument.value">sol12travelocity.com</stringProp>
+            <stringProp name="Argument.value">${__property(carbonServer)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="tomcat_port" elementType="Argument">
-            <stringProp name="Argument.name">tomcat_port</stringProp>
-            <stringProp name="Argument.value">8080</stringProp>
+          <elementProp name="tomcatPort" elementType="Argument">
+            <stringProp name="Argument.name">tomcatPort</stringProp>
+            <stringProp name="Argument.value">${__property(tomcatPort)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="idp_name" elementType="Argument">
             <stringProp name="Argument.name">idp_name</stringProp>
-            <stringProp name="Argument.value">facebook</stringProp>
+            <stringProp name="Argument.value">${__property(idp_name)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="idp_description" elementType="Argument">
             <stringProp name="Argument.name">idp_description</stringProp>
-            <stringProp name="Argument.value">This is the Facebook federated IDP</stringProp>
+            <stringProp name="Argument.value">${__property(idp_description)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="fb_clientID" elementType="Argument">
             <stringProp name="Argument.name">fb_clientID</stringProp>
-            <stringProp name="Argument.value">288451678325059</stringProp>
+            <stringProp name="Argument.value">${__property(fb_clientID)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="fb_clientSecret" elementType="Argument">
             <stringProp name="Argument.name">fb_clientSecret</stringProp>
-            <stringProp name="Argument.value">f7980c06d1cab11ae46642430b349871</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="FbCallbackUrl" elementType="Argument">
-            <stringProp name="Argument.name">FbCallbackUrl</stringProp>
-            <stringProp name="Argument.value">https://is.dev.wso2.org:443/commonauth</stringProp>
+            <stringProp name="Argument.value">${__property(fb_clientSecret)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="FbScope" elementType="Argument">
             <stringProp name="Argument.name">FbScope</stringProp>
-            <stringProp name="Argument.value">email</stringProp>
+            <stringProp name="Argument.value">${__property(FbScope)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="FbUserInfoFields" elementType="Argument">
             <stringProp name="Argument.name">FbUserInfoFields</stringProp>
-            <stringProp name="Argument.value">id,name,gender,email,first_name,last_name,age_range,link</stringProp>
+            <stringProp name="Argument.value">${__property(FbUserInfoFields)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="SAMLRequest" elementType="Argument">
             <stringProp name="Argument.name">SAMLRequest</stringProp>
-            <stringProp name="Argument.value">nVPbjtowEP2VyO%2B5AgtrEVYUtCrStk0h24e%2BuWZYXCV26pkAu19fJ4E2qlqE%2BjozPnMu4%2BnDqSy8A1hURqcsDiLmgZZmq%2FRLyp7zR3%2FCHmZTFGVR8XlNe72GHzUgee6dRt42UlZbzY1AhVyLEpCT5Jv5hyeeBBGvrCEjTcG8OSJYcosWRmNdgt2APSgJz%2BunlO2JKh6GIBN%2FNPTju7EfT%2B78OBkE0pRVTeDHgSjFm9HiiE2NT6JJFJIVByiMVPTaFMO9KSH4jhXzlo6l0oJaYQ06OniFo2EUKFEGxr7w%2B%2BFwEDYSEA3zHo2V0GpM2U4UCMxbLVPmHFlhJhDVAX43EGtYaSShKWVJFI%2F9aOIP4jy654MhH8XBOI6%2BMi87i3%2BndGfpNae%2BdUPI3%2Bd55mefNjnzvlyicQPsEkS73d4egbgYz2Z%2F%2BDUN%2B4gdflLxjw5itcxMoeRrb01ye9RFYY4LC4KcZ2RraO0tBV0HaCpq6%2B%2FaUV412pFAE%2FM2WcPpcy0KtVNgU9YxZuEvzufDhG0boTsxghP9F%2FmFOzhhFTa2w0lIOhvP%2B8iLwrm6hl1vw80hXB2TXDbQrtwc3dHYbXNEIJ2y3AqNlbHUxfZXPrOu9y9DZpfE%2B5959hM%3D</stringProp>
+            <stringProp name="Argument.value">${__property(SAMLRequest)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="idp2_name" elementType="Argument">
             <stringProp name="Argument.name">idp2_name</stringProp>
-            <stringProp name="Argument.value">google_openID</stringProp>
+            <stringProp name="Argument.value">${__property(idp2_name)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="idp2_description" elementType="Argument">
             <stringProp name="Argument.name">idp2_description</stringProp>
-            <stringProp name="Argument.value">This is Oauth/OpenID federated IDP with google credentials</stringProp>
+            <stringProp name="Argument.value">${__property(idp2_description)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="idp2_clientID" elementType="Argument">
             <stringProp name="Argument.name">idp2_clientID</stringProp>
-            <stringProp name="Argument.value">512912649682-m7jd0f7t0ggkcrltlmtdu7hvfdi1v0rl.apps.googleusercontent.com</stringProp>
+            <stringProp name="Argument.value">${__property(idp2_clientID)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="idp2_clientSecret" elementType="Argument">
             <stringProp name="Argument.name">idp2_clientSecret</stringProp>
-            <stringProp name="Argument.value">ett7uWtboNJ3LGPgZYI9p12a</stringProp>
+            <stringProp name="Argument.value">${__property(idp2_clientSecret)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="tomcat_host" elementType="Argument">
-            <stringProp name="Argument.name">tomcat_host</stringProp>
-            <stringProp name="Argument.value">192.168.57.31</stringProp>
+          <elementProp name="tomcatHost" elementType="Argument">
+            <stringProp name="Argument.name">tomcatHost</stringProp>
+            <stringProp name="Argument.value">${__property(tomcatHost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -332,7 +327,7 @@
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;callBackUrl&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;${FbCallbackUrl}&lt;/xsd:value&gt;&#xd;
+                  &lt;xsd:value&gt;https://${is_host}:${is_port}/commonauth&lt;/xsd:value&gt;&#xd;
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;UserInfoFields&lt;/xsd:name&gt;&#xd;
@@ -582,9 +577,9 @@
       &lt;xsd:addRPServiceProvider&gt;      &#xd;
          &lt;xsd:spDto&gt;        &#xd;
             &lt;xsd1:issuer&gt;${sp_name}&lt;/xsd1:issuer&gt;   &#xd;
-            &lt;xsd1:assertionConsumerUrl&gt;http://${tomcat_host}:${tomcat_port}/${sp_name}/home.jsp&lt;/xsd1:assertionConsumerUrl&gt;&#xd;
-            &lt;xsd1:assertionConsumerUrls&gt;http://${tomcat_host}:${tomcat_port}/${sp_name}/home.jsp&lt;/xsd1:assertionConsumerUrls&gt;&#xd;
-       &lt;xsd1:defaultAssertionConsumerUrl&gt;http://${tomcat_host}:${tomcat_port}/${sp_name}/home.jsp&lt;/xsd1:defaultAssertionConsumerUrl&gt;&#xd;
+            &lt;xsd1:assertionConsumerUrl&gt;http://${tomcatHost}:${tomcatPort}/${sp_name}/home.jsp&lt;/xsd1:assertionConsumerUrl&gt;&#xd;
+            &lt;xsd1:assertionConsumerUrls&gt;http://${tomcatHost}:${tomcatPort}/${sp_name}/home.jsp&lt;/xsd1:assertionConsumerUrls&gt;&#xd;
+       &lt;xsd1:defaultAssertionConsumerUrl&gt;http://${tomcatHost}:${tomcatPort}/${sp_name}/home.jsp&lt;/xsd1:defaultAssertionConsumerUrl&gt;&#xd;
             &lt;xsd1:signingAlgorithmURI&gt;http://www.w3.org/2000/09/xmldsig#rsa-sha1&lt;/xsd1:signingAlgorithmURI&gt;            &#xd;
             &lt;xsd1:digestAlgorithmURI&gt;http://www.w3.org/2000/09/xmldsig#sha1&lt;/xsd1:digestAlgorithmURI&gt;&#xd;
             &lt;xsd1:doSignAssertions&gt;true&lt;/xsd1:doSignAssertions&gt;&#xd;
@@ -1010,8 +1005,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${tomcat_host}</stringProp>
-            <stringProp name="HTTPSampler.port">${tomcat_port}</stringProp>
+            <stringProp name="HTTPSampler.domain">${tomcatHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">${sp_name}/samlsso</stringProp>
@@ -1202,8 +1197,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${tomcat_host}</stringProp>
-            <stringProp name="HTTPSampler.port">${tomcat_port}</stringProp>
+            <stringProp name="HTTPSampler.domain">${tomcatHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">${sp_name}/samlsso</stringProp>

@@ -31,6 +31,13 @@
                 </executions>
                 <configuration>
                     <jmeterVersion>3.2</jmeterVersion>
+                    <testFilesIncluded>
+                        <jMeterTestFile>Incompatible_identity_federation_protocols.jmx</jMeterTestFile>
+                    </testFilesIncluded>
+                    <propertiesJMeter>
+                        <log_level.jmeter>DEBUG</log_level.jmeter>
+                    </propertiesJMeter>
+                    <propertiesFilesDirectory>${basedir}/src/test/resources</propertiesFilesDirectory>
                 </configuration>
             </plugin>
         </plugins>
