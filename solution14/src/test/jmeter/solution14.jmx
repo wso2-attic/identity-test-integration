@@ -13,14 +13,14 @@
     <hashTree>
       <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Variables" enabled="true">
         <collectionProp name="Arguments.arguments">
-          <elementProp name="is_host" elementType="Argument">
-            <stringProp name="Argument.name">is_host</stringProp>
+          <elementProp name="isHost" elementType="Argument">
+            <stringProp name="Argument.name">isHost</stringProp>
             <stringProp name="Argument.value">${__property(severHost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">is.dev.wso2.org</stringProp>
           </elementProp>
-          <elementProp name="is_port" elementType="Argument">
-            <stringProp name="Argument.name">is_port</stringProp>
+          <elementProp name="isPort" elementType="Argument">
+            <stringProp name="Argument.name">isPort</stringProp>
             <stringProp name="Argument.value">${__property(severPort)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">443</stringProp>
@@ -43,14 +43,14 @@
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">admin</stringProp>
           </elementProp>
-          <elementProp name="sp_name" elementType="Argument">
-            <stringProp name="Argument.name">sp_name</stringProp>
+          <elementProp name="spName" elementType="Argument">
+            <stringProp name="Argument.name">spName</stringProp>
             <stringProp name="Argument.value">${__property(spName)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">travelocity.com</stringProp>
           </elementProp>
-          <elementProp name="sp_description" elementType="Argument">
-            <stringProp name="Argument.name">sp_description</stringProp>
+          <elementProp name="spDescription" elementType="Argument">
+            <stringProp name="Argument.name">spDescription</stringProp>
             <stringProp name="Argument.value">${__property(spDescription)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">This is the password expiry SP for Scenario 14</stringProp>
@@ -61,9 +61,9 @@
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">travelocity.com</stringProp>
           </elementProp>
-          <elementProp name="rolename" elementType="Argument">
-            <stringProp name="Argument.name">rolename</stringProp>
-            <stringProp name="Argument.value">${__property(rolename)}</stringProp>
+          <elementProp name="roleName" elementType="Argument">
+            <stringProp name="Argument.name">roleName</stringProp>
+            <stringProp name="Argument.value">${__property(roleName)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">sol14role</stringProp>
           </elementProp>
@@ -132,7 +132,7 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:addRole&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;xsd:roleName&gt;${rolename}&lt;/xsd:roleName&gt;&#xd;
+         &lt;xsd:roleName&gt;${roleName}&lt;/xsd:roleName&gt;&#xd;
 	    &lt;xsd:userList&gt;${adminusername}&lt;/xsd:userList&gt;&#xd;
          &lt;!--Zero or more repetitions:--&gt;&#xd;
          &lt;xsd:permissions&gt;${permission}&lt;/xsd:permissions&gt;&#xd;
@@ -145,11 +145,11 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-          <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+          <stringProp name="HTTPSampler.domain">${isHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${isPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">https://${is_host}:${is_port}/services/UserAdmin.UserAdminHttpsSoap11Endpoint/</stringProp>
+          <stringProp name="HTTPSampler.path">https://${isHost}:${isPort}/services/UserAdmin.UserAdminHttpsSoap11Endpoint/</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -191,7 +191,7 @@
          &lt;xsd:userName&gt;${userNamePrefix}&lt;/xsd:userName&gt;&#xd;
          &lt;xsd:password&gt;${userPassword}&lt;/xsd:password&gt;&#xd;
          &lt;!--Zero or more repetitions:--&gt;&#xd;
-         &lt;xsd:roles&gt;${rolename}&lt;/xsd:roles&gt;&#xd;
+         &lt;xsd:roles&gt;${roleName}&lt;/xsd:roles&gt;&#xd;
          &lt;!--Zero or more repetitions:--&gt;&#xd;
        &lt;xsd:profileName&gt;Default&lt;/xsd:profileName&gt;&#xd;
       &lt;/xsd:addUser&gt;&#xd;
@@ -201,8 +201,8 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-          <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+          <stringProp name="HTTPSampler.domain">${isHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${isPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/services/UserAdmin.UserAdminHttpsSoap11Endpoint/</stringProp>
@@ -305,8 +305,8 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-          <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+          <stringProp name="HTTPSampler.domain">${isHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${isPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">services/ClaimMetadataManagementService</stringProp>
@@ -358,8 +358,8 @@
    &lt;soapenv:Body&gt;&#xd;
        &lt;xsd:createApplication&gt; &#xd;
       &lt;xsd:serviceProvider&gt; &#xd;
-            &lt;xsd1:applicationName&gt;${sp_name}&lt;/xsd1:applicationName&gt; &#xd;
-            &lt;xsd1:description&gt;${sp_description}&lt;/xsd1:description&gt;           &#xd;
+            &lt;xsd1:applicationName&gt;${spName}&lt;/xsd1:applicationName&gt; &#xd;
+            &lt;xsd1:description&gt;${spDescription}&lt;/xsd1:description&gt;           &#xd;
          &lt;/xsd:serviceProvider&gt; &#xd;
       &lt;/xsd:createApplication&gt; &#xd;
    &lt;/soapenv:Body&gt;&#xd;
@@ -368,8 +368,8 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-          <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+          <stringProp name="HTTPSampler.domain">${isHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${isPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService.IdentityApplicationManagementServiceHttpsSoap11Endpoint/</stringProp>
@@ -444,8 +444,8 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-          <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+          <stringProp name="HTTPSampler.domain">${isHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${isPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/services/IdentitySAMLSSOConfigService.IdentitySAMLSSOConfigServiceHttpsSoap11Endpoint/</stringProp>
@@ -502,8 +502,8 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-          <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+          <stringProp name="HTTPSampler.domain">${isHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${isPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/services/IdentitySAMLSSOConfigService.IdentitySAMLSSOConfigServiceHttpsSoap11Endpoint/</stringProp>
@@ -565,7 +565,7 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:getApplication&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;xsd:applicationName&gt;${sp_name}&lt;/xsd:applicationName&gt;&#xd;
+         &lt;xsd:applicationName&gt;${spName}&lt;/xsd:applicationName&gt;&#xd;
       &lt;/xsd:getApplication&gt;&#xd;
    &lt;/soapenv:Body&gt;&#xd;
 &lt;/soapenv:Envelope&gt;</stringProp>
@@ -573,8 +573,8 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-          <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+          <stringProp name="HTTPSampler.domain">${isHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${isPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService.IdentityApplicationManagementServiceHttpsSoap11Endpoint/</stringProp>
@@ -639,12 +639,12 @@
          &lt;xsd:serviceProvider&gt;&#xd;
             &lt;!--Optional:--&gt;&#xd;
             &lt;xsd1:applicationID&gt;${appID}&lt;/xsd1:applicationID&gt;&#xd;
-            &lt;xsd1:applicationName&gt;${sp_name}&lt;/xsd1:applicationName&gt; &#xd;
+            &lt;xsd1:applicationName&gt;${spName}&lt;/xsd1:applicationName&gt; &#xd;
             &lt;xsd1:claimConfig&gt; &#xd;
                &lt;xsd1:alwaysSendMappedLocalSubjectId&gt;true&lt;/xsd1:alwaysSendMappedLocalSubjectId&gt; &#xd;
                &lt;xsd1:localClaimDialect&gt;true&lt;/xsd1:localClaimDialect&gt;&#xd;
             &lt;/xsd1:claimConfig&gt; &#xd;
-            &lt;xsd1:description&gt;${sp_description}&lt;/xsd1:description&gt; &#xd;
+            &lt;xsd1:description&gt;${spDescription}&lt;/xsd1:description&gt; &#xd;
             &lt;xsd1:inboundAuthenticationConfig&gt;            &#xd;
                 &lt;xsd1:inboundAuthenticationRequestConfigs&gt;&#xd;
                   &lt;xsd1:inboundAuthKey&gt;${travelocityAppName}&lt;/xsd1:inboundAuthKey&gt;&#xd;
@@ -748,8 +748,8 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-          <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+          <stringProp name="HTTPSampler.domain">${isHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${isPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService</stringProp>
@@ -887,8 +887,8 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-          <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+          <stringProp name="HTTPSampler.domain">${isHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${isPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">samlsso</stringProp>
@@ -1010,8 +1010,8 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-          <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+          <stringProp name="HTTPSampler.domain">${isHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${isPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">authenticationendpoint/pwd-reset.jsp</stringProp>
@@ -1070,8 +1070,8 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-          <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+          <stringProp name="HTTPSampler.domain">${isHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${isPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">commonauth</stringProp>
@@ -1119,8 +1119,8 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-          <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+          <stringProp name="HTTPSampler.domain">${isHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${isPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">samlsso</stringProp>
@@ -1294,8 +1294,8 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-          <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+          <stringProp name="HTTPSampler.domain">${isHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${isPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">samlsso</stringProp>
@@ -1350,7 +1350,7 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:deleteApplication&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;xsd:applicationName&gt;${sp_name}&lt;/xsd:applicationName&gt;&#xd;
+         &lt;xsd:applicationName&gt;${spName}&lt;/xsd:applicationName&gt;&#xd;
       &lt;/xsd:deleteApplication&gt;&#xd;
    &lt;/soapenv:Body&gt;&#xd;
 &lt;/soapenv:Envelope&gt;</stringProp>
@@ -1358,8 +1358,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-            <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+            <stringProp name="HTTPSampler.domain">${isHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${isPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService</stringProp>
@@ -1420,8 +1420,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-            <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+            <stringProp name="HTTPSampler.domain">${isHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${isPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/UserAdmin.UserAdminHttpsSoap11Endpoint/</stringProp>
@@ -1464,7 +1464,7 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:deleteRole&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;xsd:roleName&gt;${rolename}&lt;/xsd:roleName&gt;&#xd;
+         &lt;xsd:roleName&gt;${roleName}&lt;/xsd:roleName&gt;&#xd;
       &lt;/xsd:deleteRole&gt;&#xd;
    &lt;/soapenv:Body&gt;&#xd;
 &lt;/soapenv:Envelope&gt;</stringProp>
@@ -1472,8 +1472,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-            <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+            <stringProp name="HTTPSampler.domain">${isHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${isPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/UserAdmin.UserAdminHttpsSoap11Endpoint/</stringProp>
@@ -1524,8 +1524,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-            <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+            <stringProp name="HTTPSampler.domain">${isHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${isPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">services/ClaimMetadataManagementService</stringProp>
