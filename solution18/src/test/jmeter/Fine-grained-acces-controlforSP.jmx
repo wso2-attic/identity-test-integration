@@ -17,14 +17,14 @@
             <stringProp name="Argument.value">${__property(severPort)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="admin_username" elementType="Argument">
-            <stringProp name="Argument.name">admin_username</stringProp>
-            <stringProp name="Argument.value">${__property(admin_username)}</stringProp>
+          <elementProp name="adminUsername" elementType="Argument">
+            <stringProp name="Argument.name">adminUsername</stringProp>
+            <stringProp name="Argument.value">${__property(adminUsername)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="admin_password" elementType="Argument">
-            <stringProp name="Argument.name">admin_password</stringProp>
-            <stringProp name="Argument.value">${__property(admin_password)}</stringProp>
+          <elementProp name="adminPassword" elementType="Argument">
+            <stringProp name="Argument.name">adminPassword</stringProp>
+            <stringProp name="Argument.value">${__property(adminPassword)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="tomcatHost" elementType="Argument">
@@ -111,9 +111,9 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;aut:login&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;aut:username&gt;${admin_username}&lt;/aut:username&gt;&#xd;
+         &lt;aut:username&gt;${adminUsername}&lt;/aut:username&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;aut:password&gt;${admin_password}&lt;/aut:password&gt;&#xd;
+         &lt;aut:password&gt;${adminPassword}&lt;/aut:password&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
          &lt;aut:remoteAddress&gt;${host}&lt;/aut:remoteAddress&gt;&#xd;
       &lt;/aut:login&gt;&#xd;
@@ -1436,9 +1436,9 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;aut:login&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;aut:username&gt;${admin_username}&lt;/aut:username&gt;&#xd;
+         &lt;aut:username&gt;${adminUsername}&lt;/aut:username&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;aut:password&gt;${admin_password}&lt;/aut:password&gt;&#xd;
+         &lt;aut:password&gt;${adminPassword}&lt;/aut:password&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
          &lt;aut:remoteAddress&gt;${host}&lt;/aut:remoteAddress&gt;&#xd;
       &lt;/aut:login&gt;&#xd;
