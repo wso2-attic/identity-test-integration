@@ -47,8 +47,8 @@ FbScope=email
 FbUserInfoFields=id,name,gender,email,first_name,last_name,age_range,link
 
 #server Information
-server_host=localhost
-server_port=9443
+severHost=localhost
+severPort=9443
 
 #Sp Information
 spName=travelocity.com
@@ -57,8 +57,8 @@ permission=/permission/admin
 role=roleIDP21
 
 #Tomcat server Information
-tomcat_host=localhost
-tomcat_port=8080
+tomcatHost=localhost
+tomcatPort=8080
 travelocityIssuer=travelocity.com
 ```
 ##### Run the test

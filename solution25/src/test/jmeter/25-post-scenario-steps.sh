@@ -18,9 +18,9 @@
 #-the file as to maintain the file structure as same as in other scenarions.
 
 prgdir=$(dirname "$0")
-script_path=$(cd "$prgdir"; pwd)
+scriptPath=$(cd "$prgdir"; pwd)
 
-echo "working directory : "$script_path
+echo "working directory : "$scriptPath
 
 #Steps
 
