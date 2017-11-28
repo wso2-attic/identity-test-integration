@@ -13,18 +13,18 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-server_host=$server_host
+severHost=$severHost
 prgdir=$(dirname "$0")
-script_path=$(cd "$prgdir"; pwd)
+scriptPath=$(cd "$prgdir"; pwd)
 
 #run base-setup.sh to deploy artifacts
-source $script_path/../base-setup.sh > $script_path/basesetup.log
+source $scriptPath/../base-setup.sh > $scriptPath/basesetup.log
 
-echo "working directory : "$script_path
+echo "working directory : "$scriptPath
 #updating jmeter properties - user.properties
-sed -i "s|^\(server_host\s*=\s*\).*\$|\1${server_host}|" $script_path/../resources/user.properties
-sed -i "s|^\(server_port\s*=\s*\).*\$|\1${server_port}|" $script_path/../resources/user.properties
-sed -i "s|^\(ei_host\s*=\s*\).*\$|\1${ei_host}|" $script_path/../resources/user.properties
-sed -i "s|^\(ei_port\s*=\s*\).*\$|\1${ei_port}|" $script_path/../resources/user.properties
+sed -i "s|^\(severHost\s*=\s*\).*\$|\1${severHost}|" $scriptPath/../resources/user.properties
+sed -i "s|^\(severPort\s*=\s*\).*\$|\1${severPort}|" $scriptPath/../resources/user.properties
+sed -i "s|^\(ei_host\s*=\s*\).*\$|\1${ei_host}|" $scriptPath/../resources/user.properties
+sed -i "s|^\(ei_port\s*=\s*\).*\$|\1${ei_port}|" $scriptPath/../resources/user.properties
 
 echo "pre-steps are done..."

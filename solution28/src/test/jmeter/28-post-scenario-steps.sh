@@ -15,11 +15,11 @@
 # limitations under the License.
 
 prgdir=$(dirname "$0")
-script_path=$(cd "$prgdir"; pwd)
+scriptPath=$(cd "$prgdir"; pwd)
 
-echo "working directory : "$script_path
+echo "working directory : "$scriptPath
 #run base-setup.sh to deploy artifacts
-source $script_path/../teardown.sh 
+source $scriptPath/../teardown.sh
 
 
 echo "post-steps are done..."

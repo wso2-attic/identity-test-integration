@@ -13,15 +13,15 @@
     <hashTree>
       <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Server Variables" enabled="true">
         <collectionProp name="Arguments.arguments">
-          <elementProp name="server_host" elementType="Argument">
-            <stringProp name="Argument.name">server_host</stringProp>
-            <stringProp name="Argument.value">${__property(server_host)}</stringProp>
+          <elementProp name="severHost" elementType="Argument">
+            <stringProp name="Argument.name">severHost</stringProp>
+            <stringProp name="Argument.value">${__property(severHost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">is530.wso2.com </stringProp>
           </elementProp>
-          <elementProp name="server_port" elementType="Argument">
-            <stringProp name="Argument.name">server_port</stringProp>
-            <stringProp name="Argument.value">${__property(server_port)}</stringProp>
+          <elementProp name="severPort" elementType="Argument">
+            <stringProp name="Argument.name">severPort</stringProp>
+            <stringProp name="Argument.value">${__property(severPort)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">443</stringProp>
           </elementProp>
@@ -56,14 +56,14 @@
       <hashTree/>
       <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Server Variables" enabled="false">
         <collectionProp name="Arguments.arguments">
-          <elementProp name="server_host" elementType="Argument">
-            <stringProp name="Argument.name">server_host</stringProp>
+          <elementProp name="severHost" elementType="Argument">
+            <stringProp name="Argument.name">severHost</stringProp>
             <stringProp name="Argument.value">localhost</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">is530.wso2.com </stringProp>
           </elementProp>
-          <elementProp name="server_port" elementType="Argument">
-            <stringProp name="Argument.name">server_port</stringProp>
+          <elementProp name="severPort" elementType="Argument">
+            <stringProp name="Argument.name">severPort</stringProp>
             <stringProp name="Argument.value">9443</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">443</stringProp>
@@ -146,8 +146,8 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${server_host}</stringProp>
-          <stringProp name="HTTPSampler.port">${server_port}</stringProp>
+          <stringProp name="HTTPSampler.domain">${severHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${severPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/services/AuthenticationAdmin.AuthenticationAdminHttpsSoap11Endpoint/</stringProp>
@@ -215,8 +215,8 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${server_host}</stringProp>
-          <stringProp name="HTTPSampler.port">${server_port}</stringProp>
+          <stringProp name="HTTPSampler.domain">${severHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${severPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/services/IdentityProviderMgtService.IdentityProviderMgtServiceHttpsSoap11Endpoint/</stringProp>
