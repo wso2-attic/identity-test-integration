@@ -19,6 +19,7 @@
       <hashTree/>
       <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Variables" enabled="true">
         <collectionProp name="Arguments.arguments">
+
           <elementProp name="isHost" elementType="Argument">
             <stringProp name="Argument.name">isHost</stringProp>
             <stringProp name="Argument.value">${__property(severHost)}</stringProp>
@@ -26,6 +27,7 @@
           </elementProp>
           <elementProp name="isPort" elementType="Argument">
             <stringProp name="Argument.name">isPort</stringProp>
+
             <stringProp name="Argument.value">${__property(severPort)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
@@ -576,10 +578,12 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:addRPServiceProvider&gt;      &#xd;
          &lt;xsd:spDto&gt;        &#xd;
+
             &lt;xsd1:issuer&gt;${spName}&lt;/xsd1:issuer&gt;   &#xd;
             &lt;xsd1:assertionConsumerUrl&gt;http://${tomcatHost}:${tomcatPort}/${spName}/home.jsp&lt;/xsd1:assertionConsumerUrl&gt;&#xd;
             &lt;xsd1:assertionConsumerUrls&gt;http://${tomcatHost}:${tomcatPort}/${spName}/home.jsp&lt;/xsd1:assertionConsumerUrls&gt;&#xd;
        &lt;xsd1:defaultAssertionConsumerUrl&gt;http://${tomcatHost}:${tomcatPort}/${spName}/home.jsp&lt;/xsd1:defaultAssertionConsumerUrl&gt;&#xd;
+
             &lt;xsd1:signingAlgorithmURI&gt;http://www.w3.org/2000/09/xmldsig#rsa-sha1&lt;/xsd1:signingAlgorithmURI&gt;            &#xd;
             &lt;xsd1:digestAlgorithmURI&gt;http://www.w3.org/2000/09/xmldsig#sha1&lt;/xsd1:digestAlgorithmURI&gt;&#xd;
             &lt;xsd1:doSignAssertions&gt;true&lt;/xsd1:doSignAssertions&gt;&#xd;

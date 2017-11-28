@@ -30,13 +30,13 @@
           <collectionProp name="Arguments.arguments">
             <elementProp name="ServerHost" elementType="Argument">
               <stringProp name="Argument.name">ServerHost</stringProp>
-              <stringProp name="Argument.value">${__property(ServerHost)}</stringProp>
+              <stringProp name="Argument.value">${__property(severHost)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
               <stringProp name="Argument.desc">Hostname of the server</stringProp>
             </elementProp>
             <elementProp name="ServerPort" elementType="Argument">
               <stringProp name="Argument.name">ServerPort</stringProp>
-              <stringProp name="Argument.value">${__property(ServerPort)}</stringProp>
+              <stringProp name="Argument.value">${__property(severPort)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
               <stringProp name="Argument.desc">Server Port</stringProp>
             </elementProp>
@@ -163,11 +163,6 @@
               <stringProp name="Argument.value">${__property(tomcatPort)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
-            <elementProp name="TravelocityAssertionConsumerURL" elementType="Argument">
-              <stringProp name="Argument.name">TravelocityAssertionConsumerURL</stringProp>
-              <stringProp name="Argument.value">${__property(TravelocityAssertionConsumerURL)}</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
           </collectionProp>
         </Arguments>
         <hashTree/>
@@ -211,7 +206,7 @@
 	    &lt;xsd:homeRealmId&gt;${FBHomeRelam}&lt;/xsd:homeRealmId&gt;&#xd;
             &lt;xsd:identityProviderDescription&gt;Facebook Identity Provider&lt;/xsd:identityProviderDescription&gt;&#xd;
             &lt;xsd:identityProviderName&gt;${FBIdentityProviderName}&lt;/xsd:identityProviderName&gt;&#xd;
-	    &lt;xsd:alias&gt;${Alias}&lt;/xsd:alias&gt;&#xd;
+	    &lt;xsd:alias&gt;https://{ServerHost}:{ServerPort}/oauth2/token&lt;/xsd:alias&gt;&#xd;
             &lt;xsd:primary&gt;true&lt;/xsd:primary&gt;&#xd;
             &lt;xsd:defaultAuthenticatorConfig&gt;&#xd;
             &lt;xsd:displayName&gt;facebook&lt;/xsd:displayName&gt;&#xd;
@@ -231,7 +226,7 @@
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;callBackUrl&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;${FBCallbackUrl}&lt;/xsd:value&gt;&#xd;
+                  &lt;xsd:value&gt;https://{ServerHost}:{ServerPort}/commonauth&lt;/xsd:value&gt;&#xd;
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;Scope&lt;/xsd:name&gt;&#xd;
@@ -303,7 +298,7 @@
 	    &lt;xsd:homeRealmId&gt;${GoogleHomeRelam}&lt;/xsd:homeRealmId&gt;&#xd;
             &lt;xsd:identityProviderDescription&gt;Google Identity Provider&lt;/xsd:identityProviderDescription&gt;&#xd;
             &lt;xsd:identityProviderName&gt;${GoogleIdentityProviderName}&lt;/xsd:identityProviderName&gt;&#xd;
-	    &lt;xsd:alias&gt;${Alias}&lt;/xsd:alias&gt;&#xd;
+	    &lt;xsd:alias&gt;https://{ServerHost}:{ServerPort}/oauth2/token&lt;/xsd:alias&gt;&#xd;
             &lt;xsd:primary&gt;true&lt;/xsd:primary&gt;&#xd;
             &lt;xsd:defaultAuthenticatorConfig&gt;&#xd;
             &lt;xsd:displayName&gt;google&lt;/xsd:displayName&gt;&#xd;
@@ -323,7 +318,7 @@
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;callbackUrl&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;${GoogleCallbackUrl}&lt;/xsd:value&gt;&#xd;
+                  &lt;xsd:value&gt;https://{ServerHost}:{ServerPort}/commonauth&lt;/xsd:value&gt;&#xd;
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;scope&lt;/xsd:name&gt;&#xd;
@@ -388,9 +383,9 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:addRPServiceProvider&gt;      &#xd;
          &lt;xsd:spDto&gt;        &#xd;
-            &lt;xsd1:assertionConsumerUrl&gt;${TravelocityAssertionConsumerURL}&lt;/xsd1:assertionConsumerUrl&gt;&#xd;
-            &lt;xsd1:assertionConsumerUrls&gt;${TravelocityAssertionConsumerURL}&lt;/xsd1:assertionConsumerUrls&gt;&#xd;
-            &lt;xsd1:defaultAssertionConsumerUrl&gt;${TravelocityAssertionConsumerURL}&lt;/xsd1:defaultAssertionConsumerUrl&gt;&#xd;
+            &lt;xsd1:assertionConsumerUrl&gt;http://${tomcatHost}:${tomcatPort}/${travelocityIssuer}/home.jsp&lt;/xsd1:assertionConsumerUrl&gt;&#xd;
+            &lt;xsd1:assertionConsumerUrls&gt;http://${tomcatHost}:${tomcatPort}/${travelocityIssuer}/home.jsp&lt;/xsd1:assertionConsumerUrls&gt;&#xd;
+            &lt;xsd1:defaultAssertionConsumerUrl&gt;http://${tomcatHost}:${tomcatPort}/${travelocityIssuer}/home.jsp&lt;/xsd1:defaultAssertionConsumerUrl&gt;&#xd;
             &lt;xsd1:digestAlgorithmURI&gt;http://www.w3.org/2000/09/xmldsig#sha1&lt;/xsd1:digestAlgorithmURI&gt;&#xd;
             &lt;xsd1:doSignAssertions&gt;true&lt;/xsd1:doSignAssertions&gt;&#xd;
             &lt;xsd1:doSignResponse&gt;true&lt;/xsd1:doSignResponse&gt;&#xd;
@@ -832,7 +827,7 @@
             <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">/solution28travelocity.com/samlsso?SAML2.HTTPBinding=HTTP-Redirect</stringProp>
+            <stringProp name="HTTPSampler.path">/${travelocityIssuer}/samlsso?SAML2.HTTPBinding=HTTP-Redirect</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
@@ -1078,7 +1073,7 @@
               <connectTime>true</connectTime>
             </value>
           </objProp>
-          <stringProp name="filename"></stringProp>
+          <stringProp name="filename">/home/sashika/Apps/Applications/IS/identity-test-integration/solution28/target/jmeter/results/20171123-HomeRelam.jtl</stringProp>
         </ResultCollector>
         <hashTree/>
         <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">

@@ -15,6 +15,37 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="host_ip" elementType="Argument">
             <stringProp name="Argument.name">host_ip</stringProp>
+            <stringProp name="Argument.value">${__property(severHost)}</stringProp>
+            <stringProp name="Argument.desc">change it to cluster domain</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="host_port" elementType="Argument">
+            <stringProp name="Argument.name">host_port</stringProp>
+            <stringProp name="Argument.value">${__property(severPort)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="username" elementType="Argument">
+            <stringProp name="Argument.name">username</stringProp>
+            <stringProp name="Argument.value">${__property(username)</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="password" elementType="Argument">
+            <stringProp name="Argument.name">password</stringProp>
+            <stringProp name="Argument.value">${__property(password)</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="adminCredentials" elementType="Argument">
+            <stringProp name="Argument.name">adminCredentials</stringProp>
+            <stringProp name="Argument.value">${__property(adminCredentials)</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Server Variables" enabled="false">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="host_ip" elementType="Argument">
+            <stringProp name="Argument.name">host_ip</stringProp>
             <stringProp name="Argument.value">is.dev.wso2.org</stringProp>
             <stringProp name="Argument.desc">change it to cluster domain</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
@@ -46,6 +77,21 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="webapp_host" elementType="Argument">
             <stringProp name="Argument.name">webapp_host</stringProp>
+            <stringProp name="Argument.value">${__property(tomcatHost)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="webapp_port" elementType="Argument">
+            <stringProp name="Argument.name">webapp_port</stringProp>
+            <stringProp name="Argument.value">${__property(tomcatPort)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Test Variables" enabled="false">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="webapp_host" elementType="Argument">
+            <stringProp name="Argument.name">webapp_host</stringProp>
             <stringProp name="Argument.value">192.168.57.31</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
@@ -58,6 +104,59 @@
       </Arguments>
       <hashTree/>
       <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="applicationName1" elementType="Argument">
+            <stringProp name="Argument.name">applicationName1</stringProp>
+            <stringProp name="Argument.value">${__property(applicationName1)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">SP name for travelocity.com (can be any)</stringProp>
+          </elementProp>
+          <elementProp name="applicationName2" elementType="Argument">
+            <stringProp name="Argument.name">applicationName2</stringProp>
+            <stringProp name="Argument.value">${__property(applicationName2)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">SP name for avis.com (can be any)</stringProp>
+          </elementProp>
+          <elementProp name="issuer1" elementType="Argument">
+            <stringProp name="Argument.name">issuer1</stringProp>
+            <stringProp name="Argument.value">${__property(issuer1)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Issuer name for travelocity (must be travelocity.com)</stringProp>
+          </elementProp>
+          <elementProp name="issuer2" elementType="Argument">
+            <stringProp name="Argument.name">issuer2</stringProp>
+            <stringProp name="Argument.value">${__property(issuer2)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Issuer name for avis (must be avis.com)</stringProp>
+          </elementProp>
+          <elementProp name="acsurl1" elementType="Argument">
+            <stringProp name="Argument.name">acsurl1</stringProp>
+            <stringProp name="Argument.value">http://${__property(tomcatHost)}:${__property(tomcatPort)}/${__property(issuer1)}/home.jsp</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Assertion Consumer URL of travelocity.com</stringProp>
+          </elementProp>
+          <elementProp name="acsurl2" elementType="Argument">
+            <stringProp name="Argument.name">acsurl2</stringProp>
+            <stringProp name="Argument.value">http://${__property(tomcatHost)}:${__property(tomcatPort)}/${__property(issuer2)}/home.jsp</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Assertion Consumer URL of avis.com</stringProp>
+          </elementProp>
+          <elementProp name="SAMLReqTrav" elementType="Argument">
+            <stringProp name="Argument.name">SAMLReqTrav</stringProp>
+            <stringProp name="Argument.value">${__property(SAMLReqTrav)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">SAML Request</stringProp>
+          </elementProp>
+          <elementProp name="SAMLReqAvis" elementType="Argument">
+            <stringProp name="Argument.name">SAMLReqAvis</stringProp>
+            <stringProp name="Argument.value">${__property(SAMLReqAvis)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">SAML Request</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="false">
         <collectionProp name="Arguments.arguments">
           <elementProp name="applicationName1" elementType="Argument">
             <stringProp name="Argument.name">applicationName1</stringProp>

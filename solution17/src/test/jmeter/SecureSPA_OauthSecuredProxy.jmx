@@ -9,12 +9,12 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="host" elementType="Argument">
             <stringProp name="Argument.name">host</stringProp>
-            <stringProp name="Argument.value">${__property(server_host)}</stringProp>
+            <stringProp name="Argument.value">${__property(severHost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="port" elementType="Argument">
             <stringProp name="Argument.name">port</stringProp>
-            <stringProp name="Argument.value">${__property(server_port)}</stringProp>
+            <stringProp name="Argument.value">${__property(severPort)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="admin_username" elementType="Argument">
@@ -54,17 +54,17 @@
           </elementProp>
           <elementProp name="callback" elementType="Argument">
             <stringProp name="Argument.name">callback</stringProp>
-            <stringProp name="Argument.value">${__property(callback_url)}</stringProp>
+            <stringProp name="Argument.value">https://{severHost}/oauth2-proxy/callback</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="tomcat_host" elementType="Argument">
-            <stringProp name="Argument.name">tomcat_host</stringProp>
-            <stringProp name="Argument.value">${__property(tomcat_host)}</stringProp>
+          <elementProp name="tomcatHost" elementType="Argument">
+            <stringProp name="Argument.name">tomcatHost</stringProp>
+            <stringProp name="Argument.value">${__property(tomcatHost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="tomcat_port" elementType="Argument">
-            <stringProp name="Argument.name">tomcat_port</stringProp>
-            <stringProp name="Argument.value">${__property(tomcat_port)}</stringProp>
+          <elementProp name="tomcatPort" elementType="Argument">
+            <stringProp name="Argument.name">tomcatPort</stringProp>
+            <stringProp name="Argument.value">${__property(tomcatPort)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="spaName" elementType="Argument">
@@ -790,8 +790,8 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${tomcat_host}</stringProp>
-          <stringProp name="HTTPSampler.port">${tomcat_port}</stringProp>
+          <stringProp name="HTTPSampler.domain">${tomcatHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/Sol17amazon/index.html</stringProp>
