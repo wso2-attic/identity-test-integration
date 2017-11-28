@@ -25,8 +25,8 @@ Products: WSO2 Identity Server 5.0.0+
 1. Go to solution05/src/test/resources/user.properties file and change the values of configurations as below.
 
 #### IS Server
-is_host=< HOST NAME OF IS SERVER > <br />
-is_port=< PORT OF THE IS SERVER > <br />
+serverHost=< HOST NAME OF IS SERVER > <br />
+serverPort=< PORT OF THE IS SERVER > <br />
 
 
 #### User Management
@@ -39,15 +39,15 @@ noOfUsers= < NUMBER OF USERS TO CREATE > <br />
 
 
 #### IDP
-idp_name=< IDP NAME > <br />
-idp_description=< IDP DESCRIPTION > <br />
-fb_clientID= < CLIENT ID OF fACEBOOK APPLICATION > <br />
-fb_clientSecret= < CLIENT SECRET OF fACEBOOK APPLICATION > <br />
+idpname=< IDP NAME > <br />
+idpdescription=< IDP DESCRIPTION > <br />
+fbclientID= < CLIENT ID OF fACEBOOK APPLICATION > <br />
+fbclientSecret= < CLIENT SECRET OF fACEBOOK APPLICATION > <br />
 
 
 #### SP
-sp_name=< SP NAME > <br />
-sp_description=< SP DESCRIPTION > <br />
+spname=< SP NAME > <br />
+spdescription=< SP DESCRIPTION > <br />
 carbonServer=< ISSUER NAME > <br />
 
 
@@ -55,8 +55,8 @@ carbonServer=< ISSUER NAME > <br />
 fbserver=facebook.com <br />
 redirect=commonauth <br />
 FBLogin_Email= < EMAIL ADDRESS OF AUTHORIZED FB USER > <br />
-FB_Username= < USERNAME OF AUTHORIZED FB USER > <br />
-FB_Password= < PASSWORD OF AUTHORIZED FB USER > <br />
+FBUsername= < USERNAME OF AUTHORIZED FB USER > <br />
+FBPassword= < PASSWORD OF AUTHORIZED FB USER > <br />
 
 
 #### How to Run
