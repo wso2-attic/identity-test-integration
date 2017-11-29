@@ -99,19 +99,19 @@
             <stringProp name="Argument.value">${__property(role)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="adminUsername" elementType="Argument">
-            <stringProp name="Argument.name">adminUsername</stringProp>
-            <stringProp name="Argument.value">${__property(admin_username)</stringProp>
+          <elementProp name="admin_username" elementType="Argument">
+            <stringProp name="Argument.name">admin_username</stringProp>
+            <stringProp name="Argument.value">${__property(adminUsername)</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="adminPassword" elementType="Argument">
-            <stringProp name="Argument.name">adminPassword</stringProp>
-            <stringProp name="Argument.value">${__property(admin_password)</stringProp>
+          <elementProp name="admin_password" elementType="Argument">
+            <stringProp name="Argument.name">admin_password</stringProp>
+            <stringProp name="Argument.value">${__property(adminPassword)</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="adminCredentials" elementType="Argument">
-            <stringProp name="Argument.name">adminCredentials</stringProp>
-            <stringProp name="Argument.value">${__property(admin_credentials)</stringProp>
+          <elementProp name="admin_credentials" elementType="Argument">
+            <stringProp name="Argument.name">admin_credentials</stringProp>
+            <stringProp name="Argument.value">${__property(adminCredentials)</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
