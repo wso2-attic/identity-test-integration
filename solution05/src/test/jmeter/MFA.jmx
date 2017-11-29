@@ -15,12 +15,12 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="is_host" elementType="Argument">
             <stringProp name="Argument.name">is_host</stringProp>
-            <stringProp name="Argument.value">${__property(severHost)}</stringProp>
+            <stringProp name="Argument.value">${__property(serverHost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="is_port" elementType="Argument">
             <stringProp name="Argument.name">is_port</stringProp>
-            <stringProp name="Argument.value">${__property(severPort)}</stringProp>
+            <stringProp name="Argument.value">${__property(serverPort)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="adminCredentials" elementType="Argument">
@@ -38,14 +38,14 @@
             <stringProp name="Argument.value">${__property(adminpassword)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="sp_name" elementType="Argument">
-            <stringProp name="Argument.name">sp_name</stringProp>
-            <stringProp name="Argument.value">${__property(sp_name)}</stringProp>
+          <elementProp name="spname" elementType="Argument">
+            <stringProp name="Argument.name">spname</stringProp>
+            <stringProp name="Argument.value">${__property(spname)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="sp_description" elementType="Argument">
-            <stringProp name="Argument.name">sp_description</stringProp>
-            <stringProp name="Argument.value">${__property(sp_description)}</stringProp>
+          <elementProp name="spdescription" elementType="Argument">
+            <stringProp name="Argument.name">spdescription</stringProp>
+            <stringProp name="Argument.value">${__property(spdescription)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="carbonServer" elementType="Argument">
@@ -53,24 +53,24 @@
             <stringProp name="Argument.value">${__property(carbonServer)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="idp_name" elementType="Argument">
-            <stringProp name="Argument.name">idp_name</stringProp>
-            <stringProp name="Argument.value">${__property(idp_name)}</stringProp>
+          <elementProp name="idpname" elementType="Argument">
+            <stringProp name="Argument.name">idpname</stringProp>
+            <stringProp name="Argument.value">${__property(idpname)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="idp_description" elementType="Argument">
-            <stringProp name="Argument.name">idp_description</stringProp>
-            <stringProp name="Argument.value">${__property(idp_description)}</stringProp>
+          <elementProp name="idpdescription" elementType="Argument">
+            <stringProp name="Argument.name">idpdescription</stringProp>
+            <stringProp name="Argument.value">${__property(idpdescription)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="fb_clientID" elementType="Argument">
-            <stringProp name="Argument.name">fb_clientID</stringProp>
-            <stringProp name="Argument.value">${__property(fb_clientID)}</stringProp>
+          <elementProp name="fbclientID" elementType="Argument">
+            <stringProp name="Argument.name">fbclientID</stringProp>
+            <stringProp name="Argument.value">${__property(fbclientID)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="fb_clientSecret" elementType="Argument">
-            <stringProp name="Argument.name">fb_clientSecret</stringProp>
-            <stringProp name="Argument.value">${__property(fb_clientSecret)}</stringProp>
+          <elementProp name="fbclientSecret" elementType="Argument">
+            <stringProp name="Argument.name">fbclientSecret</stringProp>
+            <stringProp name="Argument.value">${__property(fbclientSecret)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="rolename" elementType="Argument">
@@ -103,19 +103,19 @@
             <stringProp name="Argument.value">${__property(redirect)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="FBLogin_Email" elementType="Argument">
-            <stringProp name="Argument.name">FBLogin_Email</stringProp>
-            <stringProp name="Argument.value">${__property(FBLogin_Email)}</stringProp>
+          <elementProp name="FBLoginEmail" elementType="Argument">
+            <stringProp name="Argument.name">FBLoginEmail</stringProp>
+            <stringProp name="Argument.value">${__property(FBLoginEmail)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="FB_Username" elementType="Argument">
-            <stringProp name="Argument.name">FB_Username</stringProp>
-            <stringProp name="Argument.value">${__property(FB_Username)}</stringProp>
+          <elementProp name="FBUsername" elementType="Argument">
+            <stringProp name="Argument.name">FBUsername</stringProp>
+            <stringProp name="Argument.value">${__property(FBUsername)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="FB_Password" elementType="Argument">
             <stringProp name="Argument.name">FB_Password</stringProp>
-            <stringProp name="Argument.value">${__property(FB_Password)}</stringProp>
+            <stringProp name="Argument.value">${__property(FBPassword)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="testAdminCredentials" elementType="Argument">
@@ -449,10 +449,10 @@
       &lt;mgt:addIdP&gt;        &#xd;
          &lt;!--Optional:--&gt;&#xd;
          &lt;mgt:identityProvider&gt;&#xd;
-            &lt;xsd:identityProviderName&gt;${idp_name}&lt;/xsd:identityProviderName&gt;           &#xd;
-            &lt;xsd:displayName&gt;${idp_name}&lt;/xsd:displayName&gt;&#xd;
+            &lt;xsd:identityProviderName&gt;${idpname}&lt;/xsd:identityProviderName&gt;           &#xd;
+            &lt;xsd:displayName&gt;${idpname}&lt;/xsd:displayName&gt;&#xd;
             &lt;xsd:enable&gt;true&lt;/xsd:enable&gt;&#xd;
-            &lt;xsd:identityProviderDescription&gt;${idp_description}&lt;/xsd:identityProviderDescription&gt;&#xd;
+            &lt;xsd:identityProviderDescription&gt;${idpdescription}&lt;/xsd:identityProviderDescription&gt;&#xd;
             &lt;xsd:alias&gt;https://${is_host}:${is_port}/oauth2/token/&lt;/xsd:alias&gt;&#xd;
             &lt;xsd:primary&gt;false&lt;/xsd:primary&gt;&#xd;
             &lt;xsd:provisioningRole&gt;-&lt;/xsd:provisioningRole&gt;&#xd;
@@ -517,13 +517,13 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;mgt:updateIdP&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;mgt:oldIdPName&gt;${idp_name}&lt;/mgt:oldIdPName&gt;&#xd;
+         &lt;mgt:oldIdPName&gt;${idpname}&lt;/mgt:oldIdPName&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
          &lt;mgt:identityProvider&gt;&#xd;
-            &lt;xsd:identityProviderName&gt;${idp_name}&lt;/xsd:identityProviderName&gt;           &#xd;
-            &lt;xsd:displayName&gt;${idp_name}&lt;/xsd:displayName&gt;&#xd;
+            &lt;xsd:identityProviderName&gt;${idpname}&lt;/xsd:identityProviderName&gt;           &#xd;
+            &lt;xsd:displayName&gt;${idpname}&lt;/xsd:displayName&gt;&#xd;
             &lt;xsd:enable&gt;true&lt;/xsd:enable&gt;&#xd;
-            &lt;xsd:identityProviderDescription&gt;${idp_description}&lt;/xsd:identityProviderDescription&gt;&#xd;
+            &lt;xsd:identityProviderDescription&gt;${idpdescription}&lt;/xsd:identityProviderDescription&gt;&#xd;
             &lt;xsd:alias&gt;https://${is_host}:${is_port}/oauth2/token/&lt;/xsd:alias&gt;&#xd;
             &lt;xsd:primary&gt;false&lt;/xsd:primary&gt;&#xd;
             &lt;xsd:provisioningRole&gt;-&lt;/xsd:provisioningRole&gt;&#xd;
@@ -725,12 +725,12 @@
                &lt;name&gt;FacebookAuthenticator&lt;/name&gt;&#xd;
                &lt;properties&gt;&#xd;
                   &lt;name&gt;ClientId&lt;/name&gt;&#xd;
-                  &lt;value&gt;${fb_clientID}&lt;/value&gt;&#xd;
+                  &lt;value&gt;${fbclientID}&lt;/value&gt;&#xd;
                &lt;/properties&gt;&#xd;
                &lt;properties&gt;&#xd;
                   &lt;confidential&gt;true&lt;/confidential&gt;&#xd;
                   &lt;name&gt;ClientSecret&lt;/name&gt;&#xd;
-                  &lt;value&gt;${fb_clientSecret}&lt;/value&gt;&#xd;
+                  &lt;value&gt;${fbclientSecret}&lt;/value&gt;&#xd;
                &lt;/properties&gt;&#xd;
                &lt;properties&gt;&#xd;
                   &lt;name&gt;Scope&lt;/name&gt;&#xd;
@@ -835,63 +835,6 @@
           <boolProp name="CounterConfig.per_user">false</boolProp>
         </CounterConfig>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login" enabled="false">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:aut=&quot;http://authentication.services.core.carbon.wso2.org&quot;&gt;&#xd;
-   &lt;soapenv:Header/&gt;&#xd;
-   &lt;soapenv:Body&gt;&#xd;
-      &lt;aut:login&gt;&#xd;
-         &lt;aut:username&gt;${usernamePrefix}1&lt;/aut:username&gt;&#xd;
-         &lt;aut:password&gt;${adminpassword}&lt;/aut:password&gt;&#xd;
-      &lt;/aut:login&gt;&#xd;
-   &lt;/soapenv:Body&gt;&#xd;
-&lt;/soapenv:Envelope&gt;</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-          <stringProp name="HTTPSampler.port">${is_port}</stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/services/AuthenticationAdmin.AuthenticationAdminHttpsSoap11Endpoint/</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200 OK HTTP Code Response Assertion" enabled="true">
-            <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1606201635">HTTP/1.1 200 OK</stringProp>
-            </collectionProp>
-            <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
-            <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">2</intProp>
-          </ResponseAssertion>
-          <hashTree/>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">SOAPAction</stringProp>
-                <stringProp name="Header.value">urn:login</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">text/xml</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
-          <hashTree/>
-        </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Register carbonServer" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -1045,8 +988,8 @@
    &lt;soapenv:Body&gt;&#xd;
        &lt;xsd:createApplication&gt; &#xd;
       &lt;xsd:serviceProvider&gt; &#xd;
-            &lt;xsd1:applicationName&gt;${sp_name}&lt;/xsd1:applicationName&gt; &#xd;
-            &lt;xsd1:description&gt;${sp_description}&lt;/xsd1:description&gt;           &#xd;
+            &lt;xsd1:applicationName&gt;${spname}&lt;/xsd1:applicationName&gt; &#xd;
+            &lt;xsd1:description&gt;${spdescription}&lt;/xsd1:description&gt;           &#xd;
          &lt;/xsd:serviceProvider&gt; &#xd;
       &lt;/xsd:createApplication&gt; &#xd;
    &lt;/soapenv:Body&gt;&#xd;
@@ -1108,7 +1051,7 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:getApplication&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;xsd:applicationName&gt;${sp_name}&lt;/xsd:applicationName&gt;&#xd;
+         &lt;xsd:applicationName&gt;${spname}&lt;/xsd:applicationName&gt;&#xd;
       &lt;/xsd:getApplication&gt;&#xd;
    &lt;/soapenv:Body&gt;&#xd;
 &lt;/soapenv:Envelope&gt;</stringProp>
@@ -1182,7 +1125,7 @@
          &lt;xsd:serviceProvider&gt;&#xd;
             &lt;!--Optional:--&gt;&#xd;
             &lt;xsd1:applicationID&gt;${appID}&lt;/xsd1:applicationID&gt;&#xd;
-            &lt;xsd1:applicationName&gt;${sp_name}&lt;/xsd1:applicationName&gt; &#xd;
+            &lt;xsd1:applicationName&gt;${spname}&lt;/xsd1:applicationName&gt; &#xd;
 	   &#xd;
 	/** Configure Claims */	   &#xd;
 	   &lt;xsd:claimConfig&gt;&#xd;
@@ -1346,7 +1289,7 @@
 &#xd;
 &#xd;
 &#xd;
-            &lt;xsd1:description&gt;${sp_description}&lt;/xsd1:description&gt; &#xd;
+            &lt;xsd1:description&gt;${spdescription}&lt;/xsd1:description&gt; &#xd;
             &lt;xsd1:inboundAuthenticationConfig&gt;            &#xd;
                 &lt;xsd1:inboundAuthenticationRequestConfigs&gt;&#xd;
                   &lt;xsd1:inboundAuthKey&gt;${carbonServer}&lt;/xsd1:inboundAuthKey&gt;&#xd;
@@ -1441,7 +1384,7 @@
                 &lt;xsd1:valid&gt;true&lt;/xsd1:valid&gt;           &#xd;
         &lt;/xsd1:federatedAuthenticatorConfigs&gt;&#xd;
             &lt;!--Optional:--&gt;&#xd;
-        &lt;xsd1:identityProviderName&gt;${idp_name}&lt;/xsd1:identityProviderName&gt;&#xd;
+        &lt;xsd1:identityProviderName&gt;${idpname}&lt;/xsd1:identityProviderName&gt;&#xd;
         &lt;xsd1:enable&gt;false&lt;/xsd1:enable&gt;     &#xd;
         &lt;xsd1:primary&gt;false&lt;/xsd1:primary&gt; &#xd;
         &lt;xsd1:federationHub&gt;false&lt;/xsd1:federationHub&gt;                     &#xd;
@@ -1797,7 +1740,7 @@
               <elementProp name="sp" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">true</boolProp>
                 <stringProp name="Argument.name">sp</stringProp>
-                <stringProp name="Argument.value">${sp_name}</stringProp>
+                <stringProp name="Argument.value">${spname}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
               </elementProp>
@@ -1942,7 +1885,7 @@
               </elementProp>
               <elementProp name="Referer" elementType="Header">
                 <stringProp name="Header.name">Referer</stringProp>
-                <stringProp name="Header.value">https://${is_host}:${is_port}/authenticationendpoint/login.do?RelayState=ec390bb9-7e54-4ac9-ac02-4028f0f24bdf&amp;SSOAuthSessionID=BF9A20EBAF291FF03F763B4C280B7963&amp;commonAuthCallerPath=%2Fsamlsso&amp;forceAuth=false&amp;passiveAuth=false&amp;tenantDomain=carbon.super&amp;sessionDataKey=${sessionDataKey}&amp;relyingParty=${carbonServer}&amp;type=samlsso&amp;sp=${sp_name}&amp;isSaaSApp=false&amp;authenticators=BasicAuthenticator:LOCAL</stringProp>
+                <stringProp name="Header.value">https://${is_host}:${is_port}/authenticationendpoint/login.do?RelayState=ec390bb9-7e54-4ac9-ac02-4028f0f24bdf&amp;SSOAuthSessionID=BF9A20EBAF291FF03F763B4C280B7963&amp;commonAuthCallerPath=%2Fsamlsso&amp;forceAuth=false&amp;passiveAuth=false&amp;tenantDomain=carbon.super&amp;sessionDataKey=${sessionDataKey}&amp;relyingParty=${carbonServer}&amp;type=samlsso&amp;sp=${spname}&amp;isSaaSApp=false&amp;authenticators=BasicAuthenticator:LOCAL</stringProp>
               </elementProp>
               <elementProp name="Accept-Encoding" elementType="Header">
                 <stringProp name="Header.name">Accept-Encoding</stringProp>
@@ -2366,7 +2309,7 @@
               <elementProp name="sp" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">true</boolProp>
                 <stringProp name="Argument.name">sp</stringProp>
-                <stringProp name="Argument.value">${sp_name}</stringProp>
+                <stringProp name="Argument.value">${spname}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
               </elementProp>
@@ -2511,7 +2454,7 @@
               </elementProp>
               <elementProp name="Referer" elementType="Header">
                 <stringProp name="Header.name">Referer</stringProp>
-                <stringProp name="Header.value">https://${is_host}:${is_port}/authenticationendpoint/login.do?RelayState=ec390bb9-7e54-4ac9-ac02-4028f0f24bdf&amp;SSOAuthSessionID=BF9A20EBAF291FF03F763B4C280B7963&amp;commonAuthCallerPath=%2Fsamlsso&amp;forceAuth=false&amp;passiveAuth=false&amp;tenantDomain=carbon.super&amp;sessionDataKey=${sessionDataKey}&amp;relyingParty=${carbonServer}&amp;type=samlsso&amp;sp=${sp_name}&amp;isSaaSApp=false&amp;authenticators=BasicAuthenticator:LOCAL</stringProp>
+                <stringProp name="Header.value">https://${is_host}:${is_port}/authenticationendpoint/login.do?RelayState=ec390bb9-7e54-4ac9-ac02-4028f0f24bdf&amp;SSOAuthSessionID=BF9A20EBAF291FF03F763B4C280B7963&amp;commonAuthCallerPath=%2Fsamlsso&amp;forceAuth=false&amp;passiveAuth=false&amp;tenantDomain=carbon.super&amp;sessionDataKey=${sessionDataKey}&amp;relyingParty=${carbonServer}&amp;type=samlsso&amp;sp=${spname}&amp;isSaaSApp=false&amp;authenticators=BasicAuthenticator:LOCAL</stringProp>
               </elementProp>
               <elementProp name="Accept-Encoding" elementType="Header">
                 <stringProp name="Header.name">Accept-Encoding</stringProp>
