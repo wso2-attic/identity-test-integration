@@ -40,7 +40,7 @@
           </elementProp>
           <elementProp name="FbCallbackUrl" elementType="Argument">
             <stringProp name="Argument.name">FbCallbackUrl</stringProp>
-            <stringProp name="Argument.value">https://${__property(severHost)}:${__property(severPort)}/commonauth</stringProp>
+            <stringProp name="Argument.value">https://${__property(serverHost)}:${__property(severPort)}/commonauth</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="FbScope" elementType="Argument">
@@ -53,9 +53,9 @@
             <stringProp name="Argument.value">${__property(FbUserInfoFields)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="severHost" elementType="Argument">
-            <stringProp name="Argument.name">severHost</stringProp>
-            <stringProp name="Argument.value">${__property(severHost)}</stringProp>
+          <elementProp name="serverHost" elementType="Argument">
+            <stringProp name="Argument.name">serverHost</stringProp>
+            <stringProp name="Argument.value">${__property(serverHost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="severPort" elementType="Argument">
@@ -174,11 +174,11 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${severHost}</stringProp>
+          <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
           <stringProp name="HTTPSampler.port">${severPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">https://${severHost}:${severPort}/services/UserAdmin.UserAdminHttpsSoap11Endpoint/</stringProp>
+          <stringProp name="HTTPSampler.path">https://${serverHost}:${severPort}/services/UserAdmin.UserAdminHttpsSoap11Endpoint/</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -226,7 +226,7 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${severHost}</stringProp>
+          <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
           <stringProp name="HTTPSampler.port">${severPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -565,7 +565,7 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${severHost}</stringProp>
+            <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
             <stringProp name="HTTPSampler.port">${severPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
@@ -625,7 +625,7 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${severHost}</stringProp>
+            <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
             <stringProp name="HTTPSampler.port">${severPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -690,7 +690,7 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${severHost}</stringProp>
+            <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
             <stringProp name="HTTPSampler.port">${severPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -741,7 +741,7 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${severHost}</stringProp>
+            <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
             <stringProp name="HTTPSampler.port">${severPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -808,7 +808,7 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${severHost}</stringProp>
+            <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
             <stringProp name="HTTPSampler.port">${severPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -1135,7 +1135,7 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${severHost}</stringProp>
+            <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
             <stringProp name="HTTPSampler.port">${severPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -1348,7 +1348,7 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${severHost}</stringProp>
+            <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
             <stringProp name="HTTPSampler.port">${severPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -1402,7 +1402,7 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${severHost}</stringProp>
+            <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
             <stringProp name="HTTPSampler.port">${severPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
@@ -1457,7 +1457,7 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${severHost}</stringProp>
+            <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
             <stringProp name="HTTPSampler.port">${severPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -1505,7 +1505,7 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${severHost}</stringProp>
+            <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
             <stringProp name="HTTPSampler.port">${severPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>

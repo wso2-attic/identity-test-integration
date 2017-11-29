@@ -15,7 +15,7 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="isHost" elementType="Argument">
             <stringProp name="Argument.name">isHost</stringProp>
-            <stringProp name="Argument.value">${__property(severHost)}</stringProp>
+            <stringProp name="Argument.value">${__property(serverHost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">is.dev.wso2.org</stringProp>
           </elementProp>

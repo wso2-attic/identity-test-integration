@@ -18,7 +18,7 @@
 #TODO:read below property from infra.json file
 tomcatHost=$tomcatHost
 tomcatPort=8080
-severHost=$severHost
+serverHost=$serverHost
 severPort=443
 ei_host="54.144.46.10"
 ei_port=9443

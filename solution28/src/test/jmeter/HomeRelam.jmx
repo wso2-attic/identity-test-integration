@@ -30,7 +30,7 @@
           <collectionProp name="Arguments.arguments">
             <elementProp name="ServerHost" elementType="Argument">
               <stringProp name="Argument.name">ServerHost</stringProp>
-              <stringProp name="Argument.value">${__property(severHost)}</stringProp>
+              <stringProp name="Argument.value">${__property(serverHost)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
               <stringProp name="Argument.desc">Hostname of the server</stringProp>
             </elementProp>
