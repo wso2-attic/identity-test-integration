@@ -19,13 +19,15 @@
       <hashTree/>
       <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Variables" enabled="true">
         <collectionProp name="Arguments.arguments">
-          <elementProp name="is_host" elementType="Argument">
-            <stringProp name="Argument.name">is_host</stringProp>
+
+          <elementProp name="isHost" elementType="Argument">
+            <stringProp name="Argument.name">isHost</stringProp>
             <stringProp name="Argument.value">${__property(severHost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="is_port" elementType="Argument">
-            <stringProp name="Argument.name">is_port</stringProp>
+          <elementProp name="isPort" elementType="Argument">
+            <stringProp name="Argument.name">isPort</stringProp>
+
             <stringProp name="Argument.value">${__property(severPort)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
@@ -44,14 +46,14 @@
             <stringProp name="Argument.value">${__property(adminpassword)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="sp_name" elementType="Argument">
-            <stringProp name="Argument.name">sp_name</stringProp>
-            <stringProp name="Argument.value">${__property(sp_name)}</stringProp>
+          <elementProp name="spName" elementType="Argument">
+            <stringProp name="Argument.name">spName</stringProp>
+            <stringProp name="Argument.value">${__property(spName)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="sp_description" elementType="Argument">
-            <stringProp name="Argument.name">sp_description</stringProp>
-            <stringProp name="Argument.value">${__property(sp_description)}</stringProp>
+          <elementProp name="spDescription" elementType="Argument">
+            <stringProp name="Argument.name">spDescription</stringProp>
+            <stringProp name="Argument.value">${__property(spDescription)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="carbonServer" elementType="Argument">
@@ -64,34 +66,34 @@
             <stringProp name="Argument.value">${__property(tomcatPort)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="idp_name" elementType="Argument">
-            <stringProp name="Argument.name">idp_name</stringProp>
-            <stringProp name="Argument.value">${__property(idp_name)}</stringProp>
+          <elementProp name="idpName" elementType="Argument">
+            <stringProp name="Argument.name">idpName</stringProp>
+            <stringProp name="Argument.value">${__property(idpName)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="idp_description" elementType="Argument">
-            <stringProp name="Argument.name">idp_description</stringProp>
-            <stringProp name="Argument.value">${__property(idp_description)}</stringProp>
+          <elementProp name="idpDescription" elementType="Argument">
+            <stringProp name="Argument.name">idpDescription</stringProp>
+            <stringProp name="Argument.value">${__property(idpDescription)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="fb_clientID" elementType="Argument">
-            <stringProp name="Argument.name">fb_clientID</stringProp>
-            <stringProp name="Argument.value">${__property(fb_clientID)}</stringProp>
+          <elementProp name="fbClientId" elementType="Argument">
+            <stringProp name="Argument.name">fbClientId</stringProp>
+            <stringProp name="Argument.value">${__property(fbClientId)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="fb_clientSecret" elementType="Argument">
-            <stringProp name="Argument.name">fb_clientSecret</stringProp>
-            <stringProp name="Argument.value">${__property(fb_clientSecret)}</stringProp>
+          <elementProp name="fbClientSecret" elementType="Argument">
+            <stringProp name="Argument.name">fbClientSecret</stringProp>
+            <stringProp name="Argument.value">${__property(fbClientSecret)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="FbScope" elementType="Argument">
-            <stringProp name="Argument.name">FbScope</stringProp>
-            <stringProp name="Argument.value">${__property(FbScope)}</stringProp>
+          <elementProp name="fbScope" elementType="Argument">
+            <stringProp name="Argument.name">fbScope</stringProp>
+            <stringProp name="Argument.value">${__property(fbScope)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="FbUserInfoFields" elementType="Argument">
-            <stringProp name="Argument.name">FbUserInfoFields</stringProp>
-            <stringProp name="Argument.value">${__property(FbUserInfoFields)}</stringProp>
+          <elementProp name="fbUserInfoFields" elementType="Argument">
+            <stringProp name="Argument.name">fbUserInfoFields</stringProp>
+            <stringProp name="Argument.value">${__property(fbUserInfoFields)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="SAMLRequest" elementType="Argument">
@@ -99,24 +101,24 @@
             <stringProp name="Argument.value">${__property(SAMLRequest)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="idp2_name" elementType="Argument">
-            <stringProp name="Argument.name">idp2_name</stringProp>
-            <stringProp name="Argument.value">${__property(idp2_name)}</stringProp>
+          <elementProp name="idp2Name" elementType="Argument">
+            <stringProp name="Argument.name">idp2Name</stringProp>
+            <stringProp name="Argument.value">${__property(idp2Name)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="idp2_description" elementType="Argument">
-            <stringProp name="Argument.name">idp2_description</stringProp>
-            <stringProp name="Argument.value">${__property(idp2_description)}</stringProp>
+          <elementProp name="idp2Description" elementType="Argument">
+            <stringProp name="Argument.name">idp2Description</stringProp>
+            <stringProp name="Argument.value">${__property(idp2Description)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="idp2_clientID" elementType="Argument">
-            <stringProp name="Argument.name">idp2_clientID</stringProp>
-            <stringProp name="Argument.value">${__property(idp2_clientID)}</stringProp>
+          <elementProp name="idp2ClientId" elementType="Argument">
+            <stringProp name="Argument.name">idp2ClientId</stringProp>
+            <stringProp name="Argument.value">${__property(idp2ClientId)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="idp2_clientSecret" elementType="Argument">
-            <stringProp name="Argument.name">idp2_clientSecret</stringProp>
-            <stringProp name="Argument.value">${__property(idp2_clientSecret)}</stringProp>
+          <elementProp name="idp2ClientSecret" elementType="Argument">
+            <stringProp name="Argument.name">idp2ClientSecret</stringProp>
+            <stringProp name="Argument.value">${__property(idp2ClientSecret)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="tomcatHost" elementType="Argument">
@@ -163,8 +165,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-            <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+            <stringProp name="HTTPSampler.domain">${isHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${isPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/AuthenticationAdmin.AuthenticationAdminHttpsSoap11Endpoint/</stringProp>
@@ -217,11 +219,11 @@
       &lt;mgt:addIdP&gt;        &#xd;
          &lt;!--Optional:--&gt;&#xd;
          &lt;mgt:identityProvider&gt;&#xd;
-            &lt;xsd:identityProviderName&gt;${idp_name}&lt;/xsd:identityProviderName&gt;           &#xd;
-            &lt;xsd:displayName&gt;${idp_name}&lt;/xsd:displayName&gt;&#xd;
+            &lt;xsd:identityProviderName&gt;${idpName}&lt;/xsd:identityProviderName&gt;           &#xd;
+            &lt;xsd:displayName&gt;${idpName}&lt;/xsd:displayName&gt;&#xd;
             &lt;xsd:enable&gt;true&lt;/xsd:enable&gt;&#xd;
-            &lt;xsd:identityProviderDescription&gt;${idp_description}&lt;/xsd:identityProviderDescription&gt;&#xd;
-            &lt;xsd:alias&gt;https://${is_host}:${is_port}/oauth2/token/&lt;/xsd:alias&gt;&#xd;
+            &lt;xsd:identityProviderDescription&gt;${idpDescription}&lt;/xsd:identityProviderDescription&gt;&#xd;
+            &lt;xsd:alias&gt;https://${isHost}:${isPort}/oauth2/token/&lt;/xsd:alias&gt;&#xd;
             &lt;xsd:primary&gt;true&lt;/xsd:primary&gt;&#xd;
             &lt;xsd:provisioningRole&gt;-&lt;/xsd:provisioningRole&gt;&#xd;
          &lt;/mgt:identityProvider&gt;&#xd;
@@ -232,8 +234,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-            <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+            <stringProp name="HTTPSampler.domain">${isHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${isPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/IdentityProviderMgtService.IdentityProviderMgtServiceHttpsSoap11Endpoint/</stringProp>
@@ -285,53 +287,53 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;mgt:updateIdP&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;mgt:oldIdPName&gt;${idp_name}&lt;/mgt:oldIdPName&gt;&#xd;
+         &lt;mgt:oldIdPName&gt;${idpName}&lt;/mgt:oldIdPName&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
          &lt;mgt:identityProvider&gt;&#xd;
-            &lt;xsd:identityProviderName&gt;${idp_name}&lt;/xsd:identityProviderName&gt;           &#xd;
-            &lt;xsd:displayName&gt;${idp_name}&lt;/xsd:displayName&gt;&#xd;
+            &lt;xsd:identityProviderName&gt;${idpName}&lt;/xsd:identityProviderName&gt;           &#xd;
+            &lt;xsd:displayName&gt;${idpName}&lt;/xsd:displayName&gt;&#xd;
             &lt;xsd:enable&gt;true&lt;/xsd:enable&gt;&#xd;
-            &lt;xsd:identityProviderDescription&gt;${idp_description}&lt;/xsd:identityProviderDescription&gt;&#xd;
-            &lt;xsd:alias&gt;https://${is_host}:${is_port}/oauth2/token/&lt;/xsd:alias&gt;&#xd;
+            &lt;xsd:identityProviderDescription&gt;${idpDescription}&lt;/xsd:identityProviderDescription&gt;&#xd;
+            &lt;xsd:alias&gt;https://${isHost}:${isPort}/oauth2/token/&lt;/xsd:alias&gt;&#xd;
             &lt;xsd:primary&gt;true&lt;/xsd:primary&gt;&#xd;
             &lt;xsd:provisioningRole&gt;-&lt;/xsd:provisioningRole&gt;&#xd;
 &#xd;
 	/** Add Facebook as Federated Authenticator */&#xd;
-           &lt;xsd:displayName&gt;${idp_name}&lt;/xsd:displayName&gt;&#xd;
+           &lt;xsd:displayName&gt;${idpName}&lt;/xsd:displayName&gt;&#xd;
             &lt;xsd:enable&gt;true&lt;/xsd:enable&gt;&#xd;
             &lt;xsd:federationHub&gt;false&lt;/xsd:federationHub&gt;&#xd;
-            &lt;xsd:identityProviderDescription&gt;${idp_description}&lt;/xsd:identityProviderDescription&gt;&#xd;
-            &lt;xsd:identityProviderName&gt;${idp_name}&lt;/xsd:identityProviderName&gt;&#xd;
+            &lt;xsd:identityProviderDescription&gt;${idpDescription}&lt;/xsd:identityProviderDescription&gt;&#xd;
+            &lt;xsd:identityProviderName&gt;${idpName}&lt;/xsd:identityProviderName&gt;&#xd;
             &lt;xsd:primary&gt;true&lt;/xsd:primary&gt;&#xd;
             &#xd;
             &lt;xsd:defaultAuthenticatorConfig&gt;&#xd;
-            &lt;xsd:displayName&gt;${idp_name}&lt;/xsd:displayName&gt;&#xd;
+            &lt;xsd:displayName&gt;${idpName}&lt;/xsd:displayName&gt;&#xd;
                &lt;xsd:name&gt;FacebookAuthenticator&lt;/xsd:name&gt;&#xd;
             &lt;/xsd:defaultAuthenticatorConfig&gt;&#xd;
             &#xd;
             &lt;xsd:federatedAuthenticatorConfigs&gt;&#xd;
-               &lt;xsd:displayName&gt;${idp_name}&lt;/xsd:displayName&gt;&#xd;
+               &lt;xsd:displayName&gt;${idpName}&lt;/xsd:displayName&gt;&#xd;
                &lt;xsd:enabled&gt;true&lt;/xsd:enabled&gt;&#xd;
                &lt;xsd:name&gt;FacebookAuthenticator&lt;/xsd:name&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;ClientId&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;${fb_clientID}&lt;/xsd:value&gt;&#xd;
+                  &lt;xsd:value&gt;${fbClientId}&lt;/xsd:value&gt;&#xd;
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;ClientSecret&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;${fb_clientSecret}&lt;/xsd:value&gt;&#xd;
+                  &lt;xsd:value&gt;${fbClientSecret}&lt;/xsd:value&gt;&#xd;
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;Scope&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;${FbScope}&lt;/xsd:value&gt;&#xd;
+                  &lt;xsd:value&gt;${fbScope}&lt;/xsd:value&gt;&#xd;
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;callBackUrl&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;https://${is_host}:${is_port}/commonauth&lt;/xsd:value&gt;&#xd;
+                  &lt;xsd:value&gt;https://${isHost}:${isPort}/commonauth&lt;/xsd:value&gt;&#xd;
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;UserInfoFields&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;${FbUserInfoFields}&lt;/xsd:value&gt;&#xd;
+                  &lt;xsd:value&gt;${fbUserInfoFields}&lt;/xsd:value&gt;&#xd;
                &lt;/xsd:properties&gt;&#xd;
             &lt;/xsd:federatedAuthenticatorConfigs&gt;&#xd;
          &lt;/mgt:identityProvider&gt;&#xd;
@@ -342,8 +344,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-            <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+            <stringProp name="HTTPSampler.domain">${isHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${isPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">services/IdentityProviderMgtService.IdentityProviderMgtServiceHttpsSoap11Endpoint/</stringProp>
@@ -396,11 +398,11 @@
       &lt;mgt:addIdP&gt;        &#xd;
          &lt;!--Optional:--&gt;&#xd;
          &lt;mgt:identityProvider&gt;&#xd;
-            &lt;xsd:identityProviderName&gt;${idp2_name}&lt;/xsd:identityProviderName&gt;           &#xd;
-            &lt;xsd:displayName&gt;${idp2_name}&lt;/xsd:displayName&gt;&#xd;
+            &lt;xsd:identityProviderName&gt;${idp2Name}&lt;/xsd:identityProviderName&gt;           &#xd;
+            &lt;xsd:displayName&gt;${idp2Name}&lt;/xsd:displayName&gt;&#xd;
             &lt;xsd:enable&gt;true&lt;/xsd:enable&gt;&#xd;
-            &lt;xsd:identityProviderDescription&gt;${idp2_description}&lt;/xsd:identityProviderDescription&gt;&#xd;
-            &lt;xsd:alias&gt;https://${is_host}:${is_port}/oauth2/token/&lt;/xsd:alias&gt;&#xd;
+            &lt;xsd:identityProviderDescription&gt;${idp2Description}&lt;/xsd:identityProviderDescription&gt;&#xd;
+            &lt;xsd:alias&gt;https://${isHost}:${isPort}/oauth2/token/&lt;/xsd:alias&gt;&#xd;
             &lt;xsd:primary&gt;true&lt;/xsd:primary&gt;&#xd;
             &lt;xsd:provisioningRole&gt;-&lt;/xsd:provisioningRole&gt;&#xd;
          &lt;/mgt:identityProvider&gt;&#xd;
@@ -411,8 +413,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-            <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+            <stringProp name="HTTPSampler.domain">${isHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${isPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/IdentityProviderMgtService.IdentityProviderMgtServiceHttpsSoap11Endpoint/</stringProp>
@@ -464,14 +466,14 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;mgt:updateIdP&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;mgt:oldIdPName&gt;${idp2_name}&lt;/mgt:oldIdPName&gt;&#xd;
+         &lt;mgt:oldIdPName&gt;${idp2Name}&lt;/mgt:oldIdPName&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
          &lt;mgt:identityProvider&gt;&#xd;
-            &lt;xsd:identityProviderName&gt;${idp2_name}&lt;/xsd:identityProviderName&gt;           &#xd;
-            &lt;xsd:displayName&gt;${idp2_name}&lt;/xsd:displayName&gt;&#xd;
+            &lt;xsd:identityProviderName&gt;${idp2Name}&lt;/xsd:identityProviderName&gt;           &#xd;
+            &lt;xsd:displayName&gt;${idp2Name}&lt;/xsd:displayName&gt;&#xd;
             &lt;xsd:enable&gt;true&lt;/xsd:enable&gt;&#xd;
-            &lt;xsd:identityProviderDescription&gt;${idp2_description}&lt;/xsd:identityProviderDescription&gt;&#xd;
-            &lt;xsd:alias&gt;https://${is_host}:${is_port}/oauth2/token/&lt;/xsd:alias&gt;&#xd;
+            &lt;xsd:identityProviderDescription&gt;${idp2Description}&lt;/xsd:identityProviderDescription&gt;&#xd;
+            &lt;xsd:alias&gt;https://${isHost}:${isPort}/oauth2/token/&lt;/xsd:alias&gt;&#xd;
             &lt;xsd:primary&gt;true&lt;/xsd:primary&gt;&#xd;
             &lt;xsd:provisioningRole&gt;-&lt;/xsd:provisioningRole&gt;&#xd;
 &#xd;
@@ -480,7 +482,7 @@
             &lt;xsd:primary&gt;true&lt;/xsd:primary&gt;&#xd;
             &#xd;
             &lt;xsd:defaultAuthenticatorConfig&gt;&#xd;
-            &lt;xsd:displayName&gt;${idp2_name}&lt;/xsd:displayName&gt;&#xd;
+            &lt;xsd:displayName&gt;${idp2Name}&lt;/xsd:displayName&gt;&#xd;
                &lt;xsd:name&gt;OpenIDConnectAuthenticator&lt;/xsd:name&gt;&#xd;
             &lt;/xsd:defaultAuthenticatorConfig&gt;&#xd;
 &#xd;
@@ -520,8 +522,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-            <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+            <stringProp name="HTTPSampler.domain">${isHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${isPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">services/IdentityProviderMgtService.IdentityProviderMgtServiceHttpsSoap11Endpoint/</stringProp>
@@ -576,10 +578,12 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:addRPServiceProvider&gt;      &#xd;
          &lt;xsd:spDto&gt;        &#xd;
-            &lt;xsd1:issuer&gt;${sp_name}&lt;/xsd1:issuer&gt;   &#xd;
-            &lt;xsd1:assertionConsumerUrl&gt;http://${tomcatHost}:${tomcatPort}/${sp_name}/home.jsp&lt;/xsd1:assertionConsumerUrl&gt;&#xd;
-            &lt;xsd1:assertionConsumerUrls&gt;http://${tomcatHost}:${tomcatPort}/${sp_name}/home.jsp&lt;/xsd1:assertionConsumerUrls&gt;&#xd;
-       &lt;xsd1:defaultAssertionConsumerUrl&gt;http://${tomcatHost}:${tomcatPort}/${sp_name}/home.jsp&lt;/xsd1:defaultAssertionConsumerUrl&gt;&#xd;
+
+            &lt;xsd1:issuer&gt;${spName}&lt;/xsd1:issuer&gt;   &#xd;
+            &lt;xsd1:assertionConsumerUrl&gt;http://${tomcatHost}:${tomcatPort}/${spName}/home.jsp&lt;/xsd1:assertionConsumerUrl&gt;&#xd;
+            &lt;xsd1:assertionConsumerUrls&gt;http://${tomcatHost}:${tomcatPort}/${spName}/home.jsp&lt;/xsd1:assertionConsumerUrls&gt;&#xd;
+       &lt;xsd1:defaultAssertionConsumerUrl&gt;http://${tomcatHost}:${tomcatPort}/${spName}/home.jsp&lt;/xsd1:defaultAssertionConsumerUrl&gt;&#xd;
+
             &lt;xsd1:signingAlgorithmURI&gt;http://www.w3.org/2000/09/xmldsig#rsa-sha1&lt;/xsd1:signingAlgorithmURI&gt;            &#xd;
             &lt;xsd1:digestAlgorithmURI&gt;http://www.w3.org/2000/09/xmldsig#sha1&lt;/xsd1:digestAlgorithmURI&gt;&#xd;
             &lt;xsd1:doSignAssertions&gt;true&lt;/xsd1:doSignAssertions&gt;&#xd;
@@ -597,8 +601,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-            <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+            <stringProp name="HTTPSampler.domain">${isHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${isPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/IdentitySAMLSSOConfigService.IdentitySAMLSSOConfigServiceHttpsSoap11Endpoint/</stringProp>
@@ -655,8 +659,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-            <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+            <stringProp name="HTTPSampler.domain">${isHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${isPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/IdentitySAMLSSOConfigService.IdentitySAMLSSOConfigServiceHttpsSoap11Endpoint/</stringProp>
@@ -718,8 +722,8 @@
    &lt;soapenv:Body&gt;&#xd;
        &lt;xsd:createApplication&gt; &#xd;
       &lt;xsd:serviceProvider&gt; &#xd;
-            &lt;xsd1:applicationName&gt;${sp_name}&lt;/xsd1:applicationName&gt; &#xd;
-            &lt;xsd1:description&gt;${sp_description}&lt;/xsd1:description&gt;           &#xd;
+            &lt;xsd1:applicationName&gt;${spName}&lt;/xsd1:applicationName&gt; &#xd;
+            &lt;xsd1:description&gt;${spDescription}&lt;/xsd1:description&gt;           &#xd;
          &lt;/xsd:serviceProvider&gt; &#xd;
       &lt;/xsd:createApplication&gt; &#xd;
    &lt;/soapenv:Body&gt;&#xd;
@@ -728,8 +732,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-            <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+            <stringProp name="HTTPSampler.domain">${isHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${isPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService.IdentityApplicationManagementServiceHttpsSoap11Endpoint/</stringProp>
@@ -780,7 +784,7 @@
    &lt;soapenv:Header/&gt;&#xd;
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:getApplication&gt;&#xd;
-         &lt;xsd:applicationName&gt;${sp_name}&lt;/xsd:applicationName&gt;&#xd;
+         &lt;xsd:applicationName&gt;${spName}&lt;/xsd:applicationName&gt;&#xd;
       &lt;/xsd:getApplication&gt;&#xd;
    &lt;/soapenv:Body&gt;&#xd;
 &lt;/soapenv:Envelope&gt;</stringProp>
@@ -788,8 +792,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-            <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+            <stringProp name="HTTPSampler.domain">${isHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${isPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService.IdentityApplicationManagementServiceHttpsSoap11Endpoint/</stringProp>
@@ -854,7 +858,7 @@
          &lt;xsd:serviceProvider&gt;&#xd;
             &lt;!--Optional:--&gt;&#xd;
             &lt;xsd1:applicationID&gt;${appID}&lt;/xsd1:applicationID&gt;&#xd;
-            &lt;xsd1:applicationName&gt;${sp_name}&lt;/xsd1:applicationName&gt; &#xd;
+            &lt;xsd1:applicationName&gt;${spName}&lt;/xsd1:applicationName&gt; &#xd;
             &#xd;
             &lt;xsd1:claimConfig&gt; &#xd;
                &lt;xsd1:alwaysSendMappedLocalSubjectId&gt;false&lt;/xsd1:alwaysSendMappedLocalSubjectId&gt; &#xd;
@@ -878,7 +882,7 @@
         		&lt;/xsd:claimMappings&gt;  &#xd;
             &lt;/xsd1:claimConfig&gt; &#xd;
             &#xd;
-            &lt;xsd1:description&gt;${sp_description}&lt;/xsd1:description&gt; &#xd;
+            &lt;xsd1:description&gt;${spDescription}&lt;/xsd1:description&gt; &#xd;
             &lt;xsd1:inboundAuthenticationConfig&gt;            &#xd;
                 &lt;xsd1:inboundAuthenticationRequestConfigs&gt;&#xd;
                   &lt;xsd1:inboundAuthKey&gt;${carbonServer}&lt;/xsd1:inboundAuthKey&gt;&#xd;
@@ -925,7 +929,7 @@
         &lt;!--Zero or more repetitions:--&gt;&#xd;
         &lt;xsd1:federatedIdentityProviders&gt;&#xd;
             &lt;!--Optional:--&gt;&#xd;
-            &lt;xsd1:identityProviderName&gt;${idp_name}&lt;/xsd1:identityProviderName&gt;&#xd;
+            &lt;xsd1:identityProviderName&gt;${idpName}&lt;/xsd1:identityProviderName&gt;&#xd;
         &lt;/xsd1:federatedIdentityProviders&gt;&#xd;
     &lt;/xsd1:authenticationSteps&gt;&#xd;
                &#xd;
@@ -951,8 +955,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-            <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+            <stringProp name="HTTPSampler.domain">${isHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${isPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService</stringProp>
@@ -1009,7 +1013,7 @@
             <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">${sp_name}/samlsso</stringProp>
+            <stringProp name="HTTPSampler.path">${spName}/samlsso</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
@@ -1046,7 +1050,7 @@
          &lt;xsd:serviceProvider&gt;&#xd;
             &lt;!--Optional:--&gt;&#xd;
             &lt;xsd1:applicationID&gt;${appID}&lt;/xsd1:applicationID&gt;&#xd;
-            &lt;xsd1:applicationName&gt;${sp_name}&lt;/xsd1:applicationName&gt; &#xd;
+            &lt;xsd1:applicationName&gt;${spName}&lt;/xsd1:applicationName&gt; &#xd;
             &#xd;
             &lt;xsd1:claimConfig&gt; &#xd;
                &lt;xsd1:alwaysSendMappedLocalSubjectId&gt;false&lt;/xsd1:alwaysSendMappedLocalSubjectId&gt; &#xd;
@@ -1070,7 +1074,7 @@
         		&lt;/xsd:claimMappings&gt;  &#xd;
             &lt;/xsd1:claimConfig&gt; &#xd;
             &#xd;
-            &lt;xsd1:description&gt;${sp_description}&lt;/xsd1:description&gt; &#xd;
+            &lt;xsd1:description&gt;${spDescription}&lt;/xsd1:description&gt; &#xd;
             &lt;xsd1:inboundAuthenticationConfig&gt;            &#xd;
                 &lt;xsd1:inboundAuthenticationRequestConfigs&gt;&#xd;
                   &lt;xsd1:inboundAuthKey&gt;${carbonServer}&lt;/xsd1:inboundAuthKey&gt;&#xd;
@@ -1117,7 +1121,7 @@
         &lt;!--Zero or more repetitions:--&gt;&#xd;
         &lt;xsd1:federatedIdentityProviders&gt;&#xd;
             &lt;!--Optional:--&gt;&#xd;
-            &lt;xsd1:identityProviderName&gt;${idp2_name}&lt;/xsd1:identityProviderName&gt;&#xd;
+            &lt;xsd1:identityProviderName&gt;${idp2Name}&lt;/xsd1:identityProviderName&gt;&#xd;
         &lt;/xsd1:federatedIdentityProviders&gt;&#xd;
     &lt;/xsd1:authenticationSteps&gt;&#xd;
                &#xd;
@@ -1143,8 +1147,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-            <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+            <stringProp name="HTTPSampler.domain">${isHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${isPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService</stringProp>
@@ -1201,7 +1205,7 @@
             <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">${sp_name}/samlsso</stringProp>
+            <stringProp name="HTTPSampler.path">${spName}/samlsso</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
@@ -1238,7 +1242,7 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:deleteApplication&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;xsd:applicationName&gt;${sp_name}&lt;/xsd:applicationName&gt;&#xd;
+         &lt;xsd:applicationName&gt;${spName}&lt;/xsd:applicationName&gt;&#xd;
       &lt;/xsd:deleteApplication&gt;&#xd;
    &lt;/soapenv:Body&gt;&#xd;
 &lt;/soapenv:Envelope&gt;</stringProp>
@@ -1246,8 +1250,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-            <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+            <stringProp name="HTTPSampler.domain">${isHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${isPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService.IdentityApplicationManagementServiceHttpsSoap11Endpoint/</stringProp>
@@ -1298,7 +1302,7 @@
    &lt;soapenv:Header/&gt;&#xd;
    &lt;soapenv:Body&gt;     &#xd;
         &lt;mgt:deleteIdP&gt;&#xd;
-            &lt;mgt:idPName&gt;${idp_name}&lt;/mgt:idPName&gt;&#xd;
+            &lt;mgt:idPName&gt;${idpName}&lt;/mgt:idPName&gt;&#xd;
         &lt;/mgt:deleteIdP&gt;&#xd;
    &lt;/soapenv:Body&gt;&#xd;
 &lt;/soapenv:Envelope&gt;</stringProp>
@@ -1306,8 +1310,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-            <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+            <stringProp name="HTTPSampler.domain">${isHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${isPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/IdentityProviderMgtService.IdentityProviderMgtServiceHttpsSoap11Endpoint/</stringProp>
@@ -1358,7 +1362,7 @@
    &lt;soapenv:Header/&gt;&#xd;
    &lt;soapenv:Body&gt;     &#xd;
         &lt;mgt:deleteIdP&gt;&#xd;
-            &lt;mgt:idPName&gt;${idp2_name}&lt;/mgt:idPName&gt;&#xd;
+            &lt;mgt:idPName&gt;${idp2Name}&lt;/mgt:idPName&gt;&#xd;
         &lt;/mgt:deleteIdP&gt;&#xd;
    &lt;/soapenv:Body&gt;&#xd;
 &lt;/soapenv:Envelope&gt;</stringProp>
@@ -1366,8 +1370,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
-            <stringProp name="HTTPSampler.port">${is_port}</stringProp>
+            <stringProp name="HTTPSampler.domain">${isHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${isPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/IdentityProviderMgtService.IdentityProviderMgtServiceHttpsSoap11Endpoint/</stringProp>
