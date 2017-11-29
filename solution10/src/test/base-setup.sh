@@ -22,19 +22,19 @@ tomcatPort=8080
 tomcatUsername=scriptuser
 tomcatPassword=scriptuser
 tomcatVersion=7
-severHost=$severHost
+serverHost=$serverHost
 severPort=443
 
 #travelocity properties
 SAML2AssertionConsumerURL="http://$tomcatHost:$tomcatPort/$appName/home.jsp"
-SAML2IdPURL="https://$severHost/samlsso"
+SAML2IdPURL="https://$serverHost/samlsso"
 SAML2SPEntityId="$appName"
 SkipURIs="/$appName/index.jsp"
-SAML2IdPEntityId="$severHost"
-OAuth2TokenURL="https://$severHost:$severPort/oauth2/token"
+SAML2IdPEntityId="$serverHost"
+OAuth2TokenURL="https://$serverHost:$severPort/oauth2/token"
 OAuth2ClientId="lKjE0YDVrXNJY8TN7AdzAgkgfJ0a"
 OAuth2ClientSecret="KiAnWzcf9NaKCdL7B8wjGqffE70a"
-OpenIdProviderURL="https://$severHost:$severPort/openid/"
+OpenIdProviderURL="https://$serverHost:$severPort/openid/"
 OpenIdReturnToURL="http://$tomcatHost:$tomcatPort/travelocity.com/home.jsp"
 
 #create temporary directory

@@ -22,16 +22,16 @@ tomcatPort=8080
 tomcatUsername=scriptuser
 tomcatPassword=scriptuser
 tomcatVersion=7
-severHost=$severHost
+serverHost=$serverHost
 severPort=443
 solutionPath=/
 
 #travelocity properties
 SAML2AssertionConsumerURL="http://$tomcatHost:$tomcatPort/$appName/home.jsp"
-SAML2IdPURL="https://$severHost/samlsso"
+SAML2IdPURL="https://$serverHost/samlsso"
 SAML2SPEntityId="$appName"
 SkipURIs="/$appName/index.jsp"
-SAML2IdPEntityId=$severHost
+SAML2IdPEntityId=$serverHost
 
 #create temporary directory
 mkdir $scriptPath/../temp

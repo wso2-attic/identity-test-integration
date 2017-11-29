@@ -15,7 +15,7 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="host_ip" elementType="Argument">
             <stringProp name="Argument.name">host_ip</stringProp>
-            <stringProp name="Argument.value">${__property(severHost)}</stringProp>
+            <stringProp name="Argument.value">${__property(serverHost)}</stringProp>
             <stringProp name="Argument.desc">change it to cluster domain</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>

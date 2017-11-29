@@ -22,7 +22,7 @@
 
           <elementProp name="isHost" elementType="Argument">
             <stringProp name="Argument.name">isHost</stringProp>
-            <stringProp name="Argument.value">${__property(severHost)}</stringProp>
+            <stringProp name="Argument.value">${__property(serverHost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="isPort" elementType="Argument">

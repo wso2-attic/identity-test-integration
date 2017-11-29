@@ -47,7 +47,7 @@ FbScope=email
 FbUserInfoFields=id,name,gender,email,first_name,last_name,age_range,link
 
 #server Information
-severHost=localhost
+serverHost=localhost
 severPort=9443
 
 #Sp Information
