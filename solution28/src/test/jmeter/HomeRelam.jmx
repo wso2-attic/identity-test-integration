@@ -206,7 +206,7 @@
 	    &lt;xsd:homeRealmId&gt;${FBHomeRelam}&lt;/xsd:homeRealmId&gt;&#xd;
             &lt;xsd:identityProviderDescription&gt;Facebook Identity Provider&lt;/xsd:identityProviderDescription&gt;&#xd;
             &lt;xsd:identityProviderName&gt;${FBIdentityProviderName}&lt;/xsd:identityProviderName&gt;&#xd;
-	    &lt;xsd:alias&gt;https://{ServerHost}:{ServerPort}/oauth2/token&lt;/xsd:alias&gt;&#xd;
+	    &lt;xsd:alias&gt;https://${ServerHost}:${ServerPort}/oauth2/token&lt;/xsd:alias&gt;&#xd;
             &lt;xsd:primary&gt;true&lt;/xsd:primary&gt;&#xd;
             &lt;xsd:defaultAuthenticatorConfig&gt;&#xd;
             &lt;xsd:displayName&gt;facebook&lt;/xsd:displayName&gt;&#xd;
@@ -226,7 +226,7 @@
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;callBackUrl&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;https://{ServerHost}:{ServerPort}/commonauth&lt;/xsd:value&gt;&#xd;
+                  &lt;xsd:value&gt;https://${ServerHost}:${ServerPort}/commonauth&lt;/xsd:value&gt;&#xd;
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;Scope&lt;/xsd:name&gt;&#xd;
@@ -298,7 +298,7 @@
 	    &lt;xsd:homeRealmId&gt;${GoogleHomeRelam}&lt;/xsd:homeRealmId&gt;&#xd;
             &lt;xsd:identityProviderDescription&gt;Google Identity Provider&lt;/xsd:identityProviderDescription&gt;&#xd;
             &lt;xsd:identityProviderName&gt;${GoogleIdentityProviderName}&lt;/xsd:identityProviderName&gt;&#xd;
-	    &lt;xsd:alias&gt;https://{ServerHost}:{ServerPort}/oauth2/token&lt;/xsd:alias&gt;&#xd;
+	    &lt;xsd:alias&gt;https://${ServerHost}:${ServerPort}/oauth2/token&lt;/xsd:alias&gt;&#xd;
             &lt;xsd:primary&gt;true&lt;/xsd:primary&gt;&#xd;
             &lt;xsd:defaultAuthenticatorConfig&gt;&#xd;
             &lt;xsd:displayName&gt;google&lt;/xsd:displayName&gt;&#xd;
@@ -318,7 +318,7 @@
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;callbackUrl&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;https://{ServerHost}:{ServerPort}/commonauth&lt;/xsd:value&gt;&#xd;
+                  &lt;xsd:value&gt;https://${ServerHost}:${ServerPort}/commonauth&lt;/xsd:value&gt;&#xd;
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;scope&lt;/xsd:name&gt;&#xd;
@@ -1073,7 +1073,7 @@
               <connectTime>true</connectTime>
             </value>
           </objProp>
-          <stringProp name="filename">/home/sashika/Apps/Applications/IS/identity-test-integration/solution28/target/jmeter/results/20171123-HomeRelam.jtl</stringProp>
+          <stringProp name="filename">/home/sashika/Apps/Applications/IS/identity-test-integration/solution28/target/jmeter/results/20171129-HomeRelam.jtl</stringProp>
         </ResultCollector>
         <hashTree/>
         <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
