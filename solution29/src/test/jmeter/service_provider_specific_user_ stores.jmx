@@ -67,17 +67,17 @@
           </elementProp>
           <elementProp name="sp_target" elementType="Argument">
             <stringProp name="Argument.name">sp_target</stringProp>
-            <stringProp name="Argument.value">${__property(sp_target)}</stringProp>
+            <stringProp name="Argument.value">${__property(spTarget)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="admin_username" elementType="Argument">
             <stringProp name="Argument.name">admin_username</stringProp>
-            <stringProp name="Argument.value">${__property(admin_username)}</stringProp>
+            <stringProp name="Argument.value">${__property(adminUsername)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="admin_password" elementType="Argument">
             <stringProp name="Argument.name">admin_password</stringProp>
-            <stringProp name="Argument.value">${__property(admin_password)}</stringProp>
+            <stringProp name="Argument.value">${__property(adminPassword)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="host" elementType="Argument">
