@@ -48,7 +48,7 @@ FbUserInfoFields=id,name,gender,email,first_name,last_name,age_range,link
 
 #server Information
 serverHost=localhost
-severPort=9443
+serverPort=9443
 
 #Sp Information
 spName=travelocity.com

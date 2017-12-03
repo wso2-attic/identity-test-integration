@@ -21,7 +21,7 @@
           </elementProp>
           <elementProp name="isPort" elementType="Argument">
             <stringProp name="Argument.name">isPort</stringProp>
-            <stringProp name="Argument.value">${__property(severPort)}</stringProp>
+            <stringProp name="Argument.value">${__property(serverPort)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">443</stringProp>
           </elementProp>

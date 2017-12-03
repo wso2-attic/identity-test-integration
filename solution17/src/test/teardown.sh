@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /bin/bash
 
 # Copyright (c) 2017, WSO2 Inc. (http://wso2.com) All Rights Reserved.
 #
@@ -14,13 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#properties
-#TODO:read below property from infra.json file
-tomcatHost=$tomcatHost
-tomcatPort=8080
-serverHost=$serverHost
-serverPort=443
-ei_host="54.144.46.10"
-ei_port=9443
+#TearDown steps are scripts here..
+#Though there is no specific setps are mentoined below,
+#-the file will maintain to keep same structure on all scnarios.
 
-echo "BaseScript Done..."
+echo "teardown steps"

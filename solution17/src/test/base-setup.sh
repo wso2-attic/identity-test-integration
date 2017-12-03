@@ -20,7 +20,5 @@ tomcatHost=$tomcatHost
 tomcatPort=8080
 serverHost=$serverHost
 serverPort=443
-ei_host="54.144.46.10"
-ei_port=9443
 
 echo "BaseScript Done..."

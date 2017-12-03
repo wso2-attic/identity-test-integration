@@ -23,7 +23,7 @@ tomcatUsername=scriptuser
 tomcatPassword=scriptuser
 tomcatVersion=7
 serverHost=$serverHost
-severPort=443
+serverPort=443
 solutionPath=/
 
 #travelocity properties

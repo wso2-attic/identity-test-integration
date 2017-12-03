@@ -29,7 +29,7 @@ Following scenarios are covered through this automation script.
 ```sh
 #server
 scriptHost=<Host name of IS server>
-severPort=<Port name of IS server>
+serverPort=<Port name of IS server>
 
 # Tomcat
 tomcatHost=192.168.57.31

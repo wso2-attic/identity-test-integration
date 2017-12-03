@@ -28,9 +28,9 @@
             <stringProp name="Argument.value">${__property(serverHost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="severPort" elementType="Argument">
-            <stringProp name="Argument.name">severPort</stringProp>
-            <stringProp name="Argument.value">${__property(severPort)}</stringProp>
+          <elementProp name="serverPort" elementType="Argument">
+            <stringProp name="Argument.name">serverPort</stringProp>
+            <stringProp name="Argument.value">${__property(serverPort)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="spName" elementType="Argument">
@@ -191,7 +191,7 @@
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
-            <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/UserAdmin.UserAdminHttpsSoap11Endpoint/</stringProp>
@@ -243,7 +243,7 @@
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
-            <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/UserAdmin.UserAdminHttpsSoap11Endpoint/</stringProp>
@@ -323,7 +323,7 @@
             &lt;xsd:federationHub&gt;false&lt;/xsd:federationHub&gt;&#xd;
             &lt;xsd:identityProviderDescription&gt;Google Identity Provider&lt;/xsd:identityProviderDescription&gt;&#xd;
             &lt;xsd:identityProviderName&gt;${GoogleIdentityProviderName}&lt;/xsd:identityProviderName&gt;&#xd;
-	       &lt;xsd:alias&gt;https://${serverHost}:${severPort}/${Alias}&lt;/xsd:alias&gt;&#xd;
+	       &lt;xsd:alias&gt;https://${serverHost}:${serverPort}/${Alias}&lt;/xsd:alias&gt;&#xd;
             &lt;xsd:primary&gt;true&lt;/xsd:primary&gt;&#xd;
             &lt;xsd:defaultAuthenticatorConfig&gt;&#xd;
             &lt;xsd:displayName&gt;google&lt;/xsd:displayName&gt;&#xd;
@@ -343,7 +343,7 @@
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;callbackUrl&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;https://${serverHost}:${severPort}/${GoogleCallbackUrl}&lt;/xsd:value&gt;&#xd;
+                  &lt;xsd:value&gt;https://${serverHost}:${serverPort}/${GoogleCallbackUrl}&lt;/xsd:value&gt;&#xd;
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;scope&lt;/xsd:name&gt;&#xd;
@@ -359,7 +359,7 @@
                 </collectionProp>
               </elementProp>
               <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
-              <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+              <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
               <stringProp name="HTTPSampler.protocol">https</stringProp>
               <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
               <stringProp name="HTTPSampler.path">/services/IdentityProviderMgtService</stringProp>
@@ -416,7 +416,7 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:addRPServiceProvider&gt;      &#xd;
          &lt;xsd:spDto&gt;&#xd;
-            &lt;xsd1:assertionConsumerUrl&gt;http://${tomcatHost}:${tomcatseverPort}/${GtravelocityIssuer}/home.jsp&lt;/xsd1:assertionConsumerUrl&gt;&#xd;
+            &lt;xsd1:assertionConsumerUrl&gt;http://${tomcatHost}:${tomcatserverPort}/${GtravelocityIssuer}/home.jsp&lt;/xsd1:assertionConsumerUrl&gt;&#xd;
             &lt;xsd1:assertionConsumerUrls&gt;http://${tomcatHost}:${tomcatPort}/${GtravelocityIssuer}/home.jsp&lt;/xsd1:assertionConsumerUrls&gt;&#xd;
             &lt;xsd1:defaultAssertionConsumerUrl&gt;http://${tomcatHost}:${tomcatPort}/${GtravelocityIssuer}/home.jsp&lt;/xsd1:defaultAssertionConsumerUrl&gt;&#xd;
             &lt;xsd1:digestAlgorithmURI&gt;http://www.w3.org/2000/09/xmldsig#sha1&lt;/xsd1:digestAlgorithmURI&gt;&#xd;
@@ -437,7 +437,7 @@
                 </collectionProp>
               </elementProp>
               <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
-              <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+              <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
               <stringProp name="HTTPSampler.protocol">https</stringProp>
               <stringProp name="HTTPSampler.contentEncoding"></stringProp>
               <stringProp name="HTTPSampler.path">/services/IdentitySAMLSSOConfigService</stringProp>
@@ -493,7 +493,7 @@
                 </collectionProp>
               </elementProp>
               <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
-              <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+              <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
               <stringProp name="HTTPSampler.protocol">https</stringProp>
               <stringProp name="HTTPSampler.contentEncoding"></stringProp>
               <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService</stringProp>
@@ -543,7 +543,7 @@
                 </collectionProp>
               </elementProp>
               <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
-              <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+              <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
               <stringProp name="HTTPSampler.protocol">https</stringProp>
               <stringProp name="HTTPSampler.contentEncoding"></stringProp>
               <stringProp name="HTTPSampler.path">/services/IdentitySAMLSSOConfigService</stringProp>
@@ -610,7 +610,7 @@
                 </collectionProp>
               </elementProp>
               <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
-              <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+              <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
               <stringProp name="HTTPSampler.protocol">https</stringProp>
               <stringProp name="HTTPSampler.contentEncoding"></stringProp>
               <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService.IdentityApplicationManagementServiceHttpsSoap11Endpoint/</stringProp>
@@ -748,7 +748,7 @@
                 </collectionProp>
               </elementProp>
               <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
-              <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+              <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
               <stringProp name="HTTPSampler.protocol">https</stringProp>
               <stringProp name="HTTPSampler.contentEncoding"></stringProp>
               <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService</stringProp>
@@ -937,7 +937,7 @@
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
-            <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService</stringProp>
@@ -991,7 +991,7 @@
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
-            <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">/services/IdentityProviderMgtService</stringProp>
@@ -1070,7 +1070,7 @@
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
-            <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/UserAdmin</stringProp>
@@ -1118,7 +1118,7 @@
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
-            <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/UserAdmin</stringProp>
