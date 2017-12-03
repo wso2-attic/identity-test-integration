@@ -40,7 +40,7 @@
           </elementProp>
           <elementProp name="FbCallbackUrl" elementType="Argument">
             <stringProp name="Argument.name">FbCallbackUrl</stringProp>
-            <stringProp name="Argument.value">https://${__property(serverHost)}:${__property(severPort)}/commonauth</stringProp>
+            <stringProp name="Argument.value">https://${__property(serverHost)}:${__property(serverPort)}/commonauth</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="FbScope" elementType="Argument">
@@ -58,9 +58,9 @@
             <stringProp name="Argument.value">${__property(serverHost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="severPort" elementType="Argument">
-            <stringProp name="Argument.name">severPort</stringProp>
-            <stringProp name="Argument.value">${__property(severPort)}</stringProp>
+          <elementProp name="serverPort" elementType="Argument">
+            <stringProp name="Argument.name">serverPort</stringProp>
+            <stringProp name="Argument.value">${__property(serverPort)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="spName" elementType="Argument">
@@ -175,10 +175,10 @@
             </collectionProp>
           </elementProp>
           <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
-          <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+          <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">https://${serverHost}:${severPort}/services/UserAdmin.UserAdminHttpsSoap11Endpoint/</stringProp>
+          <stringProp name="HTTPSampler.path">https://${serverHost}:${serverPort}/services/UserAdmin.UserAdminHttpsSoap11Endpoint/</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -227,7 +227,7 @@
             </collectionProp>
           </elementProp>
           <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
-          <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+          <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/services/UserAdmin.UserAdminHttpsSoap11Endpoint/</stringProp>
@@ -566,7 +566,7 @@
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
-            <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">/services/IdentityProviderMgtService</stringProp>
@@ -626,7 +626,7 @@
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
-            <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService</stringProp>
@@ -691,7 +691,7 @@
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
-            <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/IdentitySAMLSSOConfigService.IdentitySAMLSSOConfigServiceHttpsSoap11Endpoint/</stringProp>
@@ -742,7 +742,7 @@
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
-            <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/IdentitySAMLSSOConfigService.IdentitySAMLSSOConfigServiceHttpsSoap11Endpoint/</stringProp>
@@ -809,7 +809,7 @@
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
-            <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService.IdentityApplicationManagementServiceHttpsSoap11Endpoint/</stringProp>
@@ -1136,7 +1136,7 @@
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
-            <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService</stringProp>
@@ -1349,7 +1349,7 @@
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
-            <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService</stringProp>
@@ -1403,7 +1403,7 @@
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
-            <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">/services/IdentityProviderMgtService?wsdl</stringProp>
@@ -1458,7 +1458,7 @@
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
-            <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/UserAdmin.UserAdminHttpsSoap11Endpoint/</stringProp>
@@ -1506,7 +1506,7 @@
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
-            <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/UserAdmin.UserAdminHttpsSoap11Endpoint/</stringProp>

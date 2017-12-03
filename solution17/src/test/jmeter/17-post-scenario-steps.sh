@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /bin/bash
 
 # Copyright (c) 2017, WSO2 Inc. (http://wso2.com) All Rights Reserved.
 #
@@ -14,13 +14,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#properties
-#TODO:read below property from infra.json file
-tomcatHost=$tomcatHost
-tomcatPort=8080
-serverHost=$serverHost
-serverPort=443
-ei_host="54.144.46.10"
-ei_port=9443
+#No specific steps to run in this level but keep
+#-the file as to maintain the file structure as same as in other scenarions.
 
-echo "BaseScript Done..."
+prgdir=$(dirname "$0")
+scriptPath=$(cd "$prgdir"; pwd)
+
+echo "working directory : "$scriptPath
+
+#Steps
+
+echo "post-steps are done..."
