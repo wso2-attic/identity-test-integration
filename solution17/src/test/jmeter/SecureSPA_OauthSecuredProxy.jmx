@@ -17,79 +17,19 @@
             <stringProp name="Argument.value">${__property(serverPort)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="admin_username" elementType="Argument">
-            <stringProp name="Argument.name">admin_username</stringProp>
+          <elementProp name="adminUsername" elementType="Argument">
+            <stringProp name="Argument.name">adminUsername</stringProp>
             <stringProp name="Argument.value">${__property(adminUsername)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="admin_password" elementType="Argument">
-            <stringProp name="Argument.name">admin_password</stringProp>
+          <elementProp name="adminPassword" elementType="Argument">
+            <stringProp name="Argument.name">adminPassword</stringProp>
             <stringProp name="Argument.value">${__property(adminPassword)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="carbon" elementType="Argument">
             <stringProp name="Argument.name">carbon</stringProp>
             <stringProp name="Argument.value">carbon</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-        </collectionProp>
-      </elementProp>
-      <stringProp name="TestPlan.user_define_classpath"></stringProp>
-    </TestPlan>
-    <hashTree>
-      <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
-        <collectionProp name="CookieManager.cookies"/>
-        <boolProp name="CookieManager.clearEachIteration">false</boolProp>
-        <stringProp name="CookieManager.policy">standard</stringProp>
-        <stringProp name="CookieManager.implementation">org.apache.jmeter.protocol.http.control.HC4CookieHandler</stringProp>
-      </CookieManager>
-      <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-        <collectionProp name="Arguments.arguments">
-          <elementProp name="permission" elementType="Argument">
-            <stringProp name="Argument.name">permission</stringProp>
-            <stringProp name="Argument.value">${__property(permission)}</stringProp>
-            <stringProp name="Argument.desc">Permission for role</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="callback" elementType="Argument">
-            <stringProp name="Argument.name">callback</stringProp>
-            <stringProp name="Argument.value">https://{serverHost}/oauth2-proxy/callback</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="tomcat_host" elementType="Argument">
-            <stringProp name="Argument.name">tomcat_host</stringProp>
-            <stringProp name="Argument.value">${__property(tomcatHost)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="tomcat_port" elementType="Argument">
-            <stringProp name="Argument.name">tomcat_port</stringProp>
-            <stringProp name="Argument.value">${__property(tomcatPort)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="spaName" elementType="Argument">
-            <stringProp name="Argument.name">spaName</stringProp>
-            <stringProp name="Argument.value">${__property(spaName)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="sp_target" elementType="Argument">
-            <stringProp name="Argument.name">sp_target</stringProp>
-            <stringProp name="Argument.value">${__property(spTarget)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="spaCode" elementType="Argument">
-            <stringProp name="Argument.name">spaCode</stringProp>
-            <stringProp name="Argument.value">${__property(spaCode)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="sp_name" elementType="Argument">
-            <stringProp name="Argument.name">sp_name</stringProp>
-            <stringProp name="Argument.value">${__property(spName)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="sp_description" elementType="Argument">
-            <stringProp name="Argument.name">sp_description</stringProp>
-            <stringProp name="Argument.value">${__property(spDescription)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="role" elementType="Argument">
@@ -107,6 +47,41 @@
             <stringProp name="Argument.value">${__property(createdPassword)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
+          <elementProp name="tomcatHost" elementType="Argument">
+            <stringProp name="Argument.name">tomcatHost</stringProp>
+            <stringProp name="Argument.value">${__property(tomcatHost)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="tomcatPort" elementType="Argument">
+            <stringProp name="Argument.name">tomcatPort</stringProp>
+            <stringProp name="Argument.value">${__property(tomcatPort)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="spaName" elementType="Argument">
+            <stringProp name="Argument.name">spaName</stringProp>
+            <stringProp name="Argument.value">${__property(spaName)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="spTarget" elementType="Argument">
+            <stringProp name="Argument.name">spTarget</stringProp>
+            <stringProp name="Argument.value">${__property(spTarget)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="spaCode" elementType="Argument">
+            <stringProp name="Argument.name">spaCode</stringProp>
+            <stringProp name="Argument.value">${__property(spaCode)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="spName" elementType="Argument">
+            <stringProp name="Argument.name">spName</stringProp>
+            <stringProp name="Argument.value">${__property(spName)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="spDescription" elementType="Argument">
+            <stringProp name="Argument.name">spDescription</stringProp>
+            <stringProp name="Argument.value">${__property(spDescription)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
           <elementProp name="consumerKey" elementType="Argument">
             <stringProp name="Argument.name">consumerKey</stringProp>
             <stringProp name="Argument.value">${__property(consumerKey)}</stringProp>
@@ -114,11 +89,30 @@
           </elementProp>
           <elementProp name="consumerSecret" elementType="Argument">
             <stringProp name="Argument.name">consumerSecret</stringProp>
-            <stringProp name="Argument.value">${__property(comsumerSecret)}</stringProp>
+            <stringProp name="Argument.value">${__property(consumerSecret)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="callback" elementType="Argument">
+            <stringProp name="Argument.name">callback</stringProp>
+            <stringProp name="Argument.value">https://${__property(serverHost)}:${__property(serverPort)}/oauth2-proxy/callback</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="permission" elementType="Argument">
+            <stringProp name="Argument.name">permission</stringProp>
+            <stringProp name="Argument.value">/permission/admin</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
-      </Arguments>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+        <collectionProp name="CookieManager.cookies"/>
+        <boolProp name="CookieManager.clearEachIteration">false</boolProp>
+        <stringProp name="CookieManager.policy">standard</stringProp>
+        <stringProp name="CookieManager.implementation">org.apache.jmeter.protocol.http.control.HC4CookieHandler</stringProp>
+      </CookieManager>
       <hashTree/>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Create Users, SP" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
@@ -146,9 +140,9 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;aut:login&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;aut:username&gt;${admin_username}&lt;/aut:username&gt;&#xd;
+         &lt;aut:username&gt;${adminUsername}&lt;/aut:username&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;aut:password&gt;${admin_password}&lt;/aut:password&gt;&#xd;
+         &lt;aut:password&gt;${adminPassword}&lt;/aut:password&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
          &lt;aut:remoteAddress&gt;${host}&lt;/aut:remoteAddress&gt;&#xd;
       &lt;/aut:login&gt;&#xd;
@@ -367,8 +361,8 @@
    &lt;soapenv:Body&gt;&#xd;
        &lt;xsd:createApplication&gt; &#xd;
       &lt;xsd:serviceProvider&gt; &#xd;
-            &lt;xsd1:applicationName&gt;${sp_name}&lt;/xsd1:applicationName&gt; &#xd;
-            &lt;xsd1:description&gt;${sp_description}&lt;/xsd1:description&gt;           &#xd;
+            &lt;xsd1:applicationName&gt;${spName}&lt;/xsd1:applicationName&gt; &#xd;
+            &lt;xsd1:description&gt;${spDescription}&lt;/xsd1:description&gt;           &#xd;
          &lt;/xsd:serviceProvider&gt; &#xd;
       &lt;/xsd:createApplication&gt; &#xd;
    &lt;/soapenv:Body&gt;&#xd;
@@ -417,7 +411,7 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:getApplication&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;xsd:applicationName&gt;${sp_name}&lt;/xsd:applicationName&gt;&#xd;
+         &lt;xsd:applicationName&gt;${spName}&lt;/xsd:applicationName&gt;&#xd;
       &lt;/xsd:getApplication&gt;&#xd;
    &lt;/soapenv:Body&gt;&#xd;
 &lt;/soapenv:Envelope&gt;</stringProp>
@@ -485,7 +479,7 @@
       &lt;xsd:registerOAuthApplicationData&gt;&#xd;
          &lt;xsd:application&gt;&#xd;
             &lt;xsd1:OAuthVersion&gt;OAuth-2.0&lt;/xsd1:OAuthVersion&gt;&#xd;
-            &lt;xsd1:applicationName&gt;${sp_name}&lt;/xsd1:applicationName&gt;&#xd;
+            &lt;xsd1:applicationName&gt;${spName}&lt;/xsd1:applicationName&gt;&#xd;
             &lt;xsd1:callbackUrl&gt;${callback}&lt;/xsd1:callbackUrl&gt;&#xd;
             &lt;xsd1:grantTypes&gt;authorization_code&lt;/xsd1:grantTypes&gt;&#xd;
             &lt;xsd1:oauthConsumerKey&gt;${consumerKey}&lt;/xsd1:oauthConsumerKey&gt;&#xd;
@@ -630,12 +624,12 @@
       &lt;xsd:updateApplication&gt;&#xd;
          &lt;xsd:serviceProvider&gt;&#xd;
             &lt;xsd1:applicationID&gt;${appID}&lt;/xsd1:applicationID&gt;&#xd;
-            &lt;xsd1:applicationName&gt;${sp_name}&lt;/xsd1:applicationName&gt; &#xd;
+            &lt;xsd1:applicationName&gt;${spName}&lt;/xsd1:applicationName&gt; &#xd;
             &lt;xsd1:claimConfig&gt; &#xd;
                &lt;xsd1:alwaysSendMappedLocalSubjectId&gt;true&lt;/xsd1:alwaysSendMappedLocalSubjectId&gt; &#xd;
                &lt;xsd1:localClaimDialect&gt;true&lt;/xsd1:localClaimDialect&gt;&#xd;
             &lt;/xsd1:claimConfig&gt; &#xd;
-            &lt;xsd1:description&gt;${sp_description}&lt;/xsd1:description&gt; &#xd;
+            &lt;xsd1:description&gt;${spDescription}&lt;/xsd1:description&gt; &#xd;
       &#xd;
      &lt;xsd1:inboundAuthenticationConfig&gt; &#xd;
                &lt;xsd1:inboundAuthenticationRequestConfigs&gt;&#xd;
@@ -790,8 +784,8 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${tomcat_host}</stringProp>
-          <stringProp name="HTTPSampler.port">${tomcat_port}</stringProp>
+          <stringProp name="HTTPSampler.domain">${tomcatHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/Sol17amazon/index.html</stringProp>
@@ -882,14 +876,14 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="username" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">${admin_username}</stringProp>
+                <stringProp name="Argument.value">${adminUsername}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">username</stringProp>
               </elementProp>
               <elementProp name="password" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">${admin_password}</stringProp>
+                <stringProp name="Argument.value">${adminPassword}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">password</stringProp>
@@ -1034,9 +1028,9 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;aut:login&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;aut:username&gt;${admin_username}&lt;/aut:username&gt;&#xd;
+         &lt;aut:username&gt;${adminUsername}&lt;/aut:username&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;aut:password&gt;${admin_password}&lt;/aut:password&gt;&#xd;
+         &lt;aut:password&gt;${adminPassword}&lt;/aut:password&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
          &lt;aut:remoteAddress&gt;${host}&lt;/aut:remoteAddress&gt;&#xd;
       &lt;/aut:login&gt;&#xd;
@@ -1191,7 +1185,7 @@
             </collectionProp>
           </elementProp>
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
-          <stringProp name="HTTPSampler.port">${host}</stringProp>
+          <stringProp name="HTTPSampler.port">${port}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/services/OAuthAdminService</stringProp>
@@ -1230,7 +1224,7 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:deleteApplication&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;xsd:applicationName&gt;${sp_name}&lt;/xsd:applicationName&gt;&#xd;
+         &lt;xsd:applicationName&gt;${spName}&lt;/xsd:applicationName&gt;&#xd;
       &lt;/xsd:deleteApplication&gt;&#xd;
    &lt;/soapenv:Body&gt;&#xd;
 &lt;/soapenv:Envelope&gt;</stringProp>
