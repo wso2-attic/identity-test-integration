@@ -11,7 +11,7 @@
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
     </TestPlan>
     <hashTree>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="false">
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
         <collectionProp name="Arguments.arguments">
           <elementProp name="username" elementType="Argument">
             <stringProp name="Argument.name">username</stringProp>
@@ -40,7 +40,7 @@
           </elementProp>
           <elementProp name="FbCallbackUrl" elementType="Argument">
             <stringProp name="Argument.name">FbCallbackUrl</stringProp>
-            <stringProp name="Argument.value">https://${__property(severHost)}:${__property(severPort)}/commonauth</stringProp>
+            <stringProp name="Argument.value">https://${__property(serverHost)}:${__property(serverPort)}/commonauth</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="FbScope" elementType="Argument">
@@ -53,14 +53,14 @@
             <stringProp name="Argument.value">${__property(FbUserInfoFields)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="severHost" elementType="Argument">
-            <stringProp name="Argument.name">severHost</stringProp>
-            <stringProp name="Argument.value">${__property(severHost)}</stringProp>
+          <elementProp name="serverHost" elementType="Argument">
+            <stringProp name="Argument.name">serverHost</stringProp>
+            <stringProp name="Argument.value">${__property(serverHost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="severPort" elementType="Argument">
-            <stringProp name="Argument.name">severPort</stringProp>
-            <stringProp name="Argument.value">${__property(severPort)}</stringProp>
+          <elementProp name="serverPort" elementType="Argument">
+            <stringProp name="Argument.name">serverPort</stringProp>
+            <stringProp name="Argument.value">${__property(serverPort)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="spName" elementType="Argument">
@@ -101,122 +101,17 @@
           </elementProp>
           <elementProp name="admin_username" elementType="Argument">
             <stringProp name="Argument.name">admin_username</stringProp>
-            <stringProp name="Argument.value">${__property(admin_username)</stringProp>
+            <stringProp name="Argument.value">${__property(adminUsername)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="admin_password" elementType="Argument">
             <stringProp name="Argument.name">admin_password</stringProp>
-            <stringProp name="Argument.value">${__property(admin_password)</stringProp>
+            <stringProp name="Argument.value">${__property(adminPassword)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="admin_credentials" elementType="Argument">
             <stringProp name="Argument.name">admin_credentials</stringProp>
-            <stringProp name="Argument.value">${__property(admin_credentials)</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-        </collectionProp>
-      </Arguments>
-      <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-        <collectionProp name="Arguments.arguments">
-          <elementProp name="admin_username" elementType="Argument">
-            <stringProp name="Argument.name">admin_username</stringProp>
-            <stringProp name="Argument.value">admin</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="admin_password" elementType="Argument">
-            <stringProp name="Argument.name">admin_password</stringProp>
-            <stringProp name="Argument.value">admin</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="admin_credentials" elementType="Argument">
-            <stringProp name="Argument.name">admin_credentials</stringProp>
-            <stringProp name="Argument.value">YWRtaW46YWRtaW4</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="username" elementType="Argument">
-            <stringProp name="Argument.name">username</stringProp>
-            <stringProp name="Argument.value">TestFBuser25</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="password" elementType="Argument">
-            <stringProp name="Argument.name">password</stringProp>
-            <stringProp name="Argument.value">test12345#</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="FbIdentityProviderName" elementType="Argument">
-            <stringProp name="Argument.name">FbIdentityProviderName</stringProp>
-            <stringProp name="Argument.value">IDPfacebooktest3</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="FbClientId" elementType="Argument">
-            <stringProp name="Argument.name">FbClientId</stringProp>
-            <stringProp name="Argument.value">486523028382606</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="FbSecret" elementType="Argument">
-            <stringProp name="Argument.name">FbSecret</stringProp>
-            <stringProp name="Argument.value">05ca26f98f4a542e139d82153d90920a</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="FbCallbackUrl" elementType="Argument">
-            <stringProp name="Argument.name">FbCallbackUrl</stringProp>
-            <stringProp name="Argument.value">https://localhost:443/commonauth</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="FbScope" elementType="Argument">
-            <stringProp name="Argument.name">FbScope</stringProp>
-            <stringProp name="Argument.value">email</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="FbUserInfoFields" elementType="Argument">
-            <stringProp name="Argument.name">FbUserInfoFields</stringProp>
-            <stringProp name="Argument.value">id</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="severHost" elementType="Argument">
-            <stringProp name="Argument.name">severHost</stringProp>
-            <stringProp name="Argument.value">localhost</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="severPort" elementType="Argument">
-            <stringProp name="Argument.name">severPort</stringProp>
-            <stringProp name="Argument.value">9443</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="spName" elementType="Argument">
-            <stringProp name="Argument.name">spName</stringProp>
-            <stringProp name="Argument.value">travelocity.com</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="spDescription" elementType="Argument">
-            <stringProp name="Argument.name">spDescription</stringProp>
-            <stringProp name="Argument.value">Configuringtravelocity</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="permission" elementType="Argument">
-            <stringProp name="Argument.name">permission</stringProp>
-            <stringProp name="Argument.value">/permission/admin</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="role" elementType="Argument">
-            <stringProp name="Argument.name">role</stringProp>
-            <stringProp name="Argument.value">roleIDP21</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="tomcatHost" elementType="Argument">
-            <stringProp name="Argument.name">tomcatHost</stringProp>
-            <stringProp name="Argument.value">localhost</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="tomcatPort" elementType="Argument">
-            <stringProp name="Argument.name">tomcatPort</stringProp>
-            <stringProp name="Argument.value">8080</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="travelocityIssuer" elementType="Argument">
-            <stringProp name="Argument.name">travelocityIssuer</stringProp>
-            <stringProp name="Argument.value">travelocity.com</stringProp>
+            <stringProp name="Argument.value">${__property(adminCredentials)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -279,11 +174,11 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${severHost}</stringProp>
-          <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+          <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">https://${severHost}:${severPort}/services/UserAdmin.UserAdminHttpsSoap11Endpoint/</stringProp>
+          <stringProp name="HTTPSampler.path">https://${serverHost}:${serverPort}/services/UserAdmin.UserAdminHttpsSoap11Endpoint/</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -331,8 +226,8 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${severHost}</stringProp>
-          <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+          <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/services/UserAdmin.UserAdminHttpsSoap11Endpoint/</stringProp>
@@ -670,8 +565,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${severHost}</stringProp>
-            <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+            <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">/services/IdentityProviderMgtService</stringProp>
@@ -730,8 +625,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${severHost}</stringProp>
-            <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+            <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService</stringProp>
@@ -795,8 +690,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${severHost}</stringProp>
-            <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+            <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/IdentitySAMLSSOConfigService.IdentitySAMLSSOConfigServiceHttpsSoap11Endpoint/</stringProp>
@@ -846,8 +741,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${severHost}</stringProp>
-            <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+            <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/IdentitySAMLSSOConfigService.IdentitySAMLSSOConfigServiceHttpsSoap11Endpoint/</stringProp>
@@ -913,8 +808,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${severHost}</stringProp>
-            <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+            <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService.IdentityApplicationManagementServiceHttpsSoap11Endpoint/</stringProp>
@@ -1240,8 +1135,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${severHost}</stringProp>
-            <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+            <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService</stringProp>
@@ -1453,8 +1348,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${severHost}</stringProp>
-            <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+            <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService</stringProp>
@@ -1507,8 +1402,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${severHost}</stringProp>
-            <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+            <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">/services/IdentityProviderMgtService?wsdl</stringProp>
@@ -1562,8 +1457,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${severHost}</stringProp>
-            <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+            <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/UserAdmin.UserAdminHttpsSoap11Endpoint/</stringProp>
@@ -1610,8 +1505,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${severHost}</stringProp>
-            <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+            <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/UserAdmin.UserAdminHttpsSoap11Endpoint/</stringProp>
@@ -1742,7 +1637,7 @@
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename"></stringProp>
+        <stringProp name="filename">/home/chalitha/chalitha87-git/IdentitySolutions/identity-test-integration/solution21/target/jmeter/results/20171129-FBfedarated.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
     </hashTree>

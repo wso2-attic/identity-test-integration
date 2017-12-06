@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-severHost=$severHost
+serverHost=$serverHost
 prgdir=$(dirname "$0")
 scriptPath=$(cd "$prgdir"; pwd)
 
@@ -23,8 +23,8 @@ source $scriptPath/../base-setup.sh > $scriptPath/basesetup.log
 
 echo "working directory : "$scriptPath
 #updating jmeter properties - user.properties
-sed -i "s|^\(severHost\s*=\s*\).*\$|\1${severHost}|" $scriptPath/../resources/user.properties
-sed -i "s|^\(severPort\s*=\s*\).*\$|\1${severPort}|" $scriptPath/../resources/user.properties
+sed -i "s|^\(serverHost\s*=\s*\).*\$|\1${serverHost}|" $scriptPath/../resources/user.properties
+sed -i "s|^\(serverPort\s*=\s*\).*\$|\1${serverPort}|" $scriptPath/../resources/user.properties
 sed -i "s|^\(tomcatHost\s*=\s*\).*\$|\1${tomcatHost}|" $scriptPath/../resources/user.properties
 sed -i "s|^\(tomcatPort\s*=\s*\).*\$|\1${tomcatPort}|" $scriptPath/../resources/user.properties
 

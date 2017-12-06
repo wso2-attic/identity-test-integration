@@ -47,8 +47,8 @@ FbScope=email
 FbUserInfoFields=id,name,gender,email,first_name,last_name,age_range,link
 
 #server Information
-severHost=localhost
-severPort=9443
+serverHost=localhost
+serverPort=9443
 
 #Sp Information
 spName=travelocity.com

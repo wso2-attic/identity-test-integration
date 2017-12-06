@@ -13,7 +13,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-severHost=$severHost
+serverHost=$serverHost
 prgdir=$(dirname "$0")
 scriptPath=$(cd "$prgdir"; pwd)
 
@@ -22,8 +22,8 @@ source $scriptPath/../base-setup.sh > $scriptPath/basesetup.log
 
 echo "working directory : "$scriptPath
 #updating jmeter properties - user.properties
-sed -i "s|^\(severHost\s*=\s*\).*\$|\1${severHost}|" $scriptPath/../resources/user.properties
-sed -i "s|^\(severPort\s*=\s*\).*\$|\1${severPort}|" $scriptPath/../resources/user.properties
+sed -i "s|^\(serverHost\s*=\s*\).*\$|\1${serverHost}|" $scriptPath/../resources/user.properties
+sed -i "s|^\(serverPort\s*=\s*\).*\$|\1${serverPort}|" $scriptPath/../resources/user.properties
 sed -i "s|^\(ei_host\s*=\s*\).*\$|\1${ei_host}|" $scriptPath/../resources/user.properties
 sed -i "s|^\(ei_port\s*=\s*\).*\$|\1${ei_port}|" $scriptPath/../resources/user.properties
 

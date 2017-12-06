@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.2 r1790748">
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.3 r1808647">
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Create SP" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
@@ -13,15 +13,15 @@
     <hashTree>
       <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Server Variables" enabled="true">
         <collectionProp name="Arguments.arguments">
-          <elementProp name="severHost" elementType="Argument">
-            <stringProp name="Argument.name">severHost</stringProp>
-            <stringProp name="Argument.value">${__property(severHost)}</stringProp>
+          <elementProp name="serverHost" elementType="Argument">
+            <stringProp name="Argument.name">serverHost</stringProp>
+            <stringProp name="Argument.value">${__property(serverHost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">is530.wso2.com </stringProp>
           </elementProp>
-          <elementProp name="severPort" elementType="Argument">
-            <stringProp name="Argument.name">severPort</stringProp>
-            <stringProp name="Argument.value">${__property(severPort)}</stringProp>
+          <elementProp name="serverPort" elementType="Argument">
+            <stringProp name="Argument.name">serverPort</stringProp>
+            <stringProp name="Argument.value">${__property(serverPort)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">443</stringProp>
           </elementProp>
@@ -79,74 +79,6 @@
         </collectionProp>
       </Arguments>
       <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Server Variables" enabled="false">
-        <collectionProp name="Arguments.arguments">
-          <elementProp name="severHost" elementType="Argument">
-            <stringProp name="Argument.name">severHost</stringProp>
-            <stringProp name="Argument.value">localhost</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">is530.wso2.com </stringProp>
-          </elementProp>
-          <elementProp name="severPort" elementType="Argument">
-            <stringProp name="Argument.name">severPort</stringProp>
-            <stringProp name="Argument.value">9443</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">443</stringProp>
-          </elementProp>
-          <elementProp name="created_credentials" elementType="Argument">
-            <stringProp name="Argument.name">created_credentials</stringProp>
-            <stringProp name="Argument.value">c29sMjI6cGFzc3dvcmQ=</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">admin_credentials</stringProp>
-          </elementProp>
-          <elementProp name="created_username" elementType="Argument">
-            <stringProp name="Argument.name">created_username</stringProp>
-            <stringProp name="Argument.value">sol22</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="created_password" elementType="Argument">
-            <stringProp name="Argument.name">created_password</stringProp>
-            <stringProp name="Argument.value">password</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="sp_name" elementType="Argument">
-            <stringProp name="Argument.name">sp_name</stringProp>
-            <stringProp name="Argument.value">sol22sp12</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="sp_role_name" elementType="Argument">
-            <stringProp name="Argument.name">sp_role_name</stringProp>
-            <stringProp name="Argument.value">sol22jwt1</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="consumer_key" elementType="Argument">
-            <stringProp name="Argument.name">consumer_key</stringProp>
-            <stringProp name="Argument.value">LYmOUflorq9jfBazpQfg3RqiWwYa</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="consumer_secret" elementType="Argument">
-            <stringProp name="Argument.name">consumer_secret</stringProp>
-            <stringProp name="Argument.value">hg86m6oZZL_a7_qlY5q1rLaXE1ca</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="callback_url" elementType="Argument">
-            <stringProp name="Argument.name">callback_url</stringProp>
-            <stringProp name="Argument.value">http://wso2is.local:8080/playground2/oauth2client</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="tomcatHost" elementType="Argument">
-            <stringProp name="Argument.name">tomcatHost</stringProp>
-            <stringProp name="Argument.value">localhost</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="tomcatPort" elementType="Argument">
-            <stringProp name="Argument.name">tomcatPort</stringProp>
-            <stringProp name="Argument.value">8080</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-        </collectionProp>
-      </Arguments>
-      <hashTree/>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Create SP" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
@@ -165,7 +97,6 @@
         <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
           <collectionProp name="CookieManager.cookies"/>
           <boolProp name="CookieManager.clearEachIteration">false</boolProp>
-          <stringProp name="CookieManager.implementation">org.apache.jmeter.protocol.http.control.HC4CookieHandler</stringProp>
         </CookieManager>
         <hashTree/>
         <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -196,8 +127,8 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${severHost}</stringProp>
-          <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+          <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/services/AuthenticationAdmin.AuthenticationAdminHttpsSoap11Endpoint/</stringProp>
@@ -261,8 +192,8 @@
             &lt;xsd1:doValidateSignatureInRequests&gt;false&lt;/xsd1:doValidateSignatureInRequests&gt;&#xd;
             &lt;xsd1:enableAttributeProfile&gt;false&lt;/xsd1:enableAttributeProfile&gt;&#xd;
             &lt;xsd1:enableAttributesByDefault&gt;false&lt;/xsd1:enableAttributesByDefault&gt;&#xd;
-            &lt;xsd1:requestedAudiences&gt;https://${severHost}:${severPort}/oauth2/token&lt;/xsd1:requestedAudiences&gt;&#xd;
-            &lt;xsd1:requestedRecipients&gt;https://${severHost}:${severPort}/oauth2/token&lt;/xsd1:requestedRecipients&gt;&#xd;
+            &lt;xsd1:requestedAudiences&gt;https://${serverHost}:${serverPort}/oauth2/token&lt;/xsd1:requestedAudiences&gt;&#xd;
+            &lt;xsd1:requestedRecipients&gt;https://${serverHost}:${serverPort}/oauth2/token&lt;/xsd1:requestedRecipients&gt;&#xd;
          &lt;/xsd:spDto&gt;&#xd;
       &lt;/xsd:addRPServiceProvider&gt;&#xd;
    &lt;/soapenv:Body&gt;&#xd;
@@ -271,8 +202,8 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${severHost}</stringProp>
-          <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+          <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/services/IdentitySAMLSSOConfigService.IdentitySAMLSSOConfigServiceHttpsSoap11Endpoint/</stringProp>
@@ -326,8 +257,8 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${severHost}</stringProp>
-          <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+          <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/services/IdentitySAMLSSOConfigService.IdentitySAMLSSOConfigServiceHttpsSoap11Endpoint/</stringProp>
@@ -395,8 +326,8 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${severHost}</stringProp>
-          <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+          <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService.IdentityApplicationManagementServiceHttpsSoap11Endpoint/</stringProp>
@@ -456,8 +387,8 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${severHost}</stringProp>
-          <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+          <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService.IdentityApplicationManagementServiceHttpsSoap11Endpoint/</stringProp>
@@ -529,8 +460,8 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${severHost}</stringProp>
-          <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+          <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/services/OAuthAdminService</stringProp>
@@ -587,8 +518,8 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${severHost}</stringProp>
-          <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+          <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/services/OAuthAdminService</stringProp>
@@ -744,8 +675,8 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${severHost}</stringProp>
-          <stringProp name="HTTPSampler.port">${severPort}</stringProp>
+          <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService</stringProp>
@@ -777,134 +708,6 @@
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">SOAPAction</stringProp>
                 <stringProp name="Header.value">urn:updateApplication</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">text/xml</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
-          <hashTree/>
-        </hashTree>
-      </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Remove SP" enabled="false">
-        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
-        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
-          <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
-        </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
-        <longProp name="ThreadGroup.start_time">1509004249000</longProp>
-        <longProp name="ThreadGroup.end_time">1509004249000</longProp>
-        <boolProp name="ThreadGroup.scheduler">false</boolProp>
-        <stringProp name="ThreadGroup.duration"></stringProp>
-        <stringProp name="ThreadGroup.delay"></stringProp>
-      </ThreadGroup>
-      <hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Delete SP" enabled="true">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xsd=&quot;http://org.apache.axis2/xsd&quot;&gt;&#xd;
-   &lt;soapenv:Header/&gt;&#xd;
-   &lt;soapenv:Body&gt;&#xd;
-      &lt;xsd:deleteApplication&gt;&#xd;
-         &lt;xsd:applicationName&gt;${sp_name}&lt;/xsd:applicationName&gt;&#xd;
-      &lt;/xsd:deleteApplication&gt;&#xd;
-   &lt;/soapenv:Body&gt;&#xd;
-&lt;/soapenv:Envelope&gt;</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">${severHost}</stringProp>
-          <stringProp name="HTTPSampler.port">${severPort}</stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService.IdentityApplicationManagementServiceHttpsSoap11Endpoint/</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200 OK HTTP Code Response Assertion" enabled="true">
-            <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1606201635">HTTP/1.1 200 OK</stringProp>
-            </collectionProp>
-            <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
-            <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">2</intProp>
-          </ResponseAssertion>
-          <hashTree/>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">Basic ${created_credentials}</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">SOAPAction</stringProp>
-                <stringProp name="Header.value">urn:deleteApplication</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">text/xml</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
-          <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Remove OAuth App" enabled="true">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xsd=&quot;http://org.apache.axis2/xsd&quot;&gt;&#xd;
-   &lt;soapenv:Header/&gt;&#xd;
-   &lt;soapenv:Body&gt;&#xd;
-      &lt;xsd:removeOAuthApplicationData&gt;&#xd;
-         &lt;!--Optional:--&gt;&#xd;
-         &lt;xsd:consumerKey&gt;${consumer_key}&lt;/xsd:consumerKey&gt;&#xd;
-      &lt;/xsd:removeOAuthApplicationData&gt;&#xd;
-   &lt;/soapenv:Body&gt;&#xd;
-&lt;/soapenv:Envelope&gt;</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">${severHost}</stringProp>
-          <stringProp name="HTTPSampler.port">${severPort}</stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/services/OAuthAdminService</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">Basic ${created_credentials}</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">SOAPAction</stringProp>
-                <stringProp name="Header.value">urn:removeServiceProvider</stringProp>
               </elementProp>
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Content-Type</stringProp>
