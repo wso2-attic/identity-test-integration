@@ -25,25 +25,25 @@
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">443</stringProp>
           </elementProp>
-          <elementProp name="admin_credentials" elementType="Argument">
-            <stringProp name="Argument.name">admin_credentials</stringProp>
-            <stringProp name="Argument.value">${__property(admin_credentials)}</stringProp>
+          <elementProp name="adminCredentials" elementType="Argument">
+            <stringProp name="Argument.name">adminCredentials</stringProp>
+            <stringProp name="Argument.value">${__property(adminCredentials)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">admin_credentials</stringProp>
+            <stringProp name="Argument.desc">adminCredentials</stringProp>
           </elementProp>
-          <elementProp name="admin_username" elementType="Argument">
-            <stringProp name="Argument.name">admin_username</stringProp>
-            <stringProp name="Argument.value">${__property(admin_username)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="admin_password" elementType="Argument">
-            <stringProp name="Argument.name">admin_password</stringProp>
-            <stringProp name="Argument.value">${__property(admin_password)}</stringProp>
+          <elementProp name="adminUsername" elementType="Argument">
+            <stringProp name="Argument.name">adminUsername</stringProp>
+            <stringProp name="Argument.value">${__property(adminUsername)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="created_username" elementType="Argument">
-            <stringProp name="Argument.name">created_username</stringProp>
-            <stringProp name="Argument.value">${__property(created_username)}</stringProp>
+          <elementProp name="adminPassword" elementType="Argument">
+            <stringProp name="Argument.name">adminPassword</stringProp>
+            <stringProp name="Argument.value">${__property(adminPassword)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="createdUsername" elementType="Argument">
+            <stringProp name="Argument.name">createdUsername</stringProp>
+            <stringProp name="Argument.value">${__property(createdUsername)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -88,8 +88,8 @@
    &lt;soapenv:Header/&gt;&#xd;
    &lt;soapenv:Body&gt;&#xd;
       &lt;aut:login&gt;&#xd;
-         &lt;aut:username&gt;${admin_username}&lt;/aut:username&gt;&#xd;
-         &lt;aut:password&gt;${admin_password}&lt;/aut:password&gt;&#xd;
+         &lt;aut:username&gt;${adminUsername}&lt;/aut:username&gt;&#xd;
+         &lt;aut:password&gt;${adminPassword}&lt;/aut:password&gt;&#xd;
       &lt;/aut:login&gt;&#xd;
    &lt;/soapenv:Body&gt;&#xd;
 &lt;/soapenv:Envelope&gt;</stringProp>
@@ -151,7 +151,7 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;ser:deleteUser&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;ser:userName&gt;${created_username}&lt;/ser:userName&gt;&#xd;
+         &lt;ser:userName&gt;${createdUsername}&lt;/ser:userName&gt;&#xd;
       &lt;/ser:deleteUser&gt;&#xd;
    &lt;/soapenv:Body&gt;&#xd;
 &lt;/soapenv:Envelope&gt;</stringProp>

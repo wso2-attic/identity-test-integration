@@ -25,30 +25,30 @@
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">443</stringProp>
           </elementProp>
-          <elementProp name="created_credentials" elementType="Argument">
-            <stringProp name="Argument.name">created_credentials</stringProp>
-            <stringProp name="Argument.value">${__property(created_credentials)}</stringProp>
+          <elementProp name="createdCredentials" elementType="Argument">
+            <stringProp name="Argument.name">createdCredentials</stringProp>
+            <stringProp name="Argument.value">${__property(createdCredentials)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">admin_credentials</stringProp>
+            <stringProp name="Argument.desc">adminCredentials</stringProp>
           </elementProp>
-          <elementProp name="created_username" elementType="Argument">
-            <stringProp name="Argument.name">created_username</stringProp>
-            <stringProp name="Argument.value">${__property(created_username)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="created_password" elementType="Argument">
-            <stringProp name="Argument.name">created_password</stringProp>
-            <stringProp name="Argument.value">${__property(created_password)}</stringProp>
+          <elementProp name="createdUsername" elementType="Argument">
+            <stringProp name="Argument.name">createdUsername</stringProp>
+            <stringProp name="Argument.value">${__property(createdUsername)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="idp_name" elementType="Argument">
-            <stringProp name="Argument.name">idp_name</stringProp>
-            <stringProp name="Argument.value">${__property(idp_name)}</stringProp>
+          <elementProp name="createdPassword" elementType="Argument">
+            <stringProp name="Argument.name">createdPassword</stringProp>
+            <stringProp name="Argument.value">${__property(createdPassword)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="idp_description" elementType="Argument">
-            <stringProp name="Argument.name">idp_description</stringProp>
-            <stringProp name="Argument.value">${__property(idp_description)}</stringProp>
+          <elementProp name="idpName" elementType="Argument">
+            <stringProp name="Argument.name">idpName</stringProp>
+            <stringProp name="Argument.value">${__property(idpName)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="idpDescription" elementType="Argument">
+            <stringProp name="Argument.name">idpDescription</stringProp>
+            <stringProp name="Argument.value">${__property(idpDescription)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -93,8 +93,8 @@
    &lt;soapenv:Header/&gt;&#xd;
    &lt;soapenv:Body&gt;&#xd;
       &lt;aut:login&gt;&#xd;
-         &lt;aut:username&gt;${created_username}&lt;/aut:username&gt;&#xd;
-         &lt;aut:password&gt;${created_password}&lt;/aut:password&gt;&#xd;
+         &lt;aut:username&gt;${createdUsername}&lt;/aut:username&gt;&#xd;
+         &lt;aut:password&gt;${createdPassword}&lt;/aut:password&gt;&#xd;
       &lt;/aut:login&gt;&#xd;
    &lt;/soapenv:Body&gt;&#xd;
 &lt;/soapenv:Envelope&gt;</stringProp>
@@ -130,7 +130,7 @@
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">Basic ${created_credentials}</stringProp>
+                <stringProp name="Header.value">Basic ${createdCredentials}</stringProp>
               </elementProp>
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">SOAPAction</stringProp>
@@ -156,10 +156,10 @@
       &lt;mgt:addIdP&gt;        &#xd;
          &lt;!--Optional:--&gt;&#xd;
          &lt;mgt:identityProvider&gt;&#xd;
-            &lt;xsd:identityProviderName&gt;${idp_name}&lt;/xsd:identityProviderName&gt;           &#xd;
-            &lt;xsd:displayName&gt;${idp_name}&lt;/xsd:displayName&gt;&#xd;
+            &lt;xsd:identityProviderName&gt;${idpName}&lt;/xsd:identityProviderName&gt;           &#xd;
+            &lt;xsd:displayName&gt;${idpName}&lt;/xsd:displayName&gt;&#xd;
             &lt;xsd:enable&gt;true&lt;/xsd:enable&gt;&#xd;
-            &lt;xsd:identityProviderDescription&gt;${idp_description}&lt;/xsd:identityProviderDescription&gt;&#xd;
+            &lt;xsd:identityProviderDescription&gt;${idpDescription}&lt;/xsd:identityProviderDescription&gt;&#xd;
             &lt;xsd:alias&gt;https://${is_host}:${is_port}/oauth2/token/&lt;/xsd:alias&gt;&#xd;
             &lt;xsd:primary&gt;false&lt;/xsd:primary&gt;&#xd;
             &lt;xsd:provisioningRole&gt;-&lt;/xsd:provisioningRole&gt;&#xd;
@@ -199,7 +199,7 @@
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">Basic ${created_credentials}</stringProp>
+                <stringProp name="Header.value">Basic ${createdCredentials}</stringProp>
               </elementProp>
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">SOAPAction</stringProp>

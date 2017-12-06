@@ -15,6 +15,9 @@
 # limitations under the License.
 
 serverHost=$serverHost
+serverPort=443
+tomcatHost=$tomcatHost
+tomcatPort=8080
 prgdir=$(dirname "$0")
 scriptPath=$(cd "$prgdir"; pwd)
 
