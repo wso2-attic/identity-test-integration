@@ -14,6 +14,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+tomcatHost=$tomcatHost
+tomcatPort=8080
+serverHost=$serverHost
+serverPort=443
+
 prgdir=$(dirname "$0")
 scriptPath=$(cd "$prgdir"; pwd)
 

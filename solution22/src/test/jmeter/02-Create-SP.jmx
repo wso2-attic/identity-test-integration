@@ -25,35 +25,35 @@
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">443</stringProp>
           </elementProp>
-          <elementProp name="created_credentials" elementType="Argument">
-            <stringProp name="Argument.name">created_credentials</stringProp>
-            <stringProp name="Argument.value">${__property(created_credentials)}</stringProp>
+          <elementProp name="createdCredentials" elementType="Argument">
+            <stringProp name="Argument.name">createdCredentials</stringProp>
+            <stringProp name="Argument.value">${__property(createdCredentials)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">admin_credentials</stringProp>
+            <stringProp name="Argument.desc">adminCredentials</stringProp>
           </elementProp>
-          <elementProp name="created_username" elementType="Argument">
-            <stringProp name="Argument.name">created_username</stringProp>
-            <stringProp name="Argument.value">${__property(created_username)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="created_password" elementType="Argument">
-            <stringProp name="Argument.name">created_password</stringProp>
-            <stringProp name="Argument.value">${__property(created_password)}</stringProp>
+          <elementProp name="createdUsername" elementType="Argument">
+            <stringProp name="Argument.name">createdUsername</stringProp>
+            <stringProp name="Argument.value">${__property(createdUsername)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="sp_name" elementType="Argument">
-            <stringProp name="Argument.name">sp_name</stringProp>
-            <stringProp name="Argument.value">${__property(sp_name)}</stringProp>
+          <elementProp name="createdPassword" elementType="Argument">
+            <stringProp name="Argument.name">createdPassword</stringProp>
+            <stringProp name="Argument.value">${__property(createdPassword)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="sp_role_name" elementType="Argument">
-            <stringProp name="Argument.name">sp_role_name</stringProp>
-            <stringProp name="Argument.value">${__property(sp_role_name)}</stringProp>
+          <elementProp name="spName" elementType="Argument">
+            <stringProp name="Argument.name">spName</stringProp>
+            <stringProp name="Argument.value">${__property(spName)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="consumer_key" elementType="Argument">
-            <stringProp name="Argument.name">consumer_key</stringProp>
-            <stringProp name="Argument.value">${__property(consumer_key)}</stringProp>
+          <elementProp name="spRoleName" elementType="Argument">
+            <stringProp name="Argument.name">spRoleName</stringProp>
+            <stringProp name="Argument.value">${__property(spRoleName)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="consumerKey" elementType="Argument">
+            <stringProp name="Argument.name">consumerKey</stringProp>
+            <stringProp name="Argument.value">${__property(consumerKey)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="consumer_secret" elementType="Argument">
@@ -61,9 +61,9 @@
             <stringProp name="Argument.value">${__property(consumer_secret)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="callback_url" elementType="Argument">
-            <stringProp name="Argument.name">callback_url</stringProp>
-            <stringProp name="Argument.value">${__property(callback_url)}</stringProp>
+          <elementProp name="callbackUrl" elementType="Argument">
+            <stringProp name="Argument.name">callbackUrl</stringProp>
+            <stringProp name="Argument.value">${__property(callbackUrl)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="tomcatHost" elementType="Argument">
@@ -103,7 +103,7 @@
           <collectionProp name="HeaderManager.headers">
             <elementProp name="" elementType="Header">
               <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${created_credentials}</stringProp>
+              <stringProp name="Header.value">Basic ${createdCredentials}</stringProp>
             </elementProp>
           </collectionProp>
         </HeaderManager>
@@ -118,8 +118,8 @@
    &lt;soapenv:Header/&gt;&#xd;
    &lt;soapenv:Body&gt;&#xd;
       &lt;aut:login&gt;&#xd;
-         &lt;aut:username&gt;${created_username}&lt;/aut:username&gt;&#xd;
-         &lt;aut:password&gt;${created_password}&lt;/aut:password&gt;&#xd;
+         &lt;aut:username&gt;${createdUsername}&lt;/aut:username&gt;&#xd;
+         &lt;aut:password&gt;${createdPassword}&lt;/aut:password&gt;&#xd;
       &lt;/aut:login&gt;&#xd;
    &lt;/soapenv:Body&gt;&#xd;
 &lt;/soapenv:Envelope&gt;</stringProp>
@@ -155,7 +155,7 @@
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">Basic ${created_credentials}</stringProp>
+                <stringProp name="Header.value">Basic ${createdCredentials}</stringProp>
               </elementProp>
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">SOAPAction</stringProp>
@@ -180,7 +180,7 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:addRPServiceProvider&gt;      &#xd;
          &lt;xsd:spDto&gt;        &#xd;
-         	  &lt;xsd1:issuer&gt;${sp_name}&lt;/xsd1:issuer&gt;&#xd;
+         	  &lt;xsd1:issuer&gt;${spName}&lt;/xsd1:issuer&gt;&#xd;
             &lt;xsd1:assertionConsumerUrl&gt;http://${tomcatHost}:${tomcatPort}/sol22.travelocity.com/home.jsp&lt;/xsd1:assertionConsumerUrl&gt;&#xd;
             &lt;xsd1:assertionConsumerUrls&gt;http://${tomcatHost}:${tomcatPort}/sol22.travelocity.com/home.jsp&lt;/xsd1:assertionConsumerUrls&gt;&#xd;
             &lt;xsd1:defaultAssertionConsumerUrl&gt;http://${tomcatHost}:${tomcatPort}/sol22.travelocity.com/home.jsp&lt;/xsd1:defaultAssertionConsumerUrl&gt;&#xd;
@@ -316,8 +316,8 @@
    &lt;soapenv:Body&gt;&#xd;
        &lt;xsd:createApplication&gt; &#xd;
       &lt;xsd:serviceProvider&gt; &#xd;
-            &lt;xsd1:applicationName&gt;${sp_name}&lt;/xsd1:applicationName&gt;&#xd;
-            &lt;xsd1:description&gt;${sp_name} description&lt;/xsd1:description&gt;&#xd;
+            &lt;xsd1:applicationName&gt;${spName}&lt;/xsd1:applicationName&gt;&#xd;
+            &lt;xsd1:description&gt;${spName} description&lt;/xsd1:description&gt;&#xd;
          &lt;/xsd:serviceProvider&gt; &#xd;
       &lt;/xsd:createApplication&gt; &#xd;
    &lt;/soapenv:Body&gt;&#xd;
@@ -362,7 +362,7 @@
               </elementProp>
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">Basic ${created_credentials}</stringProp>
+                <stringProp name="Header.value">Basic ${createdCredentials}</stringProp>
               </elementProp>
             </collectionProp>
           </HeaderManager>
@@ -379,7 +379,7 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:getApplication&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;xsd:applicationName&gt;${sp_name}&lt;/xsd:applicationName&gt;&#xd;
+         &lt;xsd:applicationName&gt;${spName}&lt;/xsd:applicationName&gt;&#xd;
       &lt;/xsd:getApplication&gt;&#xd;
    &lt;/soapenv:Body&gt;&#xd;
 &lt;/soapenv:Envelope&gt;</stringProp>
@@ -447,10 +447,10 @@
       &lt;xsd:registerOAuthApplicationData&gt;&#xd;
          &lt;xsd:application&gt;&#xd;
             &lt;xsd1:OAuthVersion&gt;2.0&lt;/xsd1:OAuthVersion&gt;&#xd;
-            &lt;xsd1:applicationName&gt;${sp_name}&lt;/xsd1:applicationName&gt;&#xd;
-            &lt;xsd1:callbackUrl&gt;${callback_url}&lt;/xsd1:callbackUrl&gt;&#xd;
+            &lt;xsd1:applicationName&gt;${spName}&lt;/xsd1:applicationName&gt;&#xd;
+            &lt;xsd1:callbackUrl&gt;${callbackUrl}&lt;/xsd1:callbackUrl&gt;&#xd;
             &lt;xsd1:grantTypes&gt;urn:ietf:params:oauth:grant-type:saml2-bearer&lt;/xsd1:grantTypes&gt;&#xd;
-            &lt;xsd1:oauthConsumerKey&gt;${consumer_key}&lt;/xsd1:oauthConsumerKey&gt;&#xd;
+            &lt;xsd1:oauthConsumerKey&gt;${consumerKey}&lt;/xsd1:oauthConsumerKey&gt;&#xd;
             &lt;xsd1:oauthConsumerSecret&gt;${consumer_secret}&lt;/xsd1:oauthConsumerSecret&gt;&#xd;
          &lt;/xsd:application&gt;&#xd;
       &lt;/xsd:registerOAuthApplicationData&gt;&#xd;
@@ -479,7 +479,7 @@
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">Basic ${created_credentials}</stringProp>
+                <stringProp name="Header.value">Basic ${createdCredentials}</stringProp>
               </elementProp>
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">SOAPAction</stringProp>
@@ -546,7 +546,7 @@
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">Basic ${created_credentials}</stringProp>
+                <stringProp name="Header.value">Basic ${createdCredentials}</stringProp>
               </elementProp>
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">SOAPAction</stringProp>
@@ -594,15 +594,15 @@
          &lt;xsd:serviceProvider&gt;&#xd;
             &lt;!--Optional:--&gt;&#xd;
             &lt;xsd1:applicationID&gt;${appID}&lt;/xsd1:applicationID&gt;&#xd;
-            &lt;xsd1:applicationName&gt;${sp_name}&lt;/xsd1:applicationName&gt; &#xd;
+            &lt;xsd1:applicationName&gt;${spName}&lt;/xsd1:applicationName&gt; &#xd;
             &lt;xsd1:claimConfig&gt; &#xd;
                &lt;xsd1:alwaysSendMappedLocalSubjectId&gt;false&lt;/xsd1:alwaysSendMappedLocalSubjectId&gt; &#xd;
                &lt;xsd1:localClaimDialect&gt;true&lt;/xsd1:localClaimDialect&gt;&#xd;
             &lt;/xsd1:claimConfig&gt; &#xd;
-            &lt;xsd1:description&gt;${appID} ${sp_name}&lt;/xsd1:description&gt; &#xd;
+            &lt;xsd1:description&gt;${appID} ${spName}&lt;/xsd1:description&gt; &#xd;
             &lt;xsd1:inboundAuthenticationConfig&gt;            &#xd;
                 &lt;xsd1:inboundAuthenticationRequestConfigs&gt;&#xd;
-                  &lt;xsd1:inboundAuthKey&gt;${sp_name}&lt;/xsd1:inboundAuthKey&gt;&#xd;
+                  &lt;xsd1:inboundAuthKey&gt;${spName}&lt;/xsd1:inboundAuthKey&gt;&#xd;
                   &lt;xsd1:inboundAuthType&gt;samlsso&lt;/xsd1:inboundAuthType&gt;                  &#xd;
                   &lt;xsd1:inboundConfigType&gt;standardAPP&lt;/xsd1:inboundConfigType&gt;&#xd;
 			   &lt;xsd1:properties&gt;&#xd;
@@ -623,21 +623,21 @@
         			&lt;xsd1:properties&gt;&#xd;
             			&lt;xsd1:name&gt;oauthConsumerSecret&lt;/xsd1:name&gt;&#xd;
             			&lt;xsd1:value&gt;${consumerSecret}&lt;/xsd1:value&gt;&#xd;
-            			&lt;xsd1:callbackUrl&gt;${callback_url}&lt;/xsd1:callbackUrl&gt;&#xd;
+            			&lt;xsd1:callbackUrl&gt;${callbackUrl}&lt;/xsd1:callbackUrl&gt;&#xd;
             &lt;xsd1:grantTypes&gt;urn:ietf:params:oauth:grant-type:saml2-bearer&lt;/xsd1:grantTypes&gt;&#xd;
-            &lt;xsd1:oauthConsumerKey&gt;${consumer_key}&lt;/xsd1:oauthConsumerKey&gt;&#xd;
+            &lt;xsd1:oauthConsumerKey&gt;${consumerKey}&lt;/xsd1:oauthConsumerKey&gt;&#xd;
             &lt;xsd1:oauthConsumerSecret&gt;${consumer_secret}&lt;/xsd1:oauthConsumerSecret&gt;&#xd;
         			&lt;/xsd1:properties&gt;&#xd;
     			&lt;/xsd1:inboundAuthenticationRequestConfigs&gt;&#xd;
                 &lt;xsd1:inboundAuthenticationRequestConfigs&gt;&#xd;
                   &lt;xsd1:friendlyName xsd:nil=&quot;true&quot;/&gt;&#xd;
-                  &lt;xsd1:inboundAuthKey&gt;${sp_name}&lt;/xsd1:inboundAuthKey&gt;&#xd;
+                  &lt;xsd1:inboundAuthKey&gt;${spName}&lt;/xsd1:inboundAuthKey&gt;&#xd;
                   &lt;xsd1:inboundAuthType&gt;openid&lt;/xsd1:inboundAuthType&gt;&#xd;
                   &lt;xsd1:inboundConfigType&gt;standardAPP&lt;/xsd1:inboundConfigType&gt;&#xd;
                &lt;/xsd1:inboundAuthenticationRequestConfigs&gt;&#xd;
                &lt;xsd1:inboundAuthenticationRequestConfigs&gt;&#xd;
                   &lt;xsd1:friendlyName xsd:nil=&quot;true&quot;/&gt;&#xd;
-                  &lt;xsd1:inboundAuthKey&gt;${sp_name}&lt;/xsd1:inboundAuthKey&gt;&#xd;
+                  &lt;xsd1:inboundAuthKey&gt;${spName}&lt;/xsd1:inboundAuthKey&gt;&#xd;
                   &lt;xsd1:inboundAuthType&gt;passivests&lt;/xsd1:inboundAuthType&gt;&#xd;
                   &lt;xsd1:inboundConfigType&gt;standardAPP&lt;/xsd1:inboundConfigType&gt;&#xd;
                &lt;/xsd1:inboundAuthenticationRequestConfigs&gt;             &#xd;
@@ -703,7 +703,7 @@
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">Basic ${created_credentials}</stringProp>
+                <stringProp name="Header.value">Basic ${createdCredentials}</stringProp>
               </elementProp>
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">SOAPAction</stringProp>

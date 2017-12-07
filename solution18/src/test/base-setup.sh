@@ -24,7 +24,6 @@ tomcatPassword=scriptuser
 tomcatVersion=7
 serverHost=$serverHost
 serverPort=$serverPort
-solutionPath=/
 
 #travelocity properties
 SAML2AssertionConsumerURL="http://$tomcatHost:$tomcatPort/$appName/home.jsp"

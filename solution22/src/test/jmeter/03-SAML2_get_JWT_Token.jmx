@@ -33,14 +33,14 @@
             <stringProp name="Argument.value">${__property(tomcatPort)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="created_username" elementType="Argument">
-            <stringProp name="Argument.name">created_username</stringProp>
-            <stringProp name="Argument.value">${__property(created_username)}</stringProp>
+          <elementProp name="createdUsername" elementType="Argument">
+            <stringProp name="Argument.name">createdUsername</stringProp>
+            <stringProp name="Argument.value">${__property(createdUsername)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="created_password" elementType="Argument">
-            <stringProp name="Argument.name">created_password</stringProp>
-            <stringProp name="Argument.value">${__property(created_password)}</stringProp>
+          <elementProp name="createdPassword" elementType="Argument">
+            <stringProp name="Argument.name">createdPassword</stringProp>
+            <stringProp name="Argument.value">${__property(createdPassword)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
