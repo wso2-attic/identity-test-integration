@@ -17,97 +17,115 @@
             <stringProp name="Argument.name">Fusername</stringProp>
             <stringProp name="Argument.value">${__property(Fusername)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">${__property(Fusername)}</stringProp>
           </elementProp>
           <elementProp name="Fpassword" elementType="Argument">
             <stringProp name="Argument.name">Fpassword</stringProp>
             <stringProp name="Argument.value">${__property(Fpassword)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">${__property(Fpassword)}</stringProp>
           </elementProp>
           <elementProp name="FbIdentityProviderName" elementType="Argument">
             <stringProp name="Argument.name">FbIdentityProviderName</stringProp>
             <stringProp name="Argument.value">${__property(FbIdentityProviderName)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">${__property(FbIdentityProviderName)}</stringProp>
           </elementProp>
           <elementProp name="FbClientId" elementType="Argument">
             <stringProp name="Argument.name">FbClientId</stringProp>
             <stringProp name="Argument.value">${__property(FbClientId)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">${__property(FbClientId)}</stringProp>
           </elementProp>
           <elementProp name="FbSecret" elementType="Argument">
             <stringProp name="Argument.name">FbSecret</stringProp>
             <stringProp name="Argument.value">${__property(FbSecret)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">${__property(FbSecret)}</stringProp>
           </elementProp>
           <elementProp name="FbCallbackUrl" elementType="Argument">
             <stringProp name="Argument.name">FbCallbackUrl</stringProp>
             <stringProp name="Argument.value">${__property(FbCallbackUrl)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">${__property(FbCallbackUrl)}</stringProp>
           </elementProp>
           <elementProp name="FbScope" elementType="Argument">
             <stringProp name="Argument.name">FbScope</stringProp>
             <stringProp name="Argument.value">${__property(FbScope)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">${__property(FbScope)}</stringProp>
           </elementProp>
           <elementProp name="FbUserInfoFields" elementType="Argument">
             <stringProp name="Argument.name">FbUserInfoFields</stringProp>
             <stringProp name="Argument.value">${__property(FbUserInfoFields)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">${__property(FbUserInfoFields)}</stringProp>
           </elementProp>
           <elementProp name="serverHost" elementType="Argument">
             <stringProp name="Argument.name">serverHost</stringProp>
             <stringProp name="Argument.value">${__property(serverHost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">${__property(serverHost)}</stringProp>
           </elementProp>
           <elementProp name="serverPort" elementType="Argument">
             <stringProp name="Argument.name">serverPort</stringProp>
             <stringProp name="Argument.value">${__property(serverPort)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">${__property(serverPort)}</stringProp>
           </elementProp>
           <elementProp name="spName" elementType="Argument">
             <stringProp name="Argument.name">spName</stringProp>
             <stringProp name="Argument.value">${__property(spDescription)} </stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">${__property(spDescription)} </stringProp>
           </elementProp>
           <elementProp name="spDescription" elementType="Argument">
             <stringProp name="Argument.name">spDescription</stringProp>
             <stringProp name="Argument.value">${__property(spDescription)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">${__property(spDescription)}</stringProp>
           </elementProp>
           <elementProp name="tomcatHost" elementType="Argument">
             <stringProp name="Argument.name">tomcatHost</stringProp>
             <stringProp name="Argument.value">${__property(tomcatHost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">${__property(tomcatHost)}</stringProp>
           </elementProp>
           <elementProp name="tomcatPort" elementType="Argument">
             <stringProp name="Argument.name">tomcatPort</stringProp>
             <stringProp name="Argument.value">${__property(tomcatPort)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">${__property(tomcatPort)}</stringProp>
           </elementProp>
           <elementProp name="travelocityIssuer" elementType="Argument">
             <stringProp name="Argument.name">travelocityIssuer</stringProp>
             <stringProp name="Argument.value">${__property(travelocityIssuer)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">${__property(travelocityIssuer)}</stringProp>
           </elementProp>
           <elementProp name="permission" elementType="Argument">
             <stringProp name="Argument.name">permission</stringProp>
             <stringProp name="Argument.value">${__property(permission)}</stringProp>
-            <stringProp name="Argument.desc">Permission for role</stringProp>
+            <stringProp name="Argument.desc">${__property(permission)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="role" elementType="Argument">
             <stringProp name="Argument.name">role</stringProp>
             <stringProp name="Argument.value">${__property(role)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">${__property(role)}</stringProp>
           </elementProp>
           <elementProp name="adminUsername" elementType="Argument">
             <stringProp name="Argument.name">adminUsername</stringProp>
             <stringProp name="Argument.value">${__property(adminUsername)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">${__property(adminUsername)}</stringProp>
           </elementProp>
           <elementProp name="adminPassword" elementType="Argument">
             <stringProp name="Argument.name">adminPassword</stringProp>
             <stringProp name="Argument.value">${__property(adminPassword)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">${__property(adminPassword)}</stringProp>
           </elementProp>
         </collectionProp>
       </Arguments>
@@ -498,7 +516,7 @@
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;callBackUrl&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;https://${serverHost}:${serverPort}/${FbCallbackUrl}&lt;/xsd:value&gt;&#xd;
+                  &lt;xsd:value&gt;https://is540.qa.com:9443/commonauth&lt;/xsd:value&gt;&#xd;
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;Scope&lt;/xsd:name&gt;&#xd;
@@ -1130,7 +1148,7 @@
                 <stringProp name="RegexExtractor.match_number">1</stringProp>
               </RegexExtractor>
               <hashTree/>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200 OK HTTP Code Response Assertion" enabled="true">
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200 OK HTTP Code Response Assertion" enabled="false">
                 <collectionProp name="Asserion.test_strings">
                   <stringProp name="-1606201635">HTTP/1.1 200 OK</stringProp>
                 </collectionProp>
@@ -1141,9 +1159,9 @@
               <hashTree/>
               <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Log in to Facebook Assertion" enabled="true">
                 <collectionProp name="Asserion.test_strings">
-                  <stringProp name="1980761324">Log in to Facebook</stringProp>
+                  <stringProp name="-364826023">facebook.com</stringProp>
                 </collectionProp>
-                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <stringProp name="Assertion.test_field">Assertion.sample_label</stringProp>
                 <boolProp name="Assertion.assume_success">false</boolProp>
                 <intProp name="Assertion.test_type">2</intProp>
               </ResponseAssertion>
