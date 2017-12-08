@@ -24,14 +24,14 @@ tomcatPassword=scriptuser
 tomcatVersion=7
 serverHost=$serverHost
 serverPort=443
-solutionPath=/
 
 #travelocity properties
 SAML2AssertionConsumerURL="http://$tomcatHost:$tomcatPort/$appName/home.jsp"
-SAML2IdPURL="https://$serverHost/samlsso"
+SAML2IdPURL="https://$serverHost:$serverPort/samlsso"
 SAML2SPEntityId="$appName"
 SkipURIs="/$appName/index.jsp"
 SAML2IdPEntityId=$serverHost
+QueryParams="fidp=facebook"
 
 #create temporary directory
 mkdir $scriptPath/../temp
@@ -56,6 +56,10 @@ sed -i "s|^\(SAML2\.SPEntityId\s*=\s*\).*\$|\1${SAML2SPEntityId}|" $scriptPath/.
 sed -i "s|^\(SkipURIs\s*=\s*\).*\$|\1${SkipURIs}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
 sed -i "s|^\(SAML2\.IdPEntityId\s*=\s*\).*\$|\1${SAML2IdPEntityId}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+
+sed -i "s|^\(#QueryParams\s*=\s*\).*\$|\1${QueryParams}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+
+sed -i "/QueryParams/s/^#//g" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
 #repackaging travelocity app
 cd $scriptPath/../temp/travelocity.com/
