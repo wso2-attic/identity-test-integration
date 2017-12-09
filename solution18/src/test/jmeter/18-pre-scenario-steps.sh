@@ -15,7 +15,7 @@
 # limitations under the License.
 
 serverHost=$serverHost
-tomcatHost=8080
+tomcatPort=8080
 serverPort=443
 tomcatHost=$tomcatHost
 prgdir=$(dirname "$0")
