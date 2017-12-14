@@ -2,7 +2,7 @@
 
 Scripts will be able to run for following accordingly:
 
-1. Script I - [solution.jmx]
+1. Script I - [solution23.jmx]
 
 It is written to cover "basic-auth" Request path authenticator option
 - Registering Service Providers for web apps (e.g. travelocity.com and avis.com)
@@ -12,7 +12,7 @@ It is written to cover "basic-auth" Request path authenticator option
 - Access second SP with automatically authenticated, as the previous step created a web session for the logged in user
 - Once all above done user will un-deploy the SPs
 
-2. Script II - [solution_B.jmx]
+2. Script II - [solution23_B.jmx]
 
 It is written to cover "oauth-bearer" Request path authenticator option
 - Registering a Service Provider OAuth app 
