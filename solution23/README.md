@@ -2,7 +2,8 @@
 
 Scripts will be able to run for following accordingly:
 
-1. Script I - solution.jmx
+1. Script I - [solution.jmx]
+
 It is written to cover "basic-auth" Request path authenticator option
 - Registering Service Providers for web apps (e.g. travelocity.com and avis.com)
 - Add SAML SSO inbound configuration for both SPs
@@ -11,7 +12,8 @@ It is written to cover "basic-auth" Request path authenticator option
 - Access second SP with automatically authenticated, as the previous step created a web session for the logged in user
 - Once all above done user will un-deploy the SPs
 
-2. Script II - solution_B.jmx
+2. Script II - [solution_B.jmx]
+
 It is written to cover "oauth-bearer" Request path authenticator option
 - Registering a Service Provider OAuth app 
 - Add OAuth/Open ID Connect configuration for above SP
