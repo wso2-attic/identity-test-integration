@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.wso2.qa.integration.solution11</groupId>
+    <groupId>org.wso2.qa.integration.solution12</groupId>
     <artifactId>solution11</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -31,13 +31,10 @@
                 </executions>
                 <configuration>
                     <jmeterVersion>3.2</jmeterVersion>
-                    <testFilesIncluded>
-                        <jMeterTestFile>Incompatible_identity_federation_protocols.jmx</jMeterTestFile>
-                    </testFilesIncluded>
-                    <propertiesJMeter>
-                        <log_level.jmeter>DEBUG</log_level.jmeter>
-                    </propertiesJMeter>
-                    <propertiesFilesDirectory>${basedir}/src/test/resources</propertiesFilesDirectory>
+                   <testFilesIncluded>
+                        <jMeterTestFile>solution11.jmx</jMeterTestFile>
+                   </testFilesIncluded>
+<propertiesFilesDirectory>${basedir}/src/test/resources</propertiesFilesDirectory>
                 </configuration>
             </plugin>
         </plugins>
