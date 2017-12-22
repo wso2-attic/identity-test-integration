@@ -34,6 +34,7 @@
                     <testFilesIncluded>
                         <jMeterTestFile>02-Soulution-02-Google.jmx</jMeterTestFile>
                        <jMeterTestFile>01-Soulution-02-Facebook.jmx</jMeterTestFile>
+                        <jMeterTestFile>03-Soulution-02-ISasIDP.jmx</jMeterTestFile>
                     </testFilesIncluded>
                     <propertiesJMeter>
                         <log_level.jmeter>DEBUG</log_level.jmeter>
