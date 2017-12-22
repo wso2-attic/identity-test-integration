@@ -1,4 +1,4 @@
-Solution 12  Claim mapper
+Solution 11  Identity federation between service providers and identity providers with incompatible identity federation protocols
 
 
 Problem:
