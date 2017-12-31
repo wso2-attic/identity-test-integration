@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jmeterTestPlan version="1.2" properties="3.2" jmeter="3.2 r1790748">
   <hashTree>
-    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Soulution-02-ISasIDP" enabled="true">
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="03-Soulution-02-ISasIDP.jmx" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
       <boolProp name="TestPlan.functional_mode">false</boolProp>
       <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
@@ -11,126 +11,6 @@
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
     </TestPlan>
     <hashTree>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-        <collectionProp name="Arguments.arguments">
-          <elementProp name="serverHost" elementType="Argument">
-            <stringProp name="Argument.name">serverHost</stringProp>
-            <stringProp name="Argument.value">${__property(serverHost)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="serverPort" elementType="Argument">
-            <stringProp name="Argument.name">serverPort</stringProp>
-            <stringProp name="Argument.value">${__property(serverPort)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="adminUsername" elementType="Argument">
-            <stringProp name="Argument.name">adminUsername</stringProp>
-            <stringProp name="Argument.value">${__property(adminUsername)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="adminPassword" elementType="Argument">
-            <stringProp name="Argument.name">adminPassword</stringProp>
-            <stringProp name="Argument.value">${__property(adminPassword)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="tomcatHost" elementType="Argument">
-            <stringProp name="Argument.name">tomcatHost</stringProp>
-            <stringProp name="Argument.value">${__property(tomcatHost)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="tomcatPort" elementType="Argument">
-            <stringProp name="Argument.name">tomcatPort</stringProp>
-            <stringProp name="Argument.value">${__property(tomcatPort)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="ISIdentityProviderName" elementType="Argument">
-            <stringProp name="Argument.name">ISIdentityProviderName</stringProp>
-            <stringProp name="Argument.value">${__property(ISIdentityProviderName)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="travelocityIssuer" elementType="Argument">
-            <stringProp name="Argument.name">travelocityIssuer</stringProp>
-            <stringProp name="Argument.value">${__property(travelocityIssuer)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="serverHostSecondary" elementType="Argument">
-            <stringProp name="Argument.name">serverHostSecondary</stringProp>
-            <stringProp name="Argument.value">${__property(serverHostSecondary)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="serverPortSecondary" elementType="Argument">
-            <stringProp name="Argument.name">serverPortSecondary</stringProp>
-            <stringProp name="Argument.value">${__property(serverPortSecondary)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="serverSSOurlSecondary" elementType="Argument">
-            <stringProp name="Argument.name">serverSSOurlSecondary</stringProp>
-            <stringProp name="Argument.value">${__property(serverSSOurlSecondary)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="ISIdPEntityId" elementType="Argument">
-            <stringProp name="Argument.name">ISIdPEntityId</stringProp>
-            <stringProp name="Argument.value">${__property(ISIdPEntityId)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="ISSPEntityId" elementType="Argument">
-            <stringProp name="Argument.name">ISSPEntityId</stringProp>
-            <stringProp name="Argument.value">${__property(ISSPEntityId)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="secondarySPName" elementType="Argument">
-            <stringProp name="Argument.name">secondarySPName</stringProp>
-            <stringProp name="Argument.value">${__property(secondarySPName)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="secondaryspDescription" elementType="Argument">
-            <stringProp name="Argument.name">secondaryspDescription</stringProp>
-            <stringProp name="Argument.value">${__property(secondaryspDescription)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="Primaryissuer" elementType="Argument">
-            <stringProp name="Argument.name">Primaryissuer</stringProp>
-            <stringProp name="Argument.value">${__property(Primaryissuer)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="SPNamePrimary" elementType="Argument">
-            <stringProp name="Argument.name">SPNamePrimary</stringProp>
-            <stringProp name="Argument.value">${__property(SPNamePrimary)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="SPDescriptionPrimary" elementType="Argument">
-            <stringProp name="Argument.name">SPDescriptionPrimary</stringProp>
-            <stringProp name="Argument.value">${__property(SPDescriptionPrimary)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="alias" elementType="Argument">
-            <stringProp name="Argument.name">alias</stringProp>
-            <stringProp name="Argument.value">${__property(alias)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="secondaryUsername" elementType="Argument">
-            <stringProp name="Argument.name">secondaryUsername</stringProp>
-            <stringProp name="Argument.value">${__property(secondaryUsername)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="secondaryPassword" elementType="Argument">
-            <stringProp name="Argument.name">secondaryPassword</stringProp>
-            <stringProp name="Argument.value">${__property(secondaryPassword)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="adminUsernameSecondary" elementType="Argument">
-            <stringProp name="Argument.name">adminUsernameSecondary</stringProp>
-            <stringProp name="Argument.value">${__property(adminUsernameSecondary)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="adminPasswordSecondary" elementType="Argument">
-            <stringProp name="Argument.name">adminPasswordSecondary</stringProp>
-            <stringProp name="Argument.value">${__property(adminPasswordSecondary)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-        </collectionProp>
-      </Arguments>
-      <hashTree/>
       <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="false">
         <collectionProp name="Arguments.arguments">
           <elementProp name="serverHost" elementType="Argument">
@@ -246,6 +126,126 @@
           <elementProp name="adminPasswordSecondary" elementType="Argument">
             <stringProp name="Argument.name">adminPasswordSecondary</stringProp>
             <stringProp name="Argument.value">admin1</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="adminPassword" elementType="Argument">
+            <stringProp name="Argument.name">adminPassword</stringProp>
+            <stringProp name="Argument.value">${__property(adminPassword)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="adminPasswordSecondary" elementType="Argument">
+            <stringProp name="Argument.name">adminPasswordSecondary</stringProp>
+            <stringProp name="Argument.value">${__property(adminPasswordSecondary)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="adminUsername" elementType="Argument">
+            <stringProp name="Argument.name">adminUsername</stringProp>
+            <stringProp name="Argument.value">${__property(adminUsername)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="adminUsernameSecondary" elementType="Argument">
+            <stringProp name="Argument.name">adminUsernameSecondary</stringProp>
+            <stringProp name="Argument.value">${__property(adminUsernameSecondary)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="alias" elementType="Argument">
+            <stringProp name="Argument.name">alias</stringProp>
+            <stringProp name="Argument.value">${__property(alias)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="ISIdentityProviderName" elementType="Argument">
+            <stringProp name="Argument.name">ISIdentityProviderName</stringProp>
+            <stringProp name="Argument.value">${__property(ISIdentityProviderName)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="ISIdPEntityId" elementType="Argument">
+            <stringProp name="Argument.name">ISIdPEntityId</stringProp>
+            <stringProp name="Argument.value">${__property(ISIdPEntityId)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="ISSPEntityId" elementType="Argument">
+            <stringProp name="Argument.name">ISSPEntityId</stringProp>
+            <stringProp name="Argument.value">${__property(ISSPEntityId)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Primaryissuer" elementType="Argument">
+            <stringProp name="Argument.name">Primaryissuer</stringProp>
+            <stringProp name="Argument.value">${__property(Primaryissuer)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="secondaryPassword" elementType="Argument">
+            <stringProp name="Argument.name">secondaryPassword</stringProp>
+            <stringProp name="Argument.value">${__property(secondaryPassword)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="secondaryspDescription" elementType="Argument">
+            <stringProp name="Argument.name">secondaryspDescription</stringProp>
+            <stringProp name="Argument.value">${__property(secondaryspDescription)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="secondarySPName" elementType="Argument">
+            <stringProp name="Argument.name">secondarySPName</stringProp>
+            <stringProp name="Argument.value">${__property(secondarySPName)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="secondaryUsername" elementType="Argument">
+            <stringProp name="Argument.name">secondaryUsername</stringProp>
+            <stringProp name="Argument.value">${__property(secondaryUsername)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="serverHost" elementType="Argument">
+            <stringProp name="Argument.name">serverHost</stringProp>
+            <stringProp name="Argument.value">${__property(serverHost)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="serverHostSecondary" elementType="Argument">
+            <stringProp name="Argument.name">serverHostSecondary</stringProp>
+            <stringProp name="Argument.value">${__property(serverHostSecondary)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="serverPort" elementType="Argument">
+            <stringProp name="Argument.name">serverPort</stringProp>
+            <stringProp name="Argument.value">${__property(serverPort)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="serverPortSecondary" elementType="Argument">
+            <stringProp name="Argument.name">serverPortSecondary</stringProp>
+            <stringProp name="Argument.value">${__property(serverPortSecondary)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="serverSSOurlSecondary" elementType="Argument">
+            <stringProp name="Argument.name">serverSSOurlSecondary</stringProp>
+            <stringProp name="Argument.value">${__property(serverSSOurlSecondary)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="SPDescriptionPrimary" elementType="Argument">
+            <stringProp name="Argument.name">SPDescriptionPrimary</stringProp>
+            <stringProp name="Argument.value">${__property(SPDescriptionPrimary)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="SPNamePrimary" elementType="Argument">
+            <stringProp name="Argument.name">SPNamePrimary</stringProp>
+            <stringProp name="Argument.value">${__property(SPNamePrimary)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="tomcatHost" elementType="Argument">
+            <stringProp name="Argument.name">tomcatHost</stringProp>
+            <stringProp name="Argument.value">${__property(tomcatHost)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="tomcatPort" elementType="Argument">
+            <stringProp name="Argument.name">tomcatPort</stringProp>
+            <stringProp name="Argument.value">${__property(tomcatPort)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="travelocityIssuer" elementType="Argument">
+            <stringProp name="Argument.name">travelocityIssuer</stringProp>
+            <stringProp name="Argument.value">${__property(travelocityIssuer)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -551,8 +551,8 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:addRPServiceProvider&gt;      &#xd;
          &lt;xsd:spDto&gt;&#xd;
-            &lt;xsd1:assertionConsumerUrl&gt;https://${serverHost}${serverPort}/commonauth&lt;/xsd1:assertionConsumerUrl&gt;&#xd;
-            &lt;xsd1:assertionConsumerUrls&gt;https://${serverHost}${serverPort}/commonauth&lt;/xsd1:assertionConsumerUrls&gt;&#xd;
+            &lt;xsd1:assertionConsumerUrl&gt;https://${serverHost}:${serverPort}/commonauth&lt;/xsd1:assertionConsumerUrl&gt;&#xd;
+            &lt;xsd1:assertionConsumerUrls&gt;https://${serverHost}:${serverPort}/commonauth&lt;/xsd1:assertionConsumerUrls&gt;&#xd;
             &lt;xsd1:defaultAssertionConsumerUrl&gt;https://${serverHost}:${serverPort}/commonauth&lt;/xsd1:defaultAssertionConsumerUrl&gt;&#xd;
             &lt;xsd1:digestAlgorithmURI&gt;http://www.w3.org/2000/09/xmldsig#sha1&lt;/xsd1:digestAlgorithmURI&gt;&#xd;
             &lt;xsd1:doSignAssertions&gt;true&lt;/xsd1:doSignAssertions&gt;&#xd;
@@ -1275,10 +1275,6 @@
               <elementProp name="Accept" elementType="Header">
                 <stringProp name="Header.name">Accept</stringProp>
                 <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</stringProp>
-              </elementProp>
-              <elementProp name="Referer" elementType="Header">
-                <stringProp name="Header.name">Referer</stringProp>
-                <stringProp name="Header.value">http://is.idp.com:8080/travelocity.com/home.jsp</stringProp>
               </elementProp>
               <elementProp name="Accept-Encoding" elementType="Header">
                 <stringProp name="Header.name">Accept-Encoding</stringProp>
