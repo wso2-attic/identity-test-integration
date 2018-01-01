@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jmeterTestPlan version="1.2" properties="3.2" jmeter="3.2 r1790748">
   <hashTree>
-    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="28 - Home realm discovery" enabled="true">
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="28 - Home realm discovery TestPlan" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
       <boolProp name="TestPlan.functional_mode">false</boolProp>
       <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
@@ -11,11 +11,26 @@
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
     </TestPlan>
     <hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+      <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="setUp" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1513861928000</longProp>
+        <longProp name="ThreadGroup.end_time">1513861928000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </SetupThreadGroup>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Home Realm Discovery" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">5</stringProp>
         </elementProp>
         <stringProp name="ThreadGroup.num_threads">1</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
@@ -26,6 +41,27 @@
         <stringProp name="ThreadGroup.delay"></stringProp>
       </ThreadGroup>
       <hashTree>
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="true">
+          <stringProp name="CounterConfig.start">1</stringProp>
+          <stringProp name="CounterConfig.end"></stringProp>
+          <stringProp name="CounterConfig.incr">1</stringProp>
+          <stringProp name="CounterConfig.name">counter</stringProp>
+          <stringProp name="CounterConfig.format"></stringProp>
+          <boolProp name="CounterConfig.per_user">false</boolProp>
+        </CounterConfig>
+        <hashTree/>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+          <stringProp name="delimiter">,</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="filename">../resources/HomeRealmidentifier.txt</stringProp>
+          <boolProp name="ignoreFirstLine">true</boolProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <stringProp name="shareMode">shareMode.group</stringProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="variableNames">TwitterIdentityProviderName,TwitterHomeRelam</stringProp>
+        </CSVDataSet>
+        <hashTree/>
         <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
           <collectionProp name="Arguments.arguments">
             <elementProp name="ServerHost" elementType="Argument">
@@ -52,18 +88,6 @@
               <stringProp name="Argument.metadata">=</stringProp>
               <stringProp name="Argument.desc">Password of the Admin user</stringProp>
             </elementProp>
-            <elementProp name="FBIdentityProviderName" elementType="Argument">
-              <stringProp name="Argument.name">FBIdentityProviderName</stringProp>
-              <stringProp name="Argument.value">${__property(FBIdentityProviderName)}</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-              <stringProp name="Argument.desc">Facebook Name</stringProp>
-            </elementProp>
-            <elementProp name="FBHomeRelam" elementType="Argument">
-              <stringProp name="Argument.name">FBHomeRelam</stringProp>
-              <stringProp name="Argument.value">${__property(FBHomeRelam)}</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-              <stringProp name="Argument.desc">Facebook Home Relam</stringProp>
-            </elementProp>
             <elementProp name="FBClientId" elementType="Argument">
               <stringProp name="Argument.name">FBClientId</stringProp>
               <stringProp name="Argument.value">${__property(FBClientId)}</stringProp>
@@ -76,12 +100,6 @@
               <stringProp name="Argument.metadata">=</stringProp>
               <stringProp name="Argument.desc">Facebook Secret</stringProp>
             </elementProp>
-            <elementProp name="FBCallbackUrl" elementType="Argument">
-              <stringProp name="Argument.name">FBCallbackUrl</stringProp>
-              <stringProp name="Argument.value">${__property(FBCallbackUrl)}</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-              <stringProp name="Argument.desc">Facebook Callback Url</stringProp>
-            </elementProp>
             <elementProp name="FBScope" elementType="Argument">
               <stringProp name="Argument.name">FBScope</stringProp>
               <stringProp name="Argument.value">${__property(FBScope)}</stringProp>
@@ -93,12 +111,6 @@
               <stringProp name="Argument.value">${__property(FBUserInfoFields)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
               <stringProp name="Argument.desc">Facebook User Info</stringProp>
-            </elementProp>
-            <elementProp name="Alias" elementType="Argument">
-              <stringProp name="Argument.name">Alias</stringProp>
-              <stringProp name="Argument.value">${__property(Alias)}</stringProp>
-              <stringProp name="Argument.desc">Alias of the Identity Provider</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="GoogleIdentityProviderName" elementType="Argument">
               <stringProp name="Argument.name">GoogleIdentityProviderName</stringProp>
@@ -124,12 +136,6 @@
               <stringProp name="Argument.metadata">=</stringProp>
               <stringProp name="Argument.desc">Google Secret</stringProp>
             </elementProp>
-            <elementProp name="GoogleCallbackUrl" elementType="Argument">
-              <stringProp name="Argument.name">GoogleCallbackUrl</stringProp>
-              <stringProp name="Argument.value">${__property(GoogleCallbackUrl)}</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-              <stringProp name="Argument.desc">Google Callback URL</stringProp>
-            </elementProp>
             <elementProp name="Googlescope" elementType="Argument">
               <stringProp name="Argument.name">Googlescope</stringProp>
               <stringProp name="Argument.value">${__property(Googlescope)}</stringProp>
@@ -152,16 +158,49 @@
               <stringProp name="Argument.name">travelocityIssuer</stringProp>
               <stringProp name="Argument.value">${__property(travelocityIssuer)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">Travelocity Issuer Name</stringProp>
             </elementProp>
             <elementProp name="tomcatHost" elementType="Argument">
               <stringProp name="Argument.name">tomcatHost</stringProp>
               <stringProp name="Argument.value">${__property(tomcatHost)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">Tomcat Host</stringProp>
             </elementProp>
             <elementProp name="tomcatPort" elementType="Argument">
               <stringProp name="Argument.name">tomcatPort</stringProp>
               <stringProp name="Argument.value">${__property(tomcatPort)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">Tomcatcat Port</stringProp>
+            </elementProp>
+            <elementProp name="TwitterClientId" elementType="Argument">
+              <stringProp name="Argument.name">TwitterClientId</stringProp>
+              <stringProp name="Argument.value">${__property(TwitterClientId)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">Twitter Client ID</stringProp>
+            </elementProp>
+            <elementProp name="TwitterSecret" elementType="Argument">
+              <stringProp name="Argument.name">TwitterSecret</stringProp>
+              <stringProp name="Argument.value">${__property(TwitterSecret)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">Twitter Client secret</stringProp>
+            </elementProp>
+            <elementProp name="twitterUserName" elementType="Argument">
+              <stringProp name="Argument.name">twitterUserName</stringProp>
+              <stringProp name="Argument.value">${__property(twitterUserName)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">Twitter Username</stringProp>
+            </elementProp>
+            <elementProp name="twitterPassword" elementType="Argument">
+              <stringProp name="Argument.name">twitterPassword</stringProp>
+              <stringProp name="Argument.value">${__property(twitterPassword)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">Twitter Password</stringProp>
+            </elementProp>
+            <elementProp name="residentIDPrealm" elementType="Argument">
+              <stringProp name="Argument.name">residentIDPrealm</stringProp>
+              <stringProp name="Argument.value">${__property(residentIDPrealm)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">Identifier of the Resident IDP</stringProp>
             </elementProp>
           </collectionProp>
         </Arguments>
@@ -189,7 +228,7 @@
         <hashTree/>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Create Federated IDP" enabled="true"/>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Facebook IDP" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="${__V([Sce-${counter}])}Create Facebook IDP" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
@@ -281,7 +320,7 @@
             </ResponseAssertion>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Google IDP" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="${__V([Sce-${counter}])}Create Google IDP" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
@@ -369,10 +408,102 @@
             </ResponseAssertion>
             <hashTree/>
           </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="${__V([Sce-${counter}])}Create Twitter IDP" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:mgt=&quot;http://mgt.idp.carbon.wso2.org&quot; xmlns:xsd=&quot;http://model.common.application.identity.carbon.wso2.org/xsd&quot;&gt;&#xd;
+   &lt;soapenv:Header/&gt;&#xd;
+   &lt;soapenv:Body&gt;&#xd;
+      &lt;mgt:addIdP&gt;&#xd;
+         &lt;mgt:identityProvider&gt;&#xd;
+            &lt;xsd:displayName&gt;Twitter Login&lt;/xsd:displayName&gt;&#xd;
+            &lt;xsd:enable&gt;true&lt;/xsd:enable&gt;&#xd;
+            &lt;xsd:federationHub&gt;false&lt;/xsd:federationHub&gt;&#xd;
+            &lt;xsd:homeRealmId&gt;${TwitterHomeRelam}&lt;/xsd:homeRealmId&gt;&#xd;
+            &lt;xsd:identityProviderDescription&gt;twitterIDP Identity Provider&lt;/xsd:identityProviderDescription&gt;&#xd;
+            &lt;xsd:identityProviderName&gt;${TwitterIdentityProviderName}&lt;/xsd:identityProviderName&gt;&#xd;
+	       &lt;xsd:alias&gt;https://${ServerHost}:${ServerPort}/oauth2/token&lt;/xsd:alias&gt;&#xd;
+            &lt;xsd:primary&gt;true&lt;/xsd:primary&gt;&#xd;
+            &lt;xsd:defaultAuthenticatorConfig&gt;&#xd;
+            &lt;xsd:displayName&gt;twitter&lt;/xsd:displayName&gt;&#xd;
+               &lt;xsd:name&gt;TwitterAuthenticator&lt;/xsd:name&gt;&#xd;
+            &lt;/xsd:defaultAuthenticatorConfig&gt;&#xd;
+            &lt;xsd:federatedAuthenticatorConfigs&gt;&#xd;
+               &lt;xsd:displayName&gt;twitter&lt;/xsd:displayName&gt;&#xd;
+               &lt;xsd:enabled&gt;true&lt;/xsd:enabled&gt;&#xd;
+               &lt;xsd:name&gt;TwitterAuthenticator&lt;/xsd:name&gt;&#xd;
+               &lt;xsd:properties&gt;&#xd;
+                  &lt;xsd:name&gt;APIKey&lt;/xsd:name&gt;&#xd;
+                  &lt;xsd:value&gt;${TwitterClientId}&lt;/xsd:value&gt;&#xd;
+               &lt;/xsd:properties&gt;&#xd;
+               &lt;xsd:properties&gt;&#xd;
+                  &lt;xsd:name&gt;APISecret&lt;/xsd:name&gt;&#xd;
+                  &lt;xsd:value&gt;${TwitterSecret}&lt;/xsd:value&gt;&#xd;
+               &lt;/xsd:properties&gt;&#xd;
+               &lt;xsd:properties&gt;&#xd;
+                  &lt;xsd:name&gt;callbackUrl&lt;/xsd:name&gt;&#xd;
+                  &lt;xsd:value&gt;https://${ServerHost}:${ServerPort}/commonauth&lt;/xsd:value&gt;&#xd;
+               &lt;/xsd:properties&gt;&#xd;
+               &lt;xsd:properties&gt;&#xd;
+                  &lt;xsd:name&gt;scope&lt;/xsd:name&gt;&#xd;
+                  &lt;xsd:value&gt;commonauth&lt;/xsd:value&gt;&#xd;
+               &lt;/xsd:properties&gt;&#xd;
+            &lt;/xsd:federatedAuthenticatorConfigs&gt;&#xd;
+         &lt;/mgt:identityProvider&gt;&#xd;
+      &lt;/mgt:addIdP&gt;&#xd;
+   &lt;/soapenv:Body&gt;&#xd;
+&lt;/soapenv:Envelope&gt;</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${ServerHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${ServerPort}</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">/services/IdentityProviderMgtService</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">Adding Google as a  Federated Authenticator
+</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">8</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">SOAPAction</stringProp>
+                  <stringProp name="Header.value">urn:addIdP</stringProp>
+                </elementProp>
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">text/xml</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+          </hashTree>
         </hashTree>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Create SP" enabled="true"/>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Register Travelocity as SP" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="${__V([Sce-${counter}])}Register Travelocity as SP" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
@@ -416,7 +547,6 @@
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout"></stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            <stringProp name="TestPlan.comments">              &lt;xsd1:attributeConsumingServiceIndex&gt;testindex1235&lt;/xsd1:attributeConsumingServiceIndex&gt;</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
@@ -438,7 +568,7 @@
             </HeaderManager>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create ServiceProvider" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="${__V([Sce-${counter}])}Create ServiceProvider" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
@@ -495,7 +625,7 @@
             </ResponseAssertion>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get ServiceIndex" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="${__V([Sce-${counter}])}Get ServiceIndex" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
@@ -559,7 +689,7 @@
             </HeaderManager>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get SP ID" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="${__V([Sce-${counter}])}Get SP ID" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
@@ -626,7 +756,7 @@
             </RegexExtractor>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Update SP" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="${__V([Sce-${counter}])}Update SP" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
@@ -679,7 +809,31 @@
        &lt;xsd1:localAndOutBoundAuthenticationConfig&gt;&#xd;
     &lt;!--Optional:--&gt;&#xd;
     &lt;xsd1:alwaysSendBackAuthenticatedListOfIdPs&gt;false&lt;/xsd1:alwaysSendBackAuthenticatedListOfIdPs&gt;&#xd;
-    &lt;!--Zero or more repetitions:--&gt;   &#xd;
+    &lt;!--Zero or more repetitions:--&gt;  &#xd;
+        &lt;xsd1:authenticationSteps&gt;&#xd;
+        &lt;!--Optional:--&gt;&#xd;
+        &lt;xsd1:attributeStep&gt;true&lt;/xsd1:attributeStep&gt;&#xd;
+	&lt;xsd1:subjectStep&gt;true&lt;/xsd1:subjectStep&gt;&#xd;
+        &lt;!--Zero or more repetitions:--&gt;&#xd;
+       &#xd;
+        &lt;!--Zero or more repetitions:--&gt;&#xd;
+        &lt;xsd1:localAuthenticatorConfigs&gt;&#xd;
+	        &lt;!--Optional:--&gt;&#xd;
+	        &lt;xsd1:displayName&gt;basic&lt;/xsd1:displayName&gt;&#xd;
+	        &lt;!--Optional:--&gt;&#xd;
+	        &lt;xsd1:enabled&gt;false&lt;/xsd1:enabled&gt;&#xd;
+	        &lt;!--Optional:--&gt;&#xd;
+	        &lt;xsd1:name&gt;BasicAuthenticator&lt;/xsd1:name&gt;&#xd;
+	        &lt;!--Zero or more repetitions:--&gt;&#xd;
+	        &lt;!--Optional:--&gt;&#xd;
+	        &lt;xsd1:valid&gt;true&lt;/xsd1:valid&gt;&#xd;
+        &lt;/xsd1:localAuthenticatorConfigs&gt;&#xd;
+        &lt;!--Optional:--&gt;&#xd;
+        &lt;xsd1:stepOrder&gt;1&lt;/xsd1:stepOrder&gt;&#xd;
+        &lt;!--Optional:--&gt;&#xd;
+&#xd;
+    &lt;/xsd1:authenticationSteps&gt;&#xd;
+     &#xd;
     &lt;xsd1:authenticationSteps&gt;&#xd;
         &lt;!--Optional:--&gt;&#xd;
         &lt;xsd1:attributeStep&gt;false&lt;/xsd1:attributeStep&gt;&#xd;
@@ -733,6 +887,33 @@
         &lt;/xsd1:federatedAuthenticatorConfigs&gt;&#xd;
             &lt;!--Optional:--&gt;&#xd;
         &lt;xsd1:identityProviderName&gt;${GoogleIdentityProviderName}&lt;/xsd1:identityProviderName&gt;&#xd;
+        &lt;xsd1:enable&gt;false&lt;/xsd1:enable&gt;     &#xd;
+        &lt;xsd1:primary&gt;false&lt;/xsd1:primary&gt; &#xd;
+        &lt;xsd1:federationHub&gt;false&lt;/xsd1:federationHub&gt;                     &#xd;
+        &lt;/xsd1:federatedIdentityProviders&gt;&#xd;
+&#xd;
+        &#xd;
+        &lt;xsd1:federatedIdentityProviders&gt;&#xd;
+        &#xd;
+            &lt;xsd1:defaultAuthenticatorConfig&gt;&#xd;
+                &lt;xsd1:alais/&gt;&#xd;
+                &lt;xsd1:certificate/&gt;            &#xd;
+                &lt;xsd1:claimConfig/&gt;            &#xd;
+                &lt;xsd1:displayName&gt;${TwitterIdentityProviderName}&lt;/xsd1:displayName&gt;&#xd;
+                &lt;xsd1:enabled&gt;false&lt;/xsd1:enabled&gt;            &#xd;
+                &lt;xsd1:name&gt;TwitterAuthenticator&lt;/xsd1:name&gt;&#xd;
+                &lt;xsd1:valid&gt;true&lt;/xsd1:valid&gt;&#xd;
+            &lt;/xsd1:defaultAuthenticatorConfig&gt;&#xd;
+&#xd;
+            &lt;!--Zero or more repetitions:--&gt;&#xd;
+        &lt;xsd1:federatedAuthenticatorConfigs&gt;&#xd;
+              &lt;xsd1:displayName&gt;${TwitterIdentityProviderName}&lt;/xsd1:displayName&gt;&#xd;
+                &lt;xsd1:enabled&gt;false&lt;/xsd1:enabled&gt;            &#xd;
+                &lt;xsd1:name&gt;TwitterAuthenticator&lt;/xsd1:name&gt;&#xd;
+                &lt;xsd1:valid&gt;true&lt;/xsd1:valid&gt;           &#xd;
+        &lt;/xsd1:federatedAuthenticatorConfigs&gt;&#xd;
+            &lt;!--Optional:--&gt;&#xd;
+        &lt;xsd1:identityProviderName&gt;${TwitterIdentityProviderName}&lt;/xsd1:identityProviderName&gt;&#xd;
         &lt;xsd1:enable&gt;false&lt;/xsd1:enable&gt;     &#xd;
         &lt;xsd1:primary&gt;false&lt;/xsd1:primary&gt; &#xd;
         &lt;xsd1:federationHub&gt;false&lt;/xsd1:federationHub&gt;                     &#xd;
@@ -809,9 +990,12 @@
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Travelocity Login" enabled="true"/>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="[Sce - 01] Travelocity Login when HRI = fidp" enabled="true">
+          <stringProp name="IfController.condition">&quot;${TwitterHomeRelam}&quot;==&quot;twitter&quot;</stringProp>
+          <boolProp name="IfController.evaluateAll">true</boolProp>
+        </IfController>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[Verification] Travelocity Login" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[Verification] Travelocity Login when HRI = fidp" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
               <collectionProp name="Arguments.arguments">
                 <elementProp name="SAML2.HTTPBinding" elementType="HTTPArgument">
@@ -849,20 +1033,154 @@
               <stringProp name="RegexExtractor.match_number">1</stringProp>
             </RegexExtractor>
             <hashTree/>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="[Verification] Facebook Login" enabled="false">
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="[Verification] Twitter Login Redirection" enabled="true">
               <collectionProp name="Asserion.test_strings">
-                <stringProp name="1980761324">Log in to Facebook</stringProp>
+                <stringProp name="-1830313082">twitter.com</stringProp>
               </collectionProp>
-              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <stringProp name="Assertion.test_field">Assertion.sample_label</stringProp>
               <boolProp name="Assertion.assume_success">false</boolProp>
               <intProp name="Assertion.test_type">2</intProp>
             </ResponseAssertion>
             <hashTree/>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="[Verification] Facebook Login" enabled="true">
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">3000</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="[Verification] Facebook Login" enabled="false">
               <collectionProp name="Asserion.test_strings">
-                <stringProp name="1721158175">https://www.facebook.com</stringProp>
+                <stringProp name="1980761324">Log in to Facebook</stringProp>
               </collectionProp>
               <stringProp name="Assertion.test_field">Assertion.sample_label</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="[Verification] Authenticating with Twitter" enabled="true">
+            <stringProp name="cacheKey"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.*;
+import java.lang.String;
+import java.util.concurrent.*;
+import com.gargoylesoftware.htmlunit.*;
+import com.gargoylesoftware.htmlunit.BrowserVersion;
+
+try {
+		public HtmlUnitDriver driver = new HtmlUnitDriver(BrowserVersion.CHROME, true);
+
+		String protocole = &quot;http://&quot;;
+		String tomcathost = vars.get(&quot;tomcatHost&quot;);
+		String seperator = &quot;:&quot;;
+		String tomcatport = vars.get(&quot;tomcatPort&quot;);
+		String url = &quot;/travelocity.com/index.jsp&quot;;
+
+		String AppURL = protocole + tomcathost + seperator + tomcatport + url;
+		
+		driver.get(AppURL);
+
+		WebElement link = driver.findElement(By.linkText(&quot;here&quot;));
+		link.click();
+
+		WebElement username =  driver.findElement(By.id(&quot;username_or_email&quot;));
+		username.clear();
+		username.sendKeys(new String[] { vars.get(&quot;twitterUserName&quot;) });
+
+		WebElement password =  driver.findElement(By.id(&quot;password&quot;));
+		password.clear();
+		password.sendKeys(new String[] {vars.get(&quot;twitterPassword&quot;)});
+
+		WebElement button = driver.findElement(By.id(&quot;allow&quot;));
+		button.click();
+
+		//Returns the whole page
+		return driver.getPageSource();  
+    
+} catch (Exception ex) {
+    ex.printStackTrace();
+    log.error(ex.getMessage());
+     SampleResult.setSuccessful(false);
+     SampleResult.setResponseCode(&quot;500&quot;);
+     SampleResult.setResponseMessage(ex.getMessage());
+} </stringProp>
+            <stringProp name="scriptLanguage">java</stringProp>
+          </JSR223Sampler>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-1435285188">You are logged in as</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="[Sce - 02] Travelocity Login when HRI != fidp " enabled="true">
+          <stringProp name="IfController.condition">&quot;${TwitterHomeRelam}&quot;==&quot;tweet1&quot;</stringProp>
+          <boolProp name="IfController.evaluateAll">true</boolProp>
+        </IfController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[Verification] Travelocity Login when HRI != fidp" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="SAML2.HTTPBinding" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                  <stringProp name="Argument.name">SAML2.HTTPBinding</stringProp>
+                  <stringProp name="Argument.value">HTTP-Redirect</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${tomcatHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/${travelocityIssuer}/samlsso?SAML2.HTTPBinding=HTTP-Redirect</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.image_parser">true</boolProp>
+            <boolProp name="HTTPSampler.concurrentDwn">true</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="SAML Request Sesion Data key Expression Extractor" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">message</stringProp>
+              <stringProp name="RegexExtractor.refname">sessionDataKey</stringProp>
+              <stringProp name="RegexExtractor.regex">sessionDataKey=([a-z0-9-]+)\&amp;?</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="XPath Extractor" enabled="true">
+              <stringProp name="XPathExtractor.default"></stringProp>
+              <stringProp name="XPathExtractor.refname">sessionkey</stringProp>
+              <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+              <stringProp name="XPathExtractor.xpathQuery">//input[@type=&apos;hidden&apos;][@name=&apos;sessionDataKey&apos;]/@value</stringProp>
+              <boolProp name="XPathExtractor.validate">false</boolProp>
+              <boolProp name="XPathExtractor.tolerant">true</boolProp>
+              <boolProp name="XPathExtractor.namespace">false</boolProp>
+            </XPathExtractor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="[Verification] Option to retry with correct domain name" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-801762803">Federated Login</stringProp>
+                <stringProp name="-1244525976">Domain cannot be identified! Please retry</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
               <boolProp name="Assertion.assume_success">false</boolProp>
               <intProp name="Assertion.test_type">2</intProp>
             </ResponseAssertion>
@@ -873,11 +1191,564 @@
           </ConstantTimer>
           <hashTree/>
         </hashTree>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="[Sce - 03] Travelocity Login when HRI != fidp | then user providing a correct fidp" enabled="true">
+          <stringProp name="IfController.condition">&quot;${TwitterHomeRelam}&quot;==&quot;tweet2&quot;</stringProp>
+          <boolProp name="IfController.evaluateAll">true</boolProp>
+        </IfController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[Verification] Travelocity Login when HRI != fidp " enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="SAML2.HTTPBinding" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                  <stringProp name="Argument.name">SAML2.HTTPBinding</stringProp>
+                  <stringProp name="Argument.value">HTTP-Redirect</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${tomcatHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/${travelocityIssuer}/samlsso?SAML2.HTTPBinding=HTTP-Redirect</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.image_parser">true</boolProp>
+            <boolProp name="HTTPSampler.concurrentDwn">true</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="SAML Request Sesion Data key Expression Extractor" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">message</stringProp>
+              <stringProp name="RegexExtractor.refname">sessionDataKey</stringProp>
+              <stringProp name="RegexExtractor.regex">sessionDataKey=([a-z0-9-]+)\&amp;?</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="XPath Extractor" enabled="true">
+              <stringProp name="XPathExtractor.default"></stringProp>
+              <stringProp name="XPathExtractor.refname">sessionkey</stringProp>
+              <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+              <stringProp name="XPathExtractor.xpathQuery">//input[@type=&apos;hidden&apos;][@name=&apos;sessionDataKey&apos;]/@value</stringProp>
+              <boolProp name="XPathExtractor.validate">false</boolProp>
+              <boolProp name="XPathExtractor.tolerant">true</boolProp>
+              <boolProp name="XPathExtractor.namespace">false</boolProp>
+            </XPathExtractor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="[Verification] Option to retry with correct domain name" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-801762803">Federated Login</stringProp>
+                <stringProp name="-1244525976">Domain cannot be identified! Please retry</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+            <stringProp name="ConstantTimer.delay">3000</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[Verification] Retry with correct identifier name" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="fidp" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                  <stringProp name="Argument.name">fidp</stringProp>
+                  <stringProp name="Argument.value">tweet2</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+                <elementProp name="sessionDataKey" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                  <stringProp name="Argument.name">sessionDataKey</stringProp>
+                  <stringProp name="Argument.value">${sessionkey}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${ServerHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${ServerPort}</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">commonauth</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.image_parser">true</boolProp>
+            <boolProp name="HTTPSampler.concurrentDwn">true</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="[Verification] Option to retry with correct domain name" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-1830313082">twitter.com</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.sample_label</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/x-www-form-urlencoded</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">3000</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="[Verification] Authenticating with Twitter" enabled="true">
+            <stringProp name="cacheKey"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.*;
+import java.lang.String;
+import java.util.concurrent.*;
+import com.gargoylesoftware.htmlunit.*;
+import com.gargoylesoftware.htmlunit.BrowserVersion;
+
+try {
+		public HtmlUnitDriver driver = new HtmlUnitDriver(BrowserVersion.CHROME, true);
+
+		String protocole = &quot;http://&quot;;
+		String tomcathost = vars.get(&quot;tomcatHost&quot;);
+		String seperator = &quot;:&quot;;
+		String tomcatport = vars.get(&quot;tomcatPort&quot;);
+		String url = &quot;/travelocity.com/index.jsp&quot;;
+
+		String AppURL = protocole + tomcathost + seperator + tomcatport + url;
+		
+		driver.get(AppURL);
+
+		WebElement link = driver.findElement(By.linkText(&quot;here&quot;));
+		link.click();
+
+		WebElement fidp =  driver.findElement(By.id(&quot;fidp&quot;));
+		fidp.click();
+		fidp.clear();
+		fidp.sendKeys(new String[] { &quot;tweet2&quot; });	
+
+		WebElement button =  driver.findElement(By.xpath(&quot;//button[@type=&apos;submit&apos;]&quot;));
+		button.click();
+
+		WebElement username =  driver.findElement(By.id(&quot;username_or_email&quot;));
+		username.clear();
+		username.sendKeys(new String[] { vars.get(&quot;twitterUserName&quot;) });
+
+		WebElement password =  driver.findElement(By.id(&quot;password&quot;));
+		password.clear();
+		password.sendKeys(new String[] {vars.get(&quot;twitterPassword&quot;)});
+
+		WebElement button = driver.findElement(By.id(&quot;allow&quot;));
+		button.click();
+
+		//Returns the whole page
+		return driver.getPageSource();  
+    
+} catch (Exception ex) {
+    ex.printStackTrace();
+    log.error(ex.getMessage());
+     SampleResult.setSuccessful(false);
+     SampleResult.setResponseCode(&quot;500&quot;);
+     SampleResult.setResponseMessage(ex.getMessage());
+} </stringProp>
+            <stringProp name="scriptLanguage">java</stringProp>
+          </JSR223Sampler>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-1435285188">You are logged in as</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="[Sce - 04] Travelocity Login when HRI != fidp | then providing a correct fidp with special charachters" enabled="true">
+          <stringProp name="IfController.condition">&quot;${TwitterHomeRelam}&quot;==&quot;tweet@t#&quot;</stringProp>
+          <boolProp name="IfController.evaluateAll">true</boolProp>
+        </IfController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[Verification] Travelocity Login when HRI != fidp " enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="SAML2.HTTPBinding" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                  <stringProp name="Argument.name">SAML2.HTTPBinding</stringProp>
+                  <stringProp name="Argument.value">HTTP-Redirect</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${tomcatHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/${travelocityIssuer}/samlsso?SAML2.HTTPBinding=HTTP-Redirect</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.image_parser">true</boolProp>
+            <boolProp name="HTTPSampler.concurrentDwn">true</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="SAML Request Sesion Data key Expression Extractor" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">message</stringProp>
+              <stringProp name="RegexExtractor.refname">sessionDataKey</stringProp>
+              <stringProp name="RegexExtractor.regex">sessionDataKey=([a-z0-9-]+)\&amp;?</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="XPath Extractor" enabled="true">
+              <stringProp name="XPathExtractor.default"></stringProp>
+              <stringProp name="XPathExtractor.refname">sessionkey</stringProp>
+              <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+              <stringProp name="XPathExtractor.xpathQuery">//input[@type=&apos;hidden&apos;][@name=&apos;sessionDataKey&apos;]/@value</stringProp>
+              <boolProp name="XPathExtractor.validate">false</boolProp>
+              <boolProp name="XPathExtractor.tolerant">true</boolProp>
+              <boolProp name="XPathExtractor.namespace">false</boolProp>
+            </XPathExtractor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="[Verification] Option to retry with correct domain name" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-801762803">Federated Login</stringProp>
+                <stringProp name="-1244525976">Domain cannot be identified! Please retry</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+            <stringProp name="ConstantTimer.delay">3000</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[Verification] Retry with correct identifier name" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="fidp" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                  <stringProp name="Argument.name">fidp</stringProp>
+                  <stringProp name="Argument.value">tweet@t#</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+                <elementProp name="sessionDataKey" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                  <stringProp name="Argument.name">sessionDataKey</stringProp>
+                  <stringProp name="Argument.value">${sessionkey}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${ServerHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${ServerPort}</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">commonauth</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.image_parser">true</boolProp>
+            <boolProp name="HTTPSampler.concurrentDwn">true</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="[Verification] Option to retry with correct domain name" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-1830313082">twitter.com</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.sample_label</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/x-www-form-urlencoded</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">3000</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="[Verification] Authenticating with Twitter" enabled="true">
+            <stringProp name="cacheKey"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.*;
+import java.lang.String;
+import java.util.concurrent.*;
+import com.gargoylesoftware.htmlunit.*;
+import com.gargoylesoftware.htmlunit.BrowserVersion;
+
+try {
+		public HtmlUnitDriver driver = new HtmlUnitDriver(BrowserVersion.CHROME, true);
+
+		String protocole = &quot;http://&quot;;
+		String tomcathost = vars.get(&quot;tomcatHost&quot;);
+		String seperator = &quot;:&quot;;
+		String tomcatport = vars.get(&quot;tomcatPort&quot;);
+		String url = &quot;/travelocity.com/index.jsp&quot;;
+
+		String AppURL = protocole + tomcathost + seperator + tomcatport + url;
+		
+		driver.get(AppURL);
+
+		WebElement link = driver.findElement(By.linkText(&quot;here&quot;));
+		link.click();
+
+		WebElement fidp =  driver.findElement(By.id(&quot;fidp&quot;));
+		fidp.click();
+		fidp.clear();
+		fidp.sendKeys(new String[] { &quot;tweet@t#&quot; });	
+
+		WebElement button =  driver.findElement(By.xpath(&quot;//button[@type=&apos;submit&apos;]&quot;));
+		button.click();
+
+		WebElement username =  driver.findElement(By.id(&quot;username_or_email&quot;));
+		username.clear();
+		username.sendKeys(new String[] { vars.get(&quot;twitterUserName&quot;) });
+
+		WebElement password =  driver.findElement(By.id(&quot;password&quot;));
+		password.clear();
+		password.sendKeys(new String[] {vars.get(&quot;twitterPassword&quot;)});
+
+		WebElement button = driver.findElement(By.id(&quot;allow&quot;));
+		button.click();
+
+		//Returns the whole page
+		return driver.getPageSource();  
+    
+} catch (Exception ex) {
+    ex.printStackTrace();
+    log.error(ex.getMessage());
+     SampleResult.setSuccessful(false);
+     SampleResult.setResponseCode(&quot;500&quot;);
+     SampleResult.setResponseMessage(ex.getMessage());
+} </stringProp>
+            <stringProp name="scriptLanguage">java</stringProp>
+          </JSR223Sampler>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-1435285188">You are logged in as</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="[Sce - 05] Travelocity Login when HRI != fidp | with resident IDP" enabled="true">
+          <stringProp name="IfController.condition">&quot;${TwitterHomeRelam}&quot;==&quot;tweetresident&quot;</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+        </IfController>
+        <hashTree>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Change Home Realm dentifier of the Resident IDP" enabled="true">
+            <stringProp name="cacheKey"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.*;
+import java.lang.String;
+import java.util.concurrent.*;
+import com.gargoylesoftware.htmlunit.*;
+import com.gargoylesoftware.htmlunit.BrowserVersion;
+
+try {
+		public HtmlUnitDriver driver = new HtmlUnitDriver(BrowserVersion.CHROME, true);
+
+		String protocol = &quot;https://&quot;;
+		String serverhost = vars.get(&quot;ServerHost&quot;);
+		String seperator = &quot;:&quot;;
+		String serverport = vars.get(&quot;ServerPort&quot;);
+		String url = &quot;/carbon&quot;;
+
+		String mgtURL = protocol + serverhost + seperator + serverport + url;
+		
+		driver.get(mgtURL);
+
+		WebElement username =  driver.findElement(By.id(&quot;txtUserName&quot;));
+		username.clear();
+		username.sendKeys(new String[] { vars.get(&quot;AdminUser&quot;) });
+
+		WebElement password =  driver.findElement(By.id(&quot;txtPassword&quot;));
+		password.clear();
+		password.sendKeys(new String[] { vars.get(&quot;AdminPassword&quot;) });
+
+		WebElement signin =  driver.findElement(By.xpath(&quot;//input[@value=&apos;Sign-in&apos;]&quot;));
+		signin.click();
+
+		WebElement residentidp =  driver.findElement(By.xpath(&quot;(//a[contains(text(),&apos;Resident&apos;)])[2]&quot;));
+		residentidp.click();
+
+		WebElement homerealmid =  driver.findElement(By.id(&quot;homeRealmId&quot;));
+		homerealmid.clear();
+		homerealmid.sendKeys(new String[] { vars.get(&quot;residentIDPrealm&quot;) });
+
+		WebElement updateidp =  driver.findElement(By.xpath(&quot;//input[@value=&apos;Update&apos;]&quot;));
+		updateidp.click();
+
+		//Returns the whole page
+		return driver.getPageSource();  
+    
+} catch (Exception ex) {
+    ex.printStackTrace();
+    log.error(ex.getMessage());
+     SampleResult.setSuccessful(false);
+     SampleResult.setResponseCode(&quot;500&quot;);
+     SampleResult.setResponseMessage(ex.getMessage());
+} </stringProp>
+            <stringProp name="scriptLanguage">java</stringProp>
+          </JSR223Sampler>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="1495506780">${residentIDPrealm}</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="[Verification] Authenticating with RIDP" enabled="true">
+            <stringProp name="cacheKey"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.*;
+import java.lang.String;
+import java.util.concurrent.*;
+import com.gargoylesoftware.htmlunit.*;
+import com.gargoylesoftware.htmlunit.BrowserVersion;
+
+try {
+		public HtmlUnitDriver driver = new HtmlUnitDriver(BrowserVersion.CHROME, true);
+
+		String protocole = &quot;http://&quot;;
+		String tomcathost = vars.get(&quot;tomcatHost&quot;);
+		String seperator = &quot;:&quot;;
+		String tomcatport = vars.get(&quot;tomcatPort&quot;);
+		String url = &quot;/travelocity.com/index.jsp&quot;;
+
+		String AppURL = protocole + tomcathost + seperator + tomcatport + url;
+		
+		driver.get(AppURL);
+
+		WebElement link = driver.findElement(By.linkText(&quot;here&quot;));
+		link.click();
+
+		WebElement fidp =  driver.findElement(By.id(&quot;fidp&quot;));
+		fidp.click();
+		fidp.clear();
+		fidp.sendKeys(new String[] { vars.get(&quot;residentIDPrealm&quot;) });	
+
+		WebElement button =  driver.findElement(By.xpath(&quot;//button[@type=&apos;submit&apos;]&quot;));
+		button.click();
+
+		WebElement username =  driver.findElement(By.id(&quot;username&quot;));
+		username.clear();
+		username.sendKeys(new String[] { vars.get(&quot;AdminUser&quot;) });
+
+		WebElement password =  driver.findElement(By.id(&quot;password&quot;));
+		password.clear();
+		password.sendKeys(new String[] {vars.get(&quot;AdminPassword&quot;)});
+
+		WebElement button = driver.findElement(By.xpath(&quot;//button[@type=&apos;submit&apos;]&quot;));
+		button.click();
+
+		//Returns the whole page
+		return driver.getPageSource();  
+    
+} catch (Exception ex) {
+    ex.printStackTrace();
+    log.error(ex.getMessage());
+     SampleResult.setSuccessful(false);
+     SampleResult.setResponseCode(&quot;500&quot;);
+     SampleResult.setResponseMessage(ex.getMessage());
+} </stringProp>
+            <stringProp name="scriptLanguage">java</stringProp>
+          </JSR223Sampler>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="1701624990">You are logged in as ${AdminUser}</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Cleaning the artefacts" enabled="true">
           <stringProp name="TestPlan.comments">Remove the artefacts after the test</stringProp>
         </GenericController>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Remove ServiceProvider" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="${__V([Sce-${counter}])}Remove ServiceProvider" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
@@ -932,7 +1803,7 @@
             </ResponseAssertion>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Remove Google IDP" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="${__V([Sce-${counter}])}Remove Google IDP" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
@@ -987,7 +1858,7 @@
             </ResponseAssertion>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Remove Facebook IDP" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="${__V([Sce-${counter}])}Remove Facebook IDP" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
@@ -1042,13 +1913,62 @@
             </ResponseAssertion>
             <hashTree/>
           </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="${__V([Sce-${counter}])}Remove Twittre IDP" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:mgt=&quot;http://mgt.idp.carbon.wso2.org&quot;&gt;&#xd;
+   &lt;soapenv:Header/&gt;&#xd;
+   &lt;soapenv:Body&gt;&#xd;
+      &lt;mgt:deleteIdP&gt;&#xd;
+         &lt;!--Optional:--&gt;&#xd;
+         &lt;mgt:idPName&gt;${TwitterIdentityProviderName}&lt;/mgt:idPName&gt;&#xd;
+      &lt;/mgt:deleteIdP&gt;&#xd;
+   &lt;/soapenv:Body&gt;&#xd;
+&lt;/soapenv:Envelope&gt;</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${ServerHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${ServerPort}</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">/services/IdentityProviderMgtService</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">Adding facebook as a  Federated Authenticator
+</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">SOAPAction</stringProp>
+                  <stringProp name="Header.value">urn:deleteIdP</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">8</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
         </hashTree>
-        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="false">
-          <boolProp name="displayJMeterProperties">false</boolProp>
-          <boolProp name="displayJMeterVariables">true</boolProp>
-          <boolProp name="displaySystemProperties">false</boolProp>
-        </DebugSampler>
-        <hashTree/>
         <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
@@ -1082,7 +2002,7 @@
               <connectTime>true</connectTime>
             </value>
           </objProp>
-          <stringProp name="filename">/home/sashika/Apps/Applications/IS/identity-test-integration/solution28/target/jmeter/results/20171129-HomeRelam.jtl</stringProp>
+          <stringProp name="filename">/home/sashika/Apps/Applications/IS/NEW/identity-test-integration/solution28/src/test/jmeter/resultsfinal2.jtl</stringProp>
         </ResultCollector>
         <hashTree/>
         <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
@@ -1118,10 +2038,25 @@
               <connectTime>true</connectTime>
             </value>
           </objProp>
-          <stringProp name="filename"></stringProp>
+          <stringProp name="filename">/home/sashika/Apps/Applications/IS/NEW/identity-test-integration/solution28/src/test/jmeter/results1.jtl</stringProp>
         </ResultCollector>
         <hashTree/>
       </hashTree>
+      <PostThreadGroup guiclass="PostThreadGroupGui" testclass="PostThreadGroup" testname="tearDown" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1513861936000</longProp>
+        <longProp name="ThreadGroup.end_time">1513861936000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </PostThreadGroup>
+      <hashTree/>
     </hashTree>
     <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench" enabled="true">
       <boolProp name="WorkBench.save">true</boolProp>

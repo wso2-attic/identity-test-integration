@@ -31,7 +31,7 @@ SAML2IdPURL="https://$serverHost:$serverPort/samlsso"
 SAML2SPEntityId="$appName"
 SkipURIs="/$appName/index.jsp"
 SAML2IdPEntityId=$serverHost
-QueryParams="fidp=facebook"
+QueryParams="fidp=twitter"
 
 #create temporary directory
 mkdir $scriptPath/../temp
