@@ -85,6 +85,25 @@ cd $scriptPath/../temp/
 #tomcat7/8
 curl -T "travelocity.com.war" "http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/deploy?path=/travelocity.com&update=true"
 curl -T "avis.com.war" "http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/deploy?path=/avis.com&update=true"
-#TODO:need to get the actual response from above command and set blow..
-#TODO:check if any error occured
-echo "Done..."
+
+x=0;
+retry_count=10;
+while true
+do
+echo $(date)" Waiting until deploying the app on Tomcat!"
+#STATUS=$(curl -s http://scriptuser:scriptuser@localhost:8080/manager/text/list | grep ${appName})
+if curl -s http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/list | grep "${appName2}:running"
+then
+ echo "Found ${appName2} is running on Tomcat"
+ echo "Done base-setup.sh"
+ exit 0
+else
+ echo "Context /${appName2} Not Found"
+    if [ $x = $retry_count ]; then
+    echo "ERROR on app deployment"
+        exit 1
+    fi
+fi
+x=$((x+1))
+sleep 1
+done
