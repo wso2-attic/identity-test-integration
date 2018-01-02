@@ -2,12 +2,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.wso2.qa.integration.solution18</groupId>
-    <artifactId>solution02</artifactId>
+    <groupId>org.wso2.qa.integration.solution27</groupId>
+    <artifactId>solution27</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>solution02</name>
+    <name>solution27</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -30,12 +30,9 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <jmeterVersion>3.2</jmeterVersion>
+                    <jmeterVersion>3.3</jmeterVersion>
                     <testFilesIncluded>
-                        <jMeterTestFile>02-Soulution-02-Google.jmx</jMeterTestFile>
-                        <jMeterTestFile>01-Soulution-02-Facebook.jmx</jMeterTestFile>
-                        <jMeterTestFile>03-Soulution-02-ISasIDP.jmx</jMeterTestFile>
-                        <jMeterTestFile>04-Soulution-02-EmailOTP.jmx</jMeterTestFile>
+                        <jMeterTestFile>Solution-27-AttributeStoreValidations.jmx</jMeterTestFile>
                     </testFilesIncluded>
                     <propertiesJMeter>
                         <log_level.jmeter>DEBUG</log_level.jmeter>

@@ -282,8 +282,8 @@
             <collectionProp name="AuthManager.auth_list">
               <elementProp name="" elementType="Authorization">
                 <stringProp name="Authorization.url"></stringProp>
-                <stringProp name="Authorization.username">admin</stringProp>
-                <stringProp name="Authorization.password">admin</stringProp>
+                <stringProp name="Authorization.username">${Gusername}</stringProp>
+                <stringProp name="Authorization.password">${Gpassword}</stringProp>
                 <stringProp name="Authorization.domain"></stringProp>
                 <stringProp name="Authorization.realm"></stringProp>
               </elementProp>
@@ -885,8 +885,8 @@
             <collectionProp name="AuthManager.auth_list">
               <elementProp name="" elementType="Authorization">
                 <stringProp name="Authorization.url"></stringProp>
-                <stringProp name="Authorization.username">${adminUsername}</stringProp>
-                <stringProp name="Authorization.password">${adminPassword}</stringProp>
+                <stringProp name="Authorization.username">${Gpassword}</stringProp>
+                <stringProp name="Authorization.password">${Gpassword}</stringProp>
                 <stringProp name="Authorization.domain"></stringProp>
                 <stringProp name="Authorization.realm"></stringProp>
               </elementProp>
