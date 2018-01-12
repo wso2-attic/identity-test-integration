@@ -18,12 +18,12 @@
 #TODO:read below property from infra.json file
 appName="travelocity.com"
 tomcatHost=$tomcatHost
-tomcatPort=8080
+tomcatPort=$tomcatPort
 tomcatUsername=scriptuser
 tomcatPassword=scriptuser
 tomcatVersion=7
 serverHost=$serverHost
-serverPort=443
+serverPort=$serverPort
 
 #travelocity properties
 SAML2AssertionConsumerURL="http://$tomcatHost:$tomcatPort/$appName/home.jsp"
@@ -31,7 +31,6 @@ SAML2IdPURL="https://$serverHost:$serverPort/samlsso"
 SAML2SPEntityId="$appName"
 SkipURIs="/$appName/index.jsp"
 SAML2IdPEntityId=$serverHost
-QueryParams="fidp=twitter"
 
 #create temporary directory
 mkdir $scriptPath/../temp
@@ -57,10 +56,6 @@ sed -i "s|^\(SkipURIs\s*=\s*\).*\$|\1${SkipURIs}|" $scriptPath/../temp/traveloci
 
 sed -i "s|^\(SAML2\.IdPEntityId\s*=\s*\).*\$|\1${SAML2IdPEntityId}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
-sed -i "s|^\(#QueryParams\s*=\s*\).*\$|\1${QueryParams}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
-
-sed -i "/QueryParams/s/^#//g" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
-
 #repackaging travelocity app
 cd $scriptPath/../temp/travelocity.com/
 jar cvf $scriptPath/../temp/travelocity.com.war .
@@ -71,6 +66,7 @@ cd $scriptPath/../temp/
 #curl --upload-file target\debug.war "http://tomcat:tomcat@localhost:8088/manager/deploy?path=/debug&update=true"
 #tomcat7/8
 curl -T "travelocity.com.war" "http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/deploy?path=/travelocity.com&update=true"
+
 x=0;
 retry_count=10;
 while true
@@ -92,3 +88,4 @@ fi
 x=$((x+1))
 sleep 1
 done
+

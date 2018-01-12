@@ -50,7 +50,14 @@
                 <configuration>
                     <jmeterVersion>3.2</jmeterVersion>
                     <testFilesIncluded>
-                        <jMeterTestFile>solution23.jmx</jMeterTestFile>
+                        <jMeterTestFile>01-Solution-23-BasicAuthRequestPathAuthenticator-RegisterTravelocityApp.jmx</jMeterTestFile>
+                        <jMeterTestFile>02-Solution-23-BasicAuthRequestPathAuthenticator-RegisterAvisApp.jmx</jMeterTestFile>
+                        <jMeterTestFile>03-Solution-23-BasicAuthRequestPathAuthenticator-LegacyAppLogin.jmx</jMeterTestFile>
+                        <jMeterTestFile>04-Solution-23-OAuthBearerRequestPathAuthenticator-RegisterOAuthApp.jmx</jMeterTestFile>
+                        <jMeterTestFile>05-Solution-23-OAuthBearerRequestPathAuthenticator-Login.jmx</jMeterTestFile>
+                        <jMeterTestFile>06-Solution-23-OAuthBearerRequestPathAuthenticator-Negative1.jmx</jMeterTestFile>
+                        <jMeterTestFile>07-Solution-23-OAuthBearerRequestPathAuthenticator-Negative2.jmx</jMeterTestFile>
+                        <jMeterTestFile>10-Solution-23-RemoveSps.jmx</jMeterTestFile>
                     </testFilesIncluded>
                     <propertiesJMeter>
                         <log_level.jmeter>DEBUG</log_level.jmeter>
