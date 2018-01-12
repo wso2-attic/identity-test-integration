@@ -1,4 +1,4 @@
-# Solution 18 - Fine-grained access control for service providers
+# Scenario 18 - Fine-grained access control for service providers
 
 ### SOLUTION DESCRIPTION
 

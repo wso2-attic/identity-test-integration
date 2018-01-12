@@ -1,4 +1,4 @@
-# Solution 21 - Enforce users to provide missing required attributes while getting JIT provisioned to the local system
+# Scenario 21 - Enforce users to provide missing required attributes while getting JIT provisioned to the local system
 
 ### SOLUTION DESCRIPTION
 

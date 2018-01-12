@@ -1,4 +1,4 @@
-# Solution 28 - Home Relam Discovery
+# Scenario 28 - Home Relam Discovery
 
 Following scenarios are covered through this automation script.
 
