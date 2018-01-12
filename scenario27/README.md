@@ -5,7 +5,7 @@ The scenario tries to solve the below problem.
   - User credentials are maintained in a one user store while user attributes are maintained in multiple sources.
   - When the user logs into the system via any SSO protocol (SAML 2.0, ODIC, WS-Federation), build the response with user attributes coming from multiple sources.
 
-### Solution
+### Scenario
    - Mount the credential store and all the attribute stores as user stores to the WSO2 Identity Server. Follow a naming convention while naming the user stores where the attributes store can be differentiated from the credentials stores just by looking at the user store domain name.
    - Build a custom user store manager extension (extending the current user store manager corresponding to the type of the primary user store), which is aware of all the attribute stores in the system and override the method, which returns user attributes. The overridden method will iterate through the attribute stores find the user’s attributes and will return back the aggregated result.
 
@@ -15,7 +15,7 @@ Two simple rules to follow:
 1. Domain must be same as the corresponding credentials store
 2. Domain name must be qualified with a post prefix called   “-ATTRIBUTE-STORE”
 
-The following diagram will explain the solution in detail.
+The following diagram will explain the scenario in detail.
 
 ![alt text](src/test/resources/Solution27.png "Description goes here")
 
@@ -36,7 +36,7 @@ https://github.com/dilinisg/attribute-store-extension
 [1]https://docs.wso2.com/display/IS540/Configuring+Single+Sign-On
 ```
 9. Deploy a travelocity web app (travelocity.com.war) in tomcat. 
-10. Change the configurations according to the environment in user.properties under solution 27. (solution27/src/test/resources/user.properties)
+10. Change the configurations according to the environment in user.properties under scenario 27. (scenario27/src/test/resources/user.properties)
 
 ### Run the test
 To run sthe olution 27, run the below command
