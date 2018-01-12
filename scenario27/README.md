@@ -15,7 +15,7 @@ Two simple rules to follow:
 1. Domain must be same as the corresponding credentials store
 2. Domain name must be qualified with a post prefix called   “-ATTRIBUTE-STORE”
 
-The following diagram will explain the solution in detail.
+The following diagram will explain the scenario in detail.
 
 ![alt text](src/test/resources/Solution27.png "Description goes here")
 
@@ -36,7 +36,7 @@ https://github.com/dilinisg/attribute-store-extension
 [1]https://docs.wso2.com/display/IS540/Configuring+Single+Sign-On
 ```
 9. Deploy a travelocity web app (travelocity.com.war) in tomcat. 
-10. Change the configurations according to the environment in user.properties under solution 27. (solution27/src/test/resources/user.properties)
+10. Change the configurations according to the environment in user.properties under scenario 27. (scenario27/src/test/resources/user.properties)
 
 ### Run the test
 To run sthe olution 27, run the below command

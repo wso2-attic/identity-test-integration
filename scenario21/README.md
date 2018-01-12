@@ -1,6 +1,6 @@
 # Scenario 21 - Enforce users to provide missing required attributes while getting JIT provisioned to the local system
 
-### SOLUTION DESCRIPTION
+### SCENARIO DESCRIPTION
 
 ##### Problem:
 
@@ -10,7 +10,7 @@
 
 -If any required attributes are missing in the authentication response from the federated identity provider, the system should present a UI to the user to provide those.
 
-##### Solution:
+##### Scenario:
 
 - Deploy WSO2 Identity Server as the Identity Provider and register all the service providers and federated identity providers.
 - Enable JIT provisioning for each federated identity provider.
@@ -27,7 +27,7 @@
 1. Follow the steps in this [1] and get a checkout of travelocity sample and build
     [1]https://docs.wso2.com/display/IS500/Configuring+Single+Sign-On+with+SAML+2.0#ConfiguringSingleSign-OnwithSAML2.0-Prerequisites
 2. Deploy a travelocity web app (travelocity.com.war) in tomcat.
-3. Change the configurations according to the environment in *user.properties* under *solution21*. (solution21/src/test/resources/user.properties)
+3. Change the configurations according to the environment in *user.properties* under *21*. (scenario21/src/test/resources/user.properties)
 ```sh
 #Admin User information
 admin_username=admin
@@ -62,7 +62,7 @@ tomcatPort=8080
 travelocityIssuer=travelocity.com
 ```
 ##### Run the test
-To run solution 21 run the below command.
+To run scenario 21 run the below command.
 ```sh
 mvn clean verify --fae
 ```

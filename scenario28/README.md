@@ -6,7 +6,7 @@ Following scenarios are covered through this automation script.
 - The business users need to login to multiple service providers via multiple identity providers.
 - Rather than providing a multi-login option page with all the available identity provider, once redirected from the service provider, the system should find out who the identity provider corresponding to the user and directly redirect the user there.
 
-### Solution:
+### Scenario:
 - Deploy WSO2 Identity Server as an identity provider and register all the service providers and identity providers.
 - For each identity provider, specify a home realm identifier.
 - The service provider prior to redirecting the user to the WSO2 Identity Server must find out the home realm identifier corresponding to the user and send it as a query parameter.
@@ -49,7 +49,7 @@ ex:-> sh 28-pre-scenario-steps.sh
 
 Run jmeter scripts in command line (still on the same terminal)
 ```
-ex:-> [path to jmeter]/bin/jmeter -n -t 01-Solution-28-HomeRelam.jmx -p [path to user.properties]/user.properties -l solution28results.jtl
+ex:-> [path to jmeter]/bin/jmeter -n -t 01-Scenario-28-HomeRelam.jmx -p [path to user.properties]/user.properties -l scenario28results.jtl
 ```
 
 Follow the step [2] above. 

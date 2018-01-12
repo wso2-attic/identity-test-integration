@@ -1,6 +1,6 @@
 # Scenario 18 - Fine-grained access control for service providers
 
-### SOLUTION DESCRIPTION
+### SCENARIO DESCRIPTION
 
 ##### Problem:
 
@@ -12,7 +12,7 @@
 
 -Another service provider may have a requirement that only the users from North America should be able to login into the system.
 
-##### Solution:
+##### Scenario:
 
 -Deploy WSO2 Identity Server as the Identity Provider and register all the service providers.
 
@@ -33,7 +33,7 @@ svn co http://svn.wso2.org/repos/wso2/carbon/platform/branches/turing/products/i
 [1]https://docs.wso2.com/display/IS500/Configuring+Single+Sign-On+with+SAML+2.0#ConfiguringSingleSign-OnwithSAML2.0-Prerequisites
 2.  Deploy a travelocity web app (travelocity.com.war) in tomcat.
 3. Take a copy of travelocity.com.war and rename it as Sol18travelocity.com.war if you are goin gto customise it as Sol18travelocity.com.war. Otherwise you can continue with step 5.
-4. Once the Sol18travelocity web app is deployed, replace the travelocity.properties with solution18/src/test/resources/travelocity.properties
+4. Once the Sol18travelocity web app is deployed, replace the travelocity.properties with scenario18/src/test/resources/travelocity.properties
 5. Edit the travelocity.properties with correct values as given in its comments.
 
 #URIs to skip SSOAgentFilter; comma separated values
@@ -54,7 +54,7 @@ SAML2.AssertionConsumerURL=http://192.168.57.31:8080/Sol18travelocity.com/home.j
 SAML2.IdPURL=https://is.dev.wso2.org/samlsso
 
 5. Restart the tomcat or web app.
-6. Go to solution18/src/test/resources/user.properties file and do the configurations as below.
+6. Go to scenario18/src/test/resources/user.properties file and do the configurations as below.
 
 ###### IS Server
 host=< HOST NAME OF IS SERVER >
@@ -83,7 +83,7 @@ tomcatPort= <PORT OF THE TOMCAT> 8080
 
 ### Run the test
 
-To run solution 18 run the below command.
+To run scenario 18 run the below command.
 
 ```bash
 mvn clean verify --fae

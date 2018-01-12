@@ -1,4 +1,4 @@
-**Jmeter script available for solution25 on [1]**
+**Jmeter script available for scenario25 on [1]**
 
 **Prerequisites**
 
