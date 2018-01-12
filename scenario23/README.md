@@ -30,4 +30,4 @@ Using request path authenticator to authenticate requests that contain the userâ
 
 ***authentication request that contain the userâ€™s credentials.*
 
-[1] https://medium.facilelogin.com/thirty-scenario-patterns-with-the-wso2-identity-server-16f9fd0c0389
+[1] https://medium.facilelogin.com/thirty-solution-patterns-with-the-wso2-identity-server-16f9fd0c0389
