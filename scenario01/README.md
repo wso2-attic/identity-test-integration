@@ -1,4 +1,4 @@
-# Solution 01 - Single Sign On between multiple heterogeneous identity federation protocols
+# Scenario 01 - Single Sign On between multiple heterogeneous identity federation protocols
 
 ## SOLUTION DESCRIPTION
 
@@ -10,7 +10,7 @@
 
 - A user logs into any of the service providers should be automatically logged into the rest.
 
-### Solution:
+### Scenario:
 
 - Deploy WSO2 Identity Server over the enterprise user store.
 
@@ -23,12 +23,12 @@ Products: WSO2 Identity Server 5.0.0+
 
 ### Configurations
 
-1. Go to solution01/src/test/resources/user.properties file and change the values of configurations as below.
+1. Go to scenario01/src/test/resources/user.properties file and change the values of configurations as below.
 
 #### IS Server
 serverHost=< HOST NAME OF IS SERVER > <br />
 serverPort=< PORT OF THE IS SERVER > <br />
-solutionName=< Solution Name > <br />
+scenarioName=< Scenario Name > <br />
 
 #### User Management
 adminusername=< ADMIN USER NAME > <br />
@@ -67,7 +67,7 @@ tomcatPort=< PORT OF THE TOMCAT SERVER > <br />
 
 ### How to Run
 
-To try out the solution 01, run the below command.
+To try out the scenario 01, run the below command.
 
 ```bash
 mvn clean verify --fae

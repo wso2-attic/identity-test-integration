@@ -1,4 +1,4 @@
-Solution 12  Claim mapper
+Scenario 12  Claim mapper
 
 
 Problem:
@@ -7,7 +7,7 @@ The claim dialect used by the service provider is not compatible with the defaul
 The claim dialect used by the federated (external) identity provider is not compatible with the default claim dialect used by the WSO2 Identity Server.
 
 
-Solution:
+Scenario:
 
 Represent all the service providers in the WSO2 Identity Server and configure the corresponding inbound authenticators (SAML, OpenID, OIDC, WS-Federation).
 For each service provider define custom claims and map them to the WSO2 default claim dialect.
@@ -30,7 +30,7 @@ Edit the travelocity.properties with correct values as given in its comments.
 #The URL of the SAML 2.0 Identity Provider #Replace with IS host/port SAML2.IdPURL=https://is.dev.wso2.org/samlsso
 
 Restart the tomcat or web app.
-Go to solution12/src/test/resources/user.properties file and do the configurations as below.
+Go to scenario12/src/test/resources/user.properties file and do the configurations as below.
 
 IS Server
 
@@ -62,7 +62,7 @@ tomcatPort= 8080
 
 Run the test
 
-To run solution 12 run the below command.
+To run scenario 12 run the below command.
 
 mvn clean verify --fae
 

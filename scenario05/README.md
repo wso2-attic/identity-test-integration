@@ -1,4 +1,4 @@
-# Solution 05 - Multi-factor authentication for WSO2 Identity Server management console
+# Scenario 05 - Multi-factor authentication for WSO2 Identity Server management console
 
 ## SOLUTION DESCRIPTION
 
@@ -9,7 +9,7 @@
 -In other words, the Identity Server’s Management Console itself must be protected with MFA.
 
 
-### Solution:
+### Scenario:
 
 -Introduce WSO2 Identity Server as a service provider to itself.
 
@@ -22,7 +22,7 @@ Products: WSO2 Identity Server 5.0.0+
 
 ### Configurations
 
-1. Go to solution05/src/test/resources/user.properties file and change the values of configurations as below.
+1. Go to scenario05/src/test/resources/user.properties file and change the values of configurations as below.
 
 #### IS Server
 serverHost=< HOST NAME OF IS SERVER > <br />
@@ -61,7 +61,7 @@ FBPassword= < PASSWORD OF AUTHORIZED FB USER > <br />
 
 #### How to Run
 
-To try out the solution 05, run the below command.
+To try out the scenario 05, run the below command.
 
 ```bash
 mvn clean verify --fae
