@@ -21,94 +21,100 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="isHost" elementType="Argument">
             <stringProp name="Argument.name">isHost</stringProp>
-            <stringProp name="Argument.value">is540B.qa.com</stringProp>
+            <stringProp name="Argument.value">${__property(serverHost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="isPort" elementType="Argument">
             <stringProp name="Argument.name">isPort</stringProp>
-            <stringProp name="Argument.value">443</stringProp>
+            <stringProp name="Argument.value">${__property(serverPort)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="host" elementType="Argument">
             <stringProp name="Argument.name">host</stringProp>
-            <stringProp name="Argument.value">is540B.qa.com</stringProp>
+            <stringProp name="Argument.value">${__property(host)}</stringProp>
             <stringProp name="Argument.desc">Permission for role</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="travelocityApp" elementType="Argument">
             <stringProp name="Argument.name">travelocityApp</stringProp>
-            <stringProp name="Argument.value">travelocity.com</stringProp>
+            <stringProp name="Argument.value">${__property(travelocityApp)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="travelocityIssuer" elementType="Argument">
             <stringProp name="Argument.name">travelocityIssuer</stringProp>
-            <stringProp name="Argument.value">travelocity.com</stringProp>
+            <stringProp name="Argument.value">${__property(travelocityIssuer)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="tomcatHost" elementType="Argument">
             <stringProp name="Argument.name">tomcatHost</stringProp>
-            <stringProp name="Argument.value">192.168.48.15</stringProp>
+            <stringProp name="Argument.value">${__property(tomcatHost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="tomcatPort" elementType="Argument">
             <stringProp name="Argument.name">tomcatPort</stringProp>
-            <stringProp name="Argument.value">8080</stringProp>
+            <stringProp name="Argument.value">${__property(tomcatPort)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="sp1" elementType="Argument">
             <stringProp name="Argument.name">sp1</stringProp>
-            <stringProp name="Argument.value">travelocity.com</stringProp>
+            <stringProp name="Argument.value">${__property(sp1)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="sp_target" elementType="Argument">
             <stringProp name="Argument.name">sp_target</stringProp>
-            <stringProp name="Argument.value">authenticationendpoint/login.do?</stringProp>
+            <stringProp name="Argument.value">${__property(spTarget)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="admin_username" elementType="Argument">
             <stringProp name="Argument.name">admin_username</stringProp>
-            <stringProp name="Argument.value">admin@wso2.com</stringProp>
+            <stringProp name="Argument.value">${__property(adminusername)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="admin_password" elementType="Argument">
             <stringProp name="Argument.name">admin_password</stringProp>
-            <stringProp name="Argument.value">admin</stringProp>
+            <stringProp name="Argument.value">${__property(adminpassword)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="sp1Description" elementType="Argument">
             <stringProp name="Argument.name">sp1Description</stringProp>
-            <stringProp name="Argument.value">This is the Scenario 29 - Travelocity SP</stringProp>
+            <stringProp name="Argument.value">${__property(spDescription)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="secondary_username" elementType="Argument">
             <stringProp name="Argument.name">secondary_username</stringProp>
-            <stringProp name="Argument.value">secondaryadmin@wso2.com</stringProp>
+            <stringProp name="Argument.value">${__property(secondaryUsername)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">secondaryadmin</stringProp>
           </elementProp>
           <elementProp name="secondary_password" elementType="Argument">
             <stringProp name="Argument.name">secondary_password</stringProp>
-            <stringProp name="Argument.value">secondaryadmin</stringProp>
+            <stringProp name="Argument.value">${__property(secondaryPassword)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">secondaryadmin</stringProp>
           </elementProp>
           <elementProp name="secondary_userstore" elementType="Argument">
             <stringProp name="Argument.name">secondary_userstore</stringProp>
-            <stringProp name="Argument.value">SECONDARYJDBC</stringProp>
+            <stringProp name="Argument.value">${__property(secondaryUserstore)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">SECONDARYJDBC</stringProp>
           </elementProp>
           <elementProp name="PolicyId" elementType="Argument">
             <stringProp name="Argument.name">PolicyId</stringProp>
-            <stringProp name="Argument.value">TravelocityAccessPolicy</stringProp>
+            <stringProp name="Argument.value">${__property(PolicyId)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">TravelocityAccessPolicy</stringProp>
           </elementProp>
           <elementProp name="secondary_role" elementType="Argument">
             <stringProp name="Argument.name">secondary_role</stringProp>
-            <stringProp name="Argument.value">adminRoleSecondary</stringProp>
+            <stringProp name="Argument.value">${__property(secondaryRole)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">adminRoleSecondary</stringProp>
           </elementProp>
           <elementProp name="secondary_admin" elementType="Argument">
             <stringProp name="Argument.name">secondary_admin</stringProp>
-            <stringProp name="Argument.value">admin1@wso2.com</stringProp>
+            <stringProp name="Argument.value">${__property(secondaryAdmin)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">admin1@wso2.com</stringProp>
           </elementProp>
         </collectionProp>
       </Arguments>
@@ -138,6 +144,100 @@ byte[] encodedUsernamePassword = Base64.encodeBase64(&quot;${admin_username}:${a
 vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));</stringProp>
         </BeanShellPreProcessor>
         <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create a Secondary User Store" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xsd=&quot;http://org.apache.axis2/xsd&quot; xmlns:xsd1=&quot;http://dto.configuration.store.user.identity.carbon.wso2.org/xsd&quot;&gt;&#xd;
+   &lt;soapenv:Header/&gt;&#xd;
+   &lt;soapenv:Body&gt;&#xd;
+      &lt;xsd:addUserStore&gt;&#xd;
+         &lt;xsd:userStoreDTO&gt;&#xd;
+            &lt;xsd1:className&gt;org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager&lt;/xsd1:className&gt;&#xd;
+            &lt;xsd1:description&gt;test&lt;/xsd1:description&gt;&#xd;
+            &lt;xsd1:disabled&gt;false&lt;/xsd1:disabled&gt;&#xd;
+            &lt;xsd1:domainId&gt;SECONDARYJDBC&lt;/xsd1:domainId&gt;&#xd;
+		  &lt;xsd1:properties&gt;&#xd;
+               &lt;xsd1:name&gt;url&lt;/xsd1:name&gt;&#xd;
+               &lt;xsd1:value&gt;jdbc:mysql://carbondb.mysql-wso2.com:3306/sol29userdb&lt;/xsd1:value&gt;&#xd;
+            &lt;/xsd1:properties&gt;&#xd;
+            &lt;xsd1:properties&gt;&#xd;
+               &lt;xsd1:name&gt;userName&lt;/xsd1:name&gt;&#xd;
+               &lt;xsd1:value&gt;root&lt;/xsd1:value&gt;&#xd;
+            &lt;/xsd1:properties&gt;&#xd;
+            &lt;xsd1:properties&gt;&#xd;
+               &lt;xsd1:name&gt;password&lt;/xsd1:name&gt;&#xd;
+               &lt;xsd1:value&gt;root&lt;/xsd1:value&gt;&#xd;
+            &lt;/xsd1:properties&gt;&#xd;
+            &lt;xsd1:properties&gt;&#xd;
+               &lt;xsd1:name&gt;driverName&lt;/xsd1:name&gt;&#xd;
+               &lt;xsd1:value&gt;com.mysql.jdbc.Driver&lt;/xsd1:value&gt;&#xd;
+            &lt;/xsd1:properties&gt;&#xd;
+            &lt;xsd1:properties&gt;&#xd;
+               &lt;xsd1:name&gt;maxActive&lt;/xsd1:name&gt;&#xd;
+               &lt;xsd1:value&gt;50&lt;/xsd1:value&gt;&#xd;
+            &lt;/xsd1:properties&gt;&#xd;
+            &lt;xsd1:properties&gt;&#xd;
+               &lt;xsd1:name&gt;maxWait&lt;/xsd1:name&gt;&#xd;
+               &lt;xsd1:value&gt;60000&lt;/xsd1:value&gt;&#xd;
+            &lt;/xsd1:properties&gt;&#xd;
+            &lt;xsd1:properties&gt;&#xd;
+               &lt;xsd1:name&gt;validationQuery&lt;/xsd1:name&gt;&#xd;
+               &lt;xsd1:value&gt;SELECT 1&lt;/xsd1:value&gt;&#xd;
+            &lt;/xsd1:properties&gt;&#xd;
+         &lt;/xsd:userStoreDTO&gt;&#xd;
+      &lt;/xsd:addUserStore&gt;&#xd;
+   &lt;/soapenv:Body&gt;&#xd;
+&lt;/soapenv:Envelope&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${isHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${isPort}</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/services/UserStoreConfigAdminService</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">Create a Secondary User Store</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">SOAPAction</stringProp>
+                <stringProp name="Header.value">urn:addUserStore</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">text/xml</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Basic ${base64HeaderValue}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="202 Accepted HTTP Code Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-782391738">HTTP/1.1 202 Accepted</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create a role in Secondary UserStore" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -174,7 +274,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));</st
           <stringProp name="HTTPSampler.port">${isPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/services/RemoteUserStoreManagerService.RemoteUserStoreManagerServiceHttpsSoap12Endpoint/</stringProp>
+          <stringProp name="HTTPSampler.path">/services/RemoteUserStoreManagerService</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -249,7 +349,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));</st
           <stringProp name="HTTPSampler.port">${isPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/services/RemoteUserStoreManagerService.RemoteUserStoreManagerServiceHttpsSoap12Endpoint/</stringProp>
+          <stringProp name="HTTPSampler.path">/services/RemoteUserStoreManagerService</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -323,7 +423,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));</st
           <stringProp name="HTTPSampler.port">${isPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/services/IdentitySAMLSSOConfigService.IdentitySAMLSSOConfigServiceHttpsSoap11Endpoint/</stringProp>
+          <stringProp name="HTTPSampler.path">/services/IdentitySAMLSSOConfigService</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -382,7 +482,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));</st
           <stringProp name="HTTPSampler.port">${isPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/services/IdentitySAMLSSOConfigService.IdentitySAMLSSOConfigServiceHttpsSoap11Endpoint/</stringProp>
+          <stringProp name="HTTPSampler.path">/services/IdentitySAMLSSOConfigService</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -457,7 +557,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));</st
           <stringProp name="HTTPSampler.port">${isPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService.IdentityApplicationManagementServiceHttpsSoap11Endpoint/</stringProp>
+          <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -518,7 +618,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));</st
           <stringProp name="HTTPSampler.port">${isPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService.IdentityApplicationManagementServiceHttpsSoap11Endpoint/</stringProp>
+          <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -752,7 +852,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));</st
           <stringProp name="HTTPSampler.port">${isPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/services/EntitlementPolicyAdminService.EntitlementPolicyAdminServiceHttpsSoap11Endpoint/</stringProp>
+          <stringProp name="HTTPSampler.path">/services/EntitlementPolicyAdminService</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -822,7 +922,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));</st
           <stringProp name="HTTPSampler.port">${isPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/services/EntitlementPolicyAdminService.EntitlementPolicyAdminServiceHttpsSoap11Endpoint/</stringProp>
+          <stringProp name="HTTPSampler.path">/services/EntitlementPolicyAdminService</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -888,7 +988,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));</st
           <stringProp name="HTTPSampler.port">${isPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/services/EntitlementPolicyAdminService.EntitlementPolicyAdminServiceHttpsSoap11Endpoint/</stringProp>
+          <stringProp name="HTTPSampler.path">/services/EntitlementPolicyAdminService</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
