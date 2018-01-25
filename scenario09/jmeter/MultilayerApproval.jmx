@@ -28,145 +28,6 @@
       <hashTree>
         <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
           <collectionProp name="Arguments.arguments">
-            <elementProp name="serverHost" elementType="Argument">
-              <stringProp name="Argument.name">serverHost</stringProp>
-              <stringProp name="Argument.value">localhost</stringProp>
-              <stringProp name="Argument.desc">Hostname of the server</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="serverPort" elementType="Argument">
-              <stringProp name="Argument.name">serverPort</stringProp>
-              <stringProp name="Argument.value">9443</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-              <stringProp name="Argument.desc">Server Port</stringProp>
-            </elementProp>
-            <elementProp name="adminUsername" elementType="Argument">
-              <stringProp name="Argument.name">adminUsername</stringProp>
-              <stringProp name="Argument.value">admin</stringProp>
-              <stringProp name="Argument.desc">Username of the Admin user</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="adminPassword" elementType="Argument">
-              <stringProp name="Argument.name">adminPassword</stringProp>
-              <stringProp name="Argument.value">admin</stringProp>
-              <stringProp name="Argument.desc">Password of the Admin user</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="authorityUser1" elementType="Argument">
-              <stringProp name="Argument.name">authorityUser1</stringProp>
-              <stringProp name="Argument.value">manageruser</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="authorityUser2" elementType="Argument">
-              <stringProp name="Argument.name">authorityUser2</stringProp>
-              <stringProp name="Argument.value">directoruser</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="authorityUser1Password" elementType="Argument">
-              <stringProp name="Argument.name">authorityUser1Password</stringProp>
-              <stringProp name="Argument.value">manageruser</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="authorityUser2Password" elementType="Argument">
-              <stringProp name="Argument.name">authorityUser2Password</stringProp>
-              <stringProp name="Argument.value">directoruser</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="authorityRole1" elementType="Argument">
-              <stringProp name="Argument.name">authorityRole1</stringProp>
-              <stringProp name="Argument.value">Manager</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="authorityRole2" elementType="Argument">
-              <stringProp name="Argument.name">authorityRole2</stringProp>
-              <stringProp name="Argument.value">Director</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="workflowUser" elementType="Argument">
-              <stringProp name="Argument.name">workflowUser</stringProp>
-              <stringProp name="Argument.value">newworkflowUser1234</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="workflowRole" elementType="Argument">
-              <stringProp name="Argument.name">workflowRole</stringProp>
-              <stringProp name="Argument.value">Employee</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="workflowUserPassword" elementType="Argument">
-              <stringProp name="Argument.name">workflowUserPassword</stringProp>
-              <stringProp name="Argument.value">welcome</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="workFlowName" elementType="Argument">
-              <stringProp name="Argument.name">workFlowName</stringProp>
-              <stringProp name="Argument.value">Approve_User_Creation_WorkFlow</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="workFlowId" elementType="Argument">
-              <stringProp name="Argument.name">workFlowId</stringProp>
-              <stringProp name="Argument.value">d1eec163-1123-4ffc-8d37-5683efacf635</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="workFlowAssociationName" elementType="Argument">
-              <stringProp name="Argument.name">workFlowAssociationName</stringProp>
-              <stringProp name="Argument.value">User_Approval_Workflow_Association</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="wAEventID" elementType="Argument">
-              <stringProp name="Argument.name">wAEventID</stringProp>
-              <stringProp name="Argument.value">ADD_USER</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="wACondition" elementType="Argument">
-              <stringProp name="Argument.name">wACondition</stringProp>
-              <stringProp name="Argument.value">//*[local-name()=&apos;parameter&apos;][@name=&apos;Roles&apos;]/*[local-name()=&apos;value&apos;]/*[local-name()=&apos;itemValue&apos;]/text()=&apos;Employee&apos;</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="bpsProfileManagerHostURL" elementType="Argument">
-              <stringProp name="Argument.name">bpsProfileManagerHostURL</stringProp>
-              <stringProp name="Argument.value">https://localhost:9443/services </stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="bpsWorkerHostURL" elementType="Argument">
-              <stringProp name="Argument.name">bpsWorkerHostURL</stringProp>
-              <stringProp name="Argument.value">https://localhost:9443/services </stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="bpsProfileName" elementType="Argument">
-              <stringProp name="Argument.name">bpsProfileName</stringProp>
-              <stringProp name="Argument.value">embeded_bps</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="bpsProfileUsername" elementType="Argument">
-              <stringProp name="Argument.name">bpsProfileUsername</stringProp>
-              <stringProp name="Argument.value">admin</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="bpsProfilePassword" elementType="Argument">
-              <stringProp name="Argument.name">bpsProfilePassword</stringProp>
-              <stringProp name="Argument.value">admin</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="workflowUserEmail" elementType="Argument">
-              <stringProp name="Argument.name">workflowUserEmail</stringProp>
-              <stringProp name="Argument.value">synapse.demo.1@gmail.com </stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="authorityUser2Email" elementType="Argument">
-              <stringProp name="Argument.name">authorityUser2Email</stringProp>
-              <stringProp name="Argument.value">synapse.demo.1@gmail.com </stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="authorityUser1Email" elementType="Argument">
-              <stringProp name="Argument.name">authorityUser1Email</stringProp>
-              <stringProp name="Argument.value">synapse.demo.1@gmail.com </stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-          </collectionProp>
-        </Arguments>
-        <hashTree/>
-        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="false">
-          <collectionProp name="Arguments.arguments">
             <elementProp name="adminPassword" elementType="Argument">
               <stringProp name="Argument.name">adminPassword</stringProp>
               <stringProp name="Argument.value">${__property(adminUsername)}</stringProp>
@@ -1359,6 +1220,13 @@
               <stringProp name="HTTPSampler.response_timeout"></stringProp>
             </HTTPSamplerProxy>
             <hashTree>
+              <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+                <collectionProp name="CookieManager.cookies"/>
+                <boolProp name="CookieManager.clearEachIteration">true</boolProp>
+                <stringProp name="CookieManager.policy">standard</stringProp>
+                <stringProp name="CookieManager.implementation">org.apache.jmeter.protocol.http.control.HC4CookieHandler</stringProp>
+              </CookieManager>
+              <hashTree/>
               <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
                 <collectionProp name="HeaderManager.headers">
                   <elementProp name="" elementType="Header">
@@ -1621,7 +1489,7 @@
               </XPathExtractor>
               <hashTree/>
               <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
-                <stringProp name="ConstantTimer.delay">6050</stringProp>
+                <stringProp name="ConstantTimer.delay">6000</stringProp>
               </ConstantTimer>
               <hashTree/>
             </hashTree>
@@ -1742,7 +1610,7 @@
               </HeaderManager>
               <hashTree/>
               <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
-                <stringProp name="ConstantTimer.delay">600</stringProp>
+                <stringProp name="ConstantTimer.delay">6000</stringProp>
               </ConstantTimer>
               <hashTree/>
             </hashTree>
@@ -1827,17 +1695,10 @@
               </ResponseAssertion>
               <hashTree/>
               <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
-                <stringProp name="ConstantTimer.delay">1200</stringProp>
+                <stringProp name="ConstantTimer.delay">6000</stringProp>
               </ConstantTimer>
               <hashTree/>
             </hashTree>
-            <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
-              <collectionProp name="CookieManager.cookies"/>
-              <boolProp name="CookieManager.clearEachIteration">false</boolProp>
-              <stringProp name="CookieManager.policy">standard</stringProp>
-              <stringProp name="CookieManager.implementation">org.apache.jmeter.protocol.http.control.HC4CookieHandler</stringProp>
-            </CookieManager>
-            <hashTree/>
           </hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="[Verification] Authenticating the User after approval" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
