@@ -31,7 +31,7 @@ In the provided solution script, following value set and happy/unhappy paths are
 Configurations
 
 1. Deploy a travelocity web app (travelocity.com.war) in tomcat. 
-2. Deploy STS web App in tomcat. 
+2. Deploy STS web App in tomcat. Download it from https://github.com/isuruuy429/warfiles
 Place PassiveSTSSampleApp.war file in tomcat/webapps folder. In /PassiveSTSSampleApp/WEB-INF/web.xml file do the following changes. 
 
 	idpUrl=https://localhost:9443/passivests
