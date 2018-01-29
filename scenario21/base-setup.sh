@@ -36,7 +36,7 @@ SAML2IdPEntityId=$serverHost
 mkdir $scriptPath/../temp
 #coping travalocity app to temp direcory
 
-cp -r $scriptPath/../../../../apps/sso-agent-sample $scriptPath/../temp/
+cp -r $scriptPath/../../apps/sso-agent-sample $scriptPath/../temp/
 cd $scriptPath/../temp/sso-agent-sample/
 #build travelocity app from source
 mvn clean install
