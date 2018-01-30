@@ -19,9 +19,8 @@ scriptPath=$(cd "$prgdir"; pwd)
 
 echo "working directory : "$scriptPath
 #run base-setup.sh to deploy artifacts
-source $scriptPath/../teardown.sh
+. $scriptPath/../teardown.sh
 
 
 echo "post-steps are done..."
-
 
