@@ -24,4 +24,3 @@ source $scriptPath/../teardown.sh
 
 echo "post-steps are done..."
 
-
