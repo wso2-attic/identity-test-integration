@@ -19,23 +19,23 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="host_ip" elementType="Argument">
             <stringProp name="Argument.name">host_ip</stringProp>
-            <stringProp name="Argument.value">localhost</stringProp>
+            <stringProp name="Argument.value">${__property(serverHost)}</stringProp>
             <stringProp name="Argument.desc">change it to cluster domain</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="host_port" elementType="Argument">
             <stringProp name="Argument.name">host_port</stringProp>
-            <stringProp name="Argument.value">9444</stringProp>
+            <stringProp name="Argument.value">${__property(serverPort)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="username" elementType="Argument">
             <stringProp name="Argument.name">username</stringProp>
-            <stringProp name="Argument.value">kaviadmin@wso3.com</stringProp>
+            <stringProp name="Argument.value">${__property(username)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="password" elementType="Argument">
             <stringProp name="Argument.name">password</stringProp>
-            <stringProp name="Argument.value">kaviadmin</stringProp>
+            <stringProp name="Argument.value">${__property(password)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -45,18 +45,18 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="applicationName3" elementType="Argument">
             <stringProp name="Argument.name">applicationName3</stringProp>
-            <stringProp name="Argument.value">OAuthBearerAppnew4</stringProp>
+            <stringProp name="Argument.value">${__property(applicationName3)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="callbackUrl" elementType="Argument">
             <stringProp name="Argument.name">callbackUrl</stringProp>
-            <stringProp name="Argument.value">http://mycallback</stringProp>
+            <stringProp name="Argument.value">${__property(callbackUrl)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">http://localhost:8080/playground2/oauth2client</stringProp>
           </elementProp>
           <elementProp name="spDescription" elementType="Argument">
             <stringProp name="Argument.name">spDescription</stringProp>
-            <stringProp name="Argument.value">spDescription</stringProp>
+            <stringProp name="Argument.value">${__property(spDescription)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
