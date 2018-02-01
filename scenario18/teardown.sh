@@ -20,9 +20,12 @@ tomcatHost=$tomcatHost
 tomcatPort=$tomcatPort
 tomcatUsername=scriptuser
 tomcatPassword=scriptuser
-appName="travelocity.com"
+appName1="travelocity.com"
+appName2="avis.com"
 
 #undeploy webapp from tomcat
-curl http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/undeploy?path=/$appName
+curl http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/undeploy?path=/$appName1
+curl http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/undeploy?path=/$appName2
+
 #clear temp direcotry
 rm -rf $scriptPath/../temp/
