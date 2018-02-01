@@ -122,6 +122,16 @@
             <stringProp name="Argument.value">authn_travelocity_for_finance_team_policy</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
+          <elementProp name="financerole" elementType="Argument">
+            <stringProp name="Argument.name">financerole</stringProp>
+            <stringProp name="Argument.value">finance</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="salesrole" elementType="Argument">
+            <stringProp name="Argument.name">salesrole</stringProp>
+            <stringProp name="Argument.value">sales</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
         </collectionProp>
       </Arguments>
       <hashTree/>
@@ -203,7 +213,7 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:addRole&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;xsd:roleName&gt;finance&lt;/xsd:roleName&gt;&#xd;
+         &lt;xsd:roleName&gt;${financerole}&lt;/xsd:roleName&gt;&#xd;
          &lt;!--Zero or more repetitions:--&gt;&#xd;
             &lt;xsd:userList&gt;admin&lt;/xsd:userList&gt;&#xd;
          &lt;xsd:permissions&gt;${permission}&lt;/xsd:permissions&gt;&#xd;
@@ -256,7 +266,7 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:addRole&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;xsd:roleName&gt;sales&lt;/xsd:roleName&gt;&#xd;
+         &lt;xsd:roleName&gt;${salesrole}&lt;/xsd:roleName&gt;&#xd;
          &lt;!--Zero or more repetitions:--&gt;&#xd;
            &lt;xsd:userList&gt;admin&lt;/xsd:userList&gt;&#xd;
          &lt;xsd:permissions&gt;${permission}&lt;/xsd:permissions&gt;&#xd;
@@ -311,7 +321,7 @@
          &lt;xsd:userName&gt;${user1}&lt;/xsd:userName&gt;&#xd;
          &lt;xsd:password&gt;${user1password}&lt;/xsd:password&gt;&#xd;
          &lt;!--Zero or more repetitions:--&gt;&#xd;
-         &lt;xsd:roles&gt;finance&lt;/xsd:roles&gt;&#xd;
+         &lt;xsd:roles&gt;${financerole}&lt;/xsd:roles&gt;&#xd;
          &lt;!--Zero or more repetitions:--&gt;&#xd;
        &lt;xsd:profileName&gt;Default&lt;/xsd:profileName&gt;&#xd;
       &lt;/xsd:addUser&gt;&#xd;
@@ -363,7 +373,7 @@
          &lt;xsd:userName&gt;${user2}&lt;/xsd:userName&gt;&#xd;
          &lt;xsd:password&gt;${user2password}&lt;/xsd:password&gt;&#xd;
          &lt;!--Zero or more repetitions:--&gt;&#xd;
-         &lt;xsd:roles&gt;sales&lt;/xsd:roles&gt;&#xd;
+         &lt;xsd:roles&gt;${salesrole}&lt;/xsd:roles&gt;&#xd;
          &lt;!--Zero or more repetitions:--&gt;&#xd;
        &lt;xsd:profileName&gt;Default&lt;/xsd:profileName&gt;&#xd;
       &lt;/xsd:addUser&gt;&#xd;
@@ -704,9 +714,7 @@
                   &lt;xsd1:inboundAuthKey&gt;${travelocityIssuer}&lt;/xsd1:inboundAuthKey&gt;&#xd;
                   &lt;xsd1:inboundAuthType&gt;passivests&lt;/xsd1:inboundAuthType&gt;&#xd;
                   &lt;xsd1:inboundConfigType&gt;standardAPP&lt;/xsd1:inboundConfigType&gt;&#xd;
-               &lt;/xsd1:inboundAuthenticationRequestConfigs&gt;&#xd;
-&#xd;
-               &#xd;
+               &lt;/xsd1:inboundAuthenticationRequestConfigs&gt;       &#xd;
                         &#xd;
            &lt;/xsd1:inboundAuthenticationConfig&gt; &#xd;
             &lt;xsd1:inboundProvisioningConfig&gt; &#xd;
@@ -1173,7 +1181,7 @@
             &lt;!--Optional:--&gt;&#xd;
             &lt;xsd1:lastModifiedUser&gt;true&lt;/xsd1:lastModifiedUser&gt;&#xd;
             &lt;!--Optional:--&gt;&#xd;
-            &lt;xsd1:policy&gt;&lt;![CDATA[&lt;Policy xmlns=&quot;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17&quot;  PolicyId=&quot;${policyId}&quot; RuleCombiningAlgId=&quot;urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable&quot; Version=&quot;1.0&quot;&gt;&lt;Description&gt;This policy authorizes employees of the finance team to the travelocity service provider in the authentication flow based on the roles of the user (defined by ROLE_1 and ROLE_2). Users who have at least one of the given roles, will be allowed and any others will be denied.&lt;/Description&gt;&lt;Target&gt;&lt;AnyOf&gt;&lt;AllOf&gt;&lt;Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;travelocity.com&lt;/AttributeValue&gt;&lt;AttributeDesignator AttributeId=&quot;http://wso2.org/identity/sp/sp-name&quot; Category=&quot;http://wso2.org/identity/sp&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot;&gt;&lt;/AttributeDesignator&gt;&lt;/Match&gt;&lt;Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;authenticate&lt;/AttributeValue&gt;&lt;AttributeDesignator AttributeId=&quot;http://wso2.org/identity/identity-action/action-name&quot; Category=&quot;http://wso2.org/identity/identity-action&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot;&gt;&lt;/AttributeDesignator&gt;&lt;/Match&gt;&lt;/AllOf&gt;&lt;/AnyOf&gt;&lt;/Target&gt;&lt;Rule Effect=&quot;Permit&quot; RuleId=&quot;permit_by_roles&quot;&gt;&lt;Condition&gt;&lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:or&quot;&gt;&lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-is-in&quot;&gt;&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;finance&lt;/AttributeValue&gt;&lt;AttributeDesignator AttributeId=&quot;http://wso2.org/claims/role&quot; Category=&quot;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot;&gt;&lt;/AttributeDesignator&gt;&lt;/Apply&gt;&lt;/Apply&gt;&lt;/Condition&gt;&lt;/Rule&gt;&lt;Rule Effect=&quot;Deny&quot; RuleId=&quot;deny_others&quot;&gt;&lt;/Rule&gt;&lt;/Policy&gt;]]&gt;&lt;/xsd1:policy&gt;&#xd;
+            &lt;xsd1:policy&gt;&lt;![CDATA[&lt;Policy xmlns=&quot;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17&quot;  PolicyId=&quot;${policyId}&quot; RuleCombiningAlgId=&quot;urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable&quot; Version=&quot;1.0&quot;&gt;&lt;Description&gt;This policy authorizes employees of the finance team to the travelocity service provider in the authentication flow based on the roles of the user (defined by ROLE_1 and ROLE_2). Users who have at least one of the given roles, will be allowed and any others will be denied.&lt;/Description&gt;&lt;Target&gt;&lt;AnyOf&gt;&lt;AllOf&gt;&lt;Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;${sp1}&lt;/AttributeValue&gt;&lt;AttributeDesignator AttributeId=&quot;http://wso2.org/identity/sp/sp-name&quot; Category=&quot;http://wso2.org/identity/sp&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot;&gt;&lt;/AttributeDesignator&gt;&lt;/Match&gt;&lt;Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;authenticate&lt;/AttributeValue&gt;&lt;AttributeDesignator AttributeId=&quot;http://wso2.org/identity/identity-action/action-name&quot; Category=&quot;http://wso2.org/identity/identity-action&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot;&gt;&lt;/AttributeDesignator&gt;&lt;/Match&gt;&lt;/AllOf&gt;&lt;/AnyOf&gt;&lt;/Target&gt;&lt;Rule Effect=&quot;Permit&quot; RuleId=&quot;permit_by_roles&quot;&gt;&lt;Condition&gt;&lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:or&quot;&gt;&lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-is-in&quot;&gt;&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;${financerole}&lt;/AttributeValue&gt;&lt;AttributeDesignator AttributeId=&quot;http://wso2.org/claims/role&quot; Category=&quot;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot;&gt;&lt;/AttributeDesignator&gt;&lt;/Apply&gt;&lt;/Apply&gt;&lt;/Condition&gt;&lt;/Rule&gt;&lt;Rule Effect=&quot;Deny&quot; RuleId=&quot;deny_others&quot;&gt;&lt;/Rule&gt;&lt;/Policy&gt;]]&gt;&lt;/xsd1:policy&gt;&#xd;
             &lt;!--Optional:--&gt;&#xd;
             &lt;xsd1:policyEditor&gt;true&lt;/xsd1:policyEditor&gt;&#xd;
             &lt;!--Zero or more repetitions:--&gt;&#xd;
@@ -1347,7 +1355,7 @@
           <hashTree/>
         </hashTree>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Login to travelocity by sol18user1" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Login to travelocity by user1 - should login" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -1363,13 +1371,6 @@
         <stringProp name="TestPlan.comments">This is the positive scenario - user1 should login</stringProp>
       </ThreadGroup>
       <hashTree>
-        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
-          <collectionProp name="CookieManager.cookies"/>
-          <boolProp name="CookieManager.clearEachIteration">false</boolProp>
-          <stringProp name="CookieManager.policy">standard</stringProp>
-          <stringProp name="CookieManager.implementation">org.apache.jmeter.protocol.http.control.HC4CookieHandler</stringProp>
-        </CookieManager>
-        <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="User 1Direct to travelocity Home Page Request" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
@@ -1528,7 +1529,7 @@
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Content Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-771860013">You are logged in as sol18user1</stringProp>
+              <stringProp name="-161010318">You are logged in as ${user1}</stringProp>
             </collectionProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
@@ -1582,7 +1583,7 @@
           <hashTree/>
         </hashTree>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Login to travelocity by sol18user2 - Should not login" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Login to travelocity by user2 - Should not login" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -1598,13 +1599,6 @@
         <stringProp name="TestPlan.comments">This is the negative scenario</stringProp>
       </ThreadGroup>
       <hashTree>
-        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
-          <collectionProp name="CookieManager.cookies"/>
-          <boolProp name="CookieManager.clearEachIteration">false</boolProp>
-          <stringProp name="CookieManager.policy">standard</stringProp>
-          <stringProp name="CookieManager.implementation">org.apache.jmeter.protocol.http.control.HC4CookieHandler</stringProp>
-        </CookieManager>
-        <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="User2 Direct to travelocity Home Page Request" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
@@ -1769,7 +1763,7 @@
           <hashTree/>
         </hashTree>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Login to avis by sol18user1" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Login to avis by user1 - Should Login" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -1785,13 +1779,6 @@
         <stringProp name="TestPlan.comments">This is the positive scenario - user1 should login</stringProp>
       </ThreadGroup>
       <hashTree>
-        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
-          <collectionProp name="CookieManager.cookies"/>
-          <boolProp name="CookieManager.clearEachIteration">false</boolProp>
-          <stringProp name="CookieManager.policy">standard</stringProp>
-          <stringProp name="CookieManager.implementation">org.apache.jmeter.protocol.http.control.HC4CookieHandler</stringProp>
-        </CookieManager>
-        <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="User 1Direct to travelocity Home Page Request" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
@@ -1950,7 +1937,7 @@
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Content Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-771860013">You are logged in as sol18user1</stringProp>
+              <stringProp name="-161010318">You are logged in as ${user1}</stringProp>
             </collectionProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
@@ -2004,7 +1991,7 @@
           <hashTree/>
         </hashTree>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Login to avis by sol18user2 - Should Login" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Login to avis by user2 - Should Login" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -2020,13 +2007,6 @@
         <stringProp name="TestPlan.comments">This is the positive scenario - user1 should login</stringProp>
       </ThreadGroup>
       <hashTree>
-        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
-          <collectionProp name="CookieManager.cookies"/>
-          <boolProp name="CookieManager.clearEachIteration">false</boolProp>
-          <stringProp name="CookieManager.policy">standard</stringProp>
-          <stringProp name="CookieManager.implementation">org.apache.jmeter.protocol.http.control.HC4CookieHandler</stringProp>
-        </CookieManager>
-        <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="User 1Direct to travelocity Home Page Request" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
