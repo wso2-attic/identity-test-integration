@@ -4,12 +4,12 @@
 appName1="travelocity.com"
 appName2="avis.com"
 tomcatHost=$tomcatHost
-tomcatPort=8080
+tomcatPort=$tomcatPort
 tomcatUsername=scriptuser
 tomcatPassword=scriptuser
 tomcatVersion=7
 serverHost=$serverHost
-serverPort=443
+serverPort=$serverPort
 solutionPath=/
 
 #web app properties
@@ -27,7 +27,7 @@ mkdir $scriptPath/../temp
 
 #coping sso sample app to temp direcory
 
-cp -r $scriptPath/../../../../apps/sso-agent-sample $scriptPath/../temp/
+cp -r $scriptPath/../../apps/sso-agent-sample $scriptPath/../temp/
 cd $scriptPath/../temp/sso-agent-sample/
 
 #build travelocity app from source

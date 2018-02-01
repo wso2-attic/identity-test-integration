@@ -15,12 +15,12 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="host_ip" elementType="Argument">
             <stringProp name="Argument.name">host_ip</stringProp>
-            <stringProp name="Argument.value">${__property(severHost)}</stringProp>
+            <stringProp name="Argument.value">${__property(serverHost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="host_port" elementType="Argument">
             <stringProp name="Argument.name">host_port</stringProp>
-            <stringProp name="Argument.value">${__property(severPort)}</stringProp>
+            <stringProp name="Argument.value">${__property(serverPort)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="username" elementType="Argument">
@@ -514,5 +514,9 @@ byte[] encryptedUid = Base64.encodeBase64(credentilas.getBytes());
       </ResultCollector>
       <hashTree/>
     </hashTree>
+    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench" enabled="true">
+      <boolProp name="WorkBench.save">true</boolProp>
+    </WorkBench>
+    <hashTree/>
   </hashTree>
 </jmeterTestPlan>
