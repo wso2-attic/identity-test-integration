@@ -14,18 +14,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+prgdir=$(dirname "$0")
+scriptPath=$(cd "$prgdir"; pwd)
 
-#these params need to be taken out
-#tomcat properties
-tomcatHost=$tomcatHost
-tomcatPort=$tomcatPort
-tomcatUsername=scriptuser
-tomcatPassword=scriptuser
-appName="travelocity.com"
-appName2="playground2"
+echo "working directory : "$scriptPath
+#run base-setup.sh to deploy artifacts
+source $scriptPath/../teardown.sh
 
-#undeploy webapp from tomcat
-curl http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/undeploy?path=/$appName
-curl http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/undeploy?path=/$appName2
-#clear temp direcotry
-rm -rf $scriptPath/../temp/
+
+echo "post-steps are done..."
+
+
