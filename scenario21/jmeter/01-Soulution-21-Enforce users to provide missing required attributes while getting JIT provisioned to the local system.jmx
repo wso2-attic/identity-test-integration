@@ -11,161 +11,161 @@
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
     </TestPlan>
     <hashTree>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="false">
         <collectionProp name="Arguments.arguments">
           <elementProp name="serverHost" elementType="Argument">
             <stringProp name="Argument.name">serverHost</stringProp>
-            <stringProp name="Argument.value">is540c.qa.com</stringProp>
+            <stringProp name="Argument.value">${__property(serverHost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="serverPort" elementType="Argument">
             <stringProp name="Argument.name">serverPort</stringProp>
-            <stringProp name="Argument.value">443</stringProp>
+            <stringProp name="Argument.value">${__property(serverPort)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="spName" elementType="Argument">
             <stringProp name="Argument.name">spName</stringProp>
-            <stringProp name="Argument.value">Travelocity2</stringProp>
+            <stringProp name="Argument.value">${__property(spName)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="spDescription" elementType="Argument">
             <stringProp name="Argument.name">spDescription</stringProp>
-            <stringProp name="Argument.value">travelocity</stringProp>
+            <stringProp name="Argument.value">${__property(spDescription)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="tomcatHost" elementType="Argument">
             <stringProp name="Argument.name">tomcatHost</stringProp>
-            <stringProp name="Argument.value">192.168.48.151</stringProp>
+            <stringProp name="Argument.value">${__property(tomcatHost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="tomcatPort" elementType="Argument">
             <stringProp name="Argument.name">tomcatPort</stringProp>
-            <stringProp name="Argument.value">8080</stringProp>
+            <stringProp name="Argument.value">${__property(tomcatPort)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="travelocityIssuer" elementType="Argument">
             <stringProp name="Argument.name">travelocityIssuer</stringProp>
-            <stringProp name="Argument.value">travelocity.com</stringProp>
+            <stringProp name="Argument.value">${__property(travelocityIssuer)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="permission" elementType="Argument">
             <stringProp name="Argument.name">permission</stringProp>
-            <stringProp name="Argument.value">/permission/admin</stringProp>
+            <stringProp name="Argument.value">${__property(adminPassword)}</stringProp>
             <stringProp name="Argument.desc">Permission for role</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="role" elementType="Argument">
             <stringProp name="Argument.name">role</stringProp>
-            <stringProp name="Argument.value">admin</stringProp>
+            <stringProp name="Argument.value">${__property(permission)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="adminUsername" elementType="Argument">
             <stringProp name="Argument.name">adminUsername</stringProp>
-            <stringProp name="Argument.value">admin@gmail.com</stringProp>
+            <stringProp name="Argument.value">${__property(adminUsername)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="adminPassword" elementType="Argument">
             <stringProp name="Argument.name">adminPassword</stringProp>
-            <stringProp name="Argument.value">adminwso2</stringProp>
+            <stringProp name="Argument.value">${__property(adminPassword)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="GoogleIdentityProviderName" elementType="Argument">
             <stringProp name="Argument.name">GoogleIdentityProviderName</stringProp>
-            <stringProp name="Argument.value">solution21GoogleIDP1</stringProp>
+            <stringProp name="Argument.value">${__property(GoogleIdentityProviderName)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="alias" elementType="Argument">
             <stringProp name="Argument.name">alias</stringProp>
-            <stringProp name="Argument.value">oauth2/token</stringProp>
+            <stringProp name="Argument.value">${__property(alias)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="GoogleClientId" elementType="Argument">
             <stringProp name="Argument.name">GoogleClientId</stringProp>
-            <stringProp name="Argument.value">708789899168-qetqor6lkp1v0rjspdmpr0mjc9nbee52.apps.googleusercontent.com</stringProp>
+            <stringProp name="Argument.value">${__property(GoogleClientId)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="GoogleSecret" elementType="Argument">
             <stringProp name="Argument.name">GoogleSecret</stringProp>
-            <stringProp name="Argument.value">lTRe5GOoHQ2tZQv8w8Xry5bd</stringProp>
+            <stringProp name="Argument.value">${__property(GoogleSecret)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="GoogleCallbackUrl" elementType="Argument">
             <stringProp name="Argument.name">GoogleCallbackUrl</stringProp>
-            <stringProp name="Argument.value">commonauth</stringProp>
+            <stringProp name="Argument.value">${__property(GoogleCallbackUrl)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="Googlescope" elementType="Argument">
             <stringProp name="Argument.name">Googlescope</stringProp>
-            <stringProp name="Argument.value">openid email profile</stringProp>
+            <stringProp name="Argument.value">${__property(Googlescope)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="userStoreJIT" elementType="Argument">
             <stringProp name="Argument.name">userStoreJIT</stringProp>
-            <stringProp name="Argument.value">PRIMARY</stringProp>
+            <stringProp name="Argument.value">${__property(userStoreJIT)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="GmailPassword" elementType="Argument">
             <stringProp name="Argument.name">GmailPassword</stringProp>
-            <stringProp name="Argument.value">Wso2qa@123</stringProp>
+            <stringProp name="Argument.value">${__property(GmailPassword)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="GmailUsername" elementType="Argument">
             <stringProp name="Argument.name">GmailUsername</stringProp>
-            <stringProp name="Argument.value">wso2qa@gmail.com</stringProp>
+            <stringProp name="Argument.value">${__property(GmailUsername)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="TwitterClientId" elementType="Argument">
             <stringProp name="Argument.name">TwitterClientId</stringProp>
-            <stringProp name="Argument.value">yDNon5Ppg6FD3J0EfCNxJuIbg</stringProp>
+            <stringProp name="Argument.value">${__property(TwitterClientId)}</stringProp>
             <stringProp name="Argument.desc">Twitter Client ID</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="TwitterSecret" elementType="Argument">
             <stringProp name="Argument.name">TwitterSecret</stringProp>
-            <stringProp name="Argument.value">kOS4ZVvYWmlmqxyU1mtDYrYK3lAwu5cscXrLCq6qqpzbCoAkLi</stringProp>
+            <stringProp name="Argument.value">${__property(adminPassword)}</stringProp>
             <stringProp name="Argument.desc">Twitter Client secret</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="twitterUserName" elementType="Argument">
             <stringProp name="Argument.name">twitterUserName</stringProp>
-            <stringProp name="Argument.value">wso2qa</stringProp>
+            <stringProp name="Argument.value">${__property(TwitterSecret)}</stringProp>
             <stringProp name="Argument.desc">Twitter Username</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="twitterPassword" elementType="Argument">
             <stringProp name="Argument.name">twitterPassword</stringProp>
-            <stringProp name="Argument.value">wso2@qa</stringProp>
+            <stringProp name="Argument.value">${__property(twitterPassword)}</stringProp>
             <stringProp name="Argument.desc">Twitter Password</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="TwitterIdentityProviderName" elementType="Argument">
             <stringProp name="Argument.name">TwitterIdentityProviderName</stringProp>
-            <stringProp name="Argument.value">solution6TwitterIDP</stringProp>
+            <stringProp name="Argument.value">${__property(TwitterIdentityProviderName)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="UserStoreadminUsername" elementType="Argument">
             <stringProp name="Argument.name">UserStoreadminUsername</stringProp>
-            <stringProp name="Argument.value">admin</stringProp>
+            <stringProp name="Argument.value">${__property(UserStoreadminUsername)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="UserStoreadminPassword" elementType="Argument">
             <stringProp name="Argument.name">UserStoreadminPassword</stringProp>
-            <stringProp name="Argument.value">admin</stringProp>
+            <stringProp name="Argument.value">${__property(UserStoreadminPassword)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="UserStoreadminHost" elementType="Argument">
             <stringProp name="Argument.name">UserStoreadminHost</stringProp>
-            <stringProp name="Argument.value">192.168.48.205</stringProp>
+            <stringProp name="Argument.value">${__property(UserStoreadminHost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="UserStoreadminPort" elementType="Argument">
             <stringProp name="Argument.name">UserStoreadminPort</stringProp>
-            <stringProp name="Argument.value">9443</stringProp>
+            <stringProp name="Argument.value">${__property(UserStoreadminPort)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="requestedClaim" elementType="Argument">
             <stringProp name="Argument.name">requestedClaim</stringProp>
-            <stringProp name="Argument.value">http://wso2.org/claims/skype</stringProp>
+            <stringProp name="Argument.value">${__property(requestedClaim)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -213,7 +213,7 @@
           </collectionProp>
         </AuthManager>
         <hashTree/>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Carbon Remote User Store Manager" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Carbon Remote User Store Manager" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Carbon Remote User Store Manager" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -228,7 +228,7 @@
          &lt;!--Optional:--&gt;&#xd;
          &lt;xsd:userStoreDTO&gt;&#xd;
             &lt;!--Optional:--&gt;&#xd;
-            &lt;xsd1:className&gt;org.wso2.carbon.identity.user.store.remote.JDBCUserStoreManager&lt;/xsd1:className&gt;&#xd;
+            &lt;xsd1:className&gt;org.wso2.carbon.identity.user.store.remote.CarbonRemoteUserStoreManger&lt;/xsd1:className&gt;&#xd;
             &lt;!--Optional:--&gt;&#xd;
             &lt;xsd1:description&gt;test&lt;/xsd1:description&gt;&#xd;
             &lt;!--Optional:--&gt;&#xd;
@@ -303,9 +303,9 @@
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="IDP With JIT" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="IDP With JIT" enabled="true"/>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Twitter IDP" enabled="false">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Twitter IDP" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
@@ -927,197 +927,6 @@
             </HeaderManager>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Update SP " enabled="false">
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">&lt;soap:Envelope xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xsd=&quot;http://org.apache.axis2/xsd&quot; xmlns:xsd1=&quot;http://model.common.application.identity.carbon.wso2.org/xsd&quot;&gt;&#xd;
-   &lt;soap:Header/&gt;&#xd;
-   &lt;soap:Body&gt;&#xd;
-  &lt;xsd:updateApplication&gt;&#xd;
-         &lt;!--Optional:--&gt;&#xd;
-         &lt;xsd:serviceProvider&gt;&#xd;
-            &lt;!--Optional:--&gt;&#xd;
-            &lt;xsd1:applicationID&gt;${appID}&lt;/xsd1:applicationID&gt;&#xd;
-            &lt;xsd1:applicationName&gt;${SPNamePrimary}&lt;/xsd1:applicationName&gt;          &#xd;
-            &lt;xsd1:description&gt;${SPDescriptionPrimary}&lt;/xsd1:description&gt; &#xd;
-&#xd;
-            	&lt;xsd1:claimConfig&gt;&#xd;
-               &lt;!--Optional:--&gt;&#xd;
-               &lt;xsd1:alwaysSendMappedLocalSubjectId&gt;true&lt;/xsd1:alwaysSendMappedLocalSubjectId&gt;&#xd;
-              &#xd;
-               &lt;!--Zero or more repetitions:--&gt;&#xd;
-        		  &lt;xsd:claimMappings&gt;&#xd;
-                  &lt;xsd:localClaim&gt;&#xd;
-                     &lt;!--Optional:--&gt;&#xd;
-                     &lt;xsd:claimId&gt;1&lt;/xsd:claimId&gt;&#xd;
-                     &lt;!--Optional:--&gt;&#xd;
-                     &lt;xsd:claimUri&gt;http://wso2.org/claims/emailaddress&lt;/xsd:claimUri&gt;&#xd;
-                  &lt;/xsd:localClaim&gt;&#xd;
-                  &lt;!--Optional:--&gt;&#xd;
-                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
-                  &lt;!--Optional:--&gt;&#xd;
-                  &lt;xsd:remoteClaim&gt;&#xd;
-                     &lt;!--Optional:--&gt;&#xd;
-                     &lt;xsd:claimId&gt;1&lt;/xsd:claimId&gt;&#xd;
-                     &lt;!--Optional:--&gt;&#xd;
-                     &lt;xsd:claimUri&gt;http://wso2.org/claims/emailaddress&lt;/xsd:claimUri&gt;&#xd;
-                  &lt;/xsd:remoteClaim&gt;&#xd;
-                  &lt;xsd1:requested&gt;true&lt;/xsd1:requested&gt;&#xd;
-        		&lt;/xsd:claimMappings&gt;  &#xd;
-&#xd;
-        		&lt;xsd:claimMappings&gt;&#xd;
-                  &lt;xsd:localClaim&gt;&#xd;
-                     &lt;!--Optional:--&gt;&#xd;
-                     &lt;xsd:claimId&gt;2&lt;/xsd:claimId&gt;&#xd;
-                     &lt;!--Optional:--&gt;&#xd;
-                     &lt;xsd:claimUri&gt;http://wso2.org/claims/lastname&lt;/xsd:claimUri&gt;&#xd;
-                  &lt;/xsd:localClaim&gt;&#xd;
-                  &lt;!--Optional:--&gt;&#xd;
-                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
-                  &lt;!--Optional:--&gt;&#xd;
-                  &lt;xsd:remoteClaim&gt;&#xd;
-                     &lt;!--Optional:--&gt;&#xd;
-                     &lt;xsd:claimId&gt;2&lt;/xsd:claimId&gt;&#xd;
-                     &lt;!--Optional:--&gt;&#xd;
-                     &lt;xsd:claimUri&gt;http://wso2.org/claims/lastname&lt;/xsd:claimUri&gt;&#xd;
-                  &lt;/xsd:remoteClaim&gt;&#xd;
-                  &lt;xsd1:requested&gt;true&lt;/xsd1:requested&gt;&#xd;
-        		&lt;/xsd:claimMappings&gt; &#xd;
-&#xd;
-        		&lt;xsd:claimMappings&gt;&#xd;
-                  &lt;xsd:localClaim&gt;&#xd;
-                     &lt;!--Optional:--&gt;&#xd;
-                     &lt;xsd:claimId&gt;3&lt;/xsd:claimId&gt;&#xd;
-                     &lt;!--Optional:--&gt;&#xd;
-                     &lt;xsd:claimUri&gt;http://wso2.org/claims/mobile&lt;/xsd:claimUri&gt;&#xd;
-                  &lt;/xsd:localClaim&gt;&#xd;
-                  &lt;!--Optional:--&gt;&#xd;
-                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
-                  &lt;!--Optional:--&gt;&#xd;
-                  &lt;xsd:remoteClaim&gt;&#xd;
-                     &lt;!--Optional:--&gt;&#xd;
-                     &lt;xsd:claimId&gt;3&lt;/xsd:claimId&gt;&#xd;
-                     &lt;!--Optional:--&gt;&#xd;
-                     &lt;xsd:claimUri&gt;http://wso2.org/claims/mobile&lt;/xsd:claimUri&gt;&#xd;
-                  &lt;/xsd:remoteClaim&gt;&#xd;
-                  &lt;xsd1:requested&gt;true&lt;/xsd1:requested&gt;&#xd;
-        		&lt;/xsd:claimMappings&gt; &#xd;
-   &#xd;
-               &#xd;
-               &lt;!--Optional:--&gt;&#xd;
-               &lt;xsd1:localClaimDialect&gt;true&lt;/xsd1:localClaimDialect&gt;&#xd;
-               &lt;!--Optional:--&gt;&#xd;
-               &lt;xsd1:roleClaimURI&gt;&lt;/xsd1:roleClaimURI&gt;&#xd;
-               &lt;!--Optional:--&gt;&#xd;
-               &lt;xsd1:userClaimURI&gt;&lt;/xsd1:userClaimURI&gt;&#xd;
-            &lt;/xsd1:claimConfig&gt;&#xd;
-            &#xd;
-            &#xd;
-            &lt;xsd1:inboundAuthenticationConfig&gt;            &#xd;
-                &lt;xsd1:inboundAuthenticationRequestConfigs&gt;&#xd;
-                  &lt;xsd1:inboundAuthKey&gt;${travelocityIssuer}&lt;/xsd1:inboundAuthKey&gt;&#xd;
-                  &lt;xsd1:inboundAuthType&gt;samlsso&lt;/xsd1:inboundAuthType&gt;                  &#xd;
-                  &lt;xsd1:inboundConfigType&gt;standardAPP&lt;/xsd1:inboundConfigType&gt;&#xd;
-			   &lt;xsd1:properties&gt;&#xd;
-                     &lt;xsd1:confidential&gt;false&lt;/xsd1:confidential&gt;&#xd;
-                     &lt;xsd1:defaultValue xsd:nil=&quot;true&quot;/&gt;&#xd;
-                     &lt;xsd1:description xsd:nil=&quot;true&quot;/&gt;&#xd;
-                     &lt;xsd1:displayName xsd:nil=&quot;true&quot;/&gt;&#xd;
-                     &lt;xsd1:displayOrder&gt;0&lt;/xsd1:displayOrder&gt;                      &#xd;
-                     &lt;xsd1:name&gt;attrConsumServiceIndex&lt;/xsd1:name&gt;&#xd;
-                     &lt;xsd1:required&gt;false&lt;/xsd1:required&gt;&#xd;
-                     &lt;xsd1:type xsd:nil=&quot;true&quot;/&gt;&#xd;
-                     &lt;xsd1:value&gt;${serviceIndex}&lt;/xsd1:value&gt;&#xd;
-                  &lt;/xsd1:properties&gt;                  &#xd;
-               &lt;/xsd1:inboundAuthenticationRequestConfigs&gt;    &#xd;
-&#xd;
-                &lt;xsd1:inboundAuthenticationRequestConfigs&gt;&#xd;
-                  &lt;xsd1:friendlyName xsd:nil=&quot;true&quot;/&gt;&#xd;
-                  &lt;xsd1:inboundAuthKey&gt;${travelocityIssuer}&lt;/xsd1:inboundAuthKey&gt;&#xd;
-                  &lt;xsd1:inboundAuthType&gt;openid&lt;/xsd1:inboundAuthType&gt;&#xd;
-                  &lt;xsd1:inboundConfigType&gt;standardAPP&lt;/xsd1:inboundConfigType&gt;&#xd;
-               &lt;/xsd1:inboundAuthenticationRequestConfigs&gt;&#xd;
-               &lt;xsd1:inboundAuthenticationRequestConfigs&gt;&#xd;
-                  &lt;xsd1:friendlyName xsd:nil=&quot;true&quot;/&gt;&#xd;
-                  &lt;xsd1:inboundAuthKey&gt;${travelocityIssuer}&lt;/xsd1:inboundAuthKey&gt;&#xd;
-                  &lt;xsd1:inboundAuthType&gt;passivests&lt;/xsd1:inboundAuthType&gt;&#xd;
-                  &lt;xsd1:inboundConfigType&gt;standardAPP&lt;/xsd1:inboundConfigType&gt;&#xd;
-               &lt;/xsd1:inboundAuthenticationRequestConfigs&gt;                       &#xd;
-           &lt;/xsd1:inboundAuthenticationConfig&gt; &#xd;
-           &#xd;
-            &lt;xsd1:inboundProvisioningConfig&gt; &#xd;
-               &lt;xsd1:provisioningEnabled&gt;false&lt;/xsd1:provisioningEnabled&gt; &#xd;
-               &lt;xsd1:provisioningUserStore/&gt; &#xd;
-            &lt;/xsd1:inboundProvisioningConfig&gt; &#xd;
-            &lt;xsd1:localAndOutBoundAuthenticationConfig&gt; &#xd;
-            &lt;xsd1:alwaysSendBackAuthenticatedListOfIdPs&gt;false&lt;/xsd1:alwaysSendBackAuthenticatedListOfIdPs&gt; &#xd;
-               &lt;xsd1:authenticationStepForAttributes xsd:nil=&quot;true&quot;/&gt; &#xd;
-               &lt;xsd1:authenticationStepForSubject xsd:nil=&quot;true&quot;/&gt; &#xd;
-               &lt;xsd1:authenticationType&gt;default&lt;/xsd1:authenticationType&gt; &#xd;
-               &lt;xsd1:subjectClaimUri xsd:nil=&quot;true&quot;/&gt; &#xd;
-            &lt;/xsd1:localAndOutBoundAuthenticationConfig&gt; &#xd;
-            &lt;xsd1:outboundProvisioningConfig&gt; &#xd;
-               &lt;xsd1:provisionByRoleList xsd:nil=&quot;true&quot;/&gt; &#xd;
-            &lt;/xsd1:outboundProvisioningConfig&gt; &#xd;
-            &#xd;
-            &lt;xsd1:permissionAndRoleConfig xsd:type=&quot;ax2164:PermissionsAndRoleConfig&quot;/&gt; &#xd;
-&#xd;
-            &lt;xsd1:requestPathAuthenticatorConfigs&gt;              &#xd;
-               &lt;xsd1:displayName&gt;?&lt;/xsd1:displayName&gt;&#xd;
-               &lt;xsd1:enabled&gt;true&lt;/xsd1:enabled&gt;&#xd;
-               &lt;xsd1:name&gt;BasicAuthRequestPathAuthenticator&lt;/xsd1:name&gt;               &#xd;
-               &lt;xsd1:valid&gt;true&lt;/xsd1:valid&gt;&#xd;
-            &lt;/xsd1:requestPathAuthenticatorConfigs&gt;           &#xd;
-            &lt;xsd1:saasApp&gt;true&lt;/xsd1:saasApp&gt; &#xd;
-         &lt;/xsd:serviceProvider&gt;&#xd;
-      &lt;/xsd:updateApplication&gt;&#xd;
-   &lt;/soap:Body&gt;&#xd;
-&lt;/soap:Envelope&gt;</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
-            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
-            <stringProp name="HTTPSampler.protocol">https</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService</stringProp>
-            <stringProp name="HTTPSampler.method">POST</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          </HTTPSamplerProxy>
-          <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200 OK HTTP Code Response Assertion" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="-1606201635">HTTP/1.1 200 OK</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
-              <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">2</intProp>
-            </ResponseAssertion>
-            <hashTree/>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-              <collectionProp name="HeaderManager.headers">
-                <elementProp name="" elementType="Header">
-                  <stringProp name="Header.name">SOAPAction</stringProp>
-                  <stringProp name="Header.value">urn:updateApplication</stringProp>
-                </elementProp>
-                <elementProp name="" elementType="Header">
-                  <stringProp name="Header.name">Content-Type</stringProp>
-                  <stringProp name="Header.value">text/xml</stringProp>
-                </elementProp>
-              </collectionProp>
-            </HeaderManager>
-            <hashTree/>
-          </hashTree>
         </hashTree>
         <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
@@ -1156,7 +965,7 @@
         </ResultCollector>
         <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Travelocity Login " enabled="false">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Travelocity Login " enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -1171,7 +980,7 @@
         <stringProp name="ThreadGroup.delay"></stringProp>
       </ThreadGroup>
       <hashTree>
-        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Google IDP -Selenium" enabled="false">
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Google IDP -Selenium" enabled="true">
           <stringProp name="cacheKey"></stringProp>
           <stringProp name="filename"></stringProp>
           <stringProp name="parameters"></stringProp>
@@ -1239,110 +1048,6 @@ try {
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Google IDP" enabled="true"/>
-        <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Travelocity Login" enabled="true">
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="SAML2.HTTPBinding" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                  <stringProp name="Argument.name">SAML2.HTTPBinding</stringProp>
-                  <stringProp name="Argument.value">HTTP-Redirect</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">${tomcatHost}</stringProp>
-            <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">${travelocityIssuer}/samlsso</stringProp>
-            <stringProp name="HTTPSampler.method">GET</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.image_parser">true</boolProp>
-            <boolProp name="HTTPSampler.concurrentDwn">true</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          </HTTPSamplerProxy>
-          <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Log in to Facebook Assertion" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="0"></stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.test_field">Assertion.sample_label</stringProp>
-              <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">2</intProp>
-            </ResponseAssertion>
-            <hashTree/>
-            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="SAML Request Sesion Data key Expression Extractor" enabled="true">
-              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
-              <stringProp name="RegexExtractor.refname">sessionDataKey</stringProp>
-              <stringProp name="RegexExtractor.regex">sessionDataKey=([a-z0-9-]+)\&amp;?</stringProp>
-              <stringProp name="RegexExtractor.template">$1$</stringProp>
-              <stringProp name="RegexExtractor.default"></stringProp>
-              <stringProp name="RegexExtractor.match_number">1</stringProp>
-            </RegexExtractor>
-            <hashTree/>
-          </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Selection" enabled="true">
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="idp" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">${GoogleIdentityProviderName}</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                  <stringProp name="Argument.name">idp</stringProp>
-                </elementProp>
-                <elementProp name="authenticator" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">GoogleOIDCAuthenticator</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                  <stringProp name="Argument.name">authenticator</stringProp>
-                </elementProp>
-                <elementProp name="sessionDataKey" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">${sessionDataKey}</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                  <stringProp name="Argument.name">sessionDataKey</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
-            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
-            <stringProp name="HTTPSampler.protocol">https</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">/commonauth</stringProp>
-            <stringProp name="HTTPSampler.method">GET</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.image_parser">true</boolProp>
-            <boolProp name="HTTPSampler.concurrentDwn">true</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          </HTTPSamplerProxy>
-          <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Log in to google Assertion" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="-1536293812">google.com</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.test_field">Assertion.sample_label</stringProp>
-              <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">2</intProp>
-            </ResponseAssertion>
-            <hashTree/>
-          </hashTree>
-        </hashTree>
         <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="TwitterIDP - Selenium" enabled="true">
           <stringProp name="cacheKey"></stringProp>
           <stringProp name="filename"></stringProp>
@@ -1409,7 +1114,7 @@ try {
           <hashTree/>
         </hashTree>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Clean up Task" enabled="false">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Clean up Task" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
