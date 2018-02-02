@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jmeterTestPlan version="1.2" properties="3.2" jmeter="3.2 r1790748">
   <hashTree>
-    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Scenario 1 Script" enabled="true">
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="01-Scenario-1-SSO-multiple-heterogeneous-IDFP" enabled="true">
       <stringProp name="TestPlan.comments">1. Single Sign On between multiple heterogeneous identity federation protocols</stringProp>
       <boolProp name="TestPlan.functional_mode">false</boolProp>
       <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
@@ -15,108 +15,97 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="isHost" elementType="Argument">
             <stringProp name="Argument.name">isHost</stringProp>
-            <stringProp name="Argument.value">is.dev.wso2.org</stringProp>
+            <stringProp name="Argument.value">${__property(serverHost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">is.dev.wso2.org</stringProp>
           </elementProp>
           <elementProp name="isPort" elementType="Argument">
             <stringProp name="Argument.name">isPort</stringProp>
-            <stringProp name="Argument.value">443</stringProp>
+            <stringProp name="Argument.value">${__property(serverPort)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">443</stringProp>
           </elementProp>
           <elementProp name="adminCredentials" elementType="Argument">
             <stringProp name="Argument.name">adminCredentials</stringProp>
-            <stringProp name="Argument.value">YWRtaW46YWRtaW4=</stringProp>
+            <stringProp name="Argument.value">${__property(adminCredentials)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">YWRtaW46YWRtaW4=</stringProp>
           </elementProp>
           <elementProp name="adminusername" elementType="Argument">
             <stringProp name="Argument.name">adminusername</stringProp>
-            <stringProp name="Argument.value">admin</stringProp>
+            <stringProp name="Argument.value">${__property(adminusername)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">admin</stringProp>
           </elementProp>
           <elementProp name="adminpassword" elementType="Argument">
             <stringProp name="Argument.name">adminpassword</stringProp>
-            <stringProp name="Argument.value">admin</stringProp>
+            <stringProp name="Argument.value">${__property(adminpassword)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">admin</stringProp>
           </elementProp>
           <elementProp name="spName" elementType="Argument">
             <stringProp name="Argument.name">spName</stringProp>
-            <stringProp name="Argument.value">travelocity.com</stringProp>
+            <stringProp name="Argument.value">${__property(spName)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="spDescription" elementType="Argument">
             <stringProp name="Argument.name">spDescription</stringProp>
-            <stringProp name="Argument.value">This is the Travelocity SP for Scenario 1</stringProp>
+            <stringProp name="Argument.value">${__property(spDescription)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="travelocityAppName" elementType="Argument">
             <stringProp name="Argument.name">travelocityAppName</stringProp>
-            <stringProp name="Argument.value">travelocity.com</stringProp>
+            <stringProp name="Argument.value">${__property(travelocityAppName)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">travelocity.com</stringProp>
           </elementProp>
           <elementProp name="roleName" elementType="Argument">
             <stringProp name="Argument.name">roleName</stringProp>
-            <stringProp name="Argument.value">sol1role</stringProp>
+            <stringProp name="Argument.value">${__property(roleName)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">sol14role</stringProp>
           </elementProp>
           <elementProp name="userNamePrefix" elementType="Argument">
             <stringProp name="Argument.name">userNamePrefix</stringProp>
-            <stringProp name="Argument.value">sol1user</stringProp>
+            <stringProp name="Argument.value">${__property(userNamePrefix)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">sol14user</stringProp>
           </elementProp>
           <elementProp name="userPassword" elementType="Argument">
             <stringProp name="Argument.name">userPassword</stringProp>
-            <stringProp name="Argument.value">123123</stringProp>
+            <stringProp name="Argument.value">${__property(userPassword)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">123123</stringProp>
           </elementProp>
           <elementProp name="tomcatHost" elementType="Argument">
             <stringProp name="Argument.name">tomcatHost</stringProp>
-            <stringProp name="Argument.value">192.168.57.31</stringProp>
+            <stringProp name="Argument.value">${__property(tomcatHost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">192.168.57.31</stringProp>
           </elementProp>
           <elementProp name="permission" elementType="Argument">
             <stringProp name="Argument.name">permission</stringProp>
-            <stringProp name="Argument.value">/permission/admin</stringProp>
-            <stringProp name="Argument.desc">/permission/admin</stringProp>
+            <stringProp name="Argument.value">${__property(permission)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="tomcatPort" elementType="Argument">
             <stringProp name="Argument.name">tomcatPort</stringProp>
-            <stringProp name="Argument.value">8080</stringProp>
+            <stringProp name="Argument.value">${__property(tomcatPort)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="spName2" elementType="Argument">
             <stringProp name="Argument.name">spName2</stringProp>
-            <stringProp name="Argument.value">playground.com</stringProp>
+            <stringProp name="Argument.value">${__property(spName2)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="spDescription2" elementType="Argument">
             <stringProp name="Argument.name">spDescription2</stringProp>
-            <stringProp name="Argument.value">This is the Playground SP for Scenario 1</stringProp>
+            <stringProp name="Argument.value">${__property(spDescription2)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="playgroundHost" elementType="Argument">
             <stringProp name="Argument.name">playgroundHost</stringProp>
-            <stringProp name="Argument.value">playground.com</stringProp>
+            <stringProp name="Argument.value">${__property(playgroundHost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="noUsername" elementType="Argument">
             <stringProp name="Argument.name">noUsername</stringProp>
-            <stringProp name="Argument.value">nouser</stringProp>
+            <stringProp name="Argument.value">${__property(noUsername)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="noPassword" elementType="Argument">
             <stringProp name="Argument.name">noPassword</stringProp>
-            <stringProp name="Argument.value">nopass</stringProp>
+            <stringProp name="Argument.value">${__property(noPassword)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -1807,7 +1796,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));</st
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">playground.com</stringProp>
+          <stringProp name="HTTPSampler.domain">${tomcatHost}</stringProp>
           <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -2036,21 +2025,21 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));</st
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments">
               <elementProp name="username" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
                 <stringProp name="Argument.value">${noUsername}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">username</stringProp>
               </elementProp>
               <elementProp name="password" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
                 <stringProp name="Argument.value">${noPassword}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">password</stringProp>
               </elementProp>
               <elementProp name="sessionDataKey" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
                 <stringProp name="Argument.value">${sessionDataKey}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
@@ -2175,12 +2164,12 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));</st
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${tomcatHost}</stringProp>
-          <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.domain">${isHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${isPort}</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">travelocity.com/samlsso</stringProp>
-          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -2578,7 +2567,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));</st
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename"></stringProp>
+        <stringProp name="filename">/home/ushani/WSO2_WORK/Products/IS/5.5.0/gitushani/identity-test-integration/scenario01/jmeter/results.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
     </hashTree>
