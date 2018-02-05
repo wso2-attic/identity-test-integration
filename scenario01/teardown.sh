@@ -18,12 +18,14 @@
 #these params need to be taken out
 #tomcat properties
 tomcatHost=$tomcatHost
-tomcatPort=8080
+tomcatPort=$tomcatPort
 tomcatUsername=scriptuser
 tomcatPassword=scriptuser
 appName="travelocity.com"
+appName2="playground2"
 
 #undeploy webapp from tomcat
 curl http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/undeploy?path=/$appName
+curl http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/undeploy?path=/$appName2
 #clear temp direcotry
 rm -rf $scriptPath/../temp/

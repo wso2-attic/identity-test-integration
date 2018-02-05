@@ -27,7 +27,7 @@ solutionPath=/
 
 #travelocity properties
 SAML2AssertionConsumerURL="http://$tomcatHost:$tomcatPort/$appName/home.jsp"
-SAML2IdPURL="https://$serverHost/samlsso"
+SAML2IdPURL="https://$serverHost:$serverPort/samlsso"
 SAML2SPEntityId="$appName"
 SkipURIs="/$appName/index.jsp"
 SAML2IdPEntityId=$serverHost
@@ -36,7 +36,7 @@ SAML2IdPEntityId=$serverHost
 mkdir $scriptPath/../temp
 #coping travalocity app to temp direcory
 
-cp -r $scriptPath/../../../../apps/sso-agent-sample $scriptPath/../temp/
+cp -r $scriptPath/../../apps/sso-agent-sample $scriptPath/../temp/
 cd $scriptPath/../temp/sso-agent-sample/
 #build travelocity app from source
 mvn clean install
