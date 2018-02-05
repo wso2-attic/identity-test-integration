@@ -542,7 +542,7 @@
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;callBackUrl&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;https://is540.qa.com:9443/commonauth&lt;/xsd:value&gt;&#xd;
+                  &lt;xsd:value&gt;https://${serverHost}:${serverPort}/${FbCallbackUrl}&lt;/xsd:value&gt;&#xd;
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;Scope&lt;/xsd:name&gt;&#xd;
