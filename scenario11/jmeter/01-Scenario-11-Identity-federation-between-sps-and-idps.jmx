@@ -33,6 +33,7 @@
             <stringProp name="Argument.name">adminCredentials</stringProp>
             <stringProp name="Argument.value">${__property(adminCredentials)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">base64 encrypted admin credentials</stringProp>
           </elementProp>
           <elementProp name="adminusername" elementType="Argument">
             <stringProp name="Argument.name">adminusername</stringProp>
@@ -48,6 +49,7 @@
             <stringProp name="Argument.name">spName</stringProp>
             <stringProp name="Argument.value">${__property(spName)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">SP - Travelocity</stringProp>
           </elementProp>
           <elementProp name="spDescription" elementType="Argument">
             <stringProp name="Argument.name">spDescription</stringProp>
@@ -143,6 +145,7 @@
             <stringProp name="Argument.name">sp2Name</stringProp>
             <stringProp name="Argument.value">${__property(sp2Name)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">SP - STS web app</stringProp>
           </elementProp>
           <elementProp name="sp2Description" elementType="Argument">
             <stringProp name="Argument.name">sp2Description</stringProp>
@@ -153,6 +156,7 @@
             <stringProp name="Argument.name">incorrectFbClientId</stringProp>
             <stringProp name="Argument.value">${__property(incorrectFbClientId)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">For negative scenario</stringProp>
           </elementProp>
           <elementProp name="idp3Facebook" elementType="Argument">
             <stringProp name="Argument.name">idp3Facebook</stringProp>
@@ -164,15 +168,10 @@
             <stringProp name="Argument.value">${__property(idp3FacebookDescription)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="userIdPassiveSts" elementType="Argument">
-            <stringProp name="Argument.name">userIdPassiveSts</stringProp>
-            <stringProp name="Argument.value">${__property(userIdPassiveSts)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
         </collectionProp>
       </Arguments>
       <hashTree/>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Identity-federation-between-sps-and-idps" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Solution11" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -1768,11 +1767,11 @@ try {
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
               <collectionProp name="Asserion.test_strings">
-                <stringProp name="-782338944">Response from the Passive STS for User: ${userIdPassiveSts}</stringProp>
+                <stringProp name="49586">200</stringProp>
               </collectionProp>
-              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
               <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">16</intProp>
+              <intProp name="Assertion.test_type">2</intProp>
             </ResponseAssertion>
             <hashTree/>
           </hashTree>
@@ -1799,7 +1798,7 @@ try {
     		&lt;inboundAuthType&gt;passivests&lt;/inboundAuthType&gt;&#xd;
     			&lt;properties&gt;&#xd;
         			&lt;name&gt;passiveSTSWReply&lt;/name&gt;&#xd;
-        			&lt;value&gt;http://${isHost}:${isPort}/PassiveSTSSampleApp/index.jsp&lt;/value&gt;&#xd;
+        			&lt;value&gt;http://${tomcatsHost}:${tomcatPort}/PassiveSTSSampleApp/index.jsp&lt;/value&gt;&#xd;
     			&lt;/properties&gt;&#xd;
 		&lt;/inboundAuthenticationRequestConfigs&gt;&#xd;
  &#xd;
@@ -2407,7 +2406,7 @@ try {
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename"></stringProp>
+        <stringProp name="filename">/Users/IsuruUyanage/Desktop/new/New2/identity-test-integration/scenario11/jmeter/abcd.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
       <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">

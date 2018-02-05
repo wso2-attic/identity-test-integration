@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 # Copyright (c) 2017, WSO2 Inc. (http://wso2.com) All Rights Reserved.
 #
@@ -14,8 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-appName1="travelocity.com"
-appName2="PassiveSTSSampleApp"
+#properties
+#TODO:read below property from infra.json file
+appName="travelocity.com"
 tomcatHost=$tomcatHost
 tomcatPort=$tomcatPort
 tomcatUsername=scriptuser
@@ -23,72 +24,41 @@ tomcatPassword=scriptuser
 tomcatVersion=7
 serverHost=$serverHost
 serverPort=$serverPort
-solutionPath=/
 
-#web app properties
-SAML2AssertionConsumerURL1="http://$tomcatHost:$tomcatPort/$appName1/home.jsp"
-SAML2AssertionConsumerURL2="http://$tomcatHost:$tomcatPort/$appName2/home.jsp"
+#travelocity properties
+SAML2AssertionConsumerURL="http://$tomcatHost:$tomcatPort/$appName/home.jsp"
 SAML2IdPURL="https://$serverHost:$serverPort/samlsso"
-SAML2SPEntityId1="$appName1"
-SAML2SPEntityId2="$appName2"
-SkipURIs1="/$appName1/index.jsp"
-SkipURIs2="/$appName2/index.jsp"
+SAML2SPEntityId="$appName"
+SkipURIs="/$appName/index.jsp"
 SAML2IdPEntityId=$serverHost
-EnableResponseSigning="false"
-EnableAssertionSigning="false"
-EnableRequestSigning="false"
-
 
 #create temporary directory
 mkdir $scriptPath/../temp
+#coping travalocity app to temp direcory
 
-#copying sso sample app and PassiveSTSSampleApp to temp direcory
-cp -r $scriptPath/../../apps/PassiveSTSSampleApp $scriptPath/../temp/
 cp -r $scriptPath/../../apps/sso-agent-sample $scriptPath/../temp/
-
-#build travelocity from source
 cd $scriptPath/../temp/sso-agent-sample/
+#build travelocity app from source
 mvn clean install
-
-#build PassiveSTSSampleApp from source
-cd $scriptPath/../temp/PassiveSTSSampleApp/
-mvn clean install
-
 mkdir $scriptPath/../temp/travelocity.com
-mkdir $scriptPath/../temp/PassiveSTSSampleApp
-
-cd $scriptPath/../temp/sso-agent-sample/target
-cp -r travelocity.com.war
-
-#extract travelocity.com.war to temp directory for further configurations
 cd $scriptPath/../temp/travelocity.com
+#extract travelocity.com.war to temp directory for further configurations
 jar xvf $scriptPath/../temp/sso-agent-sample/target/travelocity.com.war
 
 #updating travelocity.conf file
-sed -i "s|^\(SAML2\.AssertionConsumerURL\s*=\s*\).*\$|\1${SAML2AssertionConsumerURL1}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+sed -i "s|^\(SAML2\.AssertionConsumerURL\s*=\s*\).*\$|\1${SAML2AssertionConsumerURL}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
 sed -i "s|^\(SAML2\.IdPURL\s*=\s*\).*\$|\1${SAML2IdPURL}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
-sed -i "s|^\(SAML2\.SPEntityId\s*=\s*\).*\$|\1${SAML2SPEntityId1}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+sed -i "s|^\(SAML2\.SPEntityId\s*=\s*\).*\$|\1${SAML2SPEntityId}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
-sed -i "s|^\(SkipURIs\s*=\s*\).*\$|\1${SkipURIs1}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+sed -i "s|^\(SkipURIs\s*=\s*\).*\$|\1${SkipURIs}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
 sed -i "s|^\(SAML2\.IdPEntityId\s*=\s*\).*\$|\1${SAML2IdPEntityId}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
-sed -i "s|^\(SAML2\.EnableResponseSigning\s*=\s*\).*\$|\1${EnableResponseSigning}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
-
-sed -i "s|^\(SAML2\.EnableAssertionSigning\s*=\s*\).*\$|\1${EnableAssertionSigning}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
-
-sed -i "s|^\(SAML2\.EnableRequestSigning\s*=\s*\).*\$|\1${EnableRequestSigning}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
-
 #repackaging travelocity app
 cd $scriptPath/../temp/travelocity.com/
-jar cvf $scriptPath/../temp/travelocity.com.war 
-
-#repackaging PassiveSTSSampleApp app
-cd $scriptPath/../temp/PassiveSTSSampleApp/
-jar cvf $scriptPath/../temp/PassiveSTSSampleApp.war
-
+jar cvf $scriptPath/../temp/travelocity.com.war .
 
 #deploy webapp on tomcat
 cd $scriptPath/../temp/
@@ -96,6 +66,15 @@ cd $scriptPath/../temp/
 #curl --upload-file target\debug.war "http://tomcat:tomcat@localhost:8088/manager/deploy?path=/debug&update=true"
 #tomcat7/8
 curl -T "travelocity.com.war" "http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/deploy?path=/travelocity.com&update=true"
+
+#passive sts app
+cp -r $scriptPath/../../apps/PassiveSTSSampleApp $scriptPath/../temp/
+cd $scriptPath/../temp/PassiveSTSSampleApp
+mvn clean install
+
+cp -r $scriptPath/../temp/PassiveSTSSampleApp/target/PassiveSTSSampleApp.war $scriptPath/../temp
+
+cd $scriptPath/../temp/
 curl -T "PassiveSTSSampleApp.war" "http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/deploy?path=/PassiveSTSSampleApp&update=true"
 
 
@@ -105,13 +84,13 @@ while true
 do
 echo $(date)" Waiting until deploying the app on Tomcat!"
 #STATUS=$(curl -s http://scriptuser:scriptuser@localhost:8080/manager/text/list | grep ${appName})
-if curl -s http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/list | grep "${appName2}:running"
+if curl -s http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/list | grep "${appName}:running"
 then
- echo "Found ${appName2} is running on Tomcat"
+ echo "Found ${appName} is running on Tomcat"
  echo "Done base-setup.sh"
  exit 0
 else
- echo "Context /${appName2} Not Found"
+ echo "Context /${appName} Not Found"
     if [ $x = $retry_count ]; then
     echo "ERROR on app deployment"
         exit 1
@@ -120,3 +99,4 @@ fi
 x=$((x+1))
 sleep 1
 done
+

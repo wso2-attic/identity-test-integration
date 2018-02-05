@@ -19,7 +19,7 @@
 		<!-- URL to which responses are directed -->
 		<init-param>
 			<param-name>replyUrl</param-name>
-			<param-value>http://localhost:8080/PassiveSTSSampleApp/</param-value>
+			<param-value>http://localhost:8080/PassiveSTSSampleApp/index.jsp</param-value>
 		</init-param>
 
 		<!-- URI of the requesting realm -->
