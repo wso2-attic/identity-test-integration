@@ -14,9 +14,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#properties
-#TODO:read below property from infra.json file
+prgdir=$(dirname "$0")
+scriptPath=$(cd "$prgdir"; pwd)
 
-serverHost=$serverHost
-serverPort=$serverPort
-echo "BaseScript Done..."
+echo "working directory : "$scriptPath
+#run base-setup.sh to deploy artifacts
+source $scriptPath/../teardown.sh
+
+
+echo "post-steps are done..."
+
+
