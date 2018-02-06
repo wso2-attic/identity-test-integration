@@ -55,6 +55,7 @@
             <stringProp name="Argument.name">spDescription</stringProp>
             <stringProp name="Argument.value">${__property(spDescription)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Service Provider Description</stringProp>
           </elementProp>
           <elementProp name="carbonServer" elementType="Argument">
             <stringProp name="Argument.name">carbonServer</stringProp>
@@ -162,16 +163,22 @@
             <stringProp name="Argument.name">idp3Facebook</stringProp>
             <stringProp name="Argument.value">${__property(idp3Facebook)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Invalid Facebook Idp</stringProp>
           </elementProp>
           <elementProp name="idp3FacebookDescription" elementType="Argument">
             <stringProp name="Argument.name">idp3FacebookDescription</stringProp>
             <stringProp name="Argument.value">${__property(idp3FacebookDescription)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
+          <elementProp name="passiveSTSuserId" elementType="Argument">
+            <stringProp name="Argument.name">passiveSTSuserId</stringProp>
+            <stringProp name="Argument.value">${__property(passiveSTSuserId)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
         </collectionProp>
       </Arguments>
       <hashTree/>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Solution11" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Scenario-11-Identity federation between service providers and identity providers with incompatible identity federation protocols" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -736,7 +743,7 @@ import com.gargoylesoftware.htmlunit.BrowserVersion;
 
 try {
 		public HtmlUnitDriver driver = new HtmlUnitDriver(BrowserVersion.CHROME, true);
-
+		
 		String protocole = &quot;http://&quot;;
 		String tomcathost = vars.get(&quot;tomcatHost&quot;);
 		String seperator = &quot;:&quot;;
@@ -745,7 +752,7 @@ try {
 		String travelocityURL = protocole + tomcathost + seperator + tomcatport + url;
 
 		driver.get(travelocityURL);
-		
+		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 		WebElement link = driver.findElement(By.linkText(&quot;here&quot;));
 		link.click();
 
@@ -1104,7 +1111,7 @@ try {
 		String travelocityURL = protocole + tomcathost + seperator + tomcatport + url;
 		
 		driver.get(travelocityURL);
-
+		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 		WebElement link = driver.findElement(By.linkText(&quot;here&quot;));
 		link.click();
 
@@ -1740,7 +1747,7 @@ try {
 		String passiveStsURL = protocole + tomcathost + seperator + tomcatport + url;
 		
 		driver.get(passiveStsURL);
-
+		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 		WebElement username =  driver.findElement(By.id(&quot;username_or_email&quot;));
 		username.clear();
 		username.sendKeys(new String[] { vars.get(&quot;twitterUserName&quot;) });
@@ -1754,6 +1761,7 @@ try {
 
 		//Returns the whole page
 		return driver.getPageSource();  
+		driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
     
 } catch (Exception ex) {
     ex.printStackTrace();
@@ -1767,9 +1775,9 @@ try {
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
               <collectionProp name="Asserion.test_strings">
-                <stringProp name="49586">200</stringProp>
+                <stringProp name="-393171616">Response from the Passive STS for User: ${passiveSTSuserId}</stringProp>
               </collectionProp>
-              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
               <boolProp name="Assertion.assume_success">false</boolProp>
               <intProp name="Assertion.test_type">2</intProp>
             </ResponseAssertion>
@@ -1798,7 +1806,7 @@ try {
     		&lt;inboundAuthType&gt;passivests&lt;/inboundAuthType&gt;&#xd;
     			&lt;properties&gt;&#xd;
         			&lt;name&gt;passiveSTSWReply&lt;/name&gt;&#xd;
-        			&lt;value&gt;http://${tomcatsHost}:${tomcatPort}/PassiveSTSSampleApp/index.jsp&lt;/value&gt;&#xd;
+        			&lt;value&gt;http://${tomcatHost}:${tomcatPort}/PassiveSTSSampleApp/index.jsp&lt;/value&gt;&#xd;
     			&lt;/properties&gt;&#xd;
 		&lt;/inboundAuthenticationRequestConfigs&gt;&#xd;
  &#xd;
@@ -1867,7 +1875,7 @@ try {
             </HeaderManager>
             <hashTree/>
           </hashTree>
-          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="STS web app Login idp3Facebook IDP - Ngative Scenario" enabled="true">
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="STS web app Login idp3Facebook IDP - Negative Scenario" enabled="true">
             <stringProp name="cacheKey"></stringProp>
             <stringProp name="filename"></stringProp>
             <stringProp name="parameters"></stringProp>
@@ -2406,7 +2414,7 @@ try {
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">/Users/IsuruUyanage/Desktop/new/New2/identity-test-integration/scenario11/jmeter/abcd.jtl</stringProp>
+        <stringProp name="filename">/Users/IsuruUyanage/Desktop/new/New2/identity-test-integration/scenario11/jmeter/wwwaaaaaaajjj.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
       <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
