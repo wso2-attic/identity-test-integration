@@ -29,4 +29,4 @@ sed -i "s|^\(tomcatPort\s*=\s*\).*\$|\1${tomcatPort}|" $scriptPath/../resources/
 sed -i "s|^\(playgroundHost\s*=\s*\).*\$|\1${tomcatHost}|" $scriptPath/../resources/user.properties
 
 #run base-setup.sh to deploy artifacts
-source $scriptPath/../base-setup.sh > $scriptPath/basesetup.log
+. $scriptPath/../base-setup.sh > $scriptPath/basesetup.log
