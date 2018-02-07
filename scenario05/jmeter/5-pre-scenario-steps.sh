@@ -14,16 +14,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+serverHost=$serverHost
+serverPort=$serverPort
 
-#these params need to be taken out
-#tomcat properties
-tomcatHost=$tomcatHost
-tomcatPort=8080
-tomcatUsername=scriptuser
-tomcatPassword=scriptuser
-appName="travelocity.com"
+prgdir=$(dirname "$0")
+scriptPath=$(cd "$prgdir"; pwd)
 
-#undeploy webapp from tomcat
-curl http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/undeploy?path=/$appName
-#clear temp direcotry
-rm -rf $scriptPath/../temp/
+#updating jmeter properties - user.properties
+sed -i "s|^\(serverHost\s*=\s*\).*\$|\1${serverHost}|" $scriptPath/../resources/user.properties
+sed -i "s|^\(serverPort\s*=\s*\).*\$|\1${serverPort}|" $scriptPath/../resources/user.properties
+
+
