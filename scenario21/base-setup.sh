@@ -27,7 +27,7 @@ serverPort=$serverPort
 
 #travelocity properties
 SAML2AssertionConsumerURL="http://$tomcatHost:$tomcatPort/$appName/home.jsp"
-SAML2IdPURL="https://$serverHost/samlsso"
+SAML2IdPURL="https://$serverHost:$serverPort/samlsso"
 SAML2SPEntityId="$appName"
 SkipURIs="/$appName/index.jsp"
 SAML2IdPEntityId=$serverHost
