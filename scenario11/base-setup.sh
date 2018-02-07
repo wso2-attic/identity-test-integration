@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Copyright (c) 2017, WSO2 Inc. (http://wso2.com) All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,11 +24,10 @@ tomcatPassword=scriptuser
 tomcatVersion=7
 serverHost=$serverHost
 serverPort=$serverPort
-solutionPath=/
 
 #travelocity properties
 SAML2AssertionConsumerURL="http://$tomcatHost:$tomcatPort/$appName/home.jsp"
-SAML2IdPURL="https://$serverHost/samlsso"
+SAML2IdPURL="https://$serverHost:$serverPort/samlsso"
 SAML2SPEntityId="$appName"
 SkipURIs="/$appName/index.jsp"
 SAML2IdPEntityId=$serverHost
@@ -36,7 +36,7 @@ SAML2IdPEntityId=$serverHost
 mkdir $scriptPath/../temp
 #coping travalocity app to temp direcory
 
-cp -r $scriptPath/../../../../apps/sso-agent-sample $scriptPath/../temp/
+cp -r $scriptPath/../../apps/sso-agent-sample $scriptPath/../temp/
 cd $scriptPath/../temp/sso-agent-sample/
 #build travelocity app from source
 mvn clean install
@@ -67,6 +67,17 @@ cd $scriptPath/../temp/
 #tomcat7/8
 curl -T "travelocity.com.war" "http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/deploy?path=/travelocity.com&update=true"
 
+#passive sts app
+cp -r $scriptPath/../../apps/PassiveSTSSampleApp $scriptPath/../temp/
+cd $scriptPath/../temp/PassiveSTSSampleApp
+mvn clean install
+
+cp -r $scriptPath/../temp/PassiveSTSSampleApp/target/PassiveSTSSampleApp.war $scriptPath/../temp
+
+cd $scriptPath/../temp/
+curl -T "PassiveSTSSampleApp.war" "http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/deploy?path=/PassiveSTSSampleApp&update=true"
+
+
 x=0;
 retry_count=10;
 while true
@@ -88,3 +99,4 @@ fi
 x=$((x+1))
 sleep 1
 done
+
