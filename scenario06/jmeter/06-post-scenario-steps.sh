@@ -20,7 +20,7 @@ scriptPath=$(cd "$prgdir"; pwd)
 echo "working directory : "$scriptPath
 
 #run teardown.sh to un-deploy the artifacts
-. $scriptPath/../teardown.sh
+source $scriptPath/../teardown.sh
 
 
 echo "post-steps are done..."

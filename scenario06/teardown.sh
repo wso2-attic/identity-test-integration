@@ -18,7 +18,7 @@
 #these params need to be taken out
 #tomcat properties
 tomcatHost=$tomcatHost
-tomcatPort=8080
+tomcatPort=$tomcatPort
 tomcatUsername=scriptuser
 tomcatPassword=scriptuser
 appName="travelocity.com"
