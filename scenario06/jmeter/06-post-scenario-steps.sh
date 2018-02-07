@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /bin/bash
 
 # Copyright (c) 2017, WSO2 Inc. (http://wso2.com) All Rights Reserved.
 #
@@ -14,16 +14,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+prgdir=$(dirname "$0")
+scriptPath=$(cd "$prgdir"; pwd)
 
-#these params need to be taken out
-#tomcat properties
-tomcatHost=$tomcatHost
-tomcatPort=$tomcatPort
-tomcatUsername=scriptuser
-tomcatPassword=scriptuser
-appName="travelocity.com"
+echo "working directory : "$scriptPath
 
-#undeploy webapp from tomcat
-curl http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/undeploy?path=/$appName
-#clear temp direcotry
-rm -rf $scriptPath/../temp/
+#run teardown.sh to un-deploy the artifacts
+source $scriptPath/../teardown.sh
+
+
+echo "post-steps are done..."
+
