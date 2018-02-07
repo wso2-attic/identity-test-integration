@@ -122,13 +122,13 @@
           </elementProp>
           <elementProp name="TwitterSecret" elementType="Argument">
             <stringProp name="Argument.name">TwitterSecret</stringProp>
-            <stringProp name="Argument.value">${__property(adminPassword)}</stringProp>
+            <stringProp name="Argument.value">${__property(TwitterSecret)}</stringProp>
             <stringProp name="Argument.desc">Twitter Client secret</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="twitterUserName" elementType="Argument">
             <stringProp name="Argument.name">twitterUserName</stringProp>
-            <stringProp name="Argument.value">${__property(TwitterSecret)}</stringProp>
+            <stringProp name="Argument.value">${__property(twitterUserName)}</stringProp>
             <stringProp name="Argument.desc">Twitter Username</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
@@ -141,6 +141,11 @@
           <elementProp name="TwitterIdentityProviderName" elementType="Argument">
             <stringProp name="Argument.name">TwitterIdentityProviderName</stringProp>
             <stringProp name="Argument.value">${__property(TwitterIdentityProviderName)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="TwitterCallbackUrl" elementType="Argument">
+            <stringProp name="Argument.name">TwitterCallbackUrl</stringProp>
+            <stringProp name="Argument.value">${__property(TwitterCallbackUrl)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="UserStoreadminUsername" elementType="Argument">
@@ -341,7 +346,7 @@
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;callbackUrl&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;https://${serverHost}:${serverPort}/commonauth&lt;/xsd:value&gt;&#xd;
+                  &lt;xsd:value&gt;${TwitterCallbackUrl}&lt;/xsd:value&gt;&#xd;
                &lt;/xsd:properties&gt;&#xd;
                 &lt;/xsd:federatedAuthenticatorConfigs&gt;&#xd;
                &lt;xsd:justInTimeProvisioningConfig&gt;&#xd;
@@ -432,7 +437,7 @@
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;callbackUrl&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;https://${serverHost}:${serverPort}/commonauth&lt;/xsd:value&gt;&#xd;
+                  &lt;xsd:value&gt;${GoogleCallbackUrl}/xsd:value&gt;&#xd;
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;scope&lt;/xsd:name&gt;&#xd;
