@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Copyright (c) 2017, WSO2 Inc. (http://wso2.com) All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,11 +24,10 @@ tomcatPassword=scriptuser
 tomcatVersion=7
 serverHost=$serverHost
 serverPort=$serverPort
-solutionPath=/
 
 #travelocity properties
 SAML2AssertionConsumerURL="http://$tomcatHost:$tomcatPort/$appName/home.jsp"
-SAML2IdPURL="https://$serverHost/samlsso"
+SAML2IdPURL="https://$serverHost:$serverPort/samlsso"
 SAML2SPEntityId="$appName"
 SkipURIs="/$appName/index.jsp"
 SAML2IdPEntityId=$serverHost
@@ -36,7 +36,7 @@ SAML2IdPEntityId=$serverHost
 mkdir $scriptPath/../temp
 #coping travalocity app to temp direcory
 
-cp -r $scriptPath/../../../../apps/sso-agent-sample $scriptPath/../temp/
+cp -r $scriptPath/../../apps/sso-agent-sample $scriptPath/../temp/
 cd $scriptPath/../temp/sso-agent-sample/
 #build travelocity app from source
 mvn clean install
@@ -88,3 +88,4 @@ fi
 x=$((x+1))
 sleep 1
 done
+
