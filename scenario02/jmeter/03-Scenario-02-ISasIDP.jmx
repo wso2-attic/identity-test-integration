@@ -25,7 +25,7 @@
           </elementProp>
           <elementProp name="tomcatHost" elementType="Argument">
             <stringProp name="Argument.name">tomcatHost</stringProp>
-            <stringProp name="Argument.value">localhost</stringProp>
+            <stringProp name="Argument.value">192.168.48.151</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="tomcatPort" elementType="Argument">
@@ -55,12 +55,12 @@
           </elementProp>
           <elementProp name="serverHostSecondary" elementType="Argument">
             <stringProp name="Argument.name">serverHostSecondary</stringProp>
-            <stringProp name="Argument.value">localhost</stringProp>
+            <stringProp name="Argument.value">ec2-34-203-229-197.compute-1.amazonaws.com</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="serverPortSecondary" elementType="Argument">
             <stringProp name="Argument.name">serverPortSecondary</stringProp>
-            <stringProp name="Argument.value">9444</stringProp>
+            <stringProp name="Argument.value">9443</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="serverSSOurlSecondary" elementType="Argument">
@@ -120,12 +120,12 @@
           </elementProp>
           <elementProp name="adminUsernameSecondary" elementType="Argument">
             <stringProp name="Argument.name">adminUsernameSecondary</stringProp>
-            <stringProp name="Argument.value">admin1</stringProp>
+            <stringProp name="Argument.value">admin</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="adminPasswordSecondary" elementType="Argument">
             <stringProp name="Argument.name">adminPasswordSecondary</stringProp>
-            <stringProp name="Argument.value">admin1</stringProp>
+            <stringProp name="Argument.value">admin</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -261,7 +261,7 @@
       </HeaderManager>
       <hashTree/>
       <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="Create User" enabled="true">
-        <stringProp name="ThreadGroup.on_sample_error">startnextloop</stringProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <stringProp name="LoopController.loops">1</stringProp>

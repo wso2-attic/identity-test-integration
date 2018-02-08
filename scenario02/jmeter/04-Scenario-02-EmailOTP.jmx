@@ -198,6 +198,11 @@
             <stringProp name="Argument.value">${__property(tomcatPort)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
+          <elementProp name="travelocityIssuer" elementType="Argument">
+            <stringProp name="Argument.name">travelocityIssuer</stringProp>
+            <stringProp name="Argument.value">${__property(travelocityIssuer)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
         </collectionProp>
       </Arguments>
       <hashTree/>
@@ -1160,7 +1165,7 @@ try {
             <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">travelocity.com/home.jsp</stringProp>
+            <stringProp name="HTTPSampler.path">${travelocityIssuer}/home.jsp</stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -1180,7 +1185,7 @@ try {
               <intProp name="Assertion.test_type">2</intProp>
             </ResponseAssertion>
             <hashTree/>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Content Response Assertion" enabled="true">
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Content Response Assertion" enabled="false">
               <collectionProp name="Asserion.test_strings">
                 <stringProp name="1412059034">You are logged in as ${testUsername}</stringProp>
               </collectionProp>
