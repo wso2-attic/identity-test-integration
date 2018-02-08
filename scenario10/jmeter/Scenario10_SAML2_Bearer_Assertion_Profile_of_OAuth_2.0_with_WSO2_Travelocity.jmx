@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.2 r1790748">
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.3 r1808647">
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="SAML2 Bearer Assertion Profile of OAuth 2.0 with WSO2 Travelocity" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
@@ -68,13 +68,17 @@
               <stringProp name="Argument.value">${__property(tomcatPort)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
+            <elementProp name="scriptPath" elementType="Argument">
+              <stringProp name="Argument.name">scriptPath</stringProp>
+              <stringProp name="Argument.value">${__property(scriptPath)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
           </collectionProp>
         </Arguments>
         <hashTree/>
         <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
           <collectionProp name="CookieManager.cookies"/>
           <boolProp name="CookieManager.clearEachIteration">false</boolProp>
-          <stringProp name="CookieManager.implementation">org.apache.jmeter.protocol.http.control.HC4CookieHandler</stringProp>
         </CookieManager>
         <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Register SAML2 Web SSO Issuer" enabled="true">
@@ -625,6 +629,45 @@
             </collectionProp>
           </HeaderManager>
           <hashTree/>
+          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Execute base-setup.sh and set consumerKey, consumerSecret variables" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters">${consumerKey},${consumerSecret}</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey"></stringProp>
+            <stringProp name="script">def scriptPath = vars.get(&quot;scriptPath&quot;);
+def consumerKey = vars.get(&quot;consumerKey&quot;);
+def consumerSecret = vars.get(&quot;consumerSecret&quot;);
+def tomcatHost = vars.get(&quot;tomcatHost&quot;);
+def tomcatPort = vars.get(&quot;tomcatPort&quot;);
+def serverHost = vars.get(&quot;is_host&quot;);
+def serverPort = vars.get(&quot;is_port&quot;);
+
+//Method accepts a shell command as a parameter
+void executeCommand(String command){
+                try {
+                        String target = new String(command);
+                        String file = new String(&quot;&quot;)
+                        Runtime rt = Runtime.getRuntime();
+                        Process proc = rt.exec(target);
+                        proc.waitFor();
+                        StringBuffer output = new StringBuffer();
+                        BufferedReader reader = new BufferedReader(new InputStreamReader(proc.getInputStream()));
+                        String line = &quot;&quot;;                       
+                        while ((line = reader.readLine())!= null) {
+                                output.append(line + &quot;\n&quot;);
+                        }
+                        System.out.println(&quot;### &quot; + output);
+                } catch (Throwable t) {
+                        t.printStackTrace();
+                }
+}
+
+
+executeCommand(scriptPath+&quot;/../base-setup.sh &quot;+scriptPath+&quot; &quot;+consumerKey+&quot; &quot;+consumerSecret+&quot; &quot;+tomcatHost+&quot; &quot;+tomcatPort+&quot; &quot;+serverHost+&quot; &quot;+serverPort);
+
+</stringProp>
+          </JSR223PostProcessor>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET travelocity.com" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
@@ -645,16 +688,7 @@
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200 OK HTTP Code Response Assertion" enabled="true">
-            <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1606201635">HTTP/1.1 200 OK</stringProp>
-            </collectionProp>
-            <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
-            <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">2</intProp>
-          </ResponseAssertion>
-          <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Content Response Assertion" enabled="false">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Content Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="-1705317918">to login with</stringProp>
             </collectionProp>
@@ -688,15 +722,6 @@
               <stringProp name="-1606201635">HTTP/1.1 200 OK</stringProp>
             </collectionProp>
             <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
-            <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">2</intProp>
-          </ResponseAssertion>
-          <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Content Response Assertion" enabled="false">
-            <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1705317918">to login with</stringProp>
-            </collectionProp>
-            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
@@ -753,7 +778,7 @@
           <stringProp name="TestPlan.comments">${user_name}${tenant_id}@${tenant}</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200 OK HTTP Code Response Assertion" enabled="false">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200 OK HTTP Code Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="-1606201635">HTTP/1.1 200 OK</stringProp>
             </collectionProp>
@@ -800,18 +825,9 @@
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200 OK HTTP Code Response Assertion" enabled="false">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Content Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1606201635">HTTP/1.1 200 OK</stringProp>
-            </collectionProp>
-            <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
-            <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">2</intProp>
-          </ResponseAssertion>
-          <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Content Response Assertion" enabled="false">
-            <collectionProp name="Asserion.test_strings">
-              <stringProp name="837449810">You are logged in as ${user_name}@${tenant_prefix}${tenant_id}${tenant_surfix}</stringProp>
+              <stringProp name="-1435285188">You are logged in as</stringProp>
             </collectionProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
@@ -819,7 +835,7 @@
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="TOKEN travelocity.com/token" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="AccessTOKEN travelocity.com/token endpoint" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
@@ -838,7 +854,16 @@
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Access Token Assertion" enabled="false">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Access Token Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="687164477">Access Token</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Refresh Token Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="687164477">Access Token</stringProp>
             </collectionProp>

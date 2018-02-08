@@ -15,15 +15,15 @@
 # limitations under the License.
 
 tomcatHost=$tomcatHost
-tomcatPort=8080
+tomcatPort=$tomcatPort
 serverHost=$serverHost
-serverPort=443
+serverPort=$serverPort
 
 prgdir=$(dirname "$0")
 scriptPath=$(cd "$prgdir"; pwd)
 
 #run base-setup.sh to deploy artifacts
-source $scriptPath/../base-setup.sh > $scriptPath/basesetup.log
+#source $scriptPath/../base-setup.sh > $scriptPath/basesetup.log
 
 echo "working directory : "$scriptPath
 #updating jmeter properties - user.properties
@@ -31,5 +31,6 @@ sed -i "s|^\(serverHost\s*=\s*\).*\$|\1${serverHost}|" $scriptPath/../resources/
 sed -i "s|^\(serverPort\s*=\s*\).*\$|\1${serverPort}|" $scriptPath/../resources/user.properties
 sed -i "s|^\(tomcatHost\s*=\s*\).*\$|\1${tomcatHost}|" $scriptPath/../resources/user.properties
 sed -i "s|^\(tomcatPort\s*=\s*\).*\$|\1${tomcatPort}|" $scriptPath/../resources/user.properties
+sed -i "s|^\(scriptPath\s*=\s*\).*\$|\1${scriptPath}|" $scriptPath/../resources/user.properties
 
 echo "pre-steps are done..."

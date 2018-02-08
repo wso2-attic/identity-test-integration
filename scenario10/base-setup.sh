@@ -1,5 +1,4 @@
-#! /bin/bash
-
+#!/bin/bash
 # Copyright (c) 2017, WSO2 Inc. (http://wso2.com) All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,37 +13,39 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+
+#script properties
+scriptPath=$1
+
 #properties
 #TODO:read below property from infra.json file
 appName="travelocity.com"
-tomcatHost=$tomcatHost
-tomcatPort=$tomcatPort
+tomcatHost=$4
+tomcatPort=$5
 tomcatUsername=scriptuser
 tomcatPassword=scriptuser
 tomcatVersion=7
-serverHost=$serverHost
-serverPort=$serverPort
+serverHost=$6
+serverPort=$7
+solutionPath=/
 
 #travelocity properties
 SAML2AssertionConsumerURL="http://$tomcatHost:$tomcatPort/$appName/home.jsp"
-SAML2IdPURL="https://$serverHost/samlsso"
+SAML2IdPURL="https://$serverHost:$serverPort/samlsso"
 SAML2SPEntityId="$appName"
 SkipURIs="/$appName/index.jsp"
-SAML2IdPEntityId="$serverHost"
-OAuth2TokenURL="https://$serverHost:$serverPort/oauth2/token"
-OAuth2ClientId="lKjE0YDVrXNJY8TN7AdzAgkgfJ0a"
-OAuth2ClientSecret="KiAnWzcf9NaKCdL7B8wjGqffE70a"
-OpenIdProviderURL="https://$serverHost:$serverPort/openid/"
-OpenIdReturnToURL="http://$tomcatHost:$tomcatPort/travelocity.com/home.jsp"
+SAML2IdPEntityId=$serverHost
+EnableOAuth2SAML2Grant="true"
+SAML2IsPassiveAuthn="false"
+OAuth2ClientId=$2
+OAuth2ClientSecret=$3
+
 
 #create temporary directory
 mkdir $scriptPath/../temp
 #coping travalocity app to temp direcory
-cp -r $scriptPath/../../../../apps/travelocity.com/ $scriptPath/../temp#create temporary directory
-mkdir $scriptPath/../temp
-#coping travalocity app to temp direcory
 
-cp -r $scriptPath/../../../../apps/sso-agent-sample $scriptPath/../temp/
+cp -r $scriptPath/../../apps/sso-agent-sample $scriptPath/../temp/
 cd $scriptPath/../temp/sso-agent-sample/
 #build travelocity app from source
 mvn clean install
@@ -64,15 +65,17 @@ sed -i "s|^\(SkipURIs\s*=\s*\).*\$|\1${SkipURIs}|" $scriptPath/../temp/traveloci
 
 sed -i "s|^\(SAML2\.IdPEntityId\s*=\s*\).*\$|\1${SAML2IdPEntityId}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
-sed -i "s|^\(OAuth2\.TokenURL\s*=\s*\).*\$|\1${OAuth2TokenURL}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+sed -i "s|^\(SkipURIs\s*=\s*\).*\$|\1${SkipURIs}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+
+sed -i "s|^\(EnableOAuth2SAML2Grant\s*=\s*\).*\$|\1${EnableOAuth2SAML2Grant}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+
+sed -i "s|^\(SAML2\.IsPassiveAuthn\s*=\s*\).*\$|\1${SAML2IsPassiveAuthn}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
 sed -i "s|^\(OAuth2\.ClientId\s*=\s*\).*\$|\1${OAuth2ClientId}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
 sed -i "s|^\(OAuth2\.ClientSecret\s*=\s*\).*\$|\1${OAuth2ClientSecret}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
-sed -i "s|^\(OpenId\.ProviderURL\s*=\s*\).*\$|\1${OpenIdProviderURL}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
-sed -i "s|^\(OpenId\.ReturnToURL\s*=\s*\).*\$|\1${OpenIdReturnToURL}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
 #repackaging travelocity app
 cd $scriptPath/../temp/travelocity.com/
@@ -106,4 +109,3 @@ fi
 x=$((x+1))
 sleep 1
 done
-
