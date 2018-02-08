@@ -179,167 +179,7 @@
             <stringProp name="Argument.name">callbackHost</stringProp>
             <stringProp name="Argument.value">${__property(callbackHost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-        </collectionProp>
-      </Arguments>
-      <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Variables" enabled="false">
-        <collectionProp name="Arguments.arguments">
-          <elementProp name="isHost" elementType="Argument">
-            <stringProp name="Argument.name">isHost</stringProp>
-            <stringProp name="Argument.value">localhost</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="isPort" elementType="Argument">
-            <stringProp name="Argument.name">isPort</stringProp>
-            <stringProp name="Argument.value">9443</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="adminCredentials" elementType="Argument">
-            <stringProp name="Argument.name">adminCredentials</stringProp>
-            <stringProp name="Argument.value">YWRtaW46YWRtaW4=</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">base64 encrypted admin credentials</stringProp>
-          </elementProp>
-          <elementProp name="adminusername" elementType="Argument">
-            <stringProp name="Argument.name">adminusername</stringProp>
-            <stringProp name="Argument.value">admin</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="adminpassword" elementType="Argument">
-            <stringProp name="Argument.name">adminpassword</stringProp>
-            <stringProp name="Argument.value">admin</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="spName" elementType="Argument">
-            <stringProp name="Argument.name">spName</stringProp>
-            <stringProp name="Argument.value">travelocity.com</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">SP - Travelocity</stringProp>
-          </elementProp>
-          <elementProp name="spDescription" elementType="Argument">
-            <stringProp name="Argument.name">spDescription</stringProp>
-            <stringProp name="Argument.value">travelocitySP</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">Service Provider Description</stringProp>
-          </elementProp>
-          <elementProp name="carbonServer" elementType="Argument">
-            <stringProp name="Argument.name">carbonServer</stringProp>
-            <stringProp name="Argument.value">travelocity.com</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="tomcatPort" elementType="Argument">
-            <stringProp name="Argument.name">tomcatPort</stringProp>
-            <stringProp name="Argument.value">8080</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="idp2Facebook" elementType="Argument">
-            <stringProp name="Argument.name">idp2Facebook</stringProp>
-            <stringProp name="Argument.value">facebook</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="idp2FacebookDescription" elementType="Argument">
-            <stringProp name="Argument.name">idp2FacebookDescription</stringProp>
-            <stringProp name="Argument.value">FacebookIDP</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="fbClientId" elementType="Argument">
-            <stringProp name="Argument.name">fbClientId</stringProp>
-            <stringProp name="Argument.value">381654242297591</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="fbClientSecret" elementType="Argument">
-            <stringProp name="Argument.name">fbClientSecret</stringProp>
-            <stringProp name="Argument.value">65c65633421002c43929899fc97ae9f3</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="fbScope" elementType="Argument">
-            <stringProp name="Argument.name">fbScope</stringProp>
-            <stringProp name="Argument.value">email</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="fbUserInfoFields" elementType="Argument">
-            <stringProp name="Argument.name">fbUserInfoFields</stringProp>
-            <stringProp name="Argument.value">id,name,gender,email,first_name,last_name,age_range,link</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="idp1Twitter" elementType="Argument">
-            <stringProp name="Argument.name">idp1Twitter</stringProp>
-            <stringProp name="Argument.value">TwitterIdp</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="idp1TwitterDescription" elementType="Argument">
-            <stringProp name="Argument.name">idp1TwitterDescription</stringProp>
-            <stringProp name="Argument.value">This is Twitter Fedarated Idp</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="twitterClientId" elementType="Argument">
-            <stringProp name="Argument.name">twitterClientId</stringProp>
-            <stringProp name="Argument.value">WWdo748rnXiF8BkExp7ziVYNm</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="twitterClientSecret" elementType="Argument">
-            <stringProp name="Argument.name">twitterClientSecret</stringProp>
-            <stringProp name="Argument.value">uaOruL1g2AYaCh5aHBrTKDDuAw6Skl4oq8BiyZsQ7oJw8uk1sW</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="tomcatHost" elementType="Argument">
-            <stringProp name="Argument.name">tomcatHost</stringProp>
-            <stringProp name="Argument.value">192.168.1.8</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="twitterUserName" elementType="Argument">
-            <stringProp name="Argument.name">twitterUserName</stringProp>
-            <stringProp name="Argument.value">supun30old</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="twitterPassword" elementType="Argument">
-            <stringProp name="Argument.name">twitterPassword</stringProp>
-            <stringProp name="Argument.value">Test123@</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="fbUserName" elementType="Argument">
-            <stringProp name="Argument.name">fbUserName</stringProp>
-            <stringProp name="Argument.value">wso2qa@gmail.com</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="fbPassword" elementType="Argument">
-            <stringProp name="Argument.name">fbPassword</stringProp>
-            <stringProp name="Argument.value">Wso2qa@123</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="sp2Name" elementType="Argument">
-            <stringProp name="Argument.name">sp2Name</stringProp>
-            <stringProp name="Argument.value">PassiveSTSSampleApp</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">SP - STS web app</stringProp>
-          </elementProp>
-          <elementProp name="sp2Description" elementType="Argument">
-            <stringProp name="Argument.name">sp2Description</stringProp>
-            <stringProp name="Argument.value">stsSP</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="incorrectFbClientId" elementType="Argument">
-            <stringProp name="Argument.name">incorrectFbClientId</stringProp>
-            <stringProp name="Argument.value">incorrect</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">For negative scenario</stringProp>
-          </elementProp>
-          <elementProp name="idp3Facebook" elementType="Argument">
-            <stringProp name="Argument.name">idp3Facebook</stringProp>
-            <stringProp name="Argument.value">FacebookInvalid</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">Invalid Facebook Idp</stringProp>
-          </elementProp>
-          <elementProp name="idp3FacebookDescription" elementType="Argument">
-            <stringProp name="Argument.name">idp3FacebookDescription</stringProp>
-            <stringProp name="Argument.value">This is an invalid idp</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="passiveSTSuserId" elementType="Argument">
-            <stringProp name="Argument.name">passiveSTSuserId</stringProp>
-            <stringProp name="Argument.value">925979694490619904</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">is.qa.com</stringProp>
           </elementProp>
         </collectionProp>
       </Arguments>
@@ -2577,7 +2417,7 @@ try {
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">/Users/IsuruUyanage/Desktop/commit/identity-test-integration/scenario11/jmeter/t50.jtl</stringProp>
+        <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
       <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
@@ -2613,7 +2453,7 @@ try {
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">/Users/IsuruUyanage/Desktop/commit/identity-test-integration/scenario11/jmeter/solution.jtl</stringProp>
+        <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
     </hashTree>
