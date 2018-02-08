@@ -175,6 +175,12 @@
             <stringProp name="Argument.value">${__property(passiveSTSuserId)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
+          <elementProp name="callbackHost" elementType="Argument">
+            <stringProp name="Argument.name">callbackHost</stringProp>
+            <stringProp name="Argument.value">${__property(callbackHost)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">is.qa.com</stringProp>
+          </elementProp>
         </collectionProp>
       </Arguments>
       <hashTree/>
@@ -290,7 +296,7 @@
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;callbackUrl&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;https://${isHost}:${isPort}/commonauth&lt;/xsd:value&gt;&#xd;
+                  &lt;xsd:value&gt;https://${callbackHost}:${isPort}/commonauth&lt;/xsd:value&gt;&#xd;
                &lt;/xsd:properties&gt;&#xd;
             &lt;/xsd:federatedAuthenticatorConfigs&gt;&#xd;
          &lt;/mgt:identityProvider&gt;&#xd;
@@ -768,7 +774,8 @@ try {
 		button.click();
 
 		//Returns the whole page
-		return driver.getPageSource();  
+		return driver.getPageSource();
+		 
     
 } catch (Exception ex) {
     ex.printStackTrace();
@@ -907,7 +914,7 @@ try {
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;callBackUrl&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;https://${isHost}:${isPort}/commonauth&lt;/xsd:value&gt;&#xd;
+                  &lt;xsd:value&gt;https://${callbackHost}:${isPort}/commonauth&lt;/xsd:value&gt;&#xd;
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;UserInfoFields&lt;/xsd:name&gt;&#xd;
@@ -1111,7 +1118,7 @@ try {
 		String travelocityURL = protocole + tomcathost + seperator + tomcatport + url;
 		
 		driver.get(travelocityURL);
-		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
 		WebElement link = driver.findElement(By.linkText(&quot;here&quot;));
 		link.click();
 
@@ -1267,7 +1274,7 @@ try {
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;callBackUrl&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;https://${isHost}:${isPort}/commonauth&lt;/xsd:value&gt;&#xd;
+                  &lt;xsd:value&gt;https://${callbackHost}:${isPort}/commonauth&lt;/xsd:value&gt;&#xd;
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;UserInfoFields&lt;/xsd:name&gt;&#xd;
@@ -1474,8 +1481,6 @@ try {
 
 		WebElement link = driver.findElement(By.linkText(&quot;here&quot;));
 		link.click();
-
-
 
 		//Returns the whole page
 		return driver.getPageSource();  
@@ -1747,7 +1752,7 @@ try {
 		String passiveStsURL = protocole + tomcathost + seperator + tomcatport + url;
 		
 		driver.get(passiveStsURL);
-		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
 		WebElement username =  driver.findElement(By.id(&quot;username_or_email&quot;));
 		username.clear();
 		username.sendKeys(new String[] { vars.get(&quot;twitterUserName&quot;) });
@@ -1761,7 +1766,7 @@ try {
 
 		//Returns the whole page
 		return driver.getPageSource();  
-		driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+
     
 } catch (Exception ex) {
     ex.printStackTrace();
@@ -1900,9 +1905,7 @@ try {
 		String url = &quot;/PassiveSTSSampleApp/index.jsp&quot;;
 
 		String passiveStsURL = protocole + tomcathost + seperator + tomcatport + url;
-		
 		driver.get(passiveStsURL);
-
 
 		//Returns the whole page
 		return driver.getPageSource();  
@@ -2414,7 +2417,7 @@ try {
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">/Users/IsuruUyanage/Desktop/new/New2/identity-test-integration/scenario11/jmeter/wwwaaaaaaajjj.jtl</stringProp>
+        <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
       <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">

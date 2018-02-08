@@ -17,6 +17,7 @@
 #properties
 #TODO:read below property from infra.json file
 appName="travelocity.com"
+appName2="PassiveSTSSampleApp"
 tomcatHost=$tomcatHost
 tomcatPort=$tomcatPort
 tomcatUsername=scriptuser
@@ -31,6 +32,10 @@ SAML2IdPURL="https://$serverHost:$serverPort/samlsso"
 SAML2SPEntityId="$appName"
 SkipURIs="/$appName/index.jsp"
 SAML2IdPEntityId=$serverHost
+
+#PassiveSTSSample properties
+replyUrl="http://$tomcatHost:$tomcatPort/$appName2/index.jsp"
+idpUrl="https://$serverHost:$serverPort/passivests"
 
 #create temporary directory
 mkdir $scriptPath/../temp
@@ -70,6 +75,10 @@ curl -T "travelocity.com.war" "http://$tomcatUsername:$tomcatPassword@$tomcatHos
 #passive sts app
 cp -r $scriptPath/../../apps/PassiveSTSSampleApp $scriptPath/../temp/
 cd $scriptPath/../temp/PassiveSTSSampleApp
+
+#updating PassiveSTSSampleApp web.xml file
+sed -i "/init-param/,/\/init-param/s/localhost:8080/${tomcatHost}:${tomcatPort}/g" $scriptPath/../temp/PassiveSTSSampleApp/src/main/webapp/WEB-INF/web.xml
+sed -i "/init-param/,/\/init-param/s/localhost:9443/${serverHost}:${serverPort}/g" $scriptPath/../temp/PassiveSTSSampleApp/src/main/webapp/WEB-INF/web.xml
 mvn clean install
 
 cp -r $scriptPath/../temp/PassiveSTSSampleApp/target/PassiveSTSSampleApp.war $scriptPath/../temp
@@ -84,9 +93,11 @@ while true
 do
 echo $(date)" Waiting until deploying the app on Tomcat!"
 #STATUS=$(curl -s http://scriptuser:scriptuser@localhost:8080/manager/text/list | grep ${appName})
-if curl -s http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/list | grep "${appName}:running"
+if curl -s http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/list | grep "${appName}:running" &&
+	curl -s http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/list | grep "${appName2}:running"
 then
  echo "Found ${appName} is running on Tomcat"
+ echo "Found ${appName2} is running on Tomcat"
  echo "Done base-setup.sh"
  exit 0
 else
