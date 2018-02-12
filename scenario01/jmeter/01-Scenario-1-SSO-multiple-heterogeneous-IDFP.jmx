@@ -3140,7 +3140,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));</st
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">/media/maneesha/2eac7d18-49d4-407f-aa96-fb88cd8a24a8/maneesha/hackathon/janrepo/16/identity-test-integration/scenario01/jmeter/xxxx6.jtl</stringProp>
+        <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
     </hashTree>
