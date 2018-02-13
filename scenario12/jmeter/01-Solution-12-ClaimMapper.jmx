@@ -189,6 +189,11 @@
             <stringProp name="Argument.value">${__property(isCallbackHost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
+          <elementProp name="googleCallbackUrl" elementType="Argument">
+            <stringProp name="Argument.name">googleCallbackUrl</stringProp>
+            <stringProp name="Argument.value">${__property(googleCallbackUrl)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
         </collectionProp>
       </Arguments>
       <hashTree/>
@@ -951,7 +956,7 @@
 &#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;callbackUrl&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;https://is.qa.com:${isPort}/commonauth&lt;/xsd:value&gt;&#xd;
+                  &lt;xsd:value&gt;${googleCallbackUrl}&lt;/xsd:value&gt;&#xd;
                &lt;/xsd:properties&gt;&#xd;
                &#xd;
                &lt;properties&gt;&#xd;
@@ -1592,7 +1597,7 @@
                &#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;callbackUrl&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;https://is.qa.com:${isPort}/commonauth&lt;/xsd:value&gt;&#xd;
+                  &lt;xsd:value&gt;${googleCallbackUrl}&lt;/xsd:value&gt;&#xd;
                &lt;/xsd:properties&gt;&#xd;
                &#xd;
               &lt;xsd:properties&gt;&#xd;

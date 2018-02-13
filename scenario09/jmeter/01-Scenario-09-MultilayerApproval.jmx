@@ -158,6 +158,11 @@
               <stringProp name="Argument.value">${__property(workflowUserPassword)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
+            <elementProp name="constantTimer" elementType="Argument">
+              <stringProp name="Argument.name">constantTimer</stringProp>
+              <stringProp name="Argument.value">${__property(constantTimer)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
           </collectionProp>
         </Arguments>
         <hashTree/>
@@ -1183,7 +1188,7 @@
               </XPathExtractor>
               <hashTree/>
               <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
-                <stringProp name="ConstantTimer.delay">60000</stringProp>
+                <stringProp name="ConstantTimer.delay">${constantTimer}</stringProp>
               </ConstantTimer>
               <hashTree/>
             </hashTree>
