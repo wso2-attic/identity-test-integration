@@ -30,7 +30,7 @@
           <collectionProp name="Arguments.arguments">
             <elementProp name="adminPassword" elementType="Argument">
               <stringProp name="Argument.name">adminPassword</stringProp>
-              <stringProp name="Argument.value">${__property(adminUsername)}</stringProp>
+              <stringProp name="Argument.value">${__property(adminPassword)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="adminUsername" elementType="Argument">
@@ -1183,7 +1183,7 @@
               </XPathExtractor>
               <hashTree/>
               <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
-                <stringProp name="ConstantTimer.delay">6000</stringProp>
+                <stringProp name="ConstantTimer.delay">60000</stringProp>
               </ConstantTimer>
               <hashTree/>
             </hashTree>
@@ -2348,6 +2348,12 @@
             <hashTree/>
           </hashTree>
         </hashTree>
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="true">
+          <boolProp name="displayJMeterProperties">false</boolProp>
+          <boolProp name="displayJMeterVariables">true</boolProp>
+          <boolProp name="displaySystemProperties">false</boolProp>
+        </DebugSampler>
+        <hashTree/>
         <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
