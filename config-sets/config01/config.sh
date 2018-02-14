@@ -26,8 +26,7 @@ retry_count1=20;
 while true
 do
 echo $(date)" Waiting until server stops"
-#mystatus=$(curl -s -w '%{http_code}' https://localhost:9443/carbon -k )
-if curl -s -w '%{http_code}' https://localhost:9443/carbon -k | grep "000"
+if curl -s -w '%{http_code}' https://$serverHost:$serverPort/carbon -k | grep "000"
 then
  echo "Carbon server stopped...!"
  break
@@ -52,8 +51,7 @@ retry_count=20;
 while true
 do
 echo $(date)" waiting until server starts..."
-#STATUS=$(curl -s http://scriptuser:scriptuser@localhost:8080/manager/text/list | grep ${appName})
-if curl -s -w '%{http_code}' https://localhost:9443/carbon -k | grep "302"
+if curl -s -w '%{http_code}' https://$serverHost:$serverPort/carbon -k | grep "302"
 then
  echo "found server running..."
  echo "configurations Done...!"
@@ -120,8 +118,7 @@ retry_count1=20;
 while true
 do
 echo $(date)" Waiting until server stops"
-#mystatus=$(curl -s -w '%{http_code}' https://localhost:9443/carbon -k )
-if curl -s -w '%{http_code}' https://localhost:9443/carbon -k | grep "000"
+if curl -s -w '%{http_code}' https://$serverHost:$serverPort/carbon -k | grep "000"
 then
  echo "Carbon server stopped...!"
  break
@@ -146,8 +143,7 @@ retry_count=20;
 while true
 do
 echo $(date)" waiting until server starts..."
-#STATUS=$(curl -s http://scriptuser:scriptuser@localhost:8080/manager/text/list | grep ${appName})
-if curl -s -w '%{http_code}' https://localhost:9443/carbon -k | grep "302"
+if curl -s -w '%{http_code}' https://$serverHost:$serverPort/carbon -k | grep "302"
 then
  echo "found server running..."
  echo "configurations Done...!"
