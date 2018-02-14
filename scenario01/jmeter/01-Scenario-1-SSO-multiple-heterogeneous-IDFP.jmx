@@ -17,13 +17,11 @@
             <stringProp name="Argument.name">isHost</stringProp>
             <stringProp name="Argument.value">${__property(serverHost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">${__property(serverHost)} is540b.qa.com</stringProp>
           </elementProp>
           <elementProp name="isPort" elementType="Argument">
             <stringProp name="Argument.name">isPort</stringProp>
             <stringProp name="Argument.value">${__property(serverPort)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">${__property(serverPort)}</stringProp>
           </elementProp>
           <elementProp name="adminusername" elementType="Argument">
             <stringProp name="Argument.name">adminusername</stringProp>
@@ -1800,7 +1798,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));</st
           <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">travelocity.com/index.jsp</stringProp>
+          <stringProp name="HTTPSampler.path">travelocity.com/home.jsp</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -1839,6 +1837,15 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));</st
               </elementProp>
             </collectionProp>
           </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="&apos;You are&apos; Text Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="670386867">You are</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
           <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="HTTP/1.1 200 OK Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
@@ -2769,9 +2776,9 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));</st
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="&quot;Post Binding&quot; Response Assertion" enabled="true">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="&quot;with user credentials&quot; Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="999829253">Post Binding</stringProp>
+              <stringProp name="-844016063">with user credentials</stringProp>
             </collectionProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
