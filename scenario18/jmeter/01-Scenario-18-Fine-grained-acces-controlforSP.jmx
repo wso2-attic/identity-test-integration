@@ -102,8 +102,8 @@
             <stringProp name="Argument.value">sol18user1</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="user1password1" elementType="Argument">
-            <stringProp name="Argument.name">user1password1</stringProp>
+          <elementProp name="user1password" elementType="Argument">
+            <stringProp name="Argument.name">user1password</stringProp>
             <stringProp name="Argument.value">sol18user1</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
@@ -112,8 +112,8 @@
             <stringProp name="Argument.value">sol18user2</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="user2password1" elementType="Argument">
-            <stringProp name="Argument.name">user2password1</stringProp>
+          <elementProp name="user2password" elementType="Argument">
+            <stringProp name="Argument.name">user2password</stringProp>
             <stringProp name="Argument.value">sol18user2</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
@@ -2007,7 +2007,7 @@
         <stringProp name="TestPlan.comments">This is the positive scenario - user1 should login</stringProp>
       </ThreadGroup>
       <hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="User 1Direct to travelocity Home Page Request" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="User 2Direct to travelocity Home Page Request" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
@@ -2024,7 +2024,7 @@
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="TestPlan.comments">User 1Direct to travelocity Home Page Request</stringProp>
+          <stringProp name="TestPlan.comments">User 2Direct to travelocity Home Page Request</stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Service Provider Initial HTTP Request" enabled="true">

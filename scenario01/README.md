@@ -20,6 +20,9 @@
 
 Products: WSO2 Identity Server 5.0.0+
 
+### Prerequisites
+
+User needs to deploy travelocity and playground webapps in tomcat server.Check [1] on how to build webapps from repository.
 
 ### Configurations
 
@@ -73,3 +76,4 @@ To try out the scenario 01, run the below command.
 mvn clean verify --fae
 ```
 
+[1] https://docs.wso2.com/display/IS541/Downloading+a+Sample

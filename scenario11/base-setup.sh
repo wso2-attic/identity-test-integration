@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Copyright (c) 2017, WSO2 Inc. (http://wso2.com) All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,6 +17,7 @@
 #properties
 #TODO:read below property from infra.json file
 appName="travelocity.com"
+appName2="PassiveSTSSampleApp"
 tomcatHost=$tomcatHost
 tomcatPort=$tomcatPort
 tomcatUsername=scriptuser
@@ -23,20 +25,23 @@ tomcatPassword=scriptuser
 tomcatVersion=7
 serverHost=$serverHost
 serverPort=$serverPort
-solutionPath=/
 
 #travelocity properties
 SAML2AssertionConsumerURL="http://$tomcatHost:$tomcatPort/$appName/home.jsp"
-SAML2IdPURL="https://$serverHost/samlsso"
+SAML2IdPURL="https://$serverHost:$serverPort/samlsso"
 SAML2SPEntityId="$appName"
 SkipURIs="/$appName/index.jsp"
 SAML2IdPEntityId=$serverHost
+
+#PassiveSTSSample properties
+replyUrl="http://$tomcatHost:$tomcatPort/$appName2/index.jsp"
+idpUrl="https://$serverHost:$serverPort/passivests"
 
 #create temporary directory
 mkdir $scriptPath/../temp
 #coping travalocity app to temp direcory
 
-cp -r $scriptPath/../../../../apps/sso-agent-sample $scriptPath/../temp/
+cp -r $scriptPath/../../apps/sso-agent-sample $scriptPath/../temp/
 cd $scriptPath/../temp/sso-agent-sample/
 #build travelocity app from source
 mvn clean install
@@ -67,15 +72,32 @@ cd $scriptPath/../temp/
 #tomcat7/8
 curl -T "travelocity.com.war" "http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/deploy?path=/travelocity.com&update=true"
 
+#passive sts app
+cp -r $scriptPath/../../apps/PassiveSTSSampleApp $scriptPath/../temp/
+cd $scriptPath/../temp/PassiveSTSSampleApp
+
+#updating PassiveSTSSampleApp web.xml file
+sed -i "/init-param/,/\/init-param/s/localhost:8080/${tomcatHost}:${tomcatPort}/g" $scriptPath/../temp/PassiveSTSSampleApp/src/main/webapp/WEB-INF/web.xml
+sed -i "/init-param/,/\/init-param/s/localhost:9443/${serverHost}:${serverPort}/g" $scriptPath/../temp/PassiveSTSSampleApp/src/main/webapp/WEB-INF/web.xml
+mvn clean install
+
+cp -r $scriptPath/../temp/PassiveSTSSampleApp/target/PassiveSTSSampleApp.war $scriptPath/../temp
+
+cd $scriptPath/../temp/
+curl -T "PassiveSTSSampleApp.war" "http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/deploy?path=/PassiveSTSSampleApp&update=true"
+
+
 x=0;
 retry_count=10;
 while true
 do
 echo $(date)" Waiting until deploying the app on Tomcat!"
 #STATUS=$(curl -s http://scriptuser:scriptuser@localhost:8080/manager/text/list | grep ${appName})
-if curl -s http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/list | grep "${appName}:running"
+if curl -s http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/list | grep "${appName}:running" &&
+	curl -s http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/list | grep "${appName2}:running"
 then
  echo "Found ${appName} is running on Tomcat"
+ echo "Found ${appName2} is running on Tomcat"
  echo "Done base-setup.sh"
  exit 0
 else
@@ -88,3 +110,4 @@ fi
 x=$((x+1))
 sleep 1
 done
+

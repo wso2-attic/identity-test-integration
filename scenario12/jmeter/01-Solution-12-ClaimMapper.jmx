@@ -184,6 +184,16 @@
             <stringProp name="Argument.value">${__property(fbIncorrectClientId)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
+          <elementProp name="isCallbackHost" elementType="Argument">
+            <stringProp name="Argument.name">isCallbackHost</stringProp>
+            <stringProp name="Argument.value">${__property(isCallbackHost)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="googleCallbackUrl" elementType="Argument">
+            <stringProp name="Argument.name">googleCallbackUrl</stringProp>
+            <stringProp name="Argument.value">${__property(googleCallbackUrl)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
         </collectionProp>
       </Arguments>
       <hashTree/>
@@ -577,7 +587,7 @@
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;callBackUrl&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;https://${isHost}:${isPort}/commonauth&lt;/xsd:value&gt;&#xd;
+                  &lt;xsd:value&gt;https://${isCallbackHost}/commonauth&lt;/xsd:value&gt;&#xd;
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;UserInfoFields&lt;/xsd:name&gt;&#xd;
@@ -943,6 +953,12 @@
                   &lt;name&gt;ClientSecret&lt;/name&gt;&#xd;
                   &lt;value&gt;${GoogleClientSecret}&lt;/value&gt;&#xd;
                &lt;/properties&gt;&#xd;
+&#xd;
+               &lt;xsd:properties&gt;&#xd;
+                  &lt;xsd:name&gt;callbackUrl&lt;/xsd:name&gt;&#xd;
+                  &lt;xsd:value&gt;${googleCallbackUrl}&lt;/xsd:value&gt;&#xd;
+               &lt;/xsd:properties&gt;&#xd;
+               &#xd;
                &lt;properties&gt;&#xd;
                   &lt;name&gt;IsUserIdInClaims&lt;/name&gt;&#xd;
                   &lt;value&gt;false&lt;/value&gt;&#xd;
@@ -1230,7 +1246,7 @@
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;callbackUrl&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;https://${isHost}:${isPort}/commonauth&lt;/xsd:value&gt;&#xd;
+                  &lt;xsd:value&gt;https://${isCallbackHost}:${isPort}/commonauth&lt;/xsd:value&gt;&#xd;
                &lt;/xsd:properties&gt;&#xd;
             &lt;/xsd:federatedAuthenticatorConfigs&gt;&#xd;
          &lt;/mgt:identityProvider&gt;&#xd;
@@ -1581,7 +1597,7 @@
                &#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;callbackUrl&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;https://${isHost}:${isPort}/commonauth&lt;/xsd:value&gt;&#xd;
+                  &lt;xsd:value&gt;${googleCallbackUrl}&lt;/xsd:value&gt;&#xd;
                &lt;/xsd:properties&gt;&#xd;
                &#xd;
               &lt;xsd:properties&gt;&#xd;
@@ -3078,7 +3094,7 @@ try {
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;callBackUrl&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;https://${isHost}:${isPort}/common&lt;/xsd:value&gt;&#xd;
+                  &lt;xsd:value&gt;https://${isCallbackHost}:${isPort}/common&lt;/xsd:value&gt;&#xd;
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;UserInfoFields&lt;/xsd:name&gt;&#xd;
@@ -3577,7 +3593,7 @@ try {
                &#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;callbackUrl&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;https://${isHost}:${isPort}/comnauth&lt;/xsd:value&gt;&#xd;
+                  &lt;xsd:value&gt;https://is.qa.com:${isPort}/comnauth&lt;/xsd:value&gt;&#xd;
                &lt;/xsd:properties&gt;&#xd;
                &#xd;
               &lt;xsd:properties&gt;&#xd;
@@ -4085,7 +4101,7 @@ try {
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;callBackUrl&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;https://${isHost}:${isPort}/common&lt;/xsd:value&gt;&#xd;
+                  &lt;xsd:value&gt;https://${isCallbackHost}:${isPort}/common&lt;/xsd:value&gt;&#xd;
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;UserInfoFields&lt;/xsd:name&gt;&#xd;
@@ -4113,7 +4129,6 @@ try {
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout"></stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            <stringProp name="TestPlan.comments">Typing Callback URL Incorrectly</stringProp>
           </HTTPSamplerProxy>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200 OK HTTP Code Response Assertion" enabled="true">
