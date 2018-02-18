@@ -32,6 +32,9 @@ SAML2SPEntityId="$appName"
 SkipURIs="/$appName/index.jsp"
 SAML2IdPEntityId=$serverHost
 QueryParams="fidp=twitter"
+EnableResponseSigning="false"
+EnableAssertionSigning="false"
+EnableRequestSigning="false"
 
 #create temporary directory
 mkdir $scriptPath/../temp
@@ -60,6 +63,12 @@ sed -i "s|^\(SAML2\.IdPEntityId\s*=\s*\).*\$|\1${SAML2IdPEntityId}|" $scriptPath
 sed -i "s|^\(#QueryParams\s*=\s*\).*\$|\1${QueryParams}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
 sed -i "/QueryParams/s/^#//g" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+
+sed -i "s|^\(SAML2\.EnableResponseSigning\s*=\s*\).*\$|\1${EnableResponseSigning}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+
+sed -i "s|^\(SAML2\.EnableAssertionSigning\s*=\s*\).*\$|\1${EnableAssertionSigning}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+
+sed -i "s|^\(SAML2\.EnableRequestSigning\s*=\s*\).*\$|\1${EnableRequestSigning}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
 #repackaging travelocity app
 cd $scriptPath/../temp/travelocity.com/
