@@ -73,6 +73,12 @@
               <stringProp name="Argument.metadata">=</stringProp>
               <stringProp name="Argument.desc">Password of the Admin user</stringProp>
             </elementProp>
+            <elementProp name="FBIdentityProviderName" elementType="Argument">
+              <stringProp name="Argument.name">FBIdentityProviderName</stringProp>
+              <stringProp name="Argument.value">${__property(FBIdentityProviderName)}</stringProp>
+              <stringProp name="Argument.desc">Facebook IDP name</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
             <elementProp name="FBClientId" elementType="Argument">
               <stringProp name="Argument.name">FBClientId</stringProp>
               <stringProp name="Argument.value">${__property(FBClientId)}</stringProp>
@@ -1969,7 +1975,7 @@ try {
               <connectTime>true</connectTime>
             </value>
           </objProp>
-          <stringProp name="filename">/home/sashika/Apps/Applications/IS/NEW/identity-test-integration/solution28/src/test/jmeter/resultsfinal2.jtl</stringProp>
+          <stringProp name="filename"></stringProp>
         </ResultCollector>
         <hashTree/>
         <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
