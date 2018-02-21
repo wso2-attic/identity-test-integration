@@ -6,20 +6,17 @@ configDir=$(cd "$prgdir"; pwd)
 
 
 #remove config files
-#cd $productHome/repository/deployment/server/webapps/
-#mkdir authenticationendpoint
 cd $productHome
 rm $productHome/$filePath/pwd-reset.jsp
 echo "pwd-reset.jsp file removed from path: $productHome/$filePath"
 
 
-#build the product
-
+#remove the jar from dropins
 rm $productHome/repository/components/dropins/org.wso2.carbon.extension.identity.authenticator.passwordpolicy.connector-*.jar
 echo "Authenticator jar is removed from dropins folder"
 
 
-#update identity-mgt.properties
+#remove the updated value from identity-mgt.properties
 value="Authentication.Policy.Password.Reset.Time.In.Days=20"
 file=identity-mgt.properties
 sed -ie '$d' $file
