@@ -299,8 +299,8 @@
                   </elementProp>
                 </collectionProp>
               </elementProp>
-              <stringProp name="HTTPSampler.domain">localhost</stringProp>
-              <stringProp name="HTTPSampler.port">9443</stringProp>
+              <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+              <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
               <stringProp name="HTTPSampler.protocol">https</stringProp>
               <stringProp name="HTTPSampler.contentEncoding"></stringProp>
               <stringProp name="HTTPSampler.path">/services/EntitlementPolicyAdminService.EntitlementPolicyAdminServiceHttpsSoap11Endpoint/</stringProp>
@@ -392,8 +392,8 @@
                   </elementProp>
                 </collectionProp>
               </elementProp>
-              <stringProp name="HTTPSampler.domain">localhost</stringProp>
-              <stringProp name="HTTPSampler.port">9443</stringProp>
+              <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+              <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
               <stringProp name="HTTPSampler.protocol">https</stringProp>
               <stringProp name="HTTPSampler.contentEncoding"></stringProp>
               <stringProp name="HTTPSampler.path">/services/EntitlementPolicyAdminService.EntitlementPolicyAdminServiceHttpsSoap11Endpoint/</stringProp>
@@ -490,8 +490,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">localhost</stringProp>
-            <stringProp name="HTTPSampler.port">9443</stringProp>
+            <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/EntitlementPolicyAdminService.EntitlementPolicyAdminServiceHttpsSoap11Endpoint/</stringProp>
@@ -559,8 +559,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">localhost</stringProp>
-            <stringProp name="HTTPSampler.port">9443</stringProp>
+            <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/EntitlementPolicyAdminService.EntitlementPolicyAdminServiceHttpsSoap11Endpoint/</stringProp>
@@ -631,8 +631,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">localhost</stringProp>
-            <stringProp name="HTTPSampler.port">9443</stringProp>
+            <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/api/identity/entitlement/decision/pdp</stringProp>
@@ -704,8 +704,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">localhost</stringProp>
-            <stringProp name="HTTPSampler.port">9443</stringProp>
+            <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/api/identity/entitlement/decision/pdp</stringProp>
@@ -777,8 +777,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">localhost</stringProp>
-            <stringProp name="HTTPSampler.port">9443</stringProp>
+            <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/api/identity/entitlement/decision/pdp</stringProp>
@@ -847,8 +847,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">localhost</stringProp>
-            <stringProp name="HTTPSampler.port">9443</stringProp>
+            <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/EntitlementPolicyAdminService.EntitlementPolicyAdminServiceHttpsSoap11Endpoint/</stringProp>
@@ -930,8 +930,8 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">localhost</stringProp>
-            <stringProp name="HTTPSampler.port">9443</stringProp>
+            <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/api/identity/entitlement/decision/pdp</stringProp>
@@ -1016,7 +1016,7 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">localhost</stringProp>
+            <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
             <stringProp name="HTTPSampler.port">9443</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
