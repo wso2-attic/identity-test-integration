@@ -20,14 +20,14 @@
 
 #xml starlet will be installed with the Y option selected through the shell script for the question Do you want to continue?
 
-if dpkg -l | grep "xmlstarlet"; then
+if command -v xmlstarlet; then
 	echo "xmlstarlet exists!"
   	exit 0
 else
 	echo "Module is Installing"
 	sudo apt-get -y install xmlstarlet
 fi
-if dpkg -l | grep "xmlstarlet"; then
+if command -v xmlstarlet; then
 	echo "Successfully installed"
   	exit 0
 else
