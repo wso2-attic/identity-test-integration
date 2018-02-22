@@ -92,11 +92,11 @@
 config-change-sets:
   -
     name: config01
-    description: 'Enforce password reset for expired passwords during the authentication flow'
+    description: 'Config changes required to Enforce password reset for expired passwords during the authentication flow'
     applies-to:
       - scenario14
   -
     name: config02
-    description: 'Multi-factor authentication for WSO2 Identity Server management console'
+    description: 'Config changes required to enable SSO in Multi-factor authentication for WSO2 Identity Server management console'
     applies-to:
       - scenario05
