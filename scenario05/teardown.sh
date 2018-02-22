@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /bin/bash
 
 # Copyright (c) 2017, WSO2 Inc. (http://wso2.com) All Rights Reserved.
 #
@@ -14,10 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-prgdir=$(dirname "$0")
-scriptPath=$(cd "$prgdir"; pwd)
+#TearDown steps are scripts here..
+#Though there is no specific setps are mentoined below,
+#-the file will maintain to keep same structure on all scnarios.
 
-echo "working directory : "$scriptPath
-echo "post-steps are done..."
-
-
+echo "teardown steps"

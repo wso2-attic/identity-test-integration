@@ -1,9 +1,0 @@
-scenarios:
-  - name: scenario14
-    description: Enforce password reset for expired passwords during the authentication flow
-    dir: scenario14
-config-change-sets:
-  - name: config01
-    description: Enforce password reset for expired passwords during the authentication flow
-    applies-to:
-      - scenario14
