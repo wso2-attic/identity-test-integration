@@ -15,7 +15,9 @@
 # limitations under the License.
 
 serverHost=$serverHost
-prgdir=$(dirname "$0")
+serverPort=$serverPort
+
+p   rgdir=$(dirname "$0")
 scriptPath=$(cd "$prgdir"; pwd)
 
 echo "working directory : "$scriptPath
