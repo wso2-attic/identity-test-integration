@@ -18,8 +18,6 @@ serverHost=$serverHost
 prgdir=$(dirname "$0")
 scriptPath=$(cd "$prgdir"; pwd)
 
-#run base-setup.sh to deploy artifacts
-source $scriptPath/../base-setup.sh > $scriptPath/basesetup.log
 
 echo "working directory : "$scriptPath
 #updating jmeter properties - user.properties
@@ -27,5 +25,9 @@ sed -i "s|^\(serverHost\s*=\s*\).*\$|\1${serverHost}|" $scriptPath/../resources/
 sed -i "s|^\(serverPort\s*=\s*\).*\$|\1${serverPort}|" $scriptPath/../resources/user.properties
 sed -i "s|^\(tomcatHost\s*=\s*\).*\$|\1${tomcatHost}|" $scriptPath/../resources/user.properties
 sed -i "s|^\(tomcatPort\s*=\s*\).*\$|\1${tomcatPort}|" $scriptPath/../resources/user.properties
+
+#run base-setup.sh to deploy artifacts
+source $scriptPath/../base-setup.sh > $scriptPath/basesetup.log
+
 
 echo "pre-steps are done..."

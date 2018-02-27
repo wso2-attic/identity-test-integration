@@ -1,28 +1,44 @@
 #!/bin/bash
+# Copyright (c) 2017, WSO2 Inc. (http://wso2.com) All Rights Reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 #properties
 #TODO:read below property from infra.json file
 appName="travelocity.com"
+appName2="playground2"
 tomcatHost=$tomcatHost
-tomcatPort=8080
+tomcatPort=$tomcatPort
 tomcatUsername=scriptuser
 tomcatPassword=scriptuser
 tomcatVersion=7
 serverHost=$serverHost
-serverPort=443
-solutionPath=/
+serverPort=$serverPort
+
 
 #travelocity properties
 SAML2AssertionConsumerURL="http://$tomcatHost:$tomcatPort/$appName/home.jsp"
-SAML2IdPURL="https://$serverHost/samlsso"
+SAML2IdPURL="https://$serverHost:$serverPort/samlsso"
 SAML2SPEntityId="$appName"
 SkipURIs="/$appName/index.jsp"
 SAML2IdPEntityId=$serverHost
 
 #create temporary directory
 mkdir $scriptPath/../temp
-#coping travalocity app to temp direcory
 
-cp -r $scriptPath/../../../../apps/sso-agent-sample $scriptPath/../temp/
+
+#copying travalocity app to temp direcory
+cp -r $scriptPath/../../apps/sso-agent-sample $scriptPath/../temp/
 cd $scriptPath/../temp/sso-agent-sample/
 #build travelocity app from source
 mvn clean install
@@ -46,11 +62,21 @@ sed -i "s|^\(SAML2\.IdPEntityId\s*=\s*\).*\$|\1${SAML2IdPEntityId}|" $scriptPath
 cd $scriptPath/../temp/travelocity.com/
 jar cvf $scriptPath/../temp/travelocity.com.war .
 
+#copying playground app to temp direcory
+cp -r $scriptPath/../../apps/playground2 $scriptPath/../temp/
+
+cd $scriptPath/../temp/playground2/
+
+#build travelocity app from source
+mvn clean install
+cp -r $scriptPath/../temp/playground2/target/playground2.war $scriptPath/../temp/
+
 #deploy webapp on tomcat
 cd $scriptPath/../temp/
 #tomcat6
 #curl --upload-file target\debug.war "http://tomcat:tomcat@localhost:8088/manager/deploy?path=/debug&update=true"
 #tomcat7/8
+curl -T "playground2.war" "http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/deploy?path=/playground2&update=true"
 curl -T "travelocity.com.war" "http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/deploy?path=/travelocity.com&update=true"
 
 x=0;
