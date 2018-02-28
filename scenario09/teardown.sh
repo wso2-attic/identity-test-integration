@@ -1,6 +1,6 @@
-#!/bin/bash
+#! /bin/bash
 
-# Copyright (c) 2017, WSO2 Inc. (http://wso2.com) All Rights Reserved.
+# Copyright (c) 2018, WSO2 Inc. (http://wso2.com) All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,15 +15,5 @@
 # limitations under the License.
 
 
-#these params need to be taken out
-#tomcat properties
-tomcatHost=$tomcatHost
-tomcatPort=$tomcatPort
-tomcatUsername=scriptuser
-tomcatPassword=scriptuser
-appName="travelocity.com"
 
-#undeploy webapp from tomcat
-#curl http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/undeploy?path=/$appName
-#clear temp direcotry
-#rm -rf $scriptPath/../temp/
+# Scenario09 has no teardown steps to be run
