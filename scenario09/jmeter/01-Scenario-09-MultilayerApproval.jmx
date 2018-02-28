@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jmeterTestPlan version="1.2" properties="3.2" jmeter="3.2 r1790748">
   <hashTree>
-    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="09 - User management upon multi-layer approval" enabled="true">
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="09 - User Management upon multi-layer approval TestPlan" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
       <boolProp name="TestPlan.functional_mode">false</boolProp>
       <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
@@ -11,7 +11,7 @@
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
     </TestPlan>
     <hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="User Management upon multi-layer approval" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -78,29 +78,9 @@
               <stringProp name="Argument.value">${__property(authorityUser2Password)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
-            <elementProp name="bpsProfileManagerHostURL" elementType="Argument">
-              <stringProp name="Argument.name">bpsProfileManagerHostURL</stringProp>
-              <stringProp name="Argument.value">${__property(bpsProfileManagerHostURL)}</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
             <elementProp name="bpsProfileName" elementType="Argument">
               <stringProp name="Argument.name">bpsProfileName</stringProp>
               <stringProp name="Argument.value">${__property(bpsProfileName)}</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="bpsProfilePassword" elementType="Argument">
-              <stringProp name="Argument.name">bpsProfilePassword</stringProp>
-              <stringProp name="Argument.value">${__property(bpsProfilePassword)}</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="bpsProfileUsername" elementType="Argument">
-              <stringProp name="Argument.name">bpsProfileUsername</stringProp>
-              <stringProp name="Argument.value">${__property(bpsProfileUsername)}</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="bpsWorkerHostURL" elementType="Argument">
-              <stringProp name="Argument.name">bpsWorkerHostURL</stringProp>
-              <stringProp name="Argument.value">${__property(bpsWorkerHostURL)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="serverHost" elementType="Argument">
@@ -166,95 +146,26 @@
           </collectionProp>
         </Arguments>
         <hashTree/>
+        <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Random Variable for WorkflowID" enabled="true">
+          <stringProp name="maximumValue">99</stringProp>
+          <stringProp name="minimumValue">11</stringProp>
+          <stringProp name="outputFormat"></stringProp>
+          <boolProp name="perThread">true</boolProp>
+          <stringProp name="randomSeed"></stringProp>
+          <stringProp name="variableName">value</stringProp>
+        </RandomVariableConfig>
+        <hashTree/>
+        <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Random Variable for Workflow username" enabled="true">
+          <stringProp name="maximumValue">100</stringProp>
+          <stringProp name="minimumValue">1</stringProp>
+          <stringProp name="outputFormat"></stringProp>
+          <boolProp name="perThread">true</boolProp>
+          <stringProp name="randomSeed"></stringProp>
+          <stringProp name="variableName">counter</stringProp>
+        </RandomVariableConfig>
+        <hashTree/>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Multi-layer approval on user Creation" enabled="true"/>
         <hashTree>
-          <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
-            <collectionProp name="AuthManager.auth_list">
-              <elementProp name="" elementType="Authorization">
-                <stringProp name="Authorization.url"></stringProp>
-                <stringProp name="Authorization.username">${adminUsername}</stringProp>
-                <stringProp name="Authorization.password">${adminPassword}</stringProp>
-                <stringProp name="Authorization.domain"></stringProp>
-                <stringProp name="Authorization.realm"></stringProp>
-              </elementProp>
-            </collectionProp>
-          </AuthManager>
-          <hashTree/>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Create New BPEL Engine Profile" enabled="false"/>
-          <hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create New BPEL Engine Profile" enabled="true">
-              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-                <collectionProp name="Arguments.arguments">
-                  <elementProp name="" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xsd=&quot;http://impl.workflow.identity.carbon.wso2.org/xsd&quot; xmlns:xsd1=&quot;http://bean.impl.workflow.identity.carbon.wso2.org/xsd&quot;&gt;&#xd;
-   &lt;soapenv:Header/&gt;&#xd;
-   &lt;soapenv:Body&gt;&#xd;
-      &lt;xsd:addBPSProfile&gt;&#xd;
-         &lt;!--Optional:--&gt;&#xd;
-         &lt;xsd:bpsProfileDTO&gt;&#xd;
-            &lt;!--Optional:--&gt;&#xd;
-            &lt;xsd1:managerHostURL&gt;${bpsProfileManagerHostURL}&lt;/xsd1:managerHostURL&gt;&#xd;
-            &lt;!--Zero or more repetitions:--&gt;&#xd;
-            &lt;xsd1:password&gt;${bpsProfilePassword}&lt;/xsd1:password&gt;&#xd;
-            &lt;!--Optional:--&gt;&#xd;
-            &lt;xsd1:profileName&gt;${bpsProfileName}&lt;/xsd1:profileName&gt;&#xd;
-            &lt;!--Optional:--&gt;&#xd;
-            &lt;xsd1:username&gt;${bpsProfileUsername}&lt;/xsd1:username&gt;&#xd;
-            &lt;!--Optional:--&gt;&#xd;
-            &lt;xsd1:workerHostURL&gt;${bpsWorkerHostURL}&lt;/xsd1:workerHostURL&gt;&#xd;
-         &lt;/xsd:bpsProfileDTO&gt;&#xd;
-      &lt;/xsd:addBPSProfile&gt;&#xd;
-   &lt;/soap:Body&gt;&#xd;
-&lt;/soap:Envelope&gt;&#xd;
-&#xd;
-		&#xd;
-	&#xd;
-		</stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                  </elementProp>
-                </collectionProp>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
-              <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
-              <stringProp name="HTTPSampler.protocol">https</stringProp>
-              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-              <stringProp name="HTTPSampler.path">/services/WorkflowImplAdminService</stringProp>
-              <stringProp name="HTTPSampler.method">POST</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-                <collectionProp name="HeaderManager.headers">
-                  <elementProp name="" elementType="Header">
-                    <stringProp name="Header.name">Content-Type</stringProp>
-                    <stringProp name="Header.value">text/xml;charset=UTF-8</stringProp>
-                  </elementProp>
-                  <elementProp name="" elementType="Header">
-                    <stringProp name="Header.name">SOAPAction</stringProp>
-                    <stringProp name="Header.value">urn:addBPSProfile</stringProp>
-                  </elementProp>
-                </collectionProp>
-              </HeaderManager>
-              <hashTree/>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="49586">200</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-                <boolProp name="Assertion.assume_success">false</boolProp>
-                <intProp name="Assertion.test_type">8</intProp>
-              </ResponseAssertion>
-              <hashTree/>
-            </hashTree>
-          </hashTree>
           <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Create System Users" enabled="true"/>
           <hashTree>
             <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
@@ -759,7 +670,7 @@
             &lt;!--Optional:--&gt;&#xd;
             &lt;xsd1:workflowDescription&gt;This workflow is used to approve the user creation via multi role approval process&lt;/xsd1:workflowDescription&gt;&#xd;
             &lt;!--Optional:--&gt;&#xd;
-            &lt;xsd1:workflowId&gt;${workFlowId}&lt;/xsd1:workflowId&gt;&#xd;
+            &lt;xsd1:workflowId&gt;${workFlowId}${value}&lt;/xsd1:workflowId&gt;&#xd;
             &lt;!--Optional:--&gt;&#xd;
             &lt;xsd1:workflowImpl&gt;&#xd;
                &lt;!--Optional:--&gt;&#xd;
@@ -956,7 +867,7 @@
          &lt;!--Optional:--&gt;&#xd;
          &lt;xsd:associationName&gt;${workFlowAssociationName}&lt;/xsd:associationName&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;xsd:workflowId&gt;${workFlowId}&lt;/xsd:workflowId&gt;&#xd;
+         &lt;xsd:workflowId&gt;${workFlowId}${value}&lt;/xsd:workflowId&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
          &lt;xsd:eventId&gt;${wAEventID}&lt;/xsd:eventId&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
@@ -1025,7 +936,7 @@
               </collectionProp>
             </AuthManager>
             <hashTree/>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Creating a User for Approval-0" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Creating a User for Approval" enabled="true">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
                 <collectionProp name="Arguments.arguments">
@@ -1035,7 +946,7 @@
    &lt;soapenv:Header/&gt;&#xd;
    &lt;soapenv:Body&gt;&#xd;
       &lt;ser:addUser&gt;&#xd;
-         &lt;ser:userName&gt;${workflowUser}&lt;/ser:userName&gt;&#xd;
+         &lt;ser:userName&gt;${workflowUser}${counter}&lt;/ser:userName&gt;&#xd;
          &lt;ser:credential&gt;${workflowUserPassword}&lt;/ser:credential&gt;&#xd;
          &lt;ser:roleList&gt;${workflowRole}&lt;/ser:roleList&gt;&#xd;
          &lt;ser:claims&gt;&#xd;
@@ -1089,7 +1000,7 @@
               </ResponseAssertion>
               <hashTree/>
               <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
-                <stringProp name="ConstantTimer.delay">300</stringProp>
+                <stringProp name="ConstantTimer.delay">${constantTimer}</stringProp>
               </ConstantTimer>
               <hashTree/>
             </hashTree>
@@ -1151,15 +1062,23 @@
               <stringProp name="HTTPSampler.response_timeout"></stringProp>
             </HTTPSamplerProxy>
             <hashTree>
+              <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
+                <collectionProp name="AuthManager.auth_list">
+                  <elementProp name="" elementType="Authorization">
+                    <stringProp name="Authorization.url"></stringProp>
+                    <stringProp name="Authorization.username">${authorityUser1}</stringProp>
+                    <stringProp name="Authorization.password">${authorityUser1Password}</stringProp>
+                    <stringProp name="Authorization.domain"></stringProp>
+                    <stringProp name="Authorization.realm"></stringProp>
+                  </elementProp>
+                </collectionProp>
+              </AuthManager>
+              <hashTree/>
               <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
                 <collectionProp name="HeaderManager.headers">
                   <elementProp name="" elementType="Header">
                     <stringProp name="Header.name">Content-Type</stringProp>
                     <stringProp name="Header.value">text/xml;charset=UTF-8</stringProp>
-                  </elementProp>
-                  <elementProp name="" elementType="Header">
-                    <stringProp name="Header.name">Authorization</stringProp>
-                    <stringProp name="Header.value">Basic bWFuYWdlcnVzZXI6bWFuYWdlcnVzZXI=</stringProp>
                   </elementProp>
                   <elementProp name="" elementType="Header">
                     <stringProp name="Header.name">SOAPAction</stringProp>
@@ -1225,22 +1144,23 @@
               <stringProp name="HTTPSampler.response_timeout"></stringProp>
             </HTTPSamplerProxy>
             <hashTree>
-              <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
-                <collectionProp name="CookieManager.cookies"/>
-                <boolProp name="CookieManager.clearEachIteration">true</boolProp>
-                <stringProp name="CookieManager.policy">standard</stringProp>
-                <stringProp name="CookieManager.implementation">org.apache.jmeter.protocol.http.control.HC4CookieHandler</stringProp>
-              </CookieManager>
+              <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
+                <collectionProp name="AuthManager.auth_list">
+                  <elementProp name="" elementType="Authorization">
+                    <stringProp name="Authorization.url"></stringProp>
+                    <stringProp name="Authorization.username">${authorityUser1}</stringProp>
+                    <stringProp name="Authorization.password">${authorityUser1Password}</stringProp>
+                    <stringProp name="Authorization.domain"></stringProp>
+                    <stringProp name="Authorization.realm"></stringProp>
+                  </elementProp>
+                </collectionProp>
+              </AuthManager>
               <hashTree/>
               <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
                 <collectionProp name="HeaderManager.headers">
                   <elementProp name="" elementType="Header">
                     <stringProp name="Header.name">Content-Type</stringProp>
                     <stringProp name="Header.value">text/xml;charset=UTF-8</stringProp>
-                  </elementProp>
-                  <elementProp name="" elementType="Header">
-                    <stringProp name="Header.name">Authorization</stringProp>
-                    <stringProp name="Header.value">Basic bWFuYWdlcnVzZXI6bWFuYWdlcnVzZXI=</stringProp>
                   </elementProp>
                   <elementProp name="" elementType="Header">
                     <stringProp name="Header.name">SOAPAction</stringProp>
@@ -1305,15 +1225,23 @@
                     <stringProp name="Header.value">text/xml;charset=UTF-8</stringProp>
                   </elementProp>
                   <elementProp name="" elementType="Header">
-                    <stringProp name="Header.name">Authorization</stringProp>
-                    <stringProp name="Header.value">Basic bWFuYWdlcnVzZXI6bWFuYWdlcnVzZXI=</stringProp>
-                  </elementProp>
-                  <elementProp name="" elementType="Header">
                     <stringProp name="Header.name">SOAPAction</stringProp>
                     <stringProp name="Header.value">urn:complete</stringProp>
                   </elementProp>
                 </collectionProp>
               </HeaderManager>
+              <hashTree/>
+              <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
+                <collectionProp name="AuthManager.auth_list">
+                  <elementProp name="" elementType="Authorization">
+                    <stringProp name="Authorization.url"></stringProp>
+                    <stringProp name="Authorization.username">${authorityUser1}</stringProp>
+                    <stringProp name="Authorization.password">${authorityUser1Password}</stringProp>
+                    <stringProp name="Authorization.domain"></stringProp>
+                    <stringProp name="Authorization.realm"></stringProp>
+                  </elementProp>
+                </collectionProp>
+              </AuthManager>
               <hashTree/>
               <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
                 <stringProp name="ConstantTimer.delay">6000</stringProp>
@@ -1380,15 +1308,23 @@
                     <stringProp name="Header.value">text/xml;charset=UTF-8</stringProp>
                   </elementProp>
                   <elementProp name="" elementType="Header">
-                    <stringProp name="Header.name">Authorization</stringProp>
-                    <stringProp name="Header.value">Basic bWFuYWdlcnVzZXI6bWFuYWdlcnVzZXI=</stringProp>
-                  </elementProp>
-                  <elementProp name="" elementType="Header">
                     <stringProp name="Header.name">SOAPAction</stringProp>
                     <stringProp name="Header.value">urn:simpleQuery</stringProp>
                   </elementProp>
                 </collectionProp>
               </HeaderManager>
+              <hashTree/>
+              <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
+                <collectionProp name="AuthManager.auth_list">
+                  <elementProp name="" elementType="Authorization">
+                    <stringProp name="Authorization.url"></stringProp>
+                    <stringProp name="Authorization.username">${authorityUser1}</stringProp>
+                    <stringProp name="Authorization.password">${authorityUser1Password}</stringProp>
+                    <stringProp name="Authorization.domain"></stringProp>
+                    <stringProp name="Authorization.realm"></stringProp>
+                  </elementProp>
+                </collectionProp>
+              </AuthManager>
               <hashTree/>
               <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
                 <collectionProp name="Asserion.test_strings">
@@ -1464,15 +1400,23 @@
                     <stringProp name="Header.value">text/xml;charset=UTF-8</stringProp>
                   </elementProp>
                   <elementProp name="" elementType="Header">
-                    <stringProp name="Header.name">Authorization</stringProp>
-                    <stringProp name="Header.value">Basic ZGlyZWN0b3J1c2VyOmRpcmVjdG9ydXNlcg==</stringProp>
-                  </elementProp>
-                  <elementProp name="" elementType="Header">
                     <stringProp name="Header.name">SOAPAction</stringProp>
                     <stringProp name="Header.value">urn:simpleQuery</stringProp>
                   </elementProp>
                 </collectionProp>
               </HeaderManager>
+              <hashTree/>
+              <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
+                <collectionProp name="AuthManager.auth_list">
+                  <elementProp name="" elementType="Authorization">
+                    <stringProp name="Authorization.url"></stringProp>
+                    <stringProp name="Authorization.username">${authorityUser2}</stringProp>
+                    <stringProp name="Authorization.password">${authorityUser2Password}</stringProp>
+                    <stringProp name="Authorization.domain"></stringProp>
+                    <stringProp name="Authorization.realm"></stringProp>
+                  </elementProp>
+                </collectionProp>
+              </AuthManager>
               <hashTree/>
               <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
                 <collectionProp name="Asserion.test_strings">
@@ -1538,15 +1482,23 @@
                     <stringProp name="Header.value">text/xml;charset=UTF-8</stringProp>
                   </elementProp>
                   <elementProp name="" elementType="Header">
-                    <stringProp name="Header.name">Authorization</stringProp>
-                    <stringProp name="Header.value">Basic ZGlyZWN0b3J1c2VyOmRpcmVjdG9ydXNlcg==</stringProp>
-                  </elementProp>
-                  <elementProp name="" elementType="Header">
                     <stringProp name="Header.name">SOAPAction</stringProp>
                     <stringProp name="Header.value">urn:start</stringProp>
                   </elementProp>
                 </collectionProp>
               </HeaderManager>
+              <hashTree/>
+              <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
+                <collectionProp name="AuthManager.auth_list">
+                  <elementProp name="" elementType="Authorization">
+                    <stringProp name="Authorization.url"></stringProp>
+                    <stringProp name="Authorization.username">${authorityUser2}</stringProp>
+                    <stringProp name="Authorization.password">${authorityUser2Password}</stringProp>
+                    <stringProp name="Authorization.domain"></stringProp>
+                    <stringProp name="Authorization.realm"></stringProp>
+                  </elementProp>
+                </collectionProp>
+              </AuthManager>
               <hashTree/>
               <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
                 <collectionProp name="Asserion.test_strings">
@@ -1597,15 +1549,23 @@
               <stringProp name="HTTPSampler.response_timeout"></stringProp>
             </HTTPSamplerProxy>
             <hashTree>
+              <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
+                <collectionProp name="AuthManager.auth_list">
+                  <elementProp name="" elementType="Authorization">
+                    <stringProp name="Authorization.url"></stringProp>
+                    <stringProp name="Authorization.username">${authorityUser2}</stringProp>
+                    <stringProp name="Authorization.password">${authorityUser2Password}</stringProp>
+                    <stringProp name="Authorization.domain"></stringProp>
+                    <stringProp name="Authorization.realm"></stringProp>
+                  </elementProp>
+                </collectionProp>
+              </AuthManager>
+              <hashTree/>
               <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
                 <collectionProp name="HeaderManager.headers">
                   <elementProp name="" elementType="Header">
                     <stringProp name="Header.name">Content-Type</stringProp>
                     <stringProp name="Header.value">text/xml;charset=UTF-8</stringProp>
-                  </elementProp>
-                  <elementProp name="" elementType="Header">
-                    <stringProp name="Header.name">Authorization</stringProp>
-                    <stringProp name="Header.value">Basic ZGlyZWN0b3J1c2VyOmRpcmVjdG9ydXNlcg==</stringProp>
                   </elementProp>
                   <elementProp name="" elementType="Header">
                     <stringProp name="Header.name">SOAPAction</stringProp>
@@ -1672,15 +1632,23 @@
               <stringProp name="TestPlan.comments">This is to verify that the task completed by the Director is in COMPLETED status</stringProp>
             </HTTPSamplerProxy>
             <hashTree>
+              <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
+                <collectionProp name="AuthManager.auth_list">
+                  <elementProp name="" elementType="Authorization">
+                    <stringProp name="Authorization.url"></stringProp>
+                    <stringProp name="Authorization.username">${authorityUser2}</stringProp>
+                    <stringProp name="Authorization.password">${authorityUser2Password}</stringProp>
+                    <stringProp name="Authorization.domain"></stringProp>
+                    <stringProp name="Authorization.realm"></stringProp>
+                  </elementProp>
+                </collectionProp>
+              </AuthManager>
+              <hashTree/>
               <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
                 <collectionProp name="HeaderManager.headers">
                   <elementProp name="" elementType="Header">
                     <stringProp name="Header.name">Content-Type</stringProp>
                     <stringProp name="Header.value">text/xml;charset=UTF-8</stringProp>
-                  </elementProp>
-                  <elementProp name="" elementType="Header">
-                    <stringProp name="Header.name">Authorization</stringProp>
-                    <stringProp name="Header.value">Basic ZGlyZWN0b3J1c2VyOmRpcmVjdG9ydXNlcg==</stringProp>
                   </elementProp>
                   <elementProp name="" elementType="Header">
                     <stringProp name="Header.name">SOAPAction</stringProp>
@@ -1716,7 +1684,7 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;aut:login&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;aut:username&gt;${workflowUser}&lt;/aut:username&gt;&#xd;
+         &lt;aut:username&gt;${workflowUser}${counter}&lt;/aut:username&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
          &lt;aut:password&gt;${workflowUserPassword}&lt;/aut:password&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
@@ -1815,7 +1783,7 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:listAssociations&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;xsd:workflowId&gt;${workFlowId}&lt;/xsd:workflowId&gt;&#xd;
+         &lt;xsd:workflowId&gt;${workFlowId}${value}&lt;/xsd:workflowId&gt;&#xd;
       &lt;/xsd:listAssociations&gt;&#xd;
    &lt;/soapenv:Body&gt;&#xd;
 &lt;/soapenv:Envelope&gt;</stringProp>
@@ -1878,7 +1846,7 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:removeWorkflow&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;xsd:id&gt;${workFlowId}&lt;/xsd:id&gt;&#xd;
+         &lt;xsd:id&gt;${workFlowId}${value}&lt;/xsd:id&gt;&#xd;
       &lt;/xsd:removeWorkflow&gt;&#xd;
    &lt;/soapenv:Body&gt;&#xd;
 &lt;/soapenv:Envelope&gt;</stringProp>
@@ -2257,7 +2225,7 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;ser:deleteUser&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;ser:userName&gt;${workflowUser}&lt;/ser:userName&gt;&#xd;
+         &lt;ser:userName&gt;${workflowUser}${counter}&lt;/ser:userName&gt;&#xd;
       &lt;/ser:deleteUser&gt;&#xd;
    &lt;/soapenv:Body&gt;&#xd;
 &lt;/soapenv:Envelope&gt;</stringProp>
@@ -2292,59 +2260,6 @@
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
               <collectionProp name="Asserion.test_strings">
                 <stringProp name="49588">202</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-              <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">8</intProp>
-            </ResponseAssertion>
-            <hashTree/>
-          </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Delete BPEL Engine Profile" enabled="false">
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xsd=&quot;http://impl.workflow.identity.carbon.wso2.org/xsd&quot;&gt;&#xd;
-   &lt;soapenv:Header/&gt;&#xd;
-   &lt;soapenv:Body&gt;&#xd;
-      &lt;xsd:removeBPSProfile&gt;&#xd;
-         &lt;!--Optional:--&gt;&#xd;
-         &lt;xsd:profileName&gt;${bpsProfileName}&lt;/xsd:profileName&gt;&#xd;
-      &lt;/xsd:removeBPSProfile&gt;&#xd;
-   &lt;/soapenv:Body&gt;&#xd;
-&lt;/soapenv:Envelope&gt;</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
-            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
-            <stringProp name="HTTPSampler.protocol">https</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">/services/WorkflowImplAdminService.WorkflowImplAdminServiceHttpsSoap11Endpoint/</stringProp>
-            <stringProp name="HTTPSampler.method">POST</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          </HTTPSamplerProxy>
-          <hashTree>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-              <collectionProp name="HeaderManager.headers">
-                <elementProp name="" elementType="Header">
-                  <stringProp name="Header.name">SOAPAction</stringProp>
-                  <stringProp name="Header.value">urn:removeBPSProfile</stringProp>
-                </elementProp>
-              </collectionProp>
-            </HeaderManager>
-            <hashTree/>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="49586">200</stringProp>
               </collectionProp>
               <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
               <boolProp name="Assertion.assume_success">false</boolProp>
