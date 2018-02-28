@@ -78,29 +78,9 @@
               <stringProp name="Argument.value">${__property(authorityUser2Password)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
-            <elementProp name="bpsProfileManagerHostURL" elementType="Argument">
-              <stringProp name="Argument.name">bpsProfileManagerHostURL</stringProp>
-              <stringProp name="Argument.value">${__property(bpsProfileManagerHostURL)}</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
             <elementProp name="bpsProfileName" elementType="Argument">
               <stringProp name="Argument.name">bpsProfileName</stringProp>
               <stringProp name="Argument.value">${__property(bpsProfileName)}</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="bpsProfilePassword" elementType="Argument">
-              <stringProp name="Argument.name">bpsProfilePassword</stringProp>
-              <stringProp name="Argument.value">${__property(bpsProfilePassword)}</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="bpsProfileUsername" elementType="Argument">
-              <stringProp name="Argument.name">bpsProfileUsername</stringProp>
-              <stringProp name="Argument.value">${__property(bpsProfileUsername)}</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="bpsWorkerHostURL" elementType="Argument">
-              <stringProp name="Argument.name">bpsWorkerHostURL</stringProp>
-              <stringProp name="Argument.value">${__property(bpsWorkerHostURL)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="serverHost" elementType="Argument">
