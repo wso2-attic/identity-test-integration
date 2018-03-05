@@ -2011,7 +2011,7 @@ try {
               <connectTime>true</connectTime>
             </value>
           </objProp>
-          <stringProp name="filename">/home/sashika/Apps/Applications/IS/NEW/identity-test-integration/solution28/src/test/jmeter/results1.jtl</stringProp>
+          <stringProp name="filename"></stringProp>
         </ResultCollector>
         <hashTree/>
       </hashTree>
