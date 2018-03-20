@@ -2145,7 +2145,12 @@ try {
 
 		return driver.getPageSource();  
 				
-		} 
+		} else{
+
+		log.info(&quot;User Consent page missing&quot;);
+		SampleResult.setResponseMessage(&quot;Error loading user consent page&quot;);
+	
+		}
     
 } catch (Exception ex) {
     ex.printStackTrace();
@@ -2530,6 +2535,11 @@ try {
 
 		return driver.getPageSource();  
 				
+		} else{
+
+		log.info(&quot;User Consent page missing&quot;);
+		SampleResult.setResponseMessage(&quot;Error loading user consent page&quot;);
+	
 		}
 } catch (Exception ex) {
     ex.printStackTrace();
