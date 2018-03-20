@@ -1052,6 +1052,7 @@ try {
 		String seperator = &quot;:&quot;;
 		String tomcatport = vars.get(&quot;tomcatPort&quot;);
 		String url = &quot;/travelocity.com/index.jsp&quot;;
+		
 
 		String AppURL = protocole + tomcathost + seperator + tomcatport + url;
 		
@@ -1071,8 +1072,25 @@ try {
 		WebElement button = driver.findElement(By.id(&quot;allow&quot;));
 		button.click();
 
-		//Returns the whole page
+		String pageSource = driver.getPageSource();
+
+		if(driver.getPageSource().contains(&quot;User Consents&quot;)) {
+
+		WebElement slectbutton = driver.findElement(By.id(&quot;consent_select_all&quot;));
+		slectbutton.click();
+
+		WebElement approvebutton = driver.findElement(By.id(&quot;approve&quot;));
+		approvebutton.click();
+
 		return driver.getPageSource();  
+				
+		}else{
+
+		log.info(&quot;User Consent page missing&quot;);
+		SampleResult.setResponseMessage(&quot;Error loading user consent page&quot;);
+	
+		}
+	
     
 } catch (Exception ex) {
     ex.printStackTrace();
@@ -1150,7 +1168,7 @@ try {
             <hashTree/>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="[Verification] Option to retry with correct domain name" enabled="true">
               <collectionProp name="Asserion.test_strings">
-                <stringProp name="-801762803">Federated Login</stringProp>
+                <stringProp name="625615615">federated.login</stringProp>
                 <stringProp name="-1244525976">Domain cannot be identified! Please retry</stringProp>
               </collectionProp>
               <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -1219,7 +1237,7 @@ try {
             <hashTree/>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="[Verification] Option to retry with correct domain name" enabled="true">
               <collectionProp name="Asserion.test_strings">
-                <stringProp name="-801762803">Federated Login</stringProp>
+                <stringProp name="625615615">federated.login</stringProp>
                 <stringProp name="-1244525976">Domain cannot be identified! Please retry</stringProp>
               </collectionProp>
               <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -1341,8 +1359,25 @@ try {
 		WebElement button = driver.findElement(By.id(&quot;allow&quot;));
 		button.click();
 
-		//Returns the whole page
+
+		String pageSource = driver.getPageSource();
+
+		if(driver.getPageSource().contains(&quot;User Consents&quot;)) {
+
+		WebElement slectbutton = driver.findElement(By.id(&quot;consent_select_all&quot;));
+		slectbutton.click();
+
+		WebElement approvebutton = driver.findElement(By.id(&quot;approve&quot;));
+		approvebutton.click();
+
 		return driver.getPageSource();  
+				
+		}else{
+
+		log.info(&quot;User Consent page missing&quot;);
+		SampleResult.setResponseMessage(&quot;Error loading user consent page&quot;);
+	
+		}
     
 } catch (Exception ex) {
     ex.printStackTrace();
@@ -1420,7 +1455,7 @@ try {
             <hashTree/>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="[Verification] Option to retry with correct domain name" enabled="true">
               <collectionProp name="Asserion.test_strings">
-                <stringProp name="-801762803">Federated Login</stringProp>
+                <stringProp name="625615615">federated.login</stringProp>
                 <stringProp name="-1244525976">Domain cannot be identified! Please retry</stringProp>
               </collectionProp>
               <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -1542,8 +1577,25 @@ try {
 		WebElement button = driver.findElement(By.id(&quot;allow&quot;));
 		button.click();
 
-		//Returns the whole page
+		
+		String pageSource = driver.getPageSource();
+
+		if(driver.getPageSource().contains(&quot;User Consents&quot;)) {
+
+		WebElement slectbutton = driver.findElement(By.id(&quot;consent_select_all&quot;));
+		slectbutton.click();
+
+		WebElement approvebutton = driver.findElement(By.id(&quot;approve&quot;));
+		approvebutton.click();
+
 		return driver.getPageSource();  
+				
+		}else{
+
+		log.info(&quot;User Consent page missing&quot;);
+		SampleResult.setResponseMessage(&quot;Error loading user consent page&quot;);
+	
+		}  
     
 } catch (Exception ex) {
     ex.printStackTrace();
@@ -1692,6 +1744,12 @@ try {
 
 		WebElement button = driver.findElement(By.xpath(&quot;//button[@type=&apos;submit&apos;]&quot;));
 		button.click();
+
+		WebElement slectbutton = driver.findElement(By.id(&quot;consent_select_all&quot;));
+		slectbutton.click();
+
+		WebElement approvebutton = driver.findElement(By.id(&quot;approve&quot;));
+		approvebutton.click();
 
 		//Returns the whole page
 		return driver.getPageSource();  
