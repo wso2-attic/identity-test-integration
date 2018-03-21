@@ -669,7 +669,7 @@
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;callBackUrl&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;https://${isCallbackHost}:${isPort}/commonauth&lt;/xsd:value&gt;&#xd;
+                  &lt;xsd:value&gt;https://${isCallbackHost}/commonauth&lt;/xsd:value&gt;&#xd;
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;UserInfoFields&lt;/xsd:name&gt;&#xd;
@@ -1247,50 +1247,7 @@
             </HeaderManager>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="facebookLoginPageValidation" enabled="true">
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="SAML2.HTTPBinding" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                  <stringProp name="Argument.name">SAML2.HTTPBinding</stringProp>
-                  <stringProp name="Argument.value">HTTP-Redirect</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">${tomcatHost}</stringProp>
-            <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">${spName}/samlsso</stringProp>
-            <stringProp name="HTTPSampler.method">GET</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.image_parser">true</boolProp>
-            <boolProp name="HTTPSampler.concurrentDwn">true</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          </HTTPSamplerProxy>
-          <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="[Verification] Facebook Login" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="1980761324">Log in to Facebook</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-              <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">2</intProp>
-            </ResponseAssertion>
-            <hashTree/>
-            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
-              <stringProp name="ConstantTimer.delay">3000</stringProp>
-            </ConstantTimer>
-            <hashTree/>
-          </hashTree>
-          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="travelocityLoginFacebookIDP" enabled="true">
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Travelocity Login Facebook IDP" enabled="true">
             <stringProp name="cacheKey"></stringProp>
             <stringProp name="filename"></stringProp>
             <stringProp name="parameters"></stringProp>
@@ -1317,7 +1274,7 @@ try {
 		String AppURL = protocole + tomcathost + seperator + tomcatport + url;
 		
 		driver.get(AppURL);
-		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
 
 		WebElement link = driver.findElement(By.linkText(&quot;here&quot;));
 		link.click();
@@ -1333,8 +1290,26 @@ try {
 		WebElement button = driver.findElement(By.id(&quot;loginbutton&quot;));
 		button.click();
 
-		//Returns the whole page
+		String pageSource = driver.getPageSource();
+
+		if(driver.getPageSource().contains(&quot;User Consents&quot;)) {
+
+		WebElement checkbox = driver.findElement(By.id(&quot;consent_select_all&quot;));
+		checkbox.click();
+		System.out.println(&quot;check box clicked&quot;);
+
+		WebElement approvebutton = driver.findElement(By.id(&quot;approve&quot;));
+		approvebutton.click();
+		System.out.println(&quot;approve button clicked&quot;);
+
 		return driver.getPageSource();  
+				
+		} else{
+
+		log.info(&quot;User Consent page missing&quot;);
+		SampleResult.setResponseMessage(&quot;Error loading user consent page&quot;);
+	
+		}
     
 } catch (Exception ex) {
     ex.printStackTrace();
@@ -1351,15 +1326,6 @@ try {
                 <stringProp name="49586">200</stringProp>
               </collectionProp>
               <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-              <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">16</intProp>
-            </ResponseAssertion>
-            <hashTree/>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="-803507370">You are logged in</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
               <boolProp name="Assertion.assume_success">false</boolProp>
               <intProp name="Assertion.test_type">16</intProp>
             </ResponseAssertion>
@@ -1498,49 +1464,6 @@ try {
             </HeaderManager>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="twitterLoginPageValidation" enabled="true">
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="SAML2.HTTPBinding" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                  <stringProp name="Argument.name">SAML2.HTTPBinding</stringProp>
-                  <stringProp name="Argument.value">HTTP-Redirect</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">${tomcatHost}</stringProp>
-            <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">${spName}/samlsso</stringProp>
-            <stringProp name="HTTPSampler.method">GET</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.image_parser">true</boolProp>
-            <boolProp name="HTTPSampler.concurrentDwn">true</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          </HTTPSamplerProxy>
-          <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="[Verification] Twitter Login" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="101344141">Log in to Twitter</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-              <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">2</intProp>
-            </ResponseAssertion>
-            <hashTree/>
-            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
-              <stringProp name="ConstantTimer.delay">3000</stringProp>
-            </ConstantTimer>
-            <hashTree/>
-          </hashTree>
           <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="travelocityLoginTwitterIDP" enabled="true">
             <stringProp name="cacheKey"></stringProp>
             <stringProp name="filename"></stringProp>
@@ -1584,8 +1507,26 @@ try {
 		WebElement button = driver.findElement(By.id(&quot;allow&quot;));
 		button.click();
 
-		//Returns the whole page
+		String pageSource = driver.getPageSource();
+
+		if(driver.getPageSource().contains(&quot;User Consents&quot;)) {
+
+		WebElement checkbox = driver.findElement(By.id(&quot;consent_select_all&quot;));
+		checkbox.click();
+		System.out.println(&quot;check box clicked&quot;);
+
+		WebElement approvebutton = driver.findElement(By.id(&quot;approve&quot;));
+		approvebutton.click();
+		System.out.println(&quot;approve button clicked&quot;);
+
 		return driver.getPageSource();  
+				
+		} else{
+
+		log.info(&quot;User Consent page missing&quot;);
+		SampleResult.setResponseMessage(&quot;Error loading user consent page&quot;);
+	
+		}
     
 } catch (Exception ex) {
     ex.printStackTrace();
