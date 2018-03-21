@@ -10,7 +10,7 @@
 
 -If any required attributes are missing in the authentication response from the federated identity provider, the system should present a UI to the user to provide those.
 
-########## Scenario:
+############# Scenario:
 
 - Deploy WSO2 Identity Server as the Identity Provider and register all the service providers and federated identity providers.
 - Enable JIT provisioning for each federated identity provider.
