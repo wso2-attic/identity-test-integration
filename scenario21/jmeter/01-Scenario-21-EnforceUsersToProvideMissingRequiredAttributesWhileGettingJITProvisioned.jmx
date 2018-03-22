@@ -4672,7 +4672,7 @@ try {
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename"></stringProp>
+        <stringProp name="filename">/Users/chalitha/Documents/RD/GIT/identity-test-integration/scenario21/jmeter/Manadatory.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
     </hashTree>
