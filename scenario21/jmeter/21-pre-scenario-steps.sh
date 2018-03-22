@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /bin/bash
 
 # Copyright (c) 2017, WSO2 Inc. (http://wso2.com) All Rights Reserved.
 #
@@ -18,10 +18,8 @@ serverHost=$serverHost
 serverPort=$serverPort
 tomcatHost=$tomcatHost
 tomcatPort=$tomcatPort
-
 prgdir=$(dirname "$0")
 scriptPath=$(cd "$prgdir"; pwd)
-
 
 
 echo "working directory : "$scriptPath
