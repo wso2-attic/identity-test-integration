@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jmeterTestPlan version="1.2" properties="3.2" jmeter="3.2 r1790748">
   <hashTree>
-    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Claim_Mapper_Test-Testplan" enabled="true">
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="01-Scenario-21-EnforceUsersToProvideMissingRequiredAttributesWhileGettingJITProvisioned-Testplan" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
       <boolProp name="TestPlan.functional_mode">false</boolProp>
       <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
@@ -4672,7 +4672,7 @@ try {
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">/Users/chalitha/Documents/RD/GIT/identity-test-integration/scenario21/jmeter/Manadatory.jtl</stringProp>
+        <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
     </hashTree>
