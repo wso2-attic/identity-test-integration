@@ -919,7 +919,6 @@
  &#xd;
     &lt;!--Optional:--&gt;&#xd;
     &lt;xsd1:authenticationType&gt;flow&lt;/xsd1:authenticationType&gt;&#xd;
-    &lt;xsd1:subjectClaimUri&gt;id&lt;/xsd1:subjectClaimUri&gt;&#xd;
 &lt;/xsd1:localAndOutBoundAuthenticationConfig&gt;&#xd;
             &lt;xsd1:outboundProvisioningConfig&gt;&#xd;
                &lt;xsd1:provisionByRoleList xsd:nil=&quot;true&quot;/&gt;&#xd;
