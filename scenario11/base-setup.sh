@@ -32,9 +32,13 @@ SAML2IdPURL="https://$serverHost:$serverPort/samlsso"
 SAML2SPEntityId="$appName"
 SkipURIs="/$appName/index.jsp"
 SAML2IdPEntityId=$serverHost
+EnableResponseSigning="false"
+EnableAssertionSigning="false"
+
 
 #PassiveSTSSample properties
 replyUrl="http://$tomcatHost:$tomcatPort/$appName2/index.jsp"
+#replyUrl="http://$tomcatHost:$tomcatPort/$appName2/"
 idpUrl="https://$serverHost:$serverPort/passivests"
 
 #create temporary directory
@@ -60,6 +64,11 @@ sed -i "s|^\(SAML2\.SPEntityId\s*=\s*\).*\$|\1${SAML2SPEntityId}|" $scriptPath/.
 sed -i "s|^\(SkipURIs\s*=\s*\).*\$|\1${SkipURIs}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
 sed -i "s|^\(SAML2\.IdPEntityId\s*=\s*\).*\$|\1${SAML2IdPEntityId}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+
+sed -i "s|^\(SAML2\.EnableResponseSigning\s*=\s*\).*\$|\1${EnableResponseSigning}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+
+sed -i "s|^\(SAML2\.EnableAssertionSigning\s*=\s*\).*\$|\1${EnableAssertionSigning}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+
 
 #repackaging travelocity app
 cd $scriptPath/../temp/travelocity.com/

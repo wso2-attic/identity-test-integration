@@ -277,6 +277,41 @@
             &lt;xsd:alias&gt;https://${isHost}:${isPort}/oauth2/token/&lt;/xsd:alias&gt;&#xd;
             &lt;xsd:primary&gt;true&lt;/xsd:primary&gt; &#xd;
 &#xd;
+&#xd;
+             /** Configure Claims */&#xd;
+			 	  &#xd;
+	   &lt;xsd:claimConfig&gt;&#xd;
+    	       &lt;xsd:alwaysSendMappedLocalSubjectId&gt;true&lt;/xsd:alwaysSendMappedLocalSubjectId&gt;&#xd;
+               &lt;!--Zero or more repetitions:--&gt;&#xd;
+              &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/emailaddress&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;email&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt;&#xd;
+        		&#xd;
+               &lt;xsd:idpClaims&gt;&#xd;
+                  &lt;xsd:claimId&gt;19&lt;/xsd:claimId&gt;&#xd;
+                  &lt;xsd:claimUri&gt;email&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+               &#xd;
+               &#xd;
+               &lt;xsd:localClaimDialect&gt;false&lt;/xsd:localClaimDialect&gt;&#xd;
+               &lt;xsd:userClaimURI&gt;id&lt;/xsd:userClaimURI&gt;               &#xd;
+               &#xd;
+        &lt;/xsd:claimConfig&gt;&#xd;
+&#xd;
             &lt;xsd:defaultAuthenticatorConfig&gt;&#xd;
             &lt;xsd:displayName&gt;${idp1Twitter}&lt;/xsd:displayName&gt;&#xd;
                &lt;xsd:name&gt;TwitterAuthenticator&lt;/xsd:name&gt;&#xd;
@@ -623,6 +658,28 @@
             &lt;!--Optional:--&gt;&#xd;
             &lt;xsd1:applicationID&gt;${appID}&lt;/xsd1:applicationID&gt;&#xd;
             &lt;xsd1:applicationName&gt;${spName}&lt;/xsd1:applicationName&gt; &#xd;
+&#xd;
+            &lt;xsd1:claimConfig&gt; &#xd;
+               &lt;xsd1:alwaysSendMappedLocalSubjectId&gt;false&lt;/xsd1:alwaysSendMappedLocalSubjectId&gt; &#xd;
+               &lt;xsd1:localClaimDialect&gt;true&lt;/xsd1:localClaimDialect&gt;&#xd;
+        		  &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;1&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/emailaddress&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;1&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;emailAddress&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt;  &#xd;
+            &lt;/xsd1:claimConfig&gt;  &#xd;
             &#xd;
             &lt;xsd1:description&gt;${spDescription}&lt;/xsd1:description&gt; &#xd;
             &lt;xsd1:inboundAuthenticationConfig&gt;            &#xd;
@@ -774,8 +831,28 @@ try {
 		button.click();
 
 		//Returns the whole page
-		return driver.getPageSource();
-		 
+		//return driver.getPageSource();
+		String pageSource = driver.getPageSource();
+
+		if(driver.getPageSource().contains(&quot;User Consents&quot;)) {
+
+		WebElement checkbox = driver.findElement(By.id(&quot;consent_select_all&quot;));
+		checkbox.click();
+		System.out.println(&quot;check box clicked&quot;);
+
+		WebElement approvebutton = driver.findElement(By.id(&quot;approve&quot;));
+		approvebutton.click();
+		System.out.println(&quot;approve button clicked&quot;);
+
+		return driver.getPageSource();  
+				
+		} else{
+
+		log.info(&quot;User Consent page missing&quot;);
+		SampleResult.setResponseMessage(&quot;Error loading user consent page&quot;);
+	
+		}
+    
     
 } catch (Exception ex) {
     ex.printStackTrace();
@@ -789,7 +866,7 @@ try {
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
               <collectionProp name="Asserion.test_strings">
-                <stringProp name="1393091516">You are logged in as 925979694490619904</stringProp>
+                <stringProp name="-1435285188">You are logged in as</stringProp>
               </collectionProp>
               <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
               <boolProp name="Assertion.assume_success">false</boolProp>
@@ -883,6 +960,41 @@ try {
             &lt;xsd:primary&gt;true&lt;/xsd:primary&gt;&#xd;
             &lt;xsd:provisioningRole&gt;-&lt;/xsd:provisioningRole&gt;&#xd;
 &#xd;
+&#xd;
+/** Configure Claims */&#xd;
+			 	  &#xd;
+	   &lt;xsd:claimConfig&gt;&#xd;
+    	       &lt;xsd:alwaysSendMappedLocalSubjectId&gt;true&lt;/xsd:alwaysSendMappedLocalSubjectId&gt;&#xd;
+               &lt;!--Zero or more repetitions:--&gt;&#xd;
+              &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/emailaddress&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;email&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt;&#xd;
+        		&#xd;
+               &lt;xsd:idpClaims&gt;&#xd;
+                  &lt;xsd:claimId&gt;19&lt;/xsd:claimId&gt;&#xd;
+                  &lt;xsd:claimUri&gt;email&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+               &#xd;
+               &#xd;
+               &lt;xsd:localClaimDialect&gt;false&lt;/xsd:localClaimDialect&gt;&#xd;
+               &lt;xsd:userClaimURI&gt;id&lt;/xsd:userClaimURI&gt;               &#xd;
+               &#xd;
+        &lt;/xsd:claimConfig&gt;&#xd;
+&#xd;
 	/** Add Facebook as Federated Authenticator */&#xd;
            &lt;xsd:displayName&gt;${idp2Facebook}&lt;/xsd:displayName&gt;&#xd;
             &lt;xsd:enable&gt;true&lt;/xsd:enable&gt;&#xd;
@@ -914,7 +1026,7 @@ try {
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;callBackUrl&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;https://${callbackHost}:${isPort}/commonauth&lt;/xsd:value&gt;&#xd;
+                  &lt;xsd:value&gt;https://${callbackHost}/commonauth&lt;/xsd:value&gt;&#xd;
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;UserInfoFields&lt;/xsd:name&gt;&#xd;
@@ -982,6 +1094,28 @@ try {
             &lt;!--Optional:--&gt;&#xd;
             &lt;xsd1:applicationID&gt;${appID}&lt;/xsd1:applicationID&gt;&#xd;
             &lt;xsd1:applicationName&gt;${spName}&lt;/xsd1:applicationName&gt; &#xd;
+&#xd;
+            &lt;xsd1:claimConfig&gt; &#xd;
+               &lt;xsd1:alwaysSendMappedLocalSubjectId&gt;false&lt;/xsd1:alwaysSendMappedLocalSubjectId&gt; &#xd;
+               &lt;xsd1:localClaimDialect&gt;true&lt;/xsd1:localClaimDialect&gt;&#xd;
+        		  &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;1&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/emailaddress&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;1&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;emailAddress&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt;  &#xd;
+            &lt;/xsd1:claimConfig&gt;  &#xd;
             &#xd;
             &lt;xsd1:description&gt;${spDescription}&lt;/xsd1:description&gt; &#xd;
             &lt;xsd1:inboundAuthenticationConfig&gt;            &#xd;
@@ -1134,7 +1268,27 @@ try {
 		button.click();
 
 		//Returns the whole page
+		//return driver.getPageSource();  
+          String pageSource = driver.getPageSource();
+
+		if(driver.getPageSource().contains(&quot;User Consents&quot;)) {
+
+		WebElement checkbox = driver.findElement(By.id(&quot;consent_select_all&quot;));
+		checkbox.click();
+		System.out.println(&quot;check box clicked&quot;);
+
+		WebElement approvebutton = driver.findElement(By.id(&quot;approve&quot;));
+		approvebutton.click();
+		System.out.println(&quot;approve button clicked&quot;);
+
 		return driver.getPageSource();  
+				
+		} else{
+
+		log.info(&quot;User Consent page missing&quot;);
+		SampleResult.setResponseMessage(&quot;Error loading user consent page&quot;);
+	
+		}
     
 } catch (Exception ex) {
     ex.printStackTrace();
@@ -1148,7 +1302,7 @@ try {
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
               <collectionProp name="Asserion.test_strings">
-                <stringProp name="1616923600">You are logged in as ${fbUserName}</stringProp>
+                <stringProp name="-1435285188">You are logged in as</stringProp>
               </collectionProp>
               <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
               <boolProp name="Assertion.assume_success">false</boolProp>
@@ -1656,7 +1810,7 @@ try {
     		&lt;inboundAuthType&gt;passivests&lt;/inboundAuthType&gt;&#xd;
     			&lt;properties&gt;&#xd;
         			&lt;name&gt;passiveSTSWReply&lt;/name&gt;&#xd;
-        			&lt;value&gt;http://${tomcatHost}:${tomcatPort}/PassiveSTSSampleApp/index.jsp&lt;/value&gt;&#xd;
+        			&lt;value&gt;http://${tomcatHost}:${tomcatPort}/PassiveSTSSampleApp/index.jsp&lt;/value&gt;        			&#xd;
     			&lt;/properties&gt;&#xd;
 		&lt;/inboundAuthenticationRequestConfigs&gt;&#xd;
  &#xd;
