@@ -10,9 +10,22 @@ xmlstarlet edit -L -N w=http://wso2.org/projects/carbon/authenticators.xml \
 -u "/w:Authenticators/w:Authenticator[@name='SAML2SSOAuthenticator'] \
 /w:Priority" -v "1" $file
 
+if [ $? -ne 0 ]; then
+    echo "Could not find the file in the given location"
+    exit 1
+fi
+
 xmlstarlet edit -L -N w=http://wso2.org/projects/carbon/authenticators.xml \
 -u "/w:Authenticators/w:Authenticator[@name='SAML2SSOAuthenticator'] \
 /@disabled" -v "false" $file
+
+xmlstarlet edit -L -N w=http://wso2.org/projects/carbon/authenticators.xml \
+-u "/w:Authenticators/w:Authenticator[@name='SAML2SSOAuthenticator']/w:Config \
+/w:Parameter[@name='IdentityProviderSSOServiceURL']" -v "https://$serverHost:$serverPort/samlsso" $file
+
+xmlstarlet edit -L -N w=http://wso2.org/projects/carbon/authenticators.xml \
+-u "/w:Authenticators/w:Authenticator[@name='SAML2SSOAuthenticator']/w:Config \
+/w:Parameter[@name='AssertionConsumerServiceURL']" -v "https://$serverHost:$serverPort/acs" $file
 
 echo "Values added to the file: $file"
 
@@ -21,7 +34,7 @@ cd $productHome/bin
 #verify file copy status and exit on failure
 statusval=$?
 if [ $statusval -eq 0 ]; then
- echo "file copying success!"
+ echo "Configuration change is successful!"
  #stop the server
  echo "shutting down the server now..."
  sh wso2server.sh stop
@@ -50,11 +63,13 @@ y=$((y+1))
 sleep 1
 done
 #wait few seconds to finish with server-stop
-sleep 3
+sleep 10
 
 #start back the server
 echo "server starting..."
 sh wso2server.sh start
+
+echo "---------------------"
 #wait till server starts
 x=0;
 retry_count=20;
