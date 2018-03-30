@@ -10,6 +10,11 @@ xmlstarlet edit -L -N w=http://wso2.org/projects/carbon/authenticators.xml \
 -u "/w:Authenticators/w:Authenticator[@name='SAML2SSOAuthenticator'] \
 /w:Priority" -v "10" $file
 
+if [ $? -ne 0 ]; then
+    echo "Could not find the file in the given location"
+    exit 1
+fi
+
 xmlstarlet edit -L -N w=http://wso2.org/projects/carbon/authenticators.xml \
 -u "/w:Authenticators/w:Authenticator[@name='SAML2SSOAuthenticator'] \
 /@disabled" -v "true" $file
@@ -50,7 +55,7 @@ y=$((y+1))
 sleep 1
 done
 #wait few seconds to finish with server-stop
-sleep 3
+sleep 10
 
 #start back the server
 echo "server starting..."
