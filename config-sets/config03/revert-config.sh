@@ -1,6 +1,5 @@
 #include the path of the IS Pack for the productHome variable when trying locally
-#productHome=$productHome
-productHome=/home/kavitha/PRODUCTS/QA_Hackathon/APRIL/wso2is-5.5.0
+productHome=$productHome
 
 serverHost=$serverHost
 serverPort=$serverPort
