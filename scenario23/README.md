@@ -35,8 +35,10 @@ This is to remove all registered service providers for this scenario only.
 
 Using request path authenticator to authenticate requests that contain the user’s credentials, which means that you can use the Single-Sign-On mechanism without having an identity provider login page to prompt the end user for credentials. Figure shows how request path authenticator works.
 
-![alt text](scenario23/req.path.auth.png)
-***authentication request that contain the user’s credentials.*
+![alt text](req.path.auth.png)
+
+
+**authentication request that contain the user’s credentials.
 
 [1] https://medium.facilelogin.com/thirty-solution-patterns-with-the-wso2-identity-server-16f9fd0c0389
 
