@@ -37,8 +37,8 @@ EnableAssertionSigning="false"
 
 
 #PassiveSTSSample properties
-replyUrl="http://$tomcatHost:$tomcatPort/$appName2/index.jsp"
-#replyUrl="http://$tomcatHost:$tomcatPort/$appName2/"
+#replyUrl="http://$tomcatHost:$tomcatPort/$appName2/index.jsp"
+replyUrl="http://$tomcatHost:$tomcatPort/$appName2/"
 idpUrl="https://$serverHost:$serverPort/passivests"
 
 #create temporary directory
