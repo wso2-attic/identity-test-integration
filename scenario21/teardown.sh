@@ -14,6 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+#these params need to be taken out
 #tomcat properties
 tomcatHost=$tomcatHost
 tomcatPort=$tomcatPort

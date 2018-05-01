@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.3 r1808647">
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.2 r1790748">
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="09 - User Management upon multi-layer approval TestPlan" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
@@ -2279,16 +2279,16 @@
           <objProp>
             <name>saveConfig</name>
             <value class="SampleSaveConfiguration">
-              <time>false</time>
+              <time>true</time>
               <latency>true</latency>
-              <timestamp>false</timestamp>
+              <timestamp>true</timestamp>
               <success>true</success>
               <label>true</label>
               <code>true</code>
               <message>true</message>
-              <threadName>false</threadName>
+              <threadName>true</threadName>
               <dataType>true</dataType>
-              <encoding>true</encoding>
+              <encoding>false</encoding>
               <assertions>true</assertions>
               <subresults>false</subresults>
               <responseData>true</responseData>
@@ -2300,12 +2300,11 @@
               <responseDataOnError>false</responseDataOnError>
               <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
               <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
               <sentBytes>true</sentBytes>
-              <url>true</url>
-              <fileName>true</fileName>
-              <hostname>true</hostname>
-              <sampleCount>true</sampleCount>
+              <threadCounts>true</threadCounts>
               <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
             </value>
           </objProp>
           <stringProp name="filename">scenario-results.jtl</stringProp>

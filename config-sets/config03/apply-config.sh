@@ -4,20 +4,16 @@ productHome=$productHome
 serverHost=$serverHost
 serverPort=$serverPort
 
-file=$productHome/repository/conf/security/authenticators.xml
+file=$productHome/repository/conf/identity/identity.xml
 
-xmlstarlet edit -L -N w=http://wso2.org/projects/carbon/authenticators.xml \
--u "/w:Authenticators/w:Authenticator[@name='SAML2SSOAuthenticator'] \
-/w:Priority" -v "10" $file
+xmlstarlet edit -L -N w=http://wso2.org/projects/carbon/carbon.xml \
+-u "/w:Server/w:OAuth/w:OpenIDConnect \
+/w:SkipUserConsent" -v "true" $file
 
 if [ $? -ne 0 ]; then
     echo "Could not find the file in the given location"
     exit 1
 fi
-
-xmlstarlet edit -L -N w=http://wso2.org/projects/carbon/authenticators.xml \
--u "/w:Authenticators/w:Authenticator[@name='SAML2SSOAuthenticator'] \
-/@disabled" -v "true" $file
 
 echo "Values added to the file: $file"
 
@@ -26,7 +22,7 @@ cd $productHome/bin
 #verify file copy status and exit on failure
 statusval=$?
 if [ $statusval -eq 0 ]; then
- echo "file copying success!"
+ echo "Configuration change is successful!"
  #stop the server
  echo "shutting down the server now..."
  sh wso2server.sh stop
@@ -60,6 +56,8 @@ sleep 10
 #start back the server
 echo "server starting..."
 sh wso2server.sh start
+
+echo "---------------------"
 #wait till server starts
 x=0;
 retry_count=20;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.3 r1808647">
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.2 r1790748">
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="02-Solution-23-BasicAuthRequestPathAuthenticator-RegisterAvisApp" enabled="true">
       <stringProp name="TestPlan.comments">This has 4 thread groups, each inorder Register 2 apps, Login sso and Remove apps</stringProp>
@@ -134,6 +134,8 @@
         <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
           <collectionProp name="CookieManager.cookies"/>
           <boolProp name="CookieManager.clearEachIteration">false</boolProp>
+          <stringProp name="CookieManager.policy">standard</stringProp>
+          <stringProp name="CookieManager.implementation">org.apache.jmeter.protocol.http.control.HC4CookieHandler</stringProp>
         </CookieManager>
         <hashTree/>
         <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
@@ -628,16 +630,16 @@ byte[] encryptedUid = Base64.encodeBase64(credentilas.getBytes());
         <objProp>
           <name>saveConfig</name>
           <value class="SampleSaveConfiguration">
-            <time>false</time>
-            <latency>false</latency>
-            <timestamp>false</timestamp>
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
             <success>true</success>
             <label>true</label>
             <code>true</code>
             <message>true</message>
-            <threadName>false</threadName>
+            <threadName>true</threadName>
             <dataType>true</dataType>
-            <encoding>true</encoding>
+            <encoding>false</encoding>
             <assertions>true</assertions>
             <subresults>false</subresults>
             <responseData>true</responseData>
@@ -649,10 +651,11 @@ byte[] encryptedUid = Base64.encodeBase64(credentilas.getBytes());
             <responseDataOnError>false</responseDataOnError>
             <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
             <assertionsResultsToSave>0</assertionsResultsToSave>
-            <url>true</url>
-            <fileName>true</fileName>
-            <hostname>true</hostname>
-            <sampleCount>true</sampleCount>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
           </value>
         </objProp>
         <stringProp name="filename">scenario-results.jtl</stringProp>

@@ -4,20 +4,16 @@ productHome=$productHome
 serverHost=$serverHost
 serverPort=$serverPort
 
-file=$productHome/repository/conf/security/authenticators.xml
+file=$productHome/repository/conf/identity/identity.xml
 
-xmlstarlet edit -L -N w=http://wso2.org/projects/carbon/authenticators.xml \
--u "/w:Authenticators/w:Authenticator[@name='SAML2SSOAuthenticator'] \
-/w:Priority" -v "10" $file
+xmlstarlet edit -L -N w=http://wso2.org/projects/carbon/carbon.xml \
+-u "/w:Server/w:OAuth/w:OpenIDConnect \
+/w:SkipUserConsent" -v "true" $file
 
 if [ $? -ne 0 ]; then
     echo "Could not find the file in the given location"
     exit 1
 fi
-
-xmlstarlet edit -L -N w=http://wso2.org/projects/carbon/authenticators.xml \
--u "/w:Authenticators/w:Authenticator[@name='SAML2SSOAuthenticator'] \
-/@disabled" -v "true" $file
 
 echo "Values added to the file: $file"
 
