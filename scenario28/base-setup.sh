@@ -50,25 +50,25 @@ cd $scriptPath/../temp/travelocity.com
 jar xvf $scriptPath/../temp/sso-agent-sample/target/travelocity.com.war
 
 #updating travelocity.conf file
-sed -i "s|^\(SAML2\.AssertionConsumerURL\s*=\s*\).*\$|\1${SAML2AssertionConsumerURL}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+sed -i -e "s|^\(SAML2\.AssertionConsumerURL\s*=\s*\).*\$|\1${SAML2AssertionConsumerURL}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
-sed -i "s|^\(SAML2\.IdPURL\s*=\s*\).*\$|\1${SAML2IdPURL}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+sed -i -e "s|^\(SAML2\.IdPURL\s*=\s*\).*\$|\1${SAML2IdPURL}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
-sed -i "s|^\(SAML2\.SPEntityId\s*=\s*\).*\$|\1${SAML2SPEntityId}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+sed -i -e "s|^\(SAML2\.SPEntityId\s*=\s*\).*\$|\1${SAML2SPEntityId}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
-sed -i "s|^\(SkipURIs\s*=\s*\).*\$|\1${SkipURIs}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+sed -i -e "s|^\(SkipURIs\s*=\s*\).*\$|\1${SkipURIs}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
-sed -i "s|^\(SAML2\.IdPEntityId\s*=\s*\).*\$|\1${SAML2IdPEntityId}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+sed -i -e "s|^\(SAML2\.IdPEntityId\s*=\s*\).*\$|\1${SAML2IdPEntityId}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
-sed -i "s|^\(#QueryParams\s*=\s*\).*\$|\1${QueryParams}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+sed -i -e "s|^\(#QueryParams\s*=\s*\).*\$|\1${QueryParams}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
-sed -i "/QueryParams/s/^#//g" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+sed -i -e "/QueryParams/s/^#//g" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
-sed -i "s|^\(SAML2\.EnableResponseSigning\s*=\s*\).*\$|\1${EnableResponseSigning}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+sed -i -e "s|^\(SAML2\.EnableResponseSigning\s*=\s*\).*\$|\1${EnableResponseSigning}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
-sed -i "s|^\(SAML2\.EnableAssertionSigning\s*=\s*\).*\$|\1${EnableAssertionSigning}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+sed -i -e "s|^\(SAML2\.EnableAssertionSigning\s*=\s*\).*\$|\1${EnableAssertionSigning}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
-sed -i "s|^\(SAML2\.EnableRequestSigning\s*=\s*\).*\$|\1${EnableRequestSigning}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+sed -i -e "s|^\(SAML2\.EnableRequestSigning\s*=\s*\).*\$|\1${EnableRequestSigning}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
 #repackaging travelocity app
 cd $scriptPath/../temp/travelocity.com/

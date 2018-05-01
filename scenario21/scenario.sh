@@ -14,18 +14,4 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-serverHost=$serverHost
-serverPort=$serverPort
-
-prgdir=$(dirname "$0")
-scriptPath=$(cd "$prgdir"; pwd)
-
-echo "working directory : "$scriptPath
-#updating jmeter properties - user.properties
-sed -i -e "s|^\(serverHost\s*=\s*\).*\$|\1${serverHost}|" $scriptPath/../resources/user.properties
-sed -i -e "s|^\(serverPort\s*=\s*\).*\$|\1${serverPort}|" $scriptPath/../resources/user.properties
-
-#run base-setup.sh to deploy artifacts
-source $scriptPath/../base-setup.sh > $scriptPath/basesetup.log
-
-echo "pre-steps are done..."
+$JMETER_HOME/bin/jmeter.sh -n -t jmeter/01-Scenario-21-EnforceUsersToProvideMissingRequiredAttributesWhileGettingJITProvisioned.jmx -p resources/user.properties
