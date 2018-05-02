@@ -28,6 +28,12 @@
             <artifactId>servlet-api</artifactId>
             <scope>provided</scope>
         </dependency>
+	 <dependency>
+            <groupId>org.eclipse.equinox</groupId>
+            <artifactId>javax.servlet</artifactId>
+            <scope>provided</scope>
+	    <version>3.0.0.v201112011016</version>
+        </dependency>
         <dependency>
             <groupId>org.apache.axis2.wso2</groupId>
             <artifactId>axis2</artifactId>
@@ -79,6 +85,10 @@
                 <exclusion>
                     <groupId>xerces.wso2</groupId>
                     <artifactId>xercesImpl</artifactId>
+                </exclusion>
+		<exclusion>
+                    <groupId>org.eclipse.equinox</groupId>
+                    <artifactId>javax.servlet</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
