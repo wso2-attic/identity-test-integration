@@ -4620,8 +4620,8 @@ try {
             <assertions>true</assertions>
             <subresults>false</subresults>
             <responseData>true</responseData>
-            <samplerData>false</samplerData>
-            <xml>false</xml>
+            <samplerData>true</samplerData>
+            <xml>true</xml>
             <fieldNames>true</fieldNames>
             <responseHeaders>true</responseHeaders>
             <requestHeaders>true</requestHeaders>
