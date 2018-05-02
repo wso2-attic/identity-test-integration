@@ -32,6 +32,9 @@ SAML2IdPURL="https://$serverHost:$serverPort/samlsso"
 SAML2SPEntityId="$appName"
 SkipURIs="/$appName/index.jsp"
 SAML2IdPEntityId=$serverHost
+ConsumerKey="testmaneeshacode0000001230000"
+ConsumerSecret="testmaneeshasec00000000456000"
+PlaygroundCallbackURL="http://$tomcatHost:$tomcatPort/playground2/oauth2client"
 
 #create temporary directory
 mkdir $scriptPath/../temp
@@ -67,9 +70,21 @@ cp -r $scriptPath/../../apps/playground2 $scriptPath/../temp/
 
 cd $scriptPath/../temp/playground2/
 
-#build travelocity app from source
+#updating playground.conf file
+sed -i "s|^\(ConsumerKey\s*=\s*\).*\$|\1${ConsumerKey}|" $scriptPath/../temp/playground2/src/main/resources/playground2.properties
+
+sed -i "s|^\(ConsumerSecret\s*=\s*\).*\$|\1${ConsumerSecret}|" $scriptPath/../temp/playground2/src/main/resources/playground2.properties
+
+sed -i "s|^\(IdentityServerHostName\s*=\s*\).*\$|\1${serverHost}|" $scriptPath/../temp/playground2/src/main/resources/playground2.properties
+
+sed -i "s|^\(IdentityServerPort\s*=\s*\).*\$|\1${serverPort}|" $scriptPath/../temp/playground2/src/main/resources/playground2.properties
+
+sed -i "s|^\(CallbackURL\s*=\s*\).*\$|\1${PlaygroundCallbackURL}|" $scriptPath/../temp/playground2/src/main/resources/playground2.properties
+
+#build playground app from source
 mvn clean install
 cp -r $scriptPath/../temp/playground2/target/playground2.war $scriptPath/../temp/
+
 
 #deploy webapp on tomcat
 cd $scriptPath/../temp/
