@@ -2131,8 +2131,26 @@ try {
 		WebElement button = driver.findElement(By.id(&quot;loginbutton&quot;));
 		button.click();
 
-		//Returns the whole page
+		String pageSource = driver.getPageSource();
+
+		if(driver.getPageSource().contains(&quot;User Consents&quot;)) {
+
+		WebElement checkbox = driver.findElement(By.id(&quot;consent_select_all&quot;));
+		checkbox.click();
+		System.out.println(&quot;check box clicked&quot;);
+
+		WebElement approvebutton = driver.findElement(By.id(&quot;approve&quot;));
+		approvebutton.click();
+		System.out.println(&quot;approve button clicked&quot;);
+
 		return driver.getPageSource();  
+				
+		} else{
+
+		log.info(&quot;User Consent page missing&quot;);
+		SampleResult.setResponseMessage(&quot;Error loading user consent page&quot;);
+	
+		}
     
 } catch (Exception ex) {
     ex.printStackTrace();
@@ -2503,9 +2521,26 @@ try {
 		WebElement button = driver.findElement(By.id(&quot;allow&quot;));
 		button.click();
 
-		//Returns the whole page
+		String pageSource = driver.getPageSource();
+
+		if(driver.getPageSource().contains(&quot;User Consents&quot;)) {
+
+		WebElement checkbox = driver.findElement(By.id(&quot;consent_select_all&quot;));
+		checkbox.click();
+		System.out.println(&quot;check box clicked&quot;);
+
+		WebElement approvebutton = driver.findElement(By.id(&quot;approve&quot;));
+		approvebutton.click();
+		System.out.println(&quot;approve button clicked&quot;);
+
 		return driver.getPageSource();  
-    
+				
+		} else{
+
+		log.info(&quot;User Consent page missing&quot;);
+		SampleResult.setResponseMessage(&quot;Error loading user consent page&quot;);
+	
+		}
 } catch (Exception ex) {
     ex.printStackTrace();
     log.error(ex.getMessage());
@@ -2521,6 +2556,15 @@ try {
                 <stringProp name="49586">200</stringProp>
               </collectionProp>
               <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-1435285188">You are logged in as</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
               <boolProp name="Assertion.assume_success">false</boolProp>
               <intProp name="Assertion.test_type">16</intProp>
             </ResponseAssertion>
