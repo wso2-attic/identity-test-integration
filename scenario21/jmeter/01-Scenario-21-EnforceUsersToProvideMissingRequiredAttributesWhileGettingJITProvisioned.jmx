@@ -2169,13 +2169,13 @@ try {
 		approvebutton.click();
 		System.out.println(&quot;approve button clicked&quot;);
 
-		return driver.getPageSource();  
-				
+		return driver.getPageSource();
+
 		} else{
 
 		log.info(&quot;User Consent page missing&quot;);
 		SampleResult.setResponseMessage(&quot;Error loading user consent page&quot;);
-	
+
 		}
     
 } catch (Exception ex) {
@@ -2560,12 +2560,12 @@ try {
 		System.out.println(&quot;approve button clicked&quot;);
 
 		return driver.getPageSource();  
-				
+
 		} else{
 
 		log.info(&quot;User Consent page missing&quot;);
 		SampleResult.setResponseMessage(&quot;Error loading user consent page&quot;);
-	
+
 		}
 } catch (Exception ex) {
     ex.printStackTrace();
@@ -4211,7 +4211,7 @@ try {
 		String url = &quot;/travelocity.com/index.jsp&quot;;
 
 		String AppURL = protocole + tomcathost + seperator + tomcatport + url;
-		
+
 		driver.get(AppURL);
 		driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
 
@@ -4221,8 +4221,8 @@ try {
 
 
 		//Returns the whole page
-		return driver.getPageSource();  
-    
+		return driver.getPageSource();
+
 } catch (Exception ex) {
     ex.printStackTrace();
     log.error(ex.getMessage());
@@ -4619,24 +4619,25 @@ try {
             <dataType>true</dataType>
             <encoding>false</encoding>
             <assertions>true</assertions>
-            <subresults>true</subresults>
-            <responseData>false</responseData>
-            <samplerData>false</samplerData>
-            <xml>false</xml>
+            <subresults>false</subresults>
+            <responseData>true</responseData>
+            <samplerData>true</samplerData>
+            <xml>true</xml>
             <fieldNames>true</fieldNames>
-            <responseHeaders>false</responseHeaders>
-            <requestHeaders>false</requestHeaders>
+            <responseHeaders>true</responseHeaders>
+            <requestHeaders>true</requestHeaders>
             <responseDataOnError>false</responseDataOnError>
             <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
             <assertionsResultsToSave>0</assertionsResultsToSave>
             <bytes>true</bytes>
             <sentBytes>true</sentBytes>
             <threadCounts>true</threadCounts>
+            <sampleCount>true</sampleCount>
             <idleTime>true</idleTime>
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename"></stringProp>
+        <stringProp name="filename">scenario-results.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
       <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">

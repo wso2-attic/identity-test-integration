@@ -3112,35 +3112,34 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));</st
         <objProp>
           <name>saveConfig</name>
           <value class="SampleSaveConfiguration">
-            <time>true</time>
-            <latency>true</latency>
-            <timestamp>true</timestamp>
+            <time>false</time>
+            <latency>false</latency>
+            <timestamp>false</timestamp>
             <success>true</success>
             <label>true</label>
             <code>true</code>
             <message>true</message>
-            <threadName>true</threadName>
+            <threadName>false</threadName>
             <dataType>true</dataType>
-            <encoding>false</encoding>
+            <encoding>true</encoding>
             <assertions>true</assertions>
-            <subresults>true</subresults>
-            <responseData>false</responseData>
-            <samplerData>false</samplerData>
-            <xml>false</xml>
+            <subresults>false</subresults>
+            <responseData>true</responseData>
+            <samplerData>true</samplerData>
+            <xml>true</xml>
             <fieldNames>true</fieldNames>
-            <responseHeaders>false</responseHeaders>
-            <requestHeaders>false</requestHeaders>
+            <responseHeaders>true</responseHeaders>
+            <requestHeaders>true</requestHeaders>
             <responseDataOnError>false</responseDataOnError>
             <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
             <assertionsResultsToSave>0</assertionsResultsToSave>
-            <bytes>true</bytes>
-            <sentBytes>true</sentBytes>
-            <threadCounts>true</threadCounts>
-            <idleTime>true</idleTime>
-            <connectTime>true</connectTime>
+            <url>true</url>
+            <fileName>true</fileName>
+            <hostname>true</hostname>
+            <sampleCount>true</sampleCount>
           </value>
         </objProp>
-        <stringProp name="filename"></stringProp>
+        <stringProp name="filename">scenario-results.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
     </hashTree>

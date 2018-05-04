@@ -55,19 +55,19 @@ cd $scriptPath/../temp/travelocity.com
 jar xvf $scriptPath/../temp/sso-agent-sample/target/travelocity.com.war
 
 #updating travelocity.conf file
-sed -i "s|^\(SAML2\.AssertionConsumerURL\s*=\s*\).*\$|\1${SAML2AssertionConsumerURL}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+sed -i -e "s|^\(SAML2\.AssertionConsumerURL\s*=\s*\).*\$|\1${SAML2AssertionConsumerURL}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
-sed -i "s|^\(SAML2\.IdPURL\s*=\s*\).*\$|\1${SAML2IdPURL}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+sed -i -e "s|^\(SAML2\.IdPURL\s*=\s*\).*\$|\1${SAML2IdPURL}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
-sed -i "s|^\(SAML2\.SPEntityId\s*=\s*\).*\$|\1${SAML2SPEntityId}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+sed -i -e "s|^\(SAML2\.SPEntityId\s*=\s*\).*\$|\1${SAML2SPEntityId}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
-sed -i "s|^\(SkipURIs\s*=\s*\).*\$|\1${SkipURIs}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+sed -i -e "s|^\(SkipURIs\s*=\s*\).*\$|\1${SkipURIs}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
-sed -i "s|^\(SAML2\.IdPEntityId\s*=\s*\).*\$|\1${SAML2IdPEntityId}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+sed -i -e "s|^\(SAML2\.IdPEntityId\s*=\s*\).*\$|\1${SAML2IdPEntityId}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
-sed -i "s|^\(SAML2\.EnableResponseSigning\s*=\s*\).*\$|\1${EnableResponseSigning}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+sed -i -e "s|^\(SAML2\.EnableResponseSigning\s*=\s*\).*\$|\1${EnableResponseSigning}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
-sed -i "s|^\(SAML2\.EnableAssertionSigning\s*=\s*\).*\$|\1${EnableAssertionSigning}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+sed -i -e "s|^\(SAML2\.EnableAssertionSigning\s*=\s*\).*\$|\1${EnableAssertionSigning}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
 
 #repackaging travelocity app
@@ -86,8 +86,8 @@ cp -r $scriptPath/../../apps/PassiveSTSSampleApp $scriptPath/../temp/
 cd $scriptPath/../temp/PassiveSTSSampleApp
 
 #updating PassiveSTSSampleApp web.xml file
-sed -i "/init-param/,/\/init-param/s/localhost:8080/${tomcatHost}:${tomcatPort}/g" $scriptPath/../temp/PassiveSTSSampleApp/src/main/webapp/WEB-INF/web.xml
-sed -i "/init-param/,/\/init-param/s/localhost:9443/${serverHost}:${serverPort}/g" $scriptPath/../temp/PassiveSTSSampleApp/src/main/webapp/WEB-INF/web.xml
+sed -i -e "/init-param/,/\/init-param/s/localhost:8080/${tomcatHost}:${tomcatPort}/g" $scriptPath/../temp/PassiveSTSSampleApp/src/main/webapp/WEB-INF/web.xml
+sed -i -e "/init-param/,/\/init-param/s/localhost:9443/${serverHost}:${serverPort}/g" $scriptPath/../temp/PassiveSTSSampleApp/src/main/webapp/WEB-INF/web.xml
 mvn clean install
 
 cp -r $scriptPath/../temp/PassiveSTSSampleApp/target/PassiveSTSSampleApp.war $scriptPath/../temp
