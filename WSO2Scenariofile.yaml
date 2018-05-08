@@ -100,3 +100,8 @@ config-change-sets:
     description: 'Config changes required to enable SSO in Multi-factor authentication for WSO2 Identity Server management console'
     applies-to:
       - scenario05
+  -
+    name: config03
+    description: 'Config change required to skip user consent for request path authentication using OAuth bearer'
+    applies-to:
+      - scenario23
