@@ -18,8 +18,8 @@
 #tomcat properties
 tomcatHost=$tomcatHost
 tomcatPort=$tomcatPort
-tomcatUsername=$scriptuser
-tomcatPassword=$scriptuser
+tomcatUsername=$tomcatUsername
+tomcatPassword=$tomcatPassword
 appName1="travelocity.com"
 appName2="avis.com"
 

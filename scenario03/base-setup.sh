@@ -19,8 +19,8 @@
 appName="travelocity.com"
 tomcatHost=$tomcatHost
 tomcatPort=$tomcatPort
-tomcatUsername=$scriptuser
-tomcatPassword=$scriptuser
+tomcatUsername=$tomcatUsername
+tomcatPassword=$tomcatPassword
 tomcatVersion=7
 serverHost=$serverHost
 serverPort=$serverPort

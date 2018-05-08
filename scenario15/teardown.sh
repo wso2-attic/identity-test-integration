@@ -19,8 +19,8 @@
 #tomcat properties
 tomcatHost=$tomcatHost
 tomcatPort=8080
-tomcatUsername=$scriptuser
-tomcatPassword=$scriptuser
+tomcatUsername=$tomcatUsername
+tomcatPassword=$tomcatPassword
 appName="travelocity.com"
 
 #undeploy webapp from tomcat
