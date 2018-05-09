@@ -5,8 +5,8 @@ appName1="travelocity.com"
 appName2="avis.com"
 tomcatHost=$tomcatHost
 tomcatPort=$tomcatPort
-tomcatUsername=scriptuser
-tomcatPassword=scriptuser
+tomcatUsername=$tomcatUsername
+tomcatPassword=$tomcatPassword
 tomcatVersion=7
 serverHost=$serverHost
 serverPort=$serverPort
@@ -91,7 +91,7 @@ retry_count=10;
 while true
 do
 echo $(date)" Waiting until deploying the app on Tomcat!"
-#STATUS=$(curl -s http://scriptuser:scriptuser@localhost:8080/manager/text/list | grep ${appName})
+#STATUS=$(curl -s http://$scriptuser:$scriptuser@localhost:8080/manager/text/list | grep ${appName})
 if curl -s http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/list | grep "${appName2}:running"
 then
  echo "Found ${appName2} is running on Tomcat"

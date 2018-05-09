@@ -23,11 +23,6 @@
             <stringProp name="Argument.value">${__property(serverPort)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="adminCredentials" elementType="Argument">
-            <stringProp name="Argument.name">adminCredentials</stringProp>
-            <stringProp name="Argument.value">${__property(adminCredentials)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
           <elementProp name="adminusername" elementType="Argument">
             <stringProp name="Argument.name">adminusername</stringProp>
             <stringProp name="Argument.value">${__property(adminusername)}</stringProp>
@@ -103,6 +98,25 @@
       <hashTree>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Cleaning" enabled="true"/>
         <hashTree>
+          <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="true">
+            <stringProp name="CounterConfig.start">1</stringProp>
+            <stringProp name="CounterConfig.end">100000</stringProp>
+            <stringProp name="CounterConfig.incr">1</stringProp>
+            <stringProp name="CounterConfig.name">user_index</stringProp>
+            <stringProp name="CounterConfig.format"></stringProp>
+            <boolProp name="CounterConfig.per_user">false</boolProp>
+          </CounterConfig>
+          <hashTree/>
+          <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="script">import org.apache.commons.codec.binary.Base64;
+byte[] encodedUsernamePassword = Base64.encodeBase64(&quot;${adminusername}:${adminpassword}&quot;.getBytes());
+vars.put(&quot;adminCredentials&quot;,new String(encodedUsernamePassword));</stringProp>
+            <stringProp name="TestPlan.comments">This is use to base64 encode the username and password</stringProp>
+          </BeanShellPreProcessor>
+          <hashTree/>
           <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
             <collectionProp name="CookieManager.cookies"/>
             <boolProp name="CookieManager.clearEachIteration">false</boolProp>
@@ -253,7 +267,7 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:deleteUser&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;xsd:userName&gt;${usernamePrefix}1&lt;/xsd:userName&gt;&#xd;
+         &lt;xsd:userName&gt;${usernamePrefix}${user_index}&lt;/xsd:userName&gt;&#xd;
       &lt;/xsd:deleteUser&gt;   &#xd;
    &lt;/soapenv:Body&gt;&#xd;
 &lt;/soapenv:Envelope&gt;</stringProp>
