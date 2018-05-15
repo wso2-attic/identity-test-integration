@@ -2033,7 +2033,7 @@ try {
               <connectTime>true</connectTime>
             </value>
           </objProp>
-          <stringProp name="filename">scenario-results.jtl</stringProp>
+          <stringProp name="filename">scenario-28-results.jtl</stringProp>
         </ResultCollector>
         <hashTree/>
         <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">

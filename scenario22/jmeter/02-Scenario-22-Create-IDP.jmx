@@ -248,7 +248,7 @@
               <connectTime>true</connectTime>
             </value>
           </objProp>
-          <stringProp name="filename">scenario-results.jtl</stringProp>
+          <stringProp name="filename">02-scenario-22-results.jtl</stringProp>
         </ResultCollector>
         <hashTree/>
       </hashTree>

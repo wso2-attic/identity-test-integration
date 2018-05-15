@@ -667,7 +667,7 @@ byte[] encryptedUid = Base64.encodeBase64(credentilas.getBytes());
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">scenario-results.jtl</stringProp>
+        <stringProp name="filename">01-scenario-23-results.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
     </hashTree>

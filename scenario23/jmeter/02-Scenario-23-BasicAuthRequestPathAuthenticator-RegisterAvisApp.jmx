@@ -134,7 +134,7 @@
         <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
           <collectionProp name="CookieManager.cookies"/>
           <boolProp name="CookieManager.clearEachIteration">false</boolProp>
-          <stringProp name="CookieManager.policy">standard</stringProp>
+	  <stringProp name="CookieManager.policy">standard</stringProp>
           <stringProp name="CookieManager.implementation">org.apache.jmeter.protocol.http.control.HC4CookieHandler</stringProp>
         </CookieManager>
         <hashTree/>
@@ -659,7 +659,7 @@ byte[] encryptedUid = Base64.encodeBase64(credentilas.getBytes());
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">scenario-results.jtl</stringProp>
+        <stringProp name="filename">02-scenario-23-results.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
     </hashTree>
