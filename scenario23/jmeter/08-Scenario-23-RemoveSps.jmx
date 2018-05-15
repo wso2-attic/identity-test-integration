@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.2 r1790748">
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.3 r1808647">
   <hashTree>
-    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="06-Solution-23-OAuthBearerRequestPathAuthenticator-RemoveSPs" enabled="true">
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="08-Solution-23-OAuthBearerRequestPathAuthenticator-RemoveSPs" enabled="true">
       <stringProp name="TestPlan.comments">OAuthBearerRequestPathAuthenticator has 3 thread groups and each according to Register oauth app, login with oauth bearer and clear app</stringProp>
       <boolProp name="TestPlan.functional_mode">false</boolProp>
       <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
@@ -121,8 +121,6 @@
         <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
           <collectionProp name="CookieManager.cookies"/>
           <boolProp name="CookieManager.clearEachIteration">false</boolProp>
-          <stringProp name="CookieManager.policy">standard</stringProp>
-          <stringProp name="CookieManager.implementation">org.apache.jmeter.protocol.http.control.HC4CookieHandler</stringProp>
         </CookieManager>
         <hashTree/>
         <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
@@ -511,7 +509,7 @@ byte[] encryptedUid = Base64.encodeBase64(credentilas.getBytes());
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">scenario-results.jtl</stringProp>
+        <stringProp name="filename">08-scenario-23-results.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
     </hashTree>
