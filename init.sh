@@ -29,6 +29,10 @@ IPAddress=$IPLoadBalancer
 
 HOSTS_LINE="$IPAddress\t$IPName"
 
+if [ -z "$IPLoadBalancer" ]; then
+   echo "IPLoadBalancer is empty, please initiate it and proceed."
+   exit 1;
+else
 if [ -n "$(grep $IPName $ETC_HOSTS)" ]; then
 	echo "$IPName already exists : $(grep $IPName $ETC_HOSTS)"
 else
@@ -40,4 +44,4 @@ else
        		echo "Failed to Add $IPName, Try again!";
     	fi
 fi
-
+fi
