@@ -29,7 +29,7 @@ IPAddress=$IPLoadBalancer
 
 HOSTS_LINE="$IPAddress\t$IPName"
 
-if [[ -z "$IPLoadBalancer" ]]; then
+if [ -z "$IPLoadBalancer" ]; then
    echo "IPLoadBalancer is empty, please initiate it and proceed."
    exit 1;
 else
