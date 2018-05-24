@@ -160,6 +160,36 @@
             <stringProp name="Argument.value">${__property(isCallbackHost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
+          <elementProp name="secondaryUS1_url" elementType="Argument">
+            <stringProp name="Argument.name">secondaryUS1_url</stringProp>
+            <stringProp name="Argument.value">${__property(secondaryUS1_url)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="secondaryUS1_username" elementType="Argument">
+            <stringProp name="Argument.name">secondaryUS1_username</stringProp>
+            <stringProp name="Argument.value">${__property(secondaryUS1_username)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="secondaryUS1_password" elementType="Argument">
+            <stringProp name="Argument.name">secondaryUS1_password</stringProp>
+            <stringProp name="Argument.value">${__property(secondaryUS1_password)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="secondaryUS2_url" elementType="Argument">
+            <stringProp name="Argument.name">secondaryUS2_url</stringProp>
+            <stringProp name="Argument.value">${__property(secondaryUS2_url)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="secondaryUS2_username" elementType="Argument">
+            <stringProp name="Argument.name">secondaryUS2_username</stringProp>
+            <stringProp name="Argument.value">${__property(secondaryUS2_username)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="secondaryUS2_password" elementType="Argument">
+            <stringProp name="Argument.name">secondaryUS2_password</stringProp>
+            <stringProp name="Argument.value">${__property(secondaryUS2_password)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
         </collectionProp>
       </Arguments>
       <hashTree/>
@@ -252,15 +282,15 @@
             &lt;xsd1:domainId&gt;${secondaryJDBCDomain1}&lt;/xsd1:domainId&gt;&#xd;
 		  &lt;xsd1:properties&gt;&#xd;
                &lt;xsd1:name&gt;url&lt;/xsd1:name&gt;&#xd;
-               &lt;xsd1:value&gt;jdbc:mysql://192.168.48.153:3306/IS_Solution03_Userstore1&lt;/xsd1:value&gt;&#xd;
+               &lt;xsd1:value&gt;${secondaryUS1_url}&lt;/xsd1:value&gt;&#xd;
             &lt;/xsd1:properties&gt;&#xd;
             &lt;xsd1:properties&gt;&#xd;
                &lt;xsd1:name&gt;userName&lt;/xsd1:name&gt;&#xd;
-               &lt;xsd1:value&gt;root&lt;/xsd1:value&gt;&#xd;
+               &lt;xsd1:value&gt;${secondaryUS1_username}&lt;/xsd1:value&gt;&#xd;
             &lt;/xsd1:properties&gt;&#xd;
             &lt;xsd1:properties&gt;&#xd;
                &lt;xsd1:name&gt;password&lt;/xsd1:name&gt;&#xd;
-               &lt;xsd1:value&gt;root&lt;/xsd1:value&gt;&#xd;
+               &lt;xsd1:value&gt;${secondaryUS1_password}&lt;/xsd1:value&gt;&#xd;
             &lt;/xsd1:properties&gt;&#xd;
             &lt;xsd1:properties&gt;&#xd;
                &lt;xsd1:name&gt;driverName&lt;/xsd1:name&gt;&#xd;
@@ -342,15 +372,15 @@
             &lt;xsd1:domainId&gt;${secondaryJDBCDomain2}&lt;/xsd1:domainId&gt;&#xd;
 		  &lt;xsd1:properties&gt;&#xd;
                &lt;xsd1:name&gt;url&lt;/xsd1:name&gt;&#xd;
-               &lt;xsd1:value&gt;jdbc:mysql://192.168.48.153:3306/IS_Solution03_Userstore2&lt;/xsd1:value&gt;&#xd;
+               &lt;xsd1:value&gt;${secondaryUS2_url}&lt;/xsd1:value&gt;&#xd;
             &lt;/xsd1:properties&gt;&#xd;
             &lt;xsd1:properties&gt;&#xd;
                &lt;xsd1:name&gt;userName&lt;/xsd1:name&gt;&#xd;
-               &lt;xsd1:value&gt;root&lt;/xsd1:value&gt;&#xd;
+               &lt;xsd1:value&gt;${secondaryUS2_username}&lt;/xsd1:value&gt;&#xd;
             &lt;/xsd1:properties&gt;&#xd;
             &lt;xsd1:properties&gt;&#xd;
                &lt;xsd1:name&gt;password&lt;/xsd1:name&gt;&#xd;
-               &lt;xsd1:value&gt;root&lt;/xsd1:value&gt;&#xd;
+               &lt;xsd1:value&gt;${secondaryUS2_password}&lt;/xsd1:value&gt;&#xd;
             &lt;/xsd1:properties&gt;&#xd;
             &lt;xsd1:properties&gt;&#xd;
                &lt;xsd1:name&gt;driverName&lt;/xsd1:name&gt;&#xd;
@@ -635,7 +665,193 @@
             &lt;xsd:primary&gt;true&lt;/xsd:primary&gt;&#xd;
             &lt;xsd:provisioningRole&gt;-&lt;/xsd:provisioningRole&gt;&#xd;
 &#xd;
+            	/** Configure Claims */&#xd;
+			 	  &#xd;
+	   &lt;xsd:claimConfig&gt;&#xd;
+    	       &lt;xsd:alwaysSendMappedLocalSubjectId&gt;true&lt;/xsd:alwaysSendMappedLocalSubjectId&gt;&#xd;
+               &lt;!--Zero or more repetitions:--&gt;&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/nickname&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;id&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
 &#xd;
+	   &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/fullname&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;name&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/gender&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;gender&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/emailaddress&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;email&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/givenname&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;first_name&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/lastname&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;last_name&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/dob&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;age_range&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/url&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;link&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+        		&lt;xsd:idpClaims&gt;&#xd;
+                  &lt;xsd:claimId&gt;16&lt;/xsd:claimId&gt;&#xd;
+                  &lt;xsd:claimUri&gt;id&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+               &lt;xsd:idpClaims&gt;&#xd;
+                  &lt;xsd:claimId&gt;17&lt;/xsd:claimId&gt;&#xd;
+                  &lt;xsd:claimUri&gt;name&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+               &lt;xsd:idpClaims&gt;&#xd;
+                  &lt;xsd:claimId&gt;18&lt;/xsd:claimId&gt;&#xd;
+                  &lt;xsd:claimUri&gt;gender&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+               &lt;xsd:idpClaims&gt;&#xd;
+                  &lt;xsd:claimId&gt;19&lt;/xsd:claimId&gt;&#xd;
+                  &lt;xsd:claimUri&gt;email&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+               &lt;xsd:idpClaims&gt;&#xd;
+                  &lt;xsd:claimId&gt;20&lt;/xsd:claimId&gt;&#xd;
+                  &lt;xsd:claimUri&gt;first_name&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+               &lt;xsd:idpClaims&gt;&#xd;
+                  &lt;xsd:claimId&gt;21&lt;/xsd:claimId&gt;&#xd;
+                  &lt;xsd:claimUri&gt;last_name&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+               &lt;xsd:idpClaims&gt;&#xd;
+                  &lt;xsd:claimId&gt;22&lt;/xsd:claimId&gt;&#xd;
+                  &lt;xsd:claimUri&gt;age_range&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+               &lt;xsd:idpClaims&gt;&#xd;
+                  &lt;xsd:claimId&gt;23&lt;/xsd:claimId&gt;&#xd;
+                  &lt;xsd:claimUri&gt;link&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+ &#xd;
+               &#xd;
+               &lt;xsd:localClaimDialect&gt;false&lt;/xsd:localClaimDialect&gt;&#xd;
+               &lt;xsd:userClaimURI&gt;id&lt;/xsd:userClaimURI&gt;               &#xd;
+               &#xd;
+        &lt;/xsd:claimConfig&gt;&#xd;
            &#xd;
 &#xd;
 	/** Add Facebook as Federated Authenticator */&#xd;
@@ -669,7 +885,7 @@
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;callBackUrl&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;https://${isCallbackHost}/commonauth&lt;/xsd:value&gt;&#xd;
+                  &lt;xsd:value&gt;https://${isCallbackHost}:${isPort}/commonauth&lt;/xsd:value&gt;&#xd;
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;UserInfoFields&lt;/xsd:name&gt;&#xd;
@@ -757,6 +973,194 @@
             &lt;xsd:displayName&gt;${idp2Name}&lt;/xsd:displayName&gt;&#xd;
                &lt;xsd:name&gt;TwitterAuthenticator&lt;/xsd:name&gt;&#xd;
             &lt;/xsd:defaultAuthenticatorConfig&gt;&#xd;
+&#xd;
+            	/** Configure Claims */&#xd;
+			 	  &#xd;
+	   &lt;xsd:claimConfig&gt;&#xd;
+    	       &lt;xsd:alwaysSendMappedLocalSubjectId&gt;true&lt;/xsd:alwaysSendMappedLocalSubjectId&gt;&#xd;
+               &lt;!--Zero or more repetitions:--&gt;&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/nickname&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;id&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+	   &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/fullname&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;name&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/gender&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;gender&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/emailaddress&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;email&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/givenname&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;first_name&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/lastname&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;last_name&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/dob&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;age_range&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/url&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;link&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+        		&lt;xsd:idpClaims&gt;&#xd;
+                  &lt;xsd:claimId&gt;16&lt;/xsd:claimId&gt;&#xd;
+                  &lt;xsd:claimUri&gt;id&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+               &lt;xsd:idpClaims&gt;&#xd;
+                  &lt;xsd:claimId&gt;17&lt;/xsd:claimId&gt;&#xd;
+                  &lt;xsd:claimUri&gt;name&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+               &lt;xsd:idpClaims&gt;&#xd;
+                  &lt;xsd:claimId&gt;18&lt;/xsd:claimId&gt;&#xd;
+                  &lt;xsd:claimUri&gt;gender&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+               &lt;xsd:idpClaims&gt;&#xd;
+                  &lt;xsd:claimId&gt;19&lt;/xsd:claimId&gt;&#xd;
+                  &lt;xsd:claimUri&gt;email&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+               &lt;xsd:idpClaims&gt;&#xd;
+                  &lt;xsd:claimId&gt;20&lt;/xsd:claimId&gt;&#xd;
+                  &lt;xsd:claimUri&gt;first_name&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+               &lt;xsd:idpClaims&gt;&#xd;
+                  &lt;xsd:claimId&gt;21&lt;/xsd:claimId&gt;&#xd;
+                  &lt;xsd:claimUri&gt;last_name&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+               &lt;xsd:idpClaims&gt;&#xd;
+                  &lt;xsd:claimId&gt;22&lt;/xsd:claimId&gt;&#xd;
+                  &lt;xsd:claimUri&gt;age_range&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+               &lt;xsd:idpClaims&gt;&#xd;
+                  &lt;xsd:claimId&gt;23&lt;/xsd:claimId&gt;&#xd;
+                  &lt;xsd:claimUri&gt;link&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+ &#xd;
+               &#xd;
+               &lt;xsd:localClaimDialect&gt;false&lt;/xsd:localClaimDialect&gt;&#xd;
+               &lt;xsd:userClaimURI&gt;id&lt;/xsd:userClaimURI&gt;               &#xd;
+               &#xd;
+        &lt;/xsd:claimConfig&gt;&#xd;
             &#xd;
             &lt;xsd:federatedAuthenticatorConfigs&gt;&#xd;
                &lt;xsd:displayName&gt;${idp2Name}&lt;/xsd:displayName&gt;&#xd;
@@ -1264,7 +1668,6 @@ import com.gargoylesoftware.htmlunit.BrowserVersion;
 
 try {
 		public HtmlUnitDriver driver = new HtmlUnitDriver(BrowserVersion.CHROME, true);
-
 		String protocole = &quot;http://&quot;;
 		String tomcathost = vars.get(&quot;tomcatHost&quot;);
 		String seperator = &quot;:&quot;;
@@ -1274,8 +1677,7 @@ try {
 		String AppURL = protocole + tomcathost + seperator + tomcatport + url;
 		
 		driver.get(AppURL);
-		driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
-
+		driver.manage().timeouts().implicitlyWait(60,TimeUnit.SECONDS);
 		WebElement link = driver.findElement(By.linkText(&quot;here&quot;));
 		link.click();
 
@@ -1491,7 +1893,7 @@ try {
 		String AppURL = protocole + tomcathost + seperator + tomcatport + url;
 		
 		driver.get(AppURL);
-		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 
 		WebElement link = driver.findElement(By.linkText(&quot;here&quot;));
 		link.click();
@@ -1513,11 +1915,11 @@ try {
 
 		WebElement checkbox = driver.findElement(By.id(&quot;consent_select_all&quot;));
 		checkbox.click();
-		System.out.println(&quot;check box clicked&quot;);
+		System.out.println(&quot;Twitter check box clicked&quot;);
 
 		WebElement approvebutton = driver.findElement(By.id(&quot;approve&quot;));
 		approvebutton.click();
-		System.out.println(&quot;approve button clicked&quot;);
+		System.out.println(&quot;Twitter approve button clicked&quot;);
 
 		return driver.getPageSource();  
 				
@@ -1573,7 +1975,193 @@ try {
             &lt;xsd:primary&gt;true&lt;/xsd:primary&gt;&#xd;
             &lt;xsd:provisioningRole&gt;-&lt;/xsd:provisioningRole&gt;&#xd;
 &#xd;
+            	/** Configure Claims */&#xd;
+			 	  &#xd;
+	   &lt;xsd:claimConfig&gt;&#xd;
+    	       &lt;xsd:alwaysSendMappedLocalSubjectId&gt;true&lt;/xsd:alwaysSendMappedLocalSubjectId&gt;&#xd;
+               &lt;!--Zero or more repetitions:--&gt;&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/nickname&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;id&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
 &#xd;
+	   &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/fullname&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;name&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/gender&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;gender&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/emailaddress&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;email&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/givenname&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;first_name&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/lastname&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;last_name&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/dob&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;age_range&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/url&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;link&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+        		&lt;xsd:idpClaims&gt;&#xd;
+                  &lt;xsd:claimId&gt;16&lt;/xsd:claimId&gt;&#xd;
+                  &lt;xsd:claimUri&gt;id&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+               &lt;xsd:idpClaims&gt;&#xd;
+                  &lt;xsd:claimId&gt;17&lt;/xsd:claimId&gt;&#xd;
+                  &lt;xsd:claimUri&gt;name&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+               &lt;xsd:idpClaims&gt;&#xd;
+                  &lt;xsd:claimId&gt;18&lt;/xsd:claimId&gt;&#xd;
+                  &lt;xsd:claimUri&gt;gender&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+               &lt;xsd:idpClaims&gt;&#xd;
+                  &lt;xsd:claimId&gt;19&lt;/xsd:claimId&gt;&#xd;
+                  &lt;xsd:claimUri&gt;email&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+               &lt;xsd:idpClaims&gt;&#xd;
+                  &lt;xsd:claimId&gt;20&lt;/xsd:claimId&gt;&#xd;
+                  &lt;xsd:claimUri&gt;first_name&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+               &lt;xsd:idpClaims&gt;&#xd;
+                  &lt;xsd:claimId&gt;21&lt;/xsd:claimId&gt;&#xd;
+                  &lt;xsd:claimUri&gt;last_name&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+               &lt;xsd:idpClaims&gt;&#xd;
+                  &lt;xsd:claimId&gt;22&lt;/xsd:claimId&gt;&#xd;
+                  &lt;xsd:claimUri&gt;age_range&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+               &lt;xsd:idpClaims&gt;&#xd;
+                  &lt;xsd:claimId&gt;23&lt;/xsd:claimId&gt;&#xd;
+                  &lt;xsd:claimUri&gt;link&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+ &#xd;
+               &#xd;
+               &lt;xsd:localClaimDialect&gt;false&lt;/xsd:localClaimDialect&gt;&#xd;
+               &lt;xsd:userClaimURI&gt;id&lt;/xsd:userClaimURI&gt;               &#xd;
+               &#xd;
+        &lt;/xsd:claimConfig&gt;&#xd;
            &#xd;
 &#xd;
 	/** Add Facebook as Federated Authenticator */&#xd;
@@ -2365,7 +2953,7 @@ try {
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">scenario-03-results.jtl</stringProp>
+        <stringProp name="filename">/home/maneesha/is550/repo/1/identity-test-integration/scenario03/scenario-03-results.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
       <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
@@ -2401,7 +2989,7 @@ try {
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename"></stringProp>
+        <stringProp name="filename">/home/maneesha/is550/repo/1/identity-test-integration/scenario03/scenario-03-results.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
     </hashTree>
