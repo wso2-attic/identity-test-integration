@@ -160,9 +160,14 @@
             <stringProp name="Argument.value">${__property(isCallbackHost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="secondaryUS1_url" elementType="Argument">
-            <stringProp name="Argument.name">secondaryUS1_url</stringProp>
-            <stringProp name="Argument.value">${__property(secondaryUS1_url)}</stringProp>
+          <elementProp name="secondaryUS_dbHost" elementType="Argument">
+            <stringProp name="Argument.name">secondaryUS_dbHost</stringProp>
+            <stringProp name="Argument.value">${__property(secondaryUS_dbHost)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="secondaryUS_dbPort" elementType="Argument">
+            <stringProp name="Argument.name">secondaryUS_dbPort</stringProp>
+            <stringProp name="Argument.value">${__property(secondaryUS_dbPort)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="secondaryUS1_username" elementType="Argument">
@@ -173,11 +178,6 @@
           <elementProp name="secondaryUS1_password" elementType="Argument">
             <stringProp name="Argument.name">secondaryUS1_password</stringProp>
             <stringProp name="Argument.value">${__property(secondaryUS1_password)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="secondaryUS2_url" elementType="Argument">
-            <stringProp name="Argument.name">secondaryUS2_url</stringProp>
-            <stringProp name="Argument.value">${__property(secondaryUS2_url)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="secondaryUS2_username" elementType="Argument">
@@ -282,7 +282,7 @@
             &lt;xsd1:domainId&gt;${secondaryJDBCDomain1}&lt;/xsd1:domainId&gt;&#xd;
 		  &lt;xsd1:properties&gt;&#xd;
                &lt;xsd1:name&gt;url&lt;/xsd1:name&gt;&#xd;
-               &lt;xsd1:value&gt;${secondaryUS1_url}&lt;/xsd1:value&gt;&#xd;
+               &lt;xsd1:value&gt;jdbc:mysql://${secondaryUS_dbHost}:${secondaryUS_dbPort}/IS_Scenario03_Userstore1?useSSL=false&lt;/xsd1:value&gt;&#xd;
             &lt;/xsd1:properties&gt;&#xd;
             &lt;xsd1:properties&gt;&#xd;
                &lt;xsd1:name&gt;userName&lt;/xsd1:name&gt;&#xd;
@@ -372,7 +372,7 @@
             &lt;xsd1:domainId&gt;${secondaryJDBCDomain2}&lt;/xsd1:domainId&gt;&#xd;
 		  &lt;xsd1:properties&gt;&#xd;
                &lt;xsd1:name&gt;url&lt;/xsd1:name&gt;&#xd;
-               &lt;xsd1:value&gt;${secondaryUS2_url}&lt;/xsd1:value&gt;&#xd;
+               &lt;xsd1:value&gt;jdbc:mysql://${secondaryUS_dbHost}:${secondaryUS_dbPort}/IS_Scenario03_Userstore2?useSSL=false&lt;/xsd1:value&gt;&#xd;
             &lt;/xsd1:properties&gt;&#xd;
             &lt;xsd1:properties&gt;&#xd;
                &lt;xsd1:name&gt;userName&lt;/xsd1:name&gt;&#xd;
@@ -2953,7 +2953,7 @@ try {
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename"></stringProp>
+        <stringProp name="filename">scenario03-results.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
       <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">

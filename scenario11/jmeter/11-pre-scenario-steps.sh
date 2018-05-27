@@ -18,6 +18,7 @@ serverHost=$serverHost
 tomcatPort=$tomcatPort
 serverPort=$serverPort
 tomcatHost=$tomcatHost
+
 prgdir=$(dirname "$0")
 scriptPath=$(cd "$prgdir"; pwd)
 
