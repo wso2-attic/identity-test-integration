@@ -153,21 +153,21 @@
             <stringProp name="Argument.value">${__property(sp2Description)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="incorrectFbClientId" elementType="Argument">
-            <stringProp name="Argument.name">incorrectFbClientId</stringProp>
-            <stringProp name="Argument.value">${__property(incorrectFbClientId)}</stringProp>
+          <elementProp name="incorrectTwitterPassword" elementType="Argument">
+            <stringProp name="Argument.name">incorrectTwitterPassword</stringProp>
+            <stringProp name="Argument.value">${__property(incorrectTwitterPassword)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">For negative scenario</stringProp>
           </elementProp>
-          <elementProp name="idp3Facebook" elementType="Argument">
-            <stringProp name="Argument.name">idp3Facebook</stringProp>
-            <stringProp name="Argument.value">${__property(idp3Facebook)}</stringProp>
+          <elementProp name="idp3Twitter" elementType="Argument">
+            <stringProp name="Argument.name">idp3Twitter</stringProp>
+            <stringProp name="Argument.value">${__property(idp3Twitter)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">Invalid Facebook Idp</stringProp>
           </elementProp>
-          <elementProp name="idp3FacebookDescription" elementType="Argument">
-            <stringProp name="Argument.name">idp3FacebookDescription</stringProp>
-            <stringProp name="Argument.value">${__property(idp3FacebookDescription)}</stringProp>
+          <elementProp name="idp3TwitterDescription" elementType="Argument">
+            <stringProp name="Argument.name">idp3TwitterDescription</stringProp>
+            <stringProp name="Argument.value">${__property(idp3TwitterDescription)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="passiveSTSuserId" elementType="Argument">
@@ -175,11 +175,16 @@
             <stringProp name="Argument.value">${__property(passiveSTSuserId)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="callbackHost" elementType="Argument">
-            <stringProp name="Argument.name">callbackHost</stringProp>
+          <elementProp name="CallbackHost" elementType="Argument">
+            <stringProp name="Argument.name">CallbackHost</stringProp>
             <stringProp name="Argument.value">${__property(callbackHost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">is.qa.com</stringProp>
+          </elementProp>
+          <elementProp name="TwitterScope" elementType="Argument">
+            <stringProp name="Argument.name">TwitterScope</stringProp>
+            <stringProp name="Argument.value">${__property(TwitterScope)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
       </Arguments>
@@ -331,7 +336,7 @@
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;callbackUrl&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;https://${callbackHost}:${isPort}/commonauth&lt;/xsd:value&gt;                 &#xd;
+                  &lt;xsd:value&gt;https://${CallbackHost}:${isPort}/commonauth&lt;/xsd:value&gt;                 &#xd;
                &lt;/xsd:properties&gt;&#xd;
             &lt;/xsd:federatedAuthenticatorConfigs&gt;&#xd;
          &lt;/mgt:identityProvider&gt;&#xd;
@@ -815,7 +820,7 @@ try {
 		String travelocityURL = protocole + tomcathost + seperator + tomcatport + url;
 
 		driver.get(travelocityURL);
-		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(60,TimeUnit.SECONDS);
 		WebElement link = driver.findElement(By.linkText(&quot;here&quot;));
 		link.click();
 
@@ -833,16 +838,16 @@ try {
 		//Returns the whole page
 		//return driver.getPageSource();
 		String pageSource = driver.getPageSource();
-
+		driver.manage().timeouts().implicitlyWait(60,TimeUnit.SECONDS);
 		if(driver.getPageSource().contains(&quot;User Consents&quot;)) {
 
 		WebElement checkbox = driver.findElement(By.id(&quot;consent_select_all&quot;));
 		checkbox.click();
-		System.out.println(&quot;check box clicked&quot;);
+		System.out.println(&quot;check box clicked for Travelocity-Positive-Twitter&quot;);
 
 		WebElement approvebutton = driver.findElement(By.id(&quot;approve&quot;));
 		approvebutton.click();
-		System.out.println(&quot;approve button clicked&quot;);
+		System.out.println(&quot;approve button clicked for Travelocity-Positive-Twitter&quot;);
 
 		return driver.getPageSource();  
 				
@@ -1026,7 +1031,7 @@ try {
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;callBackUrl&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;https://${callbackHost}/commonauth&lt;/xsd:value&gt;&#xd;
+                  &lt;xsd:value&gt;https://${CallbackHost}:${isPort}/commonauth&lt;/xsd:value&gt;&#xd;
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;UserInfoFields&lt;/xsd:name&gt;&#xd;
@@ -1252,7 +1257,7 @@ try {
 		String travelocityURL = protocole + tomcathost + seperator + tomcatport + url;
 		
 		driver.get(travelocityURL);
-		driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 		WebElement link = driver.findElement(By.linkText(&quot;here&quot;));
 		link.click();
 
@@ -1275,11 +1280,11 @@ try {
 
 		WebElement checkbox = driver.findElement(By.id(&quot;consent_select_all&quot;));
 		checkbox.click();
-		System.out.println(&quot;check box clicked&quot;);
+		System.out.println(&quot;check box clicked for Travelocity-Positive-Facebook&quot;);
 
 		WebElement approvebutton = driver.findElement(By.id(&quot;approve&quot;));
 		approvebutton.click();
-		System.out.println(&quot;approve button clicked&quot;);
+		System.out.println(&quot;approve button clicked for Travelocity-Positive-Facebook&quot;);
 
 		return driver.getPageSource();  
 				
@@ -1310,7 +1315,7 @@ try {
             </ResponseAssertion>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create idp3Facebook - invalidIdp" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create idp3Twitter - invalidIdp" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
@@ -1322,10 +1327,10 @@ try {
       &lt;mgt:addIdP&gt;        &#xd;
          &lt;!--Optional:--&gt;&#xd;
          &lt;mgt:identityProvider&gt;&#xd;
-            &lt;xsd:identityProviderName&gt;${idp3Facebook}&lt;/xsd:identityProviderName&gt;           &#xd;
-            &lt;xsd:displayName&gt;${idp3Facebook}&lt;/xsd:displayName&gt;&#xd;
+            &lt;xsd:identityProviderName&gt;${idp3Twitter}&lt;/xsd:identityProviderName&gt;           &#xd;
+            &lt;xsd:displayName&gt;${idp3Twitter}&lt;/xsd:displayName&gt;&#xd;
             &lt;xsd:enable&gt;true&lt;/xsd:enable&gt;&#xd;
-            &lt;xsd:identityProviderDescription&gt;${idp3FacebookDescription}&lt;/xsd:identityProviderDescription&gt;&#xd;
+            &lt;xsd:identityProviderDescription&gt;${idp3TwitterDescription}&lt;/xsd:identityProviderDescription&gt;&#xd;
             &lt;xsd:alias&gt;https://${isHost}:${isPort}/oauth2/token/&lt;/xsd:alias&gt;&#xd;
             &lt;xsd:primary&gt;true&lt;/xsd:primary&gt;&#xd;
             &lt;xsd:provisioningRole&gt;-&lt;/xsd:provisioningRole&gt;&#xd;
@@ -1375,7 +1380,7 @@ try {
             </HeaderManager>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Update idp3Facebook" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Update idp3Twitter" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
@@ -1386,53 +1391,46 @@ try {
    &lt;soapenv:Body&gt;&#xd;
       &lt;mgt:updateIdP&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;mgt:oldIdPName&gt;${idp3Facebook}&lt;/mgt:oldIdPName&gt;&#xd;
+         &lt;mgt:oldIdPName&gt;${idp3Twitter}&lt;/mgt:oldIdPName&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
          &lt;mgt:identityProvider&gt;&#xd;
-            &lt;xsd:identityProviderName&gt;${idp3Facebook}&lt;/xsd:identityProviderName&gt;           &#xd;
-            &lt;xsd:displayName&gt;${idp3Facebook}&lt;/xsd:displayName&gt;&#xd;
+            &lt;xsd:identityProviderName&gt;${idp3Twitter}&lt;/xsd:identityProviderName&gt;           &#xd;
+            &lt;xsd:displayName&gt;${idp3Twitter}&lt;/xsd:displayName&gt;&#xd;
             &lt;xsd:enable&gt;true&lt;/xsd:enable&gt;&#xd;
-            &lt;xsd:identityProviderDescription&gt;${idp3FacebookDescription}&lt;/xsd:identityProviderDescription&gt;&#xd;
+            &lt;xsd:identityProviderDescription&gt;${idp3TwitterDescription}&lt;/xsd:identityProviderDescription&gt;&#xd;
             &lt;xsd:alias&gt;https://${isHost}:${isPort}/oauth2/token/&lt;/xsd:alias&gt;&#xd;
             &lt;xsd:primary&gt;true&lt;/xsd:primary&gt;&#xd;
             &lt;xsd:provisioningRole&gt;-&lt;/xsd:provisioningRole&gt;&#xd;
 &#xd;
-	/** Add Facebook as Federated Authenticator */&#xd;
-           &lt;xsd:displayName&gt;${idp3Facebook}&lt;/xsd:displayName&gt;&#xd;
+	/** Add Facebook as Twitter Authenticator */&#xd;
+           &lt;xsd:displayName&gt;${idp3Twitter}&lt;/xsd:displayName&gt;&#xd;
             &lt;xsd:enable&gt;true&lt;/xsd:enable&gt;&#xd;
             &lt;xsd:federationHub&gt;false&lt;/xsd:federationHub&gt;&#xd;
-            &lt;xsd:identityProviderDescription&gt;${idp3FacebookDescription}&lt;/xsd:identityProviderDescription&gt;&#xd;
-            &lt;xsd:identityProviderName&gt;${idp3Facebook}&lt;/xsd:identityProviderName&gt;&#xd;
+            &lt;xsd:identityProviderDescription&gt;${idp3TwitterDescription}&lt;/xsd:identityProviderDescription&gt;&#xd;
+            &lt;xsd:identityProviderName&gt;${idp3Twitter}&lt;/xsd:identityProviderName&gt;&#xd;
             &lt;xsd:primary&gt;true&lt;/xsd:primary&gt;&#xd;
             &#xd;
             &lt;xsd:defaultAuthenticatorConfig&gt;&#xd;
-            &lt;xsd:displayName&gt;${idp3Facebook}&lt;/xsd:displayName&gt;&#xd;
-               &lt;xsd:name&gt;FacebookAuthenticator&lt;/xsd:name&gt;&#xd;
+            &lt;xsd:displayName&gt;${idp3Twitter}&lt;/xsd:displayName&gt;&#xd;
+               &lt;xsd:name&gt;TwitterAuthenticator&lt;/xsd:name&gt;&#xd;
             &lt;/xsd:defaultAuthenticatorConfig&gt;&#xd;
             &#xd;
-            &lt;xsd:federatedAuthenticatorConfigs&gt;&#xd;
-               &lt;xsd:displayName&gt;${idp3Facebook}&lt;/xsd:displayName&gt;&#xd;
+&#xd;
+             &lt;xsd:federatedAuthenticatorConfigs&gt;&#xd;
+               &lt;xsd:displayName&gt;${idp3Twitter}&lt;/xsd:displayName&gt;&#xd;
                &lt;xsd:enabled&gt;true&lt;/xsd:enabled&gt;&#xd;
-               &lt;xsd:name&gt;FacebookAuthenticator&lt;/xsd:name&gt;&#xd;
+               &lt;xsd:name&gt;TwitterAuthenticator&lt;/xsd:name&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
-                  &lt;xsd:name&gt;ClientId&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;${incorrectFbClientId}&lt;/xsd:value&gt;&#xd;
+                  &lt;xsd:name&gt;APIKey&lt;/xsd:name&gt;&#xd;
+                  &lt;xsd:value&gt;${twitterClientId}&lt;/xsd:value&gt;&#xd;
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
-                  &lt;xsd:name&gt;ClientSecret&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;${fbClientSecret}&lt;/xsd:value&gt;&#xd;
+                  &lt;xsd:name&gt;APISecret&lt;/xsd:name&gt;&#xd;
+                  &lt;xsd:value&gt;${twitterClientSecret}&lt;/xsd:value&gt;&#xd;
                &lt;/xsd:properties&gt;&#xd;
                &lt;xsd:properties&gt;&#xd;
-                  &lt;xsd:name&gt;Scope&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;${fbScope}&lt;/xsd:value&gt;&#xd;
-               &lt;/xsd:properties&gt;&#xd;
-               &lt;xsd:properties&gt;&#xd;
-                  &lt;xsd:name&gt;callBackUrl&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;https://${callbackHost}:${isPort}/commonauth&lt;/xsd:value&gt;&#xd;
-               &lt;/xsd:properties&gt;&#xd;
-               &lt;xsd:properties&gt;&#xd;
-                  &lt;xsd:name&gt;UserInfoFields&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;${fbUserInfoFields}&lt;/xsd:value&gt;&#xd;
+                  &lt;xsd:name&gt;callbackUrl&lt;/xsd:name&gt;&#xd;
+                  &lt;xsd:value&gt;https://${CallbackHost}:${isPort}/commonauth&lt;/xsd:value&gt;&#xd;
                &lt;/xsd:properties&gt;&#xd;
             &lt;/xsd:federatedAuthenticatorConfigs&gt;&#xd;
          &lt;/mgt:identityProvider&gt;&#xd;
@@ -1481,7 +1479,7 @@ try {
             </HeaderManager>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Update SP with idp3Facebook " enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Update SP with idp3Facebook" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
@@ -1541,7 +1539,7 @@ try {
         &lt;!--Zero or more repetitions:--&gt;&#xd;
         &lt;xsd1:federatedIdentityProviders&gt;&#xd;
             &lt;!--Optional:--&gt;&#xd;
-            &lt;xsd1:identityProviderName&gt;${idp3Facebook}&lt;/xsd1:identityProviderName&gt;&#xd;
+            &lt;xsd1:identityProviderName&gt;${idp3Twitter}&lt;/xsd1:identityProviderName&gt;&#xd;
         &lt;/xsd1:federatedIdentityProviders&gt;&#xd;
     &lt;/xsd1:authenticationSteps&gt;&#xd;
                &#xd;
@@ -1605,7 +1603,7 @@ try {
             </HeaderManager>
             <hashTree/>
           </hashTree>
-          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Travelocity Login idp3Facebook - Negative Scenario" enabled="true">
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Travelocity Login idp3Twitter - Negative Scenario" enabled="true">
             <stringProp name="cacheKey"></stringProp>
             <stringProp name="filename"></stringProp>
             <stringProp name="parameters"></stringProp>
@@ -1630,12 +1628,23 @@ try {
 		String url = &quot;/travelocity.com/index.jsp&quot;;
 
 		String travelocityURL = protocole + tomcathost + seperator + tomcatport + url;
-		
+
 		driver.get(travelocityURL);
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 
 		WebElement link = driver.findElement(By.linkText(&quot;here&quot;));
 		link.click();
 
+		WebElement username =  driver.findElement(By.id(&quot;username_or_email&quot;));
+		username.clear();
+		username.sendKeys(new String[] { vars.get(&quot;twitterUserName&quot;) });
+
+		WebElement password =  driver.findElement(By.id(&quot;password&quot;));
+		password.clear();
+		password.sendKeys(new String[] {vars.get(&quot;incorrectTwitterPassword&quot;)});
+
+		WebElement button = driver.findElement(By.id(&quot;allow&quot;));
+		button.click();
 		//Returns the whole page
 		return driver.getPageSource();  
     
@@ -1651,7 +1660,7 @@ try {
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
               <collectionProp name="Asserion.test_strings">
-                <stringProp name="1613242883">Invalid App ID</stringProp>
+                <stringProp name="101344141">Log in to Twitter</stringProp>
               </collectionProp>
               <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
               <boolProp name="Assertion.assume_success">false</boolProp>
@@ -1963,11 +1972,11 @@ try {
 
 		WebElement checkbox = driver.findElement(By.id(&quot;consent_select_all&quot;));
 		checkbox.click();
-		System.out.println(&quot;check box clicked&quot;);
+		System.out.println(&quot;check box clicked for STS-Positive-Twitter&quot;);
 
 		WebElement approvebutton = driver.findElement(By.id(&quot;approve&quot;));
 		approvebutton.click();
-		System.out.println(&quot;approve button clicked&quot;);
+		System.out.println(&quot;approve button clicked for STS-Positive-Twitter&quot;);
 
 		return driver.getPageSource();  
 				
@@ -2008,7 +2017,7 @@ try {
             </ResponseAssertion>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Update SP2 with idp3Facebook " enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Update SP2 with idp3Twitter" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
@@ -2051,7 +2060,7 @@ try {
         &lt;!--Zero or more repetitions:--&gt;&#xd;
         &lt;xsd1:federatedIdentityProviders&gt;&#xd;
             &lt;!--Optional:--&gt;&#xd;
-            &lt;xsd1:identityProviderName&gt;${idp3Facebook}&lt;/xsd1:identityProviderName&gt;&#xd;
+            &lt;xsd1:identityProviderName&gt;${idp3Twitter}&lt;/xsd1:identityProviderName&gt;&#xd;
         &lt;/xsd1:federatedIdentityProviders&gt;&#xd;
     &lt;/xsd1:authenticationSteps&gt;&#xd;
                &#xd;
@@ -2115,7 +2124,7 @@ try {
             </HeaderManager>
             <hashTree/>
           </hashTree>
-          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="STS web app Login idp3Facebook IDP - Negative Scenario" enabled="true">
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="STS web app Login idp3Twitter IDP - Negative Scenario" enabled="true">
             <stringProp name="cacheKey"></stringProp>
             <stringProp name="filename"></stringProp>
             <stringProp name="parameters"></stringProp>
@@ -2142,7 +2151,18 @@ try {
 
 		String passiveStsURL = protocole + tomcathost + seperator + tomcatport + url;
 		driver.get(passiveStsURL);
+driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 
+		 WebElement username =  driver.findElement(By.id(&quot;username_or_email&quot;));
+		username.clear();
+		username.sendKeys(new String[] { vars.get(&quot;twitterUserName&quot;) });
+
+		WebElement password =  driver.findElement(By.id(&quot;password&quot;));
+		password.clear();
+		password.sendKeys(new String[] {vars.get(&quot;incorrectTwitterPassword&quot;)});
+
+		WebElement button = driver.findElement(By.id(&quot;allow&quot;));
+		button.click();
 		//Returns the whole page
 		return driver.getPageSource();  
     
@@ -2158,7 +2178,7 @@ try {
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
               <collectionProp name="Asserion.test_strings">
-                <stringProp name="1613242883">Invalid App ID</stringProp>
+                <stringProp name="101344141">Log in to Twitter</stringProp>
               </collectionProp>
               <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
               <boolProp name="Assertion.assume_success">false</boolProp>
@@ -2523,7 +2543,7 @@ try {
    &lt;soapenv:Header/&gt;&#xd;
    &lt;soapenv:Body&gt;     &#xd;
         &lt;mgt:deleteIdP&gt;&#xd;
-            &lt;mgt:idPName&gt;${idp3Facebook}&lt;/mgt:idPName&gt;&#xd;
+            &lt;mgt:idPName&gt;${idp3Twitter}&lt;/mgt:idPName&gt;&#xd;
         &lt;/mgt:deleteIdP&gt;&#xd;
    &lt;/soapenv:Body&gt;&#xd;
 &lt;/soapenv:Envelope&gt;</stringProp>
@@ -2654,7 +2674,7 @@ try {
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">scenario-11-results.jtl</stringProp>
+        <stringProp name="filename">scenario11-results.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
       <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">

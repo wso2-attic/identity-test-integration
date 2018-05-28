@@ -14,4 +14,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-$JMETER_HOME/bin/jmeter.sh -n -t jmeter/01-Scenario-03-ProvisionFederatedUsersBytheIdentityProvider.jmx -p resources/user.properties
+prgdir=$(dirname "$0")
+scriptPath=$(cd "$prgdir"; pwd)
+
+sh $scriptPath/jmeter/03-pre-scenario-steps.sh
+
+$JMETER_HOME/bin/jmeter.sh -n -t $scriptPath/jmeter/01-Scenario-03-ProvisionFederatedUsersBytheIdentityProvider.jmx -p $scriptPath/resources/user.properties 
+
+sh $scriptPath/jmeter/03-post-scenario-steps.sh
