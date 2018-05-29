@@ -21,4 +21,4 @@ $JMETER_HOME/bin/jmeter.sh -n -t jmeter/04-Scenario-23-OAuthBearerRequestPathAut
 $JMETER_HOME/bin/jmeter.sh -n -t jmeter/05-Scenario-23-OAuthBearerRequestPathAuthenticator-Login.jmx -p resources/user.properties
 $JMETER_HOME/bin/jmeter.sh -n -t jmeter/06-Scenario-23-OAuthBearerRequestPathAuthenticator-Negative1.jmx -p resources/user.properties
 $JMETER_HOME/bin/jmeter.sh -n -t jmeter/07-Scenario-23-OAuthBearerRequestPathAuthenticator-Negative2.jmx -p resources/user.properties
-$JMETER_HOME/bin/jmeter.sh -n -t jmeter/10-Scenario-23-RemoveSps.jmx -p resources/user.properties
+$JMETER_HOME/bin/jmeter.sh -n -t jmeter/08-Scenario-23-RemoveSps.jmx -p resources/user.properties
