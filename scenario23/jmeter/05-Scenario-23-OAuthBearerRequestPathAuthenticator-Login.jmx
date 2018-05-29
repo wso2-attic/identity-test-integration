@@ -432,7 +432,7 @@ try {
           
 
 		String fullURL= protocole + hostName + seperator + port + context+ url;
-         
+
 
 		driver.get(fullURL);
 		driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
@@ -440,7 +440,7 @@ try {
 		String pageSource = driver.getPageSource();
 
 		if(driver.getPageSource().contains(&quot;OpenID User Claims&quot;)) {
-
+		
 		
 		WebElement checkbox = driver.findElement(By.id(&quot;approveAlwaysCb&quot;));
 		driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
@@ -450,8 +450,7 @@ try {
 		driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
 		checkbox3.click();
 
-
-
+		
 		WebElement approvebutton = driver.findElement(By.id(&quot;approve&quot;));
 		driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
 		approvebutton.click();
@@ -832,7 +831,7 @@ byte[] encryptedUid = Base64.encodeBase64(credentilas.getBytes());
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">/home/shavantha/products/jmeter/apache-jmeter-3.2/bin/isscripts/identity-test-integration/scenario23/05-scenario-23-results.jtl</stringProp>
+        <stringProp name="filename">05-scenario-23-results.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
     </hashTree>
