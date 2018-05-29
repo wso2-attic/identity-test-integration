@@ -656,8 +656,8 @@ try {
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">localhost</stringProp>
-          <stringProp name="HTTPSampler.port">9443</stringProp>
+          <stringProp name="HTTPSampler.domain">${host_ip}</stringProp>
+          <stringProp name="HTTPSampler.port">${host_port}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/oauth2/token</stringProp>
