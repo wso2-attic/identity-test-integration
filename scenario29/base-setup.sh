@@ -18,12 +18,12 @@
 #TODO:read below property from infra.json file
 appName="travelocity.com"
 tomcatHost=$tomcatHost
-tomcatPort=8080
+tomcatPort=$tomcatPort
 tomcatUsername=$tomcatUsername
 tomcatPassword=$tomcatPassword
 tomcatVersion=7
 serverHost=$serverHost
-serverPort=443
+serverPort=$serverPort
 
 #travelocity properties
 SAML2AssertionConsumerURL="http://$tomcatHost:$tomcatPort/$appName/home.jsp"
@@ -37,7 +37,7 @@ QueryParams="fidp=twitter"
 mkdir $scriptPath/../temp
 #coping travalocity app to temp direcory
 
-cp -r $scriptPath/../../../../apps/sso-agent-sample $scriptPath/../temp/
+cp -r $scriptPath/../../apps/sso-agent-sample $scriptPath/../temp/
 cd $scriptPath/../temp/sso-agent-sample/
 #build travelocity app from source
 mvn clean install
@@ -57,9 +57,6 @@ sed -i "s|^\(SkipURIs\s*=\s*\).*\$|\1${SkipURIs}|" $scriptPath/../temp/traveloci
 
 sed -i "s|^\(SAML2\.IdPEntityId\s*=\s*\).*\$|\1${SAML2IdPEntityId}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
-sed -i "s|^\(#QueryParams\s*=\s*\).*\$|\1${QueryParams}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
-
-sed -i "/QueryParams/s/^#//g" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
 #repackaging travelocity app
 cd $scriptPath/../temp/travelocity.com/

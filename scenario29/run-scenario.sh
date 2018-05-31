@@ -14,15 +14,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#these params need to be taken out
-#tomcat properties
-tomcatHost=$tomcatHost
-tomcatPort=$tomcatPort
-tomcatUsername=$tomcatUsername
-tomcatPassword=$tomcatPassword
-appName="travelocity.com"
+prgdir=$(dirname "$0")
+scriptPath=$(cd "$prgdir"; pwd)
 
-#undeploy webapp from tomcat
-curl http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/undeploy?path=/$appName
-#clear temp direcotry
-rm -rf $scriptPath/../temp/
+sh $scriptPath/jmeter/29-pre-scenario-steps.sh
+
+$JMETER_HOME/bin/jmeter.sh -n -t $scriptPath/jmeter/01-Scenario-29-ServiceProviderSpecificUserStores.jmx -p $scriptPath/resources/user.properties 
+
+sh $scriptPath/jmeter/29-post-scenario-steps.sh
