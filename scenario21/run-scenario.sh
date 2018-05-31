@@ -14,4 +14,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+prgdir=$(dirname "$0")
+scriptPath=$(cd "$prgdir"; pwd)
+
+
+sh $scriptPath/jmeter/21-pre-scenario-steps.sh
+
+
 $JMETER_HOME/bin/jmeter.sh -n -t jmeter/01-Scenario-21-EnforceUsersToProvideMissingRequiredAttributesWhileGettingJITProvisioned.jmx -p resources/user.properties
+
+
+sh $scriptPath/jmeter/21-post-scenario-steps.sh

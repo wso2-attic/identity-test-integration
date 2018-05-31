@@ -2163,11 +2163,11 @@ try {
 
 		WebElement checkbox = driver.findElement(By.id(&quot;consent_select_all&quot;));
 		checkbox.click();
-		System.out.println(&quot;check box clicked&quot;);
+
 
 		WebElement approvebutton = driver.findElement(By.id(&quot;approve&quot;));
 		approvebutton.click();
-		System.out.println(&quot;approve button clicked&quot;);
+		
 
 		return driver.getPageSource();
 
@@ -2190,9 +2190,9 @@ try {
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
               <collectionProp name="Asserion.test_strings">
-                <stringProp name="49586">200</stringProp>
+                <stringProp name="2524">OK</stringProp>
               </collectionProp>
-              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_message</stringProp>
               <boolProp name="Assertion.assume_success">false</boolProp>
               <intProp name="Assertion.test_type">16</intProp>
             </ResponseAssertion>
@@ -2529,6 +2529,8 @@ try {
 		String url = &quot;/travelocity.com/index.jsp&quot;;
 
 		String AppURL = protocole + tomcathost + seperator + tomcatport + url;
+
+		System.out.println(AppURL);
 		
 		driver.get(AppURL);
 		driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
@@ -2547,17 +2549,24 @@ try {
 		WebElement button = driver.findElement(By.id(&quot;allow&quot;));
 		button.click();
 
+		WebElement email=driver.findElement(By.id(&quot;claim_mand_emailAddress&quot;));
+		email.clear();
+		email.sendKeys(new String[] {vars.get(&quot;twitterEmail&quot;)});
+
+		WebElement button2=driver.findElement(By.xpath(&quot;/html/body/div/div/div/form/div[2]/div[2]/div[3]/button&quot;));
+		button2.click();
+
 		String pageSource = driver.getPageSource();
 
 		if(driver.getPageSource().contains(&quot;User Consents&quot;)) {
 
 		WebElement checkbox = driver.findElement(By.id(&quot;consent_select_all&quot;));
 		checkbox.click();
-		System.out.println(&quot;check box clicked&quot;);
+	
 
 		WebElement approvebutton = driver.findElement(By.id(&quot;approve&quot;));
 		approvebutton.click();
-		System.out.println(&quot;approve button clicked&quot;);
+		
 
 		return driver.getPageSource();  
 
@@ -2579,11 +2588,11 @@ try {
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
               <collectionProp name="Asserion.test_strings">
-                <stringProp name="49586">200</stringProp>
+                <stringProp name="2524">OK</stringProp>
               </collectionProp>
-              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_message</stringProp>
               <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">16</intProp>
+              <intProp name="Assertion.test_type">2</intProp>
             </ResponseAssertion>
             <hashTree/>
           </hashTree>
@@ -3217,15 +3226,6 @@ try {
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="false">
-              <collectionProp name="HeaderManager.headers">
-                <elementProp name="Content-Type" elementType="Header">
-                  <stringProp name="Header.name">Content-Type</stringProp>
-                  <stringProp name="Header.value">text/xml; charset=UTF-8</stringProp>
-                </elementProp>
-              </collectionProp>
-            </HeaderManager>
-            <hashTree/>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="[Verification]" enabled="true">
               <collectionProp name="Asserion.test_strings">
                 <stringProp name="2094429385">You are not logged in</stringProp>
@@ -3710,16 +3710,7 @@ try {
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="false">
-              <collectionProp name="HeaderManager.headers">
-                <elementProp name="Content-Type" elementType="Header">
-                  <stringProp name="Header.name">Content-Type</stringProp>
-                  <stringProp name="Header.value">text/xml; charset=UTF-8</stringProp>
-                </elementProp>
-              </collectionProp>
-            </HeaderManager>
-            <hashTree/>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="[Verification]" enabled="true">
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
               <collectionProp name="Asserion.test_strings">
                 <stringProp name="51508">400</stringProp>
               </collectionProp>
@@ -4593,9 +4584,9 @@ try {
             <hashTree/>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
               <collectionProp name="Asserion.test_strings">
-                <stringProp name="49588">202</stringProp>
+                <stringProp name="-782391738">HTTP/1.1 202 Accepted</stringProp>
               </collectionProp>
-              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
               <boolProp name="Assertion.assume_success">false</boolProp>
               <intProp name="Assertion.test_type">16</intProp>
             </ResponseAssertion>
@@ -4637,43 +4628,7 @@ try {
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">scenario-21-results.jtl</stringProp>
-      </ResultCollector>
-      <hashTree/>
-      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
-        <boolProp name="ResultCollector.error_logging">false</boolProp>
-        <objProp>
-          <name>saveConfig</name>
-          <value class="SampleSaveConfiguration">
-            <time>true</time>
-            <latency>true</latency>
-            <timestamp>true</timestamp>
-            <success>true</success>
-            <label>true</label>
-            <code>true</code>
-            <message>true</message>
-            <threadName>true</threadName>
-            <dataType>true</dataType>
-            <encoding>false</encoding>
-            <assertions>true</assertions>
-            <subresults>true</subresults>
-            <responseData>false</responseData>
-            <samplerData>false</samplerData>
-            <xml>false</xml>
-            <fieldNames>true</fieldNames>
-            <responseHeaders>false</responseHeaders>
-            <requestHeaders>false</requestHeaders>
-            <responseDataOnError>false</responseDataOnError>
-            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-            <assertionsResultsToSave>0</assertionsResultsToSave>
-            <bytes>true</bytes>
-            <sentBytes>true</sentBytes>
-            <threadCounts>true</threadCounts>
-            <idleTime>true</idleTime>
-            <connectTime>true</connectTime>
-          </value>
-        </objProp>
-        <stringProp name="filename"></stringProp>
+        <stringProp name="filename">/home/shavantha/products/jmeter/apache-jmeter-3.2/bin/isscripts/shavantha/identity-test-integration/scenario21/01-scenario-21-results.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
     </hashTree>
