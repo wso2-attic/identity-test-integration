@@ -20,3 +20,4 @@ rootPath=$(cd "$rootdir"; pwd)
 sh $rootPath/jmeter/12-pre-scenario-steps.sh > preScenario.log
 $JMETER_HOME/bin/jmeter.sh -n -t $rootPath/jmeter/01-Scenario-12-ClaimMapper.jmx -p resources/user.properties
 sh $rootPath/jmeter/12-post-scenario-steps.sh > postScenario.log
+
