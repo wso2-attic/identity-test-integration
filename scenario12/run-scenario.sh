@@ -14,4 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-$JMETER_HOME/bin/jmeter.sh -n -t jmeter/01-Scenario-12-ClaimMapper.jmx -p resources/user.properties
+rootdir=$(dirname "$0")
+rootPath=$(cd "$rootdir"; pwd)
+
+sh $rootPath/jmeter/12-pre-scenario-steps.sh > preScenario.log
+$JMETER_HOME/bin/jmeter.sh -n -t $rootPath/jmeter/01-Scenario-12-ClaimMapper.jmx -p resources/user.properties
+sh $rootPath/jmeter/12-post-scenario-steps.sh > postScenario.log
