@@ -17,11 +17,11 @@
 prgdir=$(dirname "$0")
 scriptPath=$(cd "$prgdir"; pwd)
 
-
-sh $scriptPath/jmeter/21-pre-scenario-steps.sh
-
-
-$JMETER_HOME/bin/jmeter.sh -n -t jmeter/01-Scenario-21-EnforceUsersToProvideMissingRequiredAttributesWhileGettingJITProvisioned.jmx -p resources/user.properties
+echo "working directory : "$scriptPath
+#run base-setup.sh to deploy artifacts
+source $scriptPath/../teardown.sh
 
 
-sh $scriptPath/jmeter/21-post-scenario-steps.sh
+echo "post-steps are done..."
+
+

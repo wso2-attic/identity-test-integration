@@ -14,6 +14,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+prgdir=$(dirname "$0")
+scriptPath=$(cd "$prgdir"; pwd)
+
+
+sh $scriptPath/jmeter/23-pre-scenario-steps.sh
+
 $JMETER_HOME/bin/jmeter.sh -n -t jmeter/01-Scenario-23-BasicAuthRequestPathAuthenticator-RegisterTravelocityApp.jmx -p resources/user.properties
 $JMETER_HOME/bin/jmeter.sh -n -t jmeter/02-Scenario-23-BasicAuthRequestPathAuthenticator-RegisterAvisApp.jmx -p resources/user.properties
 $JMETER_HOME/bin/jmeter.sh -n -t jmeter/03-Scenario-23-BasicAuthRequestPathAuthenticator-LegacyAppLogin.jmx -p resources/user.properties
@@ -21,4 +27,6 @@ $JMETER_HOME/bin/jmeter.sh -n -t jmeter/04-Scenario-23-OAuthBearerRequestPathAut
 $JMETER_HOME/bin/jmeter.sh -n -t jmeter/05-Scenario-23-OAuthBearerRequestPathAuthenticator-Login.jmx -p resources/user.properties
 $JMETER_HOME/bin/jmeter.sh -n -t jmeter/06-Scenario-23-OAuthBearerRequestPathAuthenticator-Negative1.jmx -p resources/user.properties
 $JMETER_HOME/bin/jmeter.sh -n -t jmeter/07-Scenario-23-OAuthBearerRequestPathAuthenticator-Negative2.jmx -p resources/user.properties
-$JMETER_HOME/bin/jmeter.sh -n -t jmeter/10-Scenario-23-RemoveSps.jmx -p resources/user.properties
+$JMETER_HOME/bin/jmeter.sh -n -t jmeter/08-Scenario-23-RemoveSps.jmx -p resources/user.properties
+
+sh $scriptPath/jmeter/23-post-scenario-steps.sh

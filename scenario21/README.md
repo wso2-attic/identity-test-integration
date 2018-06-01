@@ -18,11 +18,10 @@
 - Engage the attribute checker connector from the previous step to an authentication step after the step, which includes the federated authenticator.
 
 #####  Pre - Requisites
-- Tomcat server should be up and running
--  Set the below property, inorder to access admin services in WSO2 IS product.
-```sh
-<HideAdminServiceWSDLs> element to false in the <PRODUCT_HOME>/repository/conf/carbon.xml file.
-```
+- Tomcat should be configured with a user having specific permissions
+ex:<user username="scriptuser" password="scriptuser" roles="manager-gui,admin-gui,manager-script"/>
+
+
 ##### Configurations
 1. Follow the steps in this [1] and get a checkout of travelocity sample and build
     [1]https://docs.wso2.com/display/IS500/Configuring+Single+Sign-On+with+SAML+2.0#ConfiguringSingleSign-OnwithSAML2.0-Prerequisites

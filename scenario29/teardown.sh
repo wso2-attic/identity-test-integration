@@ -16,8 +16,8 @@
 
 #these params need to be taken out
 #tomcat properties
-tomcatHost="ec2-54-152-226-196.compute-1.amazonaws.com"
-tomcatPort=8080
+tomcatHost=$tomcatHost
+tomcatPort=$tomcatPort
 tomcatUsername=$tomcatUsername
 tomcatPassword=$tomcatPassword
 appName="travelocity.com"

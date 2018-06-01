@@ -17,11 +17,8 @@
 prgdir=$(dirname "$0")
 scriptPath=$(cd "$prgdir"; pwd)
 
+sh $scriptPath/jmeter/29-pre-scenario-steps.sh
 
-sh $scriptPath/jmeter/21-pre-scenario-steps.sh
+$JMETER_HOME/bin/jmeter.sh -n -t $scriptPath/jmeter/01-Scenario-29-ServiceProviderSpecificUserStores.jmx -p $scriptPath/resources/user.properties 
 
-
-$JMETER_HOME/bin/jmeter.sh -n -t jmeter/01-Scenario-21-EnforceUsersToProvideMissingRequiredAttributesWhileGettingJITProvisioned.jmx -p resources/user.properties
-
-
-sh $scriptPath/jmeter/21-post-scenario-steps.sh
+sh $scriptPath/jmeter/29-post-scenario-steps.sh
