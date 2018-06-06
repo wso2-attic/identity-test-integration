@@ -1366,7 +1366,7 @@
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
         <stringProp name="ThreadGroup.duration"></stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
-        <stringProp name="TestPlan.comments">Secondary userstore user successfully login to the travelocity application</stringProp>
+        <stringProp name="TestPlan.comments">Finance role user successfully login to the travelocity application</stringProp>
       </ThreadGroup>
       <hashTree>
         <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
@@ -1463,7 +1463,7 @@ try {
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
         <stringProp name="ThreadGroup.duration"></stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
-        <stringProp name="TestPlan.comments">This is the negative scenario</stringProp>
+        <stringProp name="TestPlan.comments">Negative scenario - Sales role user cannot login to web app</stringProp>
       </ThreadGroup>
       <hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="User2 Direct to travelocity Home Page Request" enabled="true">
