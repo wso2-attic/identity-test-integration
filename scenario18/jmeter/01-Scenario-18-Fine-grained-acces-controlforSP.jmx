@@ -1643,7 +1643,7 @@ try {
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
         <stringProp name="ThreadGroup.duration"></stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
-        <stringProp name="TestPlan.comments">Secondary userstore user successfully login to the travelocity application</stringProp>
+        <stringProp name="TestPlan.comments">user1 successfully logins to the avis application</stringProp>
       </ThreadGroup>
       <hashTree>
         <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
@@ -1740,7 +1740,7 @@ try {
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
         <stringProp name="ThreadGroup.duration"></stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
-        <stringProp name="TestPlan.comments">Secondary userstore user successfully login to the travelocity application</stringProp>
+        <stringProp name="TestPlan.comments">user2 successfully logins to the avis application</stringProp>
       </ThreadGroup>
       <hashTree>
         <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
