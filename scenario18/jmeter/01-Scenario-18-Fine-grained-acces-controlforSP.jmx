@@ -2354,7 +2354,7 @@ try {
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">/Users/IsuruUyanage/Desktop/RnD/identity-test-integration/scenario18/jmeter/supun.jtl</stringProp>
+        <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
     </hashTree>
