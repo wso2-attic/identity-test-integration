@@ -121,9 +121,12 @@ while true
 do
 echo $(date)" Waiting until deploying the app on Tomcat!"
 #STATUS=$(curl -s http://$scriptuser:$scriptuser@localhost:8080/manager/text/list | grep ${appName})
-if curl -s http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/list | grep "${appName2}:running"
+if curl -s http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/list | grep "${appName1}:running" &&
+	curl -s http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/list | grep "${appName2}:running"
 then
+ echo "Found ${appName1} is running on Tomcat"
  echo "Found ${appName2} is running on Tomcat"
+
  echo "Done base-setup.sh"
  exit 0
 else

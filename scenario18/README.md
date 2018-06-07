@@ -28,64 +28,11 @@ Products: WSO2 Identity Server 5.0.0+
 
 
 ### Configurations
-1. Follow the steps in this [1] and get a checkout of travelocity sample and build it
-svn co http://svn.wso2.org/repos/wso2/carbon/platform/branches/turing/products/is/5.0.0/modules/samples/sso/
-[1]https://docs.wso2.com/display/IS500/Configuring+Single+Sign-On+with+SAML+2.0#ConfiguringSingleSign-OnwithSAML2.0-Prerequisites
-2.  Deploy a travelocity web app (travelocity.com.war) in tomcat.
-3. Take a copy of travelocity.com.war and rename it as Sol18travelocity.com.war if you are goin gto customise it as Sol18travelocity.com.war. Otherwise you can continue with step 5.
-4. Once the Sol18travelocity web app is deployed, replace the travelocity.properties with scenario18/src/test/resources/travelocity.properties
-5. Edit the travelocity.properties with correct values as given in its comments.
+In order to run the test script, do the following steps. 
 
-#URIs to skip SSOAgentFilter; comma separated values
-#Replace with travelocity app name
-SkipURIs=/Sol18travelocity.com/index.jsp
+1. Export tomcatHost, tomcatPost, serverHost, serverPort, JMETER_HOME, tomcatUsername, tomcatPassword as below. 
+export serverHost=localhost serverPort=9443 tomcatHost=localhost tomcatPort=8080 JMETER_HOME= <JMETER_HOME>/apache-jmeter-3.3 tomcatUsername=<tomcatUsername> tomcatPassword=<tomcatPassword>
 
-
-#A unique identifier for this SAML 2.0 Service Provider application
-#Replace with Service provider entity ID
-SAML2.SPEntityId=Sol18travelocity.com
-
-#The URL of the SAML 2.0 Assertion Consumer
-#Replace with tomcat host and port
-SAML2.AssertionConsumerURL=http://192.168.57.31:8080/Sol18travelocity.com/home.jsp
-
-#The URL of the SAML 2.0 Identity Provider
-#Replace with IS host/port
-SAML2.IdPURL=https://is.dev.wso2.org/samlsso
-
-5. Restart the tomcat or web app.
-6. Go to scenario18/src/test/resources/user.properties file and do the configurations as below.
-
-###### IS Server
-host=< HOST NAME OF IS SERVER >
-
-port=< PORT OF THE IS SERVER >
-
-admin_username=< ADMIN USER NAME >
-
-admin_password=< ADMIN PASSWORD >
-
-##### SP
-sp1=Sol18travelocity.com
-
-##### Application Details
-
-travelocityApp= < TRAVELOCITY APPLICATION NAME > E.g., Sol18travelocity.com
-
-travelocityIssuer= < ISSUER OF THE TRAVELOCITY APP > E.g., Sol18travelocity.com
-
-##### Tomcat
-tomcatHost=< HOSTNAME OF THE TOMECAT >  192.168.57.31
-
-#tomcatHost=<HOSTNAME OF THE TOMCAT >  localhost
-
-tomcatPort= <PORT OF THE TOMCAT> 8080
-
-### Run the test
-
-To run scenario 18 run the below command.
-
-```bash
-mvn clean verify --fae
-```
+2. Go to testsuite home and execute below commmand to run the test script. 
+sh run-scenario.sh
 
