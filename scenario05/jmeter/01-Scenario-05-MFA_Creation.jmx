@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.2 r1790748">
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.3 r1808647">
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="MFA with Basic and Facebook" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
@@ -11,21 +11,21 @@
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
     </TestPlan>
     <hashTree>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Variables" enabled="false">
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Variables" enabled="true">
         <collectionProp name="Arguments.arguments">
           <elementProp name="is_host" elementType="Argument">
             <stringProp name="Argument.name">is_host</stringProp>
-            <stringProp name="Argument.value">is550.qa.com</stringProp>
+            <stringProp name="Argument.value">is.qa.com</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="is_port" elementType="Argument">
             <stringProp name="Argument.name">is_port</stringProp>
-            <stringProp name="Argument.value">443</stringProp>
+            <stringProp name="Argument.value">9443</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="adminusername" elementType="Argument">
             <stringProp name="Argument.name">adminusername</stringProp>
-            <stringProp name="Argument.value">adminwso2</stringProp>
+            <stringProp name="Argument.value">admin</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="adminpassword" elementType="Argument">
@@ -62,11 +62,13 @@
             <stringProp name="Argument.name">TwitterClientId</stringProp>
             <stringProp name="Argument.value">WWdo748rnXiF8BkExp7ziVYNm</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">WWdo748rnXiF8BkExp7ziVYNm</stringProp>
           </elementProp>
           <elementProp name="TwitterSecret" elementType="Argument">
             <stringProp name="Argument.name">TwitterSecret</stringProp>
             <stringProp name="Argument.value">uaOruL1g2AYaCh5aHBrTKDDuAw6Skl4oq8BiyZsQ7oJw8uk1sW</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">uaOruL1g2AYaCh5aHBrTKDDuAw6Skl4oq8BiyZsQ7oJw8uk1sW</stringProp>
           </elementProp>
           <elementProp name="rolename" elementType="Argument">
             <stringProp name="Argument.name">rolename</stringProp>
@@ -126,7 +128,7 @@
         </collectionProp>
       </Arguments>
       <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Variables" enabled="true">
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Variables" enabled="false">
         <collectionProp name="Arguments.arguments">
           <elementProp name="is_host" elementType="Argument">
             <stringProp name="Argument.name">is_host</stringProp>
@@ -173,14 +175,14 @@
             <stringProp name="Argument.value">${__property(idpdescription)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="fbclientID" elementType="Argument">
-            <stringProp name="Argument.name">fbclientID</stringProp>
-            <stringProp name="Argument.value">${__property(fbclientID)}</stringProp>
+          <elementProp name="TwitterClientId" elementType="Argument">
+            <stringProp name="Argument.name">TwitterClientId</stringProp>
+            <stringProp name="Argument.value">${__property(TwitterClientId)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="fbclientSecret" elementType="Argument">
-            <stringProp name="Argument.name">fbclientSecret</stringProp>
-            <stringProp name="Argument.value">${__property(fbclientSecret)}</stringProp>
+          <elementProp name="TwitterSecret" elementType="Argument">
+            <stringProp name="Argument.name">TwitterSecret</stringProp>
+            <stringProp name="Argument.value">${__property(TwitterSecret)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="rolename" elementType="Argument">
@@ -269,7 +271,6 @@ vars.put(&quot;adminCredentials&quot;,new String(encodedUsernamePassword));</str
         <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
           <collectionProp name="CookieManager.cookies"/>
           <boolProp name="CookieManager.clearEachIteration">false</boolProp>
-          <stringProp name="CookieManager.implementation">org.apache.jmeter.protocol.http.control.HC4CookieHandler</stringProp>
         </CookieManager>
         <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login" enabled="true">
@@ -446,7 +447,6 @@ vars.put(&quot;adminCredentials&quot;,new String(encodedUsernamePassword));</str
         <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
           <collectionProp name="CookieManager.cookies"/>
           <boolProp name="CookieManager.clearEachIteration">false</boolProp>
-          <stringProp name="CookieManager.implementation">org.apache.jmeter.protocol.http.control.HC4CookieHandler</stringProp>
         </CookieManager>
         <hashTree/>
         <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -565,7 +565,6 @@ vars.put(&quot;adminCredentials&quot;,new String(encodedUsernamePassword));</str
         <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
           <collectionProp name="CookieManager.cookies"/>
           <boolProp name="CookieManager.clearEachIteration">false</boolProp>
-          <stringProp name="CookieManager.implementation">org.apache.jmeter.protocol.http.control.HC4CookieHandler</stringProp>
         </CookieManager>
         <hashTree/>
         <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -861,7 +860,7 @@ vars.put(&quot;adminCredentials&quot;,new String(encodedUsernamePassword));</str
  &#xd;
                &#xd;
                &lt;xsd:localClaimDialect&gt;false&lt;/xsd:localClaimDialect&gt;&#xd;
-               &lt;xsd:userClaimURI&gt;id&lt;/xsd:userClaimURI&gt;               &#xd;
+               &lt;xsd:userClaimURI&gt;name&lt;/xsd:userClaimURI&gt;               &#xd;
                &#xd;
         &lt;/xsd:claimConfig&gt;&#xd;
       &#xd;
@@ -880,10 +879,6 @@ vars.put(&quot;adminCredentials&quot;,new String(encodedUsernamePassword));</str
                &lt;xsd:properties&gt;&#xd;
                   &lt;xsd:name&gt;callbackUrl&lt;/xsd:name&gt;&#xd;
                   &lt;xsd:value&gt;https://${is_host}:${is_port}/commonauth&lt;/xsd:value&gt;&#xd;
-               &lt;/xsd:properties&gt;&#xd;
-               &lt;xsd:properties&gt;&#xd;
-                  &lt;xsd:name&gt;scope&lt;/xsd:name&gt;&#xd;
-                  &lt;xsd:value&gt;commonauth&lt;/xsd:value&gt;&#xd;
                &lt;/xsd:properties&gt;&#xd;
             &lt;/xsd:federatedAuthenticatorConfigs&gt;&#xd;
          &lt;/mgt:identityProvider&gt;&#xd;
@@ -965,7 +960,6 @@ vars.put(&quot;adminCredentials&quot;,new String(encodedUsernamePassword));</str
         <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
           <collectionProp name="CookieManager.cookies"/>
           <boolProp name="CookieManager.clearEachIteration">false</boolProp>
-          <stringProp name="CookieManager.implementation">org.apache.jmeter.protocol.http.control.HC4CookieHandler</stringProp>
         </CookieManager>
         <hashTree/>
         <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -1611,7 +1605,7 @@ vars.put(&quot;adminCredentials&quot;,new String(encodedUsernamePassword));</str
           <hashTree/>
         </hashTree>
       </hashTree>
-      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="false">
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
@@ -1674,7 +1668,7 @@ vars.put(&quot;adminCredentials&quot;,new String(encodedUsernamePassword));</str
             <idleTime>true</idleTime>
           </value>
         </objProp>
-        <stringProp name="filename"></stringProp>
+        <stringProp name="filename">scenario-05-results.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
     </hashTree>
