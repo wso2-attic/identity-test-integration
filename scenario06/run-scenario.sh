@@ -17,10 +17,13 @@
 prgdir=$(dirname "$0")
 scriptPath=$(cd "$prgdir"; pwd)
 
-echo "working directory : "$scriptPath
+echo "script path " $scriptPath;
+sh $scriptPath/jmeter/06-pre-scenario-steps.sh
 
-#run teardown.sh to un-deploy the artifacts
+$JMETER_HOME/bin/jmeter.sh -n -t $scriptPath/jmeter/01-Scenario-06-Configure-RemoteUerStore-SPandIDP.jmx -p $scriptPath/resources/user.properties
+sleep 30
+$JMETER_HOME/bin/jmeter.sh -n -t $scriptPath/jmeter/02-Soulution-06-ProvisionFederatedUsersToTenant.jmx -p $scriptPath/resources/user.properties
 sleep 10
-source $scriptPath/teardown.sh
+$JMETER_HOME/bin/jmeter.sh -n -t $scriptPath/jmeter/03-Scenario-06-Remove-Userstore-SP-IDP-Users.jmx -p $scriptPath/resources/user.properties
 
-echo "post-steps are done..."
+source $scriptPath/jmeter/06-post-scenario-steps.sh

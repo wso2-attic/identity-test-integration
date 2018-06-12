@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.3 r1808647">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Scenario 6 Provision federated users to a tenant" enabled="true">
+      <stringProp name="TestPlan.comments">This script is to verify federated user provision into remote user store by login to webapp</stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="false">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="serverHost" elementType="Argument">
+            <stringProp name="Argument.name">serverHost</stringProp>
+            <stringProp name="Argument.value">localhost</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="serverPort" elementType="Argument">
+            <stringProp name="Argument.name">serverPort</stringProp>
+            <stringProp name="Argument.value">9443</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="spName" elementType="Argument">
+            <stringProp name="Argument.name">spName</stringProp>
+            <stringProp name="Argument.value">Sol06-travelocity</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="spDescription" elementType="Argument">
+            <stringProp name="Argument.name">spDescription</stringProp>
+            <stringProp name="Argument.value">travelocity</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="tomcatHost" elementType="Argument">
+            <stringProp name="Argument.name">tomcatHost</stringProp>
+            <stringProp name="Argument.value">localhost</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="tomcatPort" elementType="Argument">
+            <stringProp name="Argument.name">tomcatPort</stringProp>
+            <stringProp name="Argument.value">8080</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="travelocityIssuer" elementType="Argument">
+            <stringProp name="Argument.name">travelocityIssuer</stringProp>
+            <stringProp name="Argument.value">travelocity.com</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="permission" elementType="Argument">
+            <stringProp name="Argument.name">permission</stringProp>
+            <stringProp name="Argument.value">/permission/admin</stringProp>
+            <stringProp name="Argument.desc">Permission for role</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="role" elementType="Argument">
+            <stringProp name="Argument.name">role</stringProp>
+            <stringProp name="Argument.value">admin</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="adminUsername" elementType="Argument">
+            <stringProp name="Argument.name">adminUsername</stringProp>
+            <stringProp name="Argument.value">admin</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="adminPassword" elementType="Argument">
+            <stringProp name="Argument.name">adminPassword</stringProp>
+            <stringProp name="Argument.value">admin</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="googleIdentityProviderName" elementType="Argument">
+            <stringProp name="Argument.name">googleIdentityProviderName</stringProp>
+            <stringProp name="Argument.value">solution6GoogleIDP1</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="alias" elementType="Argument">
+            <stringProp name="Argument.name">alias</stringProp>
+            <stringProp name="Argument.value">oauth2/token</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="googleClientId" elementType="Argument">
+            <stringProp name="Argument.name">googleClientId</stringProp>
+            <stringProp name="Argument.value">708789899168-n4vv0drvp2l3vprv4fdj3tbp5q33iqel.apps.googleusercontent.com</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="googleSecret" elementType="Argument">
+            <stringProp name="Argument.name">googleSecret</stringProp>
+            <stringProp name="Argument.value">o1aw_-xgWpS2JpWuBXXBv37V</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="googleCallbackUrl" elementType="Argument">
+            <stringProp name="Argument.name">googleCallbackUrl</stringProp>
+            <stringProp name="Argument.value">commonauth</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="googlescope" elementType="Argument">
+            <stringProp name="Argument.name">googlescope</stringProp>
+            <stringProp name="Argument.value">openid email profile</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="remoteStoreDomain" elementType="Argument">
+            <stringProp name="Argument.name">remoteStoreDomain</stringProp>
+            <stringProp name="Argument.value">remote</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="gmailPassword" elementType="Argument">
+            <stringProp name="Argument.name">gmailPassword</stringProp>
+            <stringProp name="Argument.value">Wso2qa@123</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="gmailUsername" elementType="Argument">
+            <stringProp name="Argument.name">gmailUsername</stringProp>
+            <stringProp name="Argument.value">wso2qa@gmail.com</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="twitterClientId" elementType="Argument">
+            <stringProp name="Argument.name">twitterClientId</stringProp>
+            <stringProp name="Argument.value">WWdo748rnXiF8BkExp7ziVYNm</stringProp>
+            <stringProp name="Argument.desc">Twitter Client ID</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="twitterSecret" elementType="Argument">
+            <stringProp name="Argument.name">twitterSecret</stringProp>
+            <stringProp name="Argument.value">uaOruL1g2AYaCh5aHBrTKDDuAw6Skl4oq8BiyZsQ7oJw8uk1sW</stringProp>
+            <stringProp name="Argument.desc">Twitter Client secret</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="twitterUserName" elementType="Argument">
+            <stringProp name="Argument.name">twitterUserName</stringProp>
+            <stringProp name="Argument.value">test_wso2qa</stringProp>
+            <stringProp name="Argument.desc">Twitter Username</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="twitterPassword" elementType="Argument">
+            <stringProp name="Argument.name">twitterPassword</stringProp>
+            <stringProp name="Argument.value">Wso2qa@123</stringProp>
+            <stringProp name="Argument.desc">Twitter Password</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="twitterIdentityProviderName" elementType="Argument">
+            <stringProp name="Argument.name">twitterIdentityProviderName</stringProp>
+            <stringProp name="Argument.value">solution6TwitterIDP</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="remoteStoreAdminUsername" elementType="Argument">
+            <stringProp name="Argument.name">remoteStoreAdminUsername</stringProp>
+            <stringProp name="Argument.value">admin</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="remoteStoreAdminPassword" elementType="Argument">
+            <stringProp name="Argument.name">remoteStoreAdminPassword</stringProp>
+            <stringProp name="Argument.value">admin</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="remoteStoreHost" elementType="Argument">
+            <stringProp name="Argument.name">remoteStoreHost</stringProp>
+            <stringProp name="Argument.value">localhost</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="remoteStorePort" elementType="Argument">
+            <stringProp name="Argument.name">remoteStorePort</stringProp>
+            <stringProp name="Argument.value">9444</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="serverHost" elementType="Argument">
+            <stringProp name="Argument.name">serverHost</stringProp>
+            <stringProp name="Argument.value">${__property(serverHost)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="serverPort" elementType="Argument">
+            <stringProp name="Argument.name">serverPort</stringProp>
+            <stringProp name="Argument.value">${__property(serverPort)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="spName" elementType="Argument">
+            <stringProp name="Argument.name">spName</stringProp>
+            <stringProp name="Argument.value">${__property(spName)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="spDescription" elementType="Argument">
+            <stringProp name="Argument.name">spDescription</stringProp>
+            <stringProp name="Argument.value">${__property(spDescription)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="tomcatHost" elementType="Argument">
+            <stringProp name="Argument.name">tomcatHost</stringProp>
+            <stringProp name="Argument.value">${__property(tomcatHost)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="tomcatPort" elementType="Argument">
+            <stringProp name="Argument.name">tomcatPort</stringProp>
+            <stringProp name="Argument.value">${__property(tomcatPort)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="travelocityIssuer" elementType="Argument">
+            <stringProp name="Argument.name">travelocityIssuer</stringProp>
+            <stringProp name="Argument.value">${__property(travelocityIssuer)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="permission" elementType="Argument">
+            <stringProp name="Argument.name">permission</stringProp>
+            <stringProp name="Argument.value">/permission/admin</stringProp>
+            <stringProp name="Argument.desc">Permission for role</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="role" elementType="Argument">
+            <stringProp name="Argument.name">role</stringProp>
+            <stringProp name="Argument.value">${__property(role)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="adminUsername" elementType="Argument">
+            <stringProp name="Argument.name">adminUsername</stringProp>
+            <stringProp name="Argument.value">${__property(adminUsername)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="adminPassword" elementType="Argument">
+            <stringProp name="Argument.name">adminPassword</stringProp>
+            <stringProp name="Argument.value">${__property(adminPassword)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="googleIdentityProviderName" elementType="Argument">
+            <stringProp name="Argument.name">googleIdentityProviderName</stringProp>
+            <stringProp name="Argument.value">${__property(googleIdentityProviderName)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="alias" elementType="Argument">
+            <stringProp name="Argument.name">alias</stringProp>
+            <stringProp name="Argument.value">oauth2/token</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="googleClientId" elementType="Argument">
+            <stringProp name="Argument.name">googleClientId</stringProp>
+            <stringProp name="Argument.value">${__property(googleClientId)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="googleSecret" elementType="Argument">
+            <stringProp name="Argument.name">googleSecret</stringProp>
+            <stringProp name="Argument.value">${__property(googleSecret)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="googleCallbackUrl" elementType="Argument">
+            <stringProp name="Argument.name">googleCallbackUrl</stringProp>
+            <stringProp name="Argument.value">${__property(googleCallbackUrl)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="googlescope" elementType="Argument">
+            <stringProp name="Argument.name">googlescope</stringProp>
+            <stringProp name="Argument.value">${__property(googlescope)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="remoteStoreDomain" elementType="Argument">
+            <stringProp name="Argument.name">remoteStoreDomain</stringProp>
+            <stringProp name="Argument.value">${__property(remoteStoreDomain)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="gmailPassword" elementType="Argument">
+            <stringProp name="Argument.name">gmailPassword</stringProp>
+            <stringProp name="Argument.value">${__property(gmailPassword)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="gmailUsername" elementType="Argument">
+            <stringProp name="Argument.name">gmailUsername</stringProp>
+            <stringProp name="Argument.value">${__property(gmailUsername)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="twitterClientId" elementType="Argument">
+            <stringProp name="Argument.name">twitterClientId</stringProp>
+            <stringProp name="Argument.value">${__property(twitterClientId)}</stringProp>
+            <stringProp name="Argument.desc">Twitter Client ID</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="twitterSecret" elementType="Argument">
+            <stringProp name="Argument.name">twitterSecret</stringProp>
+            <stringProp name="Argument.value">${__property(twitterSecret)}</stringProp>
+            <stringProp name="Argument.desc">Twitter Client secret</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="twitterUserName" elementType="Argument">
+            <stringProp name="Argument.name">twitterUserName</stringProp>
+            <stringProp name="Argument.value">${__property(twitterUserName)}</stringProp>
+            <stringProp name="Argument.desc">Twitter Username</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="twitterPassword" elementType="Argument">
+            <stringProp name="Argument.name">twitterPassword</stringProp>
+            <stringProp name="Argument.value">${__property(twitterPassword)}</stringProp>
+            <stringProp name="Argument.desc">Twitter Password</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="twitterIdentityProviderName" elementType="Argument">
+            <stringProp name="Argument.name">twitterIdentityProviderName</stringProp>
+            <stringProp name="Argument.value">${__property(twitterIdentityProviderName)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="remoteStoreAdminUsername" elementType="Argument">
+            <stringProp name="Argument.name">remoteStoreAdminUsername</stringProp>
+            <stringProp name="Argument.value">${__property(remoteStoreAdminUsername)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="remoteStoreAdminPassword" elementType="Argument">
+            <stringProp name="Argument.name">remoteStoreAdminPassword</stringProp>
+            <stringProp name="Argument.value">${__property(remoteStoreAdminPassword)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="remoteStoreHost" elementType="Argument">
+            <stringProp name="Argument.name">remoteStoreHost</stringProp>
+            <stringProp name="Argument.value">${__property(remoteStoreHost)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="remoteStorePort" elementType="Argument">
+            <stringProp name="Argument.name">remoteStorePort</stringProp>
+            <stringProp name="Argument.value">${__property(remoteStorePort)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Login to webapp " enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1509019242000</longProp>
+        <longProp name="ThreadGroup.end_time">1509019242000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <stringProp name="TestPlan.comments">Usign the script - will be able to lpgin to travelocity app while we can provision federated (using google/twitter) user into SUPER TENANT </stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Federation with Google IDP" enabled="false">
+          <stringProp name="cacheKey"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.*;
+import java.lang.String;
+import java.util.concurrent.*;
+import com.gargoylesoftware.htmlunit.*;
+import com.gargoylesoftware.htmlunit.BrowserVersion;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+try {
+		public HtmlUnitDriver driver = new HtmlUnitDriver(BrowserVersion.CHROME, true);
+
+		String protocole = &quot;http://&quot;;
+		String tomcathost = vars.get(&quot;tomcatHost&quot;);
+		String seperator = &quot;:&quot;;
+		String tomcatport = vars.get(&quot;tomcatPort&quot;);
+		String url = &quot;/travelocity.com/index.jsp&quot;;
+
+		String AppURL = protocole + tomcathost + seperator + tomcatport + url;
+		
+		driver.get(AppURL);
+
+		WebElement link = driver.findElement(By.linkText(&quot;here&quot;));
+		link.click();
+
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS); 
+   		WebElement email_phone = driver.findElement(By.xpath(&quot;//input[@id=&apos;identifierId&apos;]&quot;));
+    		email_phone.clear();
+   		email_phone.sendKeys(new String[] { vars.get(&quot;GmailUsername&quot;) });
+    		driver.findElement(By.id(&quot;identifierNext&quot;)).click();
+    		WebElement password = driver.findElement(By.xpath(&quot;//input[@name=&apos;password&apos;]&quot;));
+    		WebDriverWait wait = new WebDriverWait(driver, 20);
+    		wait.until(ExpectedConditions.elementToBeClickable(password));
+    		password.sendKeys(new String[] {vars.get(&quot;GmailPassword&quot;)});
+    		driver.findElement(By.id(&quot;passwordNext&quot;)).click();
+
+
+
+		//Returns the whole page
+		return driver.getPageSource(); 
+    
+} catch (Exception ex) {
+    ex.printStackTrace();
+    log.error(ex.getMessage());
+     SampleResult.setSuccessful(false);
+     SampleResult.setResponseCode(&quot;500&quot;);
+     SampleResult.setResponseMessage(ex.getMessage());
+} </stringProp>
+          <stringProp name="scriptLanguage">java</stringProp>
+          <stringProp name="TestPlan.comments">Google IDP -Selenium</stringProp>
+        </JSR223Sampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1435285188">You are logged in as</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Federation with Twitter IDP" enabled="true">
+          <stringProp name="cacheKey"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.*;
+import java.lang.String;
+import java.util.concurrent.*;
+import com.gargoylesoftware.htmlunit.*;
+import com.gargoylesoftware.htmlunit.BrowserVersion;
+import java.util.logging.Logger;
+import java.util.logging;
+
+try {
+
+	System.getProperties().put(&quot;org.apache.commons.logging.simplelog.defaultlog&quot;, &quot;fatal&quot;);
+     Logger.getLogger(&quot;com.gargoylesoftware.htmlunit&quot;).setLevel(java.util.logging.Level.OFF);
+     Logger.getLogger(&quot;org.apache.http&quot;).setLevel(java.util.logging.Level.OFF);
+
+
+		public HtmlUnitDriver driver = new HtmlUnitDriver(BrowserVersion.CHROME, true);
+		
+		String protocole = &quot;http://&quot;;
+		String tomcathost = vars.get(&quot;tomcatHost&quot;);
+		String seperator = &quot;:&quot;;
+		String tomcatport = vars.get(&quot;tomcatPort&quot;);
+		String url = &quot;/travelocity.com/index.jsp&quot;;
+		String travelocityURL = protocole + tomcathost + seperator + tomcatport + url;
+
+		driver.get(travelocityURL);
+		driver.manage().timeouts().implicitlyWait(60,TimeUnit.SECONDS);
+		WebElement link = driver.findElement(By.linkText(&quot;here&quot;));
+		link.click();
+
+		WebElement username =  driver.findElement(By.id(&quot;username_or_email&quot;));
+		username.clear();
+		username.sendKeys(new String[] { vars.get(&quot;twitterUserName&quot;) });
+
+		WebElement password =  driver.findElement(By.id(&quot;password&quot;));
+		password.clear();
+		password.sendKeys(new String[] {vars.get(&quot;twitterPassword&quot;)});
+
+		WebElement button = driver.findElement(By.id(&quot;allow&quot;));
+		button.click();
+
+		//String pageSource = driver.getPageSource();
+		driver.manage().timeouts().implicitlyWait(60,TimeUnit.SECONDS);
+
+		String currentURL = driver.getCurrentUrl();
+          System.out.println(currentURL);
+      
+		//if(driver.getPageSource().contains(&quot;User Consents&quot;)) {
+
+		WebElement checkbox = driver.findElement(By.id(&quot;consent_select_all&quot;));
+		checkbox.click();
+		System.out.println(&quot;check box clicked for Travelocity-Positive-Twitter&quot;);
+
+		WebElement approvebutton = driver.findElement(By.id(&quot;approve&quot;));
+		approvebutton.click();
+		System.out.println(&quot;approve button clicked for Travelocity-Positive-Twitter&quot;);
+
+		return driver.getPageSource();  
+		
+				
+//		} else{
+
+		//log.info(&quot;User Consent page missing&quot;);
+		//SampleResult.setResponseMessage(&quot;Error loading user consent page&quot;);
+	
+		//}
+    
+    
+} catch (Exception ex) {
+    ex.printStackTrace();
+    log.error(ex.getMessage());
+     SampleResult.setSuccessful(false);
+     SampleResult.setResponseCode(&quot;500&quot;);
+     SampleResult.setResponseMessage(ex.getMessage());
+} </stringProp>
+          <stringProp name="scriptLanguage">java</stringProp>
+          <stringProp name="TestPlan.comments">TwitterIDP - Selenium</stringProp>
+        </JSR223Sampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1435285188">You are logged in as</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>true</responseData>
+            <samplerData>true</samplerData>
+            <xml>true</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>true</responseHeaders>
+            <requestHeaders>true</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <threadCounts>true</threadCounts>
+            <sampleCount>true</sampleCount>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename">02-scenario-06-result.jtl</stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench" enabled="true">
+      <boolProp name="WorkBench.save">true</boolProp>
+    </WorkBench>
+    <hashTree/>
+  </hashTree>
+</jmeterTestPlan>
