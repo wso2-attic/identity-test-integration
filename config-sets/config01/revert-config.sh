@@ -1,3 +1,14 @@
+#include the path of the IS Pack for the productHome variable when trying locally
+productHome==$productHome
+
+serverHost=$serverHost
+serverPort=$serverPort
+
+file=$productHome/repository/conf/identity/identity.xml
+
+
+
+
 $productHome
 filePath=/repository/deployment/server/webapps/authenticationendpoint
 

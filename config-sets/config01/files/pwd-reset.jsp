@@ -22,7 +22,6 @@
 <%@ page import="java.util.Map" %>
 <%@page import="org.wso2.carbon.identity.application.authentication.endpoint.util.Constants" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="org.wso2.carbon.identity.application.authentication.endpoint.util.TenantDataManager" %>
 
 <fmt:bundle basename="org.wso2.carbon.identity.application.authentication.endpoint.i18n.Resources">
@@ -62,15 +61,13 @@
         <link href="css/Roboto.css" rel="stylesheet">
         <link href="css/custom-common.css" rel="stylesheet">
 
-        <script src="js/scripts.js"></script>
-        <script src="assets/js/jquery-1.7.1.min.js"></script>
         <!--[if lt IE 9]>
         <script src="js/html5shiv.min.js"></script>
         <script src="js/respond.min.js"></script>
         <![endif]-->
     </head>
 
-    <body onload="getLoginDiv()">
+    <body>
 
     <!-- header -->
     <header class="header header-default">
@@ -148,7 +145,7 @@
                             </div>
                             <div class='form-row'>
                                <div class='col-md-12 form-group'>
-                                 <button class='form-control btn btn-primary submit-button' type='submit' onclick="$('#loading').show();">Change password</button>
+                                 <button id="changepass" class='form-control btn btn-primary submit-button' type='submit' onclick="$('#loading').show();">Change password</button>
                                </div>
                         </div>
 
@@ -179,6 +176,7 @@
     </footer>
     <script src="libs/jquery_1.11.3/jquery-1.11.3.js"></script>
     <script src="libs/bootstrap_3.3.5/js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
     </body>
     </html>
 </fmt:bundle>
