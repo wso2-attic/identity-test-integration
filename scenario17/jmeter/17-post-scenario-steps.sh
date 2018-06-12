@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 # Copyright (c) 2017, WSO2 Inc. (http://wso2.com) All Rights Reserved.
 #
@@ -14,14 +14,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#No specific steps to run in this level but keep
-#-the file as to maintain the file structure as same as in other scenarions.
-
 prgdir=$(dirname "$0")
 scriptPath=$(cd "$prgdir"; pwd)
 
 echo "working directory : "$scriptPath
+#run base-setup.sh to deploy artifacts
+.  $scriptPath/../teardown.sh
 
-#Steps
 
 echo "post-steps are done..."
+
+
