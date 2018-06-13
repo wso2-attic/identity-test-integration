@@ -7,7 +7,7 @@
 - Sol17amazon.war deployed in Tomcat server
 
 **Special NOTE**
-This script does not navigate through the user consent flow Scince ID token is not used.
+This script does not navigate through the user consent flow scince when the apply-config.sh is run the SkipUserConsent is set to false. The jmeter script flow assumes that the consent flow does not occur.
 
 **Scenario**
 This script will create a user and a service provider. Next the the Single Page Application will be accessed and the user credentials will be submitted for the user to login. In this scenario we keep the SkipUserConsent to true when the apply-config.sh is invoked so that the user does not need to grant consent for the single page application.
@@ -26,7 +26,7 @@ Scripts will be able to run for following:
 
 - Creating user and role in WSO2 IS
 - Creating Service Provider with OAuth 2.0 (code grant) inbound authenticator 
-- Login to SPA (Sol17amazon)
+- Login to SPA (Sol17amazon) and assert if the logout link is provided on in.html
 - Once all above done users and SP will be clean out from IS
 
 [1] https://medium.facilelogin.com/thirty-solution-patterns-with-the-wso2-identity-server-16f9fd0c0389
