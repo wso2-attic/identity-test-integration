@@ -73,6 +73,11 @@
             <stringProp name="Argument.value">${__property(serverPort)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
+          <elementProp name="timePolicy" elementType="Argument">
+            <stringProp name="Argument.name">timePolicy</stringProp>
+            <stringProp name="Argument.value">${__property(timePolicy)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
         </collectionProp>
       </Arguments>
       <hashTree/>
@@ -230,70 +235,26 @@
                 <collectionProp name="Arguments.arguments">
                   <elementProp name="" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xsd=&quot;http://org.apache.axis2/xsd&quot; xmlns:xsd1=&quot;http://dto.entitlement.identity.carbon.wso2.org/xsd&quot;&gt;&#xd;
-   &lt;soapenv:Header/&gt;&#xd;
-   &lt;soapenv:Body&gt;&#xd;
-      &lt;xsd:addPolicy&gt;&#xd;
-         &lt;!--Optional:--&gt;&#xd;
-         &lt;xsd:policyDTO&gt;&#xd;
-            &lt;!--Optional:--&gt;&#xd;
-            &lt;xsd1:policy&gt;&lt;![CDATA[&lt;Policy xmlns=&quot;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17&quot; PolicyId=&quot;Scenario24Plolicy&quot; RuleCombiningAlgId=&quot;urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable&quot; Version=&quot;1.0&quot;&gt;&#xd;
-   &lt;Target/&gt;&#xd;
-   &lt;Rule Effect=&quot;Permit&quot; RuleId=&quot;rule1&quot;&gt;&#xd;
-      &lt;Target&gt;&#xd;
-         &lt;AnyOf&gt;&#xd;
-            &lt;AllOf&gt;&#xd;
-               &lt;Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;&#xd;
-                  &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;POST&lt;/AttributeValue&gt;&#xd;
-                  &lt;AttributeDesignator AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:action:action-id&quot; Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:action&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot;/&gt;&#xd;
-               &lt;/Match&gt;&#xd;
-            &lt;/AllOf&gt;&#xd;
-         &lt;/AnyOf&gt;&#xd;
-      &lt;/Target&gt;&#xd;
-      &lt;Condition&gt;&#xd;
-         &lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:and&quot;&gt;&#xd;
-            &lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:and&quot;&gt;&#xd;
-               &lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-greater-than&quot;&gt;&#xd;
-                  &lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-one-and-only&quot;&gt;&#xd;
-                     &lt;AttributeDesignator AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:environment:environment-id&quot; Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:environment&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot;/&gt;&#xd;
-                  &lt;/Apply&gt;&#xd;
-                  &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;09:00:00 05:30&lt;/AttributeValue&gt;&#xd;
-               &lt;/Apply&gt;&#xd;
-               &lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-less-than&quot;&gt;&#xd;
-                  &lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-one-and-only&quot;&gt;&#xd;
-                     &lt;AttributeDesignator AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:environment:environment-id&quot; Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:environment&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot;/&gt;&#xd;
-                  &lt;/Apply&gt;&#xd;
-                  &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;17:00:00 05:30&lt;/AttributeValue&gt;&#xd;
-               &lt;/Apply&gt;&#xd;
-            &lt;/Apply&gt;&#xd;
-            &lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:any-of&quot;&gt;&#xd;
-               &lt;Function FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;/&gt;&#xd;
-               &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;${userRole}&lt;/AttributeValue&gt;&#xd;
-               &lt;AttributeDesignator AttributeId=&quot;http://wso2.org/claims/role&quot; Category=&quot;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot;/&gt;&#xd;
-            &lt;/Apply&gt;&#xd;
-         &lt;/Apply&gt;&#xd;
-      &lt;/Condition&gt;&#xd;
-   &lt;/Rule&gt;&#xd;
-   &lt;Rule Effect=&quot;Permit&quot; RuleId=&quot;rule2&quot;&gt;&#xd;
-      &lt;Target&gt;&#xd;
-         &lt;AnyOf&gt;&#xd;
-            &lt;AllOf&gt;&#xd;
-               &lt;Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;&#xd;
-                  &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;localhost&lt;/AttributeValue&gt;&#xd;
-                  &lt;AttributeDesignator AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:environment:environment-id&quot; Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:environment&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot;/&gt;&#xd;
-               &lt;/Match&gt;&#xd;
-            &lt;/AllOf&gt;&#xd;
-         &lt;/AnyOf&gt;&#xd;
-      &lt;/Target&gt;&#xd;
-   &lt;/Rule&gt;&#xd;
-&lt;/Policy&gt;]]&gt;&#xd;
-            &lt;/xsd1:policy&gt;&#xd;
-            &lt;!--Optional:--&gt;&#xd;
-            &lt;xsd1:version&gt;1.0&lt;/xsd1:version&gt;&#xd;
-            &lt;xsd1:policyId&gt;Scenario24Plolicy&lt;/xsd1:policyId&gt;&#xd;
-         &lt;/xsd:policyDTO&gt;&#xd;
-      &lt;/xsd:addPolicy&gt;&#xd;
-   &lt;/soapenv:Body&gt;&#xd;
+                    <stringProp name="Argument.value">&lt;soapenv:Envelope&#xd;
+	xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&#xd;
+	xmlns:xsd=&quot;http://org.apache.axis2/xsd&quot;&#xd;
+	xmlns:xsd1=&quot;http://dto.entitlement.identity.carbon.wso2.org/xsd&quot;&gt;&#xd;
+	&lt;soapenv:Header/&gt;&#xd;
+	&lt;soapenv:Body&gt;&#xd;
+		&lt;xsd:addPolicy&gt;&#xd;
+			&lt;!--Optional:--&gt;&#xd;
+			&lt;xsd:policyDTO&gt;&#xd;
+				&lt;!--Optional:--&gt;&#xd;
+				&lt;xsd1:policy&gt;&#xd;
+					&lt;![CDATA[&lt;Policy&#xd;
+					xmlns=&quot;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17&quot; PolicyId=&quot;Scenario24Plolicy333&quot; RuleCombiningAlgId=&quot;urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable&quot; Version=&quot;1.0&quot;&gt;&lt;Target/&gt;&lt;Rule Effect=&quot;Permit&quot; RuleId=&quot;rule1&quot;&gt;&lt;Target&gt;&lt;AnyOf&gt;&lt;AllOf&gt;&lt;Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;POST&lt;/AttributeValue&gt;&lt;AttributeDesignator AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:action:action-id&quot; Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:action&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot;/&gt;&lt;/Match&gt;&lt;/AllOf&gt;&lt;/AnyOf&gt;&lt;/Target&gt;&lt;Condition&gt;&lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:and&quot;&gt;&lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:and&quot;&gt;&lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-greater-than&quot;&gt;&lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-one-and-only&quot;&gt;&lt;AttributeDesignator AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:environment:environment-id&quot; Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:environment&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot;/&gt;&lt;/Apply&gt;&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;09:00:00 05:30&lt;/AttributeValue&gt;&lt;/Apply&gt;&lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-less-than&quot;&gt;&lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-one-and-only&quot;&gt;&lt;AttributeDesignator AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:environment:environment-id&quot; Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:environment&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot;/&gt;&lt;/Apply&gt;&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;17:00:00 05:30&lt;/AttributeValue&gt;&lt;/Apply&gt;&lt;/Apply&gt;&lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:any-of&quot;&gt;&lt;Function FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;/&gt;&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;${userRole}&lt;/AttributeValue&gt;&lt;AttributeDesignator AttributeId=&quot;http://wso2.org/claims/role&quot; Category=&quot;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot;/&gt;&lt;/Apply&gt;&lt;/Apply&gt;&lt;/Condition&gt;&lt;/Rule&gt;&lt;Rule Effect=&quot;Permit&quot; RuleId=&quot;rule2&quot;&gt;&lt;Target&gt;&lt;AnyOf&gt;&lt;AllOf&gt;&lt;Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;localhost&lt;/AttributeValue&gt;&lt;AttributeDesignator AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:environment:environment-id&quot; Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:environment&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot;/&gt;&lt;/Match&gt;&lt;/AllOf&gt;&lt;/AnyOf&gt;&lt;/Target&gt;&lt;/Rule&gt;&lt;/Policy&gt;]]&gt;&#xd;
+				&lt;/xsd1:policy&gt;&#xd;
+				&lt;!--Optional:--&gt;&#xd;
+				&lt;xsd1:version&gt;1.1&lt;/xsd1:version&gt;&#xd;
+				&lt;xsd1:policyId&gt;Scenario24Plolicy333&lt;/xsd1:policyId&gt;&#xd;
+			&lt;/xsd:policyDTO&gt;&#xd;
+		&lt;/xsd:addPolicy&gt;&#xd;
+	&lt;/soapenv:Body&gt;&#xd;
 &lt;/soapenv:Envelope&gt;</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                   </elementProp>
@@ -316,10 +277,6 @@
             <hashTree>
               <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
                 <collectionProp name="HeaderManager.headers">
-                  <elementProp name="" elementType="Header">
-                    <stringProp name="Header.name">Authorization</stringProp>
-                    <stringProp name="Header.value">Basic YWRtaW46YWRtaW4=</stringProp>
-                  </elementProp>
                   <elementProp name="" elementType="Header">
                     <stringProp name="Header.name">SOAPAction</stringProp>
                     <stringProp name="Header.value">&quot;urn:addPolicy&quot;</stringProp>
@@ -347,46 +304,28 @@
                 <collectionProp name="Arguments.arguments">
                   <elementProp name="" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xsd=&quot;http://org.apache.axis2/xsd&quot; xmlns:xsd1=&quot;http://dto.entitlement.identity.carbon.wso2.org/xsd&quot;&gt;&#xd;
-   &lt;soapenv:Header/&gt;&#xd;
-   &lt;soapenv:Body&gt;&#xd;
-      &lt;xsd:addPolicy&gt;&#xd;
-         &lt;!--Optional:--&gt;&#xd;
-         &lt;xsd:policyDTO&gt;&#xd;
-            &lt;!--Optional:--&gt;&#xd;
-            &lt;xsd1:policy&gt;&lt;![CDATA[&#xd;
-                   &lt;Policy xmlns=&quot;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17&quot;  PolicyId=&quot;Scenario24Plolicy&quot; RuleCombiningAlgId=&quot;urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable&quot; Version=&quot;1.0&quot;&gt;&#xd;
-                   &lt;Description&gt;This policy template provides ability to authorize users to a given service provider(defined by SP_NAME) in the authentication flow based on the roles of the user (defined by ROLE_1 and ROLE_2). Users who have at least one of the given roles, will be allowed and any others will be denied.&lt;/Description&gt;&#xd;
-                   &lt;Target&gt;&#xd;
-                      &lt;AnyOf&gt;&#xd;
-                         &lt;AllOf&gt;&#xd;
-                            &lt;Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;&#xd;
-                               &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;SP_NAME&lt;/AttributeValue&gt;&#xd;
-                               &lt;AttributeDesignator AttributeId=&quot;http://wso2.org/identity/sp/sp-name&quot; Category=&quot;http://wso2.org/identity/sp&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;false&quot;&gt;&lt;/AttributeDesignator&gt;&#xd;
-                            &lt;/Match&gt;&#xd;
-                         &lt;/AllOf&gt;&#xd;
-                      &lt;/AnyOf&gt;&#xd;
-                   &lt;/Target&gt;&#xd;
-                   &lt;Rule Effect=&quot;Permit&quot; RuleId=&quot;permit_by_roles&quot;&gt;&#xd;
-                      &lt;Condition&gt;&#xd;
-                         &lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:or&quot;&gt;&#xd;
-                            &lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-is-in&quot;&gt;&#xd;
-                               &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;ROLE_1_1_1&lt;/AttributeValue&gt;&#xd;
-                               &lt;AttributeDesignator AttributeId=&quot;http://wso2.org/claims/role&quot; Category=&quot;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot;&gt;&lt;/AttributeDesignator&gt;&#xd;
-                            &lt;/Apply&gt;&#xd;
-                         &lt;/Apply&gt;&#xd;
-                      &lt;/Condition&gt;&#xd;
-                   &lt;/Rule&gt;&#xd;
-                   &lt;Rule Effect=&quot;Deny&quot; RuleId=&quot;deny_others&quot;&gt;&lt;/Rule&gt;&#xd;
-                &lt;/Policy&gt;       &#xd;
+                    <stringProp name="Argument.value">&lt;soapenv:Envelope&#xd;
+	xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&#xd;
+	xmlns:xsd=&quot;http://org.apache.axis2/xsd&quot;&#xd;
+	xmlns:xsd1=&quot;http://dto.entitlement.identity.carbon.wso2.org/xsd&quot;&gt;&#xd;
+	&lt;soapenv:Header/&gt;&#xd;
+	&lt;soapenv:Body&gt;&#xd;
+		&lt;xsd:addPolicy&gt;&#xd;
+			&lt;!--Optional:--&gt;&#xd;
+			&lt;xsd:policyDTO&gt;&#xd;
+				&lt;!--Optional:--&gt;&#xd;
+				&lt;xsd1:policy&gt;&#xd;
+					&lt;![CDATA[&#xd;
+                   &lt;Policy&#xd;
+					xmlns=&quot;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17&quot;  PolicyId=&quot;Scenario24Plolicy333&quot; RuleCombiningAlgId=&quot;urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable&quot; Version=&quot;1.0&quot;&gt;&lt;Description&gt;This policy template provides ability to authorize users to a given service provider(defined by SP_NAME) in the authentication flow based on the roles of the user (defined by ROLE_1 and ROLE_2). Users who have at least one of the given roles, will be allowed and any others will be denied.&lt;/Description&gt;&lt;Target&gt;&lt;AnyOf&gt;&lt;AllOf&gt;&lt;Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;SP_NAME&lt;/AttributeValue&gt;&lt;AttributeDesignator AttributeId=&quot;http://wso2.org/identity/sp/sp-name&quot; Category=&quot;http://wso2.org/identity/sp&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;false&quot;&gt;&lt;/AttributeDesignator&gt;&lt;/Match&gt;&lt;/AllOf&gt;&lt;/AnyOf&gt;&lt;/Target&gt;&lt;Rule Effect=&quot;Permit&quot; RuleId=&quot;permit_by_roles&quot;&gt;&lt;Condition&gt;&lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:or&quot;&gt;&lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-is-in&quot;&gt;&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;ROLE_1_1_1&lt;/AttributeValue&gt;&lt;AttributeDesignator AttributeId=&quot;http://wso2.org/claims/role&quot; Category=&quot;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot;&gt;&lt;/AttributeDesignator&gt;&lt;/Apply&gt;&lt;/Apply&gt;&lt;/Condition&gt;&lt;/Rule&gt;&lt;Rule Effect=&quot;Deny&quot; RuleId=&quot;deny_others&quot;&gt;&lt;/Rule&gt;&lt;/Policy&gt;       &#xd;
                 ]]&gt;&#xd;
-            &lt;/xsd1:policy&gt;&#xd;
-            &lt;!--Optional:--&gt;&#xd;
-            &lt;xsd1:version&gt;1.0&lt;/xsd1:version&gt;&#xd;
-            &lt;xsd1:policyId&gt;Scenario24Plolicy&lt;/xsd1:policyId&gt;&#xd;
-         &lt;/xsd:policyDTO&gt;&#xd;
-      &lt;/xsd:addPolicy&gt;&#xd;
-   &lt;/soapenv:Body&gt;&#xd;
+				&lt;/xsd1:policy&gt;&#xd;
+				&lt;!--Optional:--&gt;&#xd;
+				&lt;xsd1:version&gt;1.1&lt;/xsd1:version&gt;&#xd;
+				&lt;xsd1:policyId&gt;Scenario24Plolicy333&lt;/xsd1:policyId&gt;&#xd;
+			&lt;/xsd:policyDTO&gt;&#xd;
+		&lt;/xsd:addPolicy&gt;&#xd;
+	&lt;/soapenv:Body&gt;&#xd;
 &lt;/soapenv:Envelope&gt;</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                   </elementProp>
@@ -409,10 +348,6 @@
             <hashTree>
               <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
                 <collectionProp name="HeaderManager.headers">
-                  <elementProp name="" elementType="Header">
-                    <stringProp name="Header.name">Authorization</stringProp>
-                    <stringProp name="Header.value">Basic YWRtaW46YWRtaW4=</stringProp>
-                  </elementProp>
                   <elementProp name="" elementType="Header">
                     <stringProp name="Header.name">SOAPAction</stringProp>
                     <stringProp name="Header.value">&quot;urn:addPolicy&quot;</stringProp>
@@ -437,7 +372,7 @@
           </hashTree>
         </hashTree>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="XACML_Policy_Test" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="XACML_Policy_Test-Publish" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -457,12 +392,20 @@
           <boolProp name="CookieManager.clearEachIteration">false</boolProp>
         </CookieManager>
         <hashTree/>
-        <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
-          <collectionProp name="AuthManager.auth_list"/>
-        </AuthManager>
-        <hashTree/>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="PublishToPDP" enabled="true"/>
         <hashTree>
+          <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
+            <collectionProp name="AuthManager.auth_list">
+              <elementProp name="" elementType="Authorization">
+                <stringProp name="Authorization.url"></stringProp>
+                <stringProp name="Authorization.username">${adminUserName}</stringProp>
+                <stringProp name="Authorization.password">${adminPassword}</stringProp>
+                <stringProp name="Authorization.domain"></stringProp>
+                <stringProp name="Authorization.realm"></stringProp>
+              </elementProp>
+            </collectionProp>
+          </AuthManager>
+          <hashTree/>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="publishScenario24Policy" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -474,7 +417,7 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:publishToPDP&gt;&#xd;
          &lt;!--Zero or more repetitions:--&gt;&#xd;
-         &lt;xsd:policyIds&gt;Scenario24Plolicy&lt;/xsd:policyIds&gt;&#xd;
+         &lt;xsd:policyIds&gt;Scenario24Plolicy333&lt;/xsd:policyIds&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
          &lt;xsd:action&gt;CREATE&lt;/xsd:action&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
@@ -482,7 +425,7 @@
          &lt;!--Optional:--&gt;&#xd;
          &lt;xsd:enabled&gt;true&lt;/xsd:enabled&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;xsd:order&gt;1&lt;/xsd:order&gt;&#xd;
+         &lt;xsd:order&gt;30&lt;/xsd:order&gt;&#xd;
       &lt;/xsd:publishToPDP&gt;&#xd;
    &lt;/soapenv:Body&gt;&#xd;
 &lt;/soapenv:Envelope&gt;</stringProp>
@@ -494,7 +437,7 @@
             <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">/services/EntitlementPolicyAdminService.EntitlementPolicyAdminServiceHttpsSoap11Endpoint/</stringProp>
+            <stringProp name="HTTPSampler.path">/services/EntitlementPolicyAdminService</stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -507,10 +450,6 @@
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
               <collectionProp name="HeaderManager.headers">
-                <elementProp name="" elementType="Header">
-                  <stringProp name="Header.name">Authorization</stringProp>
-                  <stringProp name="Header.value">Basic YWRtaW46YWRtaW4=</stringProp>
-                </elementProp>
                 <elementProp name="" elementType="Header">
                   <stringProp name="Header.name">SOAPAction</stringProp>
                   <stringProp name="Header.value">&quot;urn:publishPolicy&quot;</stringProp>
@@ -543,15 +482,15 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:publishToPDP&gt;&#xd;
          &lt;!--Zero or more repetitions:--&gt;&#xd;
-         &lt;xsd:policyIds&gt;Scenario24Plolicy&lt;/xsd:policyIds&gt;&#xd;
+         &lt;xsd:policyIds&gt;Scenario24Plolicy333&lt;/xsd:policyIds&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;xsd:action&gt;UPDATE&lt;/xsd:action&gt;&#xd;
+         &lt;xsd:action&gt;CREATE&lt;/xsd:action&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
          &lt;xsd:version&gt;1&lt;/xsd:version&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
          &lt;xsd:enabled&gt;true&lt;/xsd:enabled&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;xsd:order&gt;1&lt;/xsd:order&gt;&#xd;
+         &lt;xsd:order&gt;30&lt;/xsd:order&gt;&#xd;
       &lt;/xsd:publishToPDP&gt;&#xd;
    &lt;/soapenv:Body&gt;&#xd;
 &lt;/soapenv:Envelope&gt;</stringProp>
@@ -563,7 +502,7 @@
             <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">/services/EntitlementPolicyAdminService.EntitlementPolicyAdminServiceHttpsSoap11Endpoint/</stringProp>
+            <stringProp name="HTTPSampler.path">/services/EntitlementPolicyAdminService</stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -576,10 +515,6 @@
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
               <collectionProp name="HeaderManager.headers">
-                <elementProp name="" elementType="Header">
-                  <stringProp name="Header.name">Authorization</stringProp>
-                  <stringProp name="Header.value">Basic YWRtaW46YWRtaW4=</stringProp>
-                </elementProp>
                 <elementProp name="" elementType="Header">
                   <stringProp name="Header.name">SOAPAction</stringProp>
                   <stringProp name="Header.value">&quot;urn:publishPolicy&quot;</stringProp>
@@ -602,8 +537,49 @@
             <hashTree/>
           </hashTree>
         </hashTree>
+        <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+          <stringProp name="ConstantTimer.delay">6000</stringProp>
+        </ConstantTimer>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="XACML_Policy_Test-Evaluate" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1512994028000</longProp>
+        <longProp name="ThreadGroup.end_time">1512994028000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+          <stringProp name="ConstantTimer.delay">20000</stringProp>
+        </ConstantTimer>
+        <hashTree/>
+        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+          <collectionProp name="CookieManager.cookies"/>
+          <boolProp name="CookieManager.clearEachIteration">false</boolProp>
+        </CookieManager>
+        <hashTree/>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="EvaluatePolicy" enabled="true"/>
         <hashTree>
+          <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
+            <collectionProp name="AuthManager.auth_list">
+              <elementProp name="" elementType="Authorization">
+                <stringProp name="Authorization.url"></stringProp>
+                <stringProp name="Authorization.username">${adminUserName}</stringProp>
+                <stringProp name="Authorization.password">${adminPassword}</stringProp>
+                <stringProp name="Authorization.domain"></stringProp>
+                <stringProp name="Authorization.realm"></stringProp>
+              </elementProp>
+            </collectionProp>
+          </AuthManager>
+          <hashTree/>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="EvaluatePolicy" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -613,7 +589,7 @@
                   <stringProp name="Argument.value">&lt;Request xmlns=&quot;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17&quot; CombinedDecision=&quot;false&quot; ReturnPolicyIdList=&quot;false&quot;&gt;&#xd;
 &lt;Attributes Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:environment&quot;&gt;&#xd;
 &lt;Attribute AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:environment:environment-id&quot; IncludeInResult=&quot;false&quot;&gt;&#xd;
-&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;09:30:01+05:30&lt;/AttributeValue&gt;&#xd;
+&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;09:00:01+05:30&lt;/AttributeValue&gt;&#xd;
 &lt;/Attribute&gt;&#xd;
 &lt;/Attributes&gt;&#xd;
 &lt;Attributes Category=&quot;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&quot;&gt;&#xd;
@@ -624,6 +600,11 @@
 &lt;Attributes Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:action&quot;&gt;&#xd;
 &lt;Attribute AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:action:action-id&quot; IncludeInResult=&quot;false&quot;&gt;&#xd;
 &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;POST&lt;/AttributeValue&gt;&#xd;
+&lt;/Attribute&gt;&#xd;
+&lt;/Attributes&gt;&#xd;
+&lt;Attributes Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:environment&quot;&gt;&#xd;
+&lt;Attribute AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:environment:environment-id&quot; IncludeInResult=&quot;false&quot;&gt;&#xd;
+&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;localhost&lt;/AttributeValue&gt;&#xd;
 &lt;/Attribute&gt;&#xd;
 &lt;/Attributes&gt;&#xd;
 &lt;/Request&gt; </stringProp>
@@ -649,12 +630,8 @@
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
               <collectionProp name="HeaderManager.headers">
                 <elementProp name="" elementType="Header">
-                  <stringProp name="Header.name">Authorization</stringProp>
-                  <stringProp name="Header.value">Basic YWRtaW46YWRtaW4=</stringProp>
-                </elementProp>
-                <elementProp name="" elementType="Header">
                   <stringProp name="Header.name">Accept</stringProp>
-                  <stringProp name="Header.value">application/json</stringProp>
+                  <stringProp name="Header.value">application/xml</stringProp>
                 </elementProp>
                 <elementProp name="" elementType="Header">
                   <stringProp name="Header.name">Cache-Control</stringProp>
@@ -683,22 +660,23 @@
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">&lt;Request xmlns=&quot;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17&quot; CombinedDecision=&quot;false&quot; ReturnPolicyIdList=&quot;false&quot;&gt;&#xd;
-&lt;Attributes Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:environment&quot;&gt;&#xd;
-&lt;Attribute AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:environment:environment-id&quot; IncludeInResult=&quot;false&quot;&gt;&#xd;
-&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;localhost&lt;/AttributeValue&gt;&#xd;
-&lt;/Attribute&gt;&#xd;
-&lt;/Attributes&gt;&#xd;
-&lt;Attributes Category=&quot;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&quot;&gt;&#xd;
-&lt;Attribute AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:subject:subject-id&quot; IncludeInResult=&quot;false&quot;&gt;&#xd;
-&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;${userName}&lt;/AttributeValue&gt;&#xd;
-&lt;/Attribute&gt;&#xd;
-&lt;/Attributes&gt;&#xd;
-&lt;Attributes Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:action&quot;&gt;&#xd;
-&lt;Attribute AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:action:action-id&quot; IncludeInResult=&quot;false&quot;&gt;&#xd;
-&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;POST&lt;/AttributeValue&gt;&#xd;
-&lt;/Attribute&gt;&#xd;
-&lt;/Attributes&gt;&#xd;
+                  <stringProp name="Argument.value">&lt;Request&#xd;
+	xmlns=&quot;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17&quot; CombinedDecision=&quot;false&quot; ReturnPolicyIdList=&quot;false&quot;&gt;&#xd;
+	&lt;Attributes Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:environment&quot;&gt;&#xd;
+		&lt;Attribute AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:environment:environment-id&quot; IncludeInResult=&quot;false&quot;&gt;&#xd;
+			&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;localhost&lt;/AttributeValue&gt;&#xd;
+		&lt;/Attribute&gt;&#xd;
+	&lt;/Attributes&gt;&#xd;
+		&lt;Attributes Category=&quot;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&quot;&gt;&#xd;
+		&lt;Attribute AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:subject:subject-id&quot; IncludeInResult=&quot;false&quot;&gt;&#xd;
+			&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;${userRole}&lt;/AttributeValue&gt;&#xd;
+		&lt;/Attribute&gt;&#xd;
+	&lt;/Attributes&gt;&#xd;
+	&lt;Attributes Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:action&quot;&gt;&#xd;
+		&lt;Attribute AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:action:action-id&quot; IncludeInResult=&quot;false&quot;&gt;&#xd;
+			&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;POST&lt;/AttributeValue&gt;&#xd;
+		&lt;/Attribute&gt;&#xd;
+	&lt;/Attributes&gt;&#xd;
 &lt;/Request&gt; </stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
@@ -722,12 +700,8 @@
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
               <collectionProp name="HeaderManager.headers">
                 <elementProp name="" elementType="Header">
-                  <stringProp name="Header.name">Authorization</stringProp>
-                  <stringProp name="Header.value">Basic YWRtaW46YWRtaW4=</stringProp>
-                </elementProp>
-                <elementProp name="" elementType="Header">
                   <stringProp name="Header.name">Accept</stringProp>
-                  <stringProp name="Header.value">application/json</stringProp>
+                  <stringProp name="Header.value">application/xml</stringProp>
                 </elementProp>
                 <elementProp name="" elementType="Header">
                   <stringProp name="Header.name">Cache-Control</stringProp>
@@ -756,23 +730,24 @@
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">&lt;Request xmlns=&quot;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17&quot; CombinedDecision=&quot;false&quot; ReturnPolicyIdList=&quot;false&quot;&gt;&#xd;
-&lt;Attributes Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:environment&quot;&gt;&#xd;
-&lt;Attribute AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:environment:environment-id&quot; IncludeInResult=&quot;false&quot;&gt;&#xd;
-&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;09:00:01+05:30&lt;/AttributeValue&gt;&#xd;
-&lt;/Attribute&gt;&#xd;
-&lt;/Attributes&gt;&#xd;
-&lt;Attributes Category=&quot;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&quot;&gt;&#xd;
-&lt;Attribute AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:subject:subject-id&quot; IncludeInResult=&quot;false&quot;&gt;&#xd;
-&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;${noUser}&lt;/AttributeValue&gt;&#xd;
-&lt;/Attribute&gt;&#xd;
-&lt;/Attributes&gt;&#xd;
-&lt;Attributes Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:action&quot;&gt;&#xd;
-&lt;Attribute AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:action:action-id&quot; IncludeInResult=&quot;false&quot;&gt;&#xd;
-&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;POST&lt;/AttributeValue&gt;&#xd;
-&lt;/Attribute&gt;&#xd;
-&lt;/Attributes&gt;&#xd;
-&lt;/Request&gt; </stringProp>
+                  <stringProp name="Argument.value">&lt;Request&#xd;
+	xmlns=&quot;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17&quot; CombinedDecision=&quot;false&quot; ReturnPolicyIdList=&quot;false&quot;&gt;&#xd;
+	&lt;Attributes Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:environment&quot;&gt;&#xd;
+		&lt;Attribute AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:environment:environment-id&quot; IncludeInResult=&quot;false&quot;&gt;&#xd;
+			&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;09:00:01+05:30&lt;/AttributeValue&gt;&#xd;
+		&lt;/Attribute&gt;&#xd;
+	&lt;/Attributes&gt;&#xd;
+	&lt;Attributes Category=&quot;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&quot;&gt;&#xd;
+		&lt;Attribute AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:subject:subject-id&quot; IncludeInResult=&quot;false&quot;&gt;&#xd;
+			&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;${noUser}&lt;/AttributeValue&gt;&#xd;
+		&lt;/Attribute&gt;&#xd;
+	&lt;/Attributes&gt;&#xd;
+	&lt;Attributes Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:action&quot;&gt;&#xd;
+		&lt;Attribute AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:action:action-id&quot; IncludeInResult=&quot;false&quot;&gt;&#xd;
+			&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;POST&lt;/AttributeValue&gt;&#xd;
+		&lt;/Attribute&gt;&#xd;
+	&lt;/Attributes&gt;&#xd;
+&lt;/Request&gt;</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -796,12 +771,8 @@
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
               <collectionProp name="HeaderManager.headers">
                 <elementProp name="" elementType="Header">
-                  <stringProp name="Header.name">Authorization</stringProp>
-                  <stringProp name="Header.value">Basic YWRtaW46YWRtaW4=</stringProp>
-                </elementProp>
-                <elementProp name="" elementType="Header">
                   <stringProp name="Header.name">Accept</stringProp>
-                  <stringProp name="Header.value">application/json</stringProp>
+                  <stringProp name="Header.value">application/xml</stringProp>
                 </elementProp>
                 <elementProp name="" elementType="Header">
                   <stringProp name="Header.name">Cache-Control</stringProp>
@@ -828,6 +799,22 @@
         </hashTree>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="DePromotePolicy" enabled="true"/>
         <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+            <stringProp name="ConstantTimer.delay">300</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+          <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
+            <collectionProp name="AuthManager.auth_list">
+              <elementProp name="" elementType="Authorization">
+                <stringProp name="Authorization.url"></stringProp>
+                <stringProp name="Authorization.username">${adminUserName}</stringProp>
+                <stringProp name="Authorization.password">${adminPassword}</stringProp>
+                <stringProp name="Authorization.domain"></stringProp>
+                <stringProp name="Authorization.realm"></stringProp>
+              </elementProp>
+            </collectionProp>
+          </AuthManager>
+          <hashTree/>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="DePromotePolicy" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -839,7 +826,7 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:dePromotePolicy&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;xsd:policyId&gt;Scenario24Plolicy&lt;/xsd:policyId&gt;&#xd;
+         &lt;xsd:policyId&gt;Scenario24Plolicy333&lt;/xsd:policyId&gt;&#xd;
       &lt;/xsd:dePromotePolicy&gt;&#xd;
    &lt;/soapenv:Body&gt;&#xd;
 &lt;/soapenv:Envelope&gt;</stringProp>
@@ -864,10 +851,6 @@
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
               <collectionProp name="HeaderManager.headers">
-                <elementProp name="" elementType="Header">
-                  <stringProp name="Header.name">Authorization</stringProp>
-                  <stringProp name="Header.value">Basic YWRtaW46YWRtaW4=</stringProp>
-                </elementProp>
                 <elementProp name="" elementType="Header">
                   <stringProp name="Header.name">Accept</stringProp>
                   <stringProp name="Header.value">text/xml</stringProp>
@@ -904,27 +887,23 @@
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">&lt;Request xmlns=&quot;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17&quot; CombinedDecision=&quot;false&quot; ReturnPolicyIdList=&quot;false&quot;&gt;&#xd;
-&lt;Attributes Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:environment&quot;&gt;&#xd;
-&lt;Attribute AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:environment:environment-id&quot; IncludeInResult=&quot;false&quot;&gt;&#xd;
-&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;09:00:01+05:30&lt;/AttributeValue&gt;&#xd;
-&lt;/Attribute&gt;&#xd;
-&lt;/Attributes&gt;&#xd;
-&lt;Attributes Category=&quot;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&quot;&gt;&#xd;
-&lt;Attribute AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:subject:subject-id&quot; IncludeInResult=&quot;false&quot;&gt;&#xd;
-&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;${userName}&lt;/AttributeValue&gt;&#xd;
-&lt;/Attribute&gt;&#xd;
-&lt;/Attributes&gt;&#xd;
-&lt;Attributes Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:action&quot;&gt;&#xd;
-&lt;Attribute AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:action:action-id&quot; IncludeInResult=&quot;false&quot;&gt;&#xd;
-&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;POST&lt;/AttributeValue&gt;&#xd;
-&lt;/Attribute&gt;&#xd;
-&lt;/Attributes&gt;&#xd;
-&lt;Attributes Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:environment&quot;&gt;&#xd;
-&lt;Attribute AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:environment:environment-id&quot; IncludeInResult=&quot;false&quot;&gt;&#xd;
-&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;localhost&lt;/AttributeValue&gt;&#xd;
-&lt;/Attribute&gt;&#xd;
-&lt;/Attributes&gt;&#xd;
+                  <stringProp name="Argument.value">&lt;Request&#xd;
+	xmlns=&quot;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17&quot; CombinedDecision=&quot;false&quot; ReturnPolicyIdList=&quot;false&quot;&gt;&#xd;
+	&lt;Attributes Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:environment&quot;&gt;&#xd;
+		&lt;Attribute AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:environment:environment-id&quot; IncludeInResult=&quot;false&quot;&gt;&#xd;
+			&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;09:00:01+05:30&lt;/AttributeValue&gt;&#xd;
+		&lt;/Attribute&gt;&#xd;
+	&lt;/Attributes&gt;&#xd;
+	&lt;Attributes Category=&quot;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&quot;&gt;&#xd;
+		&lt;Attribute AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:subject:subject-id&quot; IncludeInResult=&quot;false&quot;&gt;&#xd;
+			&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;${userRole}&lt;/AttributeValue&gt;&#xd;
+		&lt;/Attribute&gt;&#xd;
+	&lt;/Attributes&gt;&#xd;
+	&lt;Attributes Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:action&quot;&gt;&#xd;
+		&lt;Attribute AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:action:action-id&quot; IncludeInResult=&quot;false&quot;&gt;&#xd;
+			&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;POST&lt;/AttributeValue&gt;&#xd;
+		&lt;/Attribute&gt;&#xd;
+	&lt;/Attributes&gt;&#xd;
 &lt;/Request&gt; </stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
@@ -947,10 +926,6 @@
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
               <collectionProp name="HeaderManager.headers">
-                <elementProp name="" elementType="Header">
-                  <stringProp name="Header.name">Authorization</stringProp>
-                  <stringProp name="Header.value">Basic YWRtaW46YWRtaW4=</stringProp>
-                </elementProp>
                 <elementProp name="" elementType="Header">
                   <stringProp name="Header.name">Accept</stringProp>
                   <stringProp name="Header.value">application/json</stringProp>
@@ -993,6 +968,18 @@
         <stringProp name="ThreadGroup.delay"></stringProp>
       </PostThreadGroup>
       <hashTree>
+        <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
+          <collectionProp name="AuthManager.auth_list">
+            <elementProp name="" elementType="Authorization">
+              <stringProp name="Authorization.url"></stringProp>
+              <stringProp name="Authorization.username">${adminUserName}</stringProp>
+              <stringProp name="Authorization.password">${adminPassword}</stringProp>
+              <stringProp name="Authorization.domain"></stringProp>
+              <stringProp name="Authorization.realm"></stringProp>
+            </elementProp>
+          </collectionProp>
+        </AuthManager>
+        <hashTree/>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="removePolicy" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="removeScenario24Plolicy" enabled="true">
@@ -1006,7 +993,7 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;xsd:removePolicy&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
-         &lt;xsd:policyId&gt;Scenario24Plolicy&lt;/xsd:policyId&gt;&#xd;
+         &lt;xsd:policyId&gt;Scenario24Plolicy333&lt;/xsd:policyId&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
          &lt;xsd:dePromote&gt;false&lt;/xsd:dePromote&gt;&#xd;
       &lt;/xsd:removePolicy&gt;&#xd;
@@ -1017,7 +1004,7 @@
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
-            <stringProp name="HTTPSampler.port">9443</stringProp>
+            <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/services/EntitlementPolicyAdminService.EntitlementPolicyAdminServiceHttpsSoap11Endpoint/</stringProp>
@@ -1033,10 +1020,6 @@
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
               <collectionProp name="HeaderManager.headers">
-                <elementProp name="" elementType="Header">
-                  <stringProp name="Header.name">Authorization</stringProp>
-                  <stringProp name="Header.value">Basic YWRtaW46YWRtaW4=</stringProp>
-                </elementProp>
                 <elementProp name="" elementType="Header">
                   <stringProp name="Header.name">SOAPAction</stringProp>
                   <stringProp name="Header.value">urn:removePolicy</stringProp>
@@ -1061,18 +1044,6 @@
         </hashTree>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="User and Role Clean up" enabled="true"/>
         <hashTree>
-          <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
-            <collectionProp name="AuthManager.auth_list">
-              <elementProp name="" elementType="Authorization">
-                <stringProp name="Authorization.url"></stringProp>
-                <stringProp name="Authorization.username">${adminUserName}</stringProp>
-                <stringProp name="Authorization.password">${adminPassword}</stringProp>
-                <stringProp name="Authorization.domain"></stringProp>
-                <stringProp name="Authorization.realm"></stringProp>
-              </elementProp>
-            </collectionProp>
-          </AuthManager>
-          <hashTree/>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="Content-Type" elementType="Header">
@@ -1197,23 +1168,24 @@
             <encoding>false</encoding>
             <assertions>true</assertions>
             <subresults>true</subresults>
-            <responseData>false</responseData>
-            <samplerData>false</samplerData>
-            <xml>false</xml>
+            <responseData>true</responseData>
+            <samplerData>true</samplerData>
+            <xml>true</xml>
             <fieldNames>true</fieldNames>
-            <responseHeaders>false</responseHeaders>
-            <requestHeaders>false</requestHeaders>
+            <responseHeaders>true</responseHeaders>
+            <requestHeaders>true</requestHeaders>
             <responseDataOnError>false</responseDataOnError>
             <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
             <assertionsResultsToSave>0</assertionsResultsToSave>
             <bytes>true</bytes>
             <sentBytes>true</sentBytes>
             <threadCounts>true</threadCounts>
+            <sampleCount>true</sampleCount>
             <idleTime>true</idleTime>
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">/Users/cjayawardena/Documents/Testing/IS/Solution24/jmeter/test.jtl</stringProp>
+        <stringProp name="filename">scenario-24-result.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
     </hashTree>

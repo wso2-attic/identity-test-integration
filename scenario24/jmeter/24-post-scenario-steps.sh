@@ -17,9 +17,9 @@
 prgdir=$(dirname "$0")
 scriptPath=$(cd "$prgdir"; pwd)
 
-echo "working directory : "$scriptPath
-#run base-setup.sh to deploy artifacts
-source $scriptPath/../teardown.sh
+#echo "working directory : "$scriptPath
+#run teardown.sh to undeploy artifacts
+sh $scriptPath/../teardown.sh
 
 statusval=$?
 if [ $statusval -eq 0 ]; then
