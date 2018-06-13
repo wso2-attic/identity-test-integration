@@ -30,33 +30,15 @@ Following sub scenarios are covered in the automation script
 ## Executing the Scenario 
 
 Export input variables in the terminal
-**>>export serverHost=<is_host> serverPort=<is_port> tomcatHost=<tomcatHost> tomcatPort=<tomcatPort>**
+**>>export serverHost=<is_host> serverPort=<is_port> tomcatHost=<tomcatHost> tomcatPort=<tomcatPort> tomcatUsername=<tomcat_user> tomcatPassword=<tomcat_password> **
 Ex:
 ```
->>export serverHost=is.localtest.com serverPort=9454 tomcatHost=localhost tomcatPort=8090
+>>export serverHost=is.localtest.com serverPort=9454 tomcatHost=localhost tomcatPort=8090 tomcatUsername=test1 tomcatPassword=testpass
 ```
-Update below two lines in the base-setup.sh and teardown.sh as replaccing values with your tomact user/password.
-```
-tomcatUsername=<username>
-tomcatPassword=<password>
-```
+
 **Important** you have to enable the role manager-script and assign that role to the particular user in tomcat-users.xml file which is in <tomcat_home>/conf/ directory
 
-Follow the Step [1] above ( as being on the same terminal )
+Execute the scenario as follows. (This will execute the pre scenario script, the jmeter scenario and post scenario script)
 ```
-ex:-> sh 28-pre-scenario-steps.sh
+ex:-> sh run-scenario.sh
 ```
-
-Run jmeter scripts in command line (still on the same terminal)
-```
-ex:-> [path to jmeter]/bin/jmeter -n -t 01-Scenario-28-HomeRelam.jmx -p [path to user.properties]/user.properties -l scenario28results.jtl
-```
-
-Follow the step [2] above. 
-```
-ex:-> sh 28-post-scenario-steps.sh
-```
-
-
-
-
