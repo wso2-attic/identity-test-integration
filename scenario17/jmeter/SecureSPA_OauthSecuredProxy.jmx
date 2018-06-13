@@ -156,7 +156,7 @@
           </elementProp>
           <elementProp name="role" elementType="Argument">
             <stringProp name="Argument.name">role</stringProp>
-            <stringProp name="Argument.value">${__property(roleName)}</stringProp>
+            <stringProp name="Argument.value">${__property(createdRole)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="permission" elementType="Argument">
@@ -1349,7 +1349,7 @@
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">01-SecureSPA_OauthSecuredProxy.jtl</stringProp>
+        <stringProp name="filename">/home/shavantha/Desktop/gitstuff/identity-test-integration/scenario17/01-SecureSPA_OauthSecuredProxy.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
     </hashTree>
