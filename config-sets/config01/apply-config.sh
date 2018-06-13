@@ -1,5 +1,10 @@
-$productHome
-filePath=/repository/deployment/server/webapps/authenticationendpoint
+#include the path of the IS Pack for the productHome variable when trying locally
+productHome=$productHome
+
+serverHost=$serverHost
+serverPort=$serverPort
+
+filePath=repository/deployment/server/webapps/authenticationendpoint/
 
 prgdir=$(dirname "$0")
 configDir=$(cd "$prgdir"; pwd)
@@ -70,9 +75,10 @@ done
 ###########
 
 #copy config files
-cd $productHome/repository/deployment/server/webapps/
-mkdir authenticationendpoint
-cd $productHome
+#cd $productHome/repository/deployment/server/webapps/authenticationendpoint/
+#mkdir authenticationendpoint
+#cd $productHome
+#cd $productHome/
 cp $configDir/files/pwd-reset.jsp $productHome/$filePath
 echo "pwd-reset.jsp file added to the path: $productHome/$filePath"
 

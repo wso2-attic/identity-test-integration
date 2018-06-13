@@ -14,10 +14,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-rootdir=$(dirname "$0")
-rootPath=$(cd "$rootdir"; pwd)
+prgdir=$(dirname "$0")
+scriptPath=$(cd "$prgdir"; pwd)
 
-sh $rootPath/jmeter/12-pre-scenario-steps.sh > preScenario.log
-$JMETER_HOME/bin/jmeter.sh -n -t $rootPath/jmeter/01-Scenario-12-ClaimMapper.jmx -p resources/user.properties
-sh $rootPath/jmeter/12-post-scenario-steps.sh > postScenario.log
 
+sh $scriptPath/jmeter/14-pre-scenario-steps.sh
+
+
+$JMETER_HOME/bin/jmeter.sh -n -t jmeter/01-Scenario14-EnforcePasswordReset.jmx -p resources/user.properties
+
+
+sh $scriptPath/jmeter/14-post-scenario-steps.sh
+                                                               

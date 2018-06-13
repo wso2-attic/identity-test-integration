@@ -100,3 +100,8 @@ config-change-sets:
     description: 'Config changes required to enable SSO in Multi-factor authentication for WSO2 Identity Server management console'
     applies-to:
       - scenario05
+  -
+    name: config03
+    description: 'Congig changes applies/reverts the identity server with the oauth_proxy.properties, oauth2-proxy.war and skips the user consent'  
+    applies-to: 
+      - scenario17

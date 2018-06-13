@@ -1,4 +1,5 @@
-#!/bin/bash
+#! /bin/bash
+
 # Copyright (c) 2017, WSO2 Inc. (http://wso2.com) All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -32,36 +33,39 @@ SAML2SPEntityId="$appName"
 SkipURIs="/$appName/index.jsp"
 SAML2IdPEntityId=$serverHost
 
+prgdir=$(dirname "$0")
+scriptPath=$(cd "$prgdir"; pwd)
+
 #create temporary directory
-mkdir $scriptPath/../temp
+mkdir $scriptPath/temp
 #coping travalocity app to temp direcory
 
-cp -r $scriptPath/../../apps/sso-agent-sample $scriptPath/../temp/
-cd $scriptPath/../temp/sso-agent-sample/
+cp -r $scriptPath/../apps/sso-agent-sample $scriptPath/temp/
+cd $scriptPath/temp/sso-agent-sample/
 #build travelocity app from source
 mvn clean install
-mkdir $scriptPath/../temp/travelocity.com
-cd $scriptPath/../temp/travelocity.com
+mkdir $scriptPath/temp/travelocity.com
+cd $scriptPath/temp/travelocity.com
 #extract travelocity.com.war to temp directory for further configurations
-jar xvf $scriptPath/../temp/sso-agent-sample/target/travelocity.com.war
+jar xvf $scriptPath/temp/sso-agent-sample/target/travelocity.com.war
 
 #updating travelocity.conf file
-sed -i "s|^\(SAML2\.AssertionConsumerURL\s*=\s*\).*\$|\1${SAML2AssertionConsumerURL}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+sed -i -e "s|^\(SAML2\.AssertionConsumerURL\s*=\s*\).*\$|\1${SAML2AssertionConsumerURL}|" $scriptPath/temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
-sed -i "s|^\(SAML2\.IdPURL\s*=\s*\).*\$|\1${SAML2IdPURL}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+sed -i -e "s|^\(SAML2\.IdPURL\s*=\s*\).*\$|\1${SAML2IdPURL}|" $scriptPath/temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
-sed -i "s|^\(SAML2\.SPEntityId\s*=\s*\).*\$|\1${SAML2SPEntityId}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+sed -i -e "s|^\(SAML2\.SPEntityId\s*=\s*\).*\$|\1${SAML2SPEntityId}|" $scriptPath/temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
-sed -i "s|^\(SkipURIs\s*=\s*\).*\$|\1${SkipURIs}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+sed -i -e "s|^\(SkipURIs\s*=\s*\).*\$|\1${SkipURIs}|" $scriptPath/temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
-sed -i "s|^\(SAML2\.IdPEntityId\s*=\s*\).*\$|\1${SAML2IdPEntityId}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
+sed -i -e "s|^\(SAML2\.IdPEntityId\s*=\s*\).*\$|\1${SAML2IdPEntityId}|" $scriptPath/temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
 #repackaging travelocity app
-cd $scriptPath/../temp/travelocity.com/
-jar cvf $scriptPath/../temp/travelocity.com.war .
+cd $scriptPath/temp/travelocity.com/
+jar cvf $scriptPath/temp/travelocity.com.war .
 
 #deploy webapp on tomcat
-cd $scriptPath/../temp/
+cd $scriptPath/temp/
 #tomcat6
 #curl --upload-file target\debug.war "http://tomcat:tomcat@localhost:8088/manager/deploy?path=/debug&update=true"
 #tomcat7/8

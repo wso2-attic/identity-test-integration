@@ -6,7 +6,7 @@
 
 - During the authentication flow, enforce to check whether the end-user password is expired and if so, prompt the user to change the password.
 
-
+Note: the last password changed time is set to a value which is over 30 days
 ##### Scenario:
 
 -   Configure multi-step authentication for the corresponding service provider.
