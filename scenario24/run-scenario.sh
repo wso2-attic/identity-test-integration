@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 # Copyright (c) 2017, WSO2 Inc. (http://wso2.com) All Rights Reserved.
 #
@@ -14,25 +14,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-serverHost=$serverHost
-serverPort=$serverPort
-
 prgdir=$(dirname "$0")
 scriptPath=$(cd "$prgdir"; pwd)
 
-#echo "working directory : "$scriptPath
-echo "updating jmeter properties "; #- user.properties
-sed -i -e "s|^\(serverHost\s*=\s*\).*\$|\1${serverHost}|" $scriptPath/../resources/user.properties
-sed -i -e "s|^\(serverPort\s*=\s*\).*\$|\1${serverPort}|" $scriptPath/../resources/user.properties
+echo "working directory :" $scriptPath;
+sh $scriptPath/jmeter/24-pre-scenario-steps.sh
 
-#run base-setup.sh to deploy artifacts
-sh $scriptPath/../base-setup.sh > $scriptPath/basesetup.log
+$JMETER_HOME/bin/jmeter.sh -n -t jmeter/01-Scenario24-XACML.jmx -p resources/user.properties
+sleep 10
 
-statusval=$?
-if [ $statusval -eq 0 ]; then
- echo "pre-steps are done..."
-else
-    echo "pre-steps were failed..."
-    exit 1
-fi
-
+sh $scriptPath/jmeter/24-post-scenario-steps.sh
