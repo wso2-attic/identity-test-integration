@@ -14,8 +14,21 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#TearDown steps are scripts here..
-#Though there is no specific setps are mentoined below,
-#-the file will maintain to keep same structure on all scnarios.
+#these params need to be taken out
+#tomcat properties
+appName="Sol17amazon"
+tomcatHost=$tomcatHost
+tomcatPort=$tomcatPort
+tomcatUsername=$tomcatUsername
+tomcatPassword=$tomcatPassword
+tomcatVersion=7
+serverHost=$serverHost
+serverPort=$serverPort
+solutionPath=/
 
-echo "teardown steps"
+
+#undeploy webapp from tomcat
+curl http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/undeploy?path=${solutionPath}${appName}
+#clear temp direcotry
+rm -rf temp/
+
