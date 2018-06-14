@@ -1349,7 +1349,7 @@
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">/home/shavantha/Desktop/gitstuff/identity-test-integration/scenario17/01-SecureSPA_OauthSecuredProxy.jtl</stringProp>
+        <stringProp name="filename">SecureSPA_OauthSecuredProxy.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
     </hashTree>
