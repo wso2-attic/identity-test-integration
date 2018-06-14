@@ -13,11 +13,8 @@ webappPath=/repository/deployment/server/webapps/
 
 serverHost=$serverHost
 serverPort=$serverPort
-#Setup specific host details
-ISServerHost=$ISServerHost
-ISServerPort=$ISServerPort
-TomcatServerHost=$TomcatServerHost
-TomcatServerPort=$TomcatServerPort
+TomcatServerHost=$tomcatHost
+TomcatServerPort=$tomcatPort
 
 
 
@@ -40,7 +37,7 @@ retry_count1=20;
 while true
 do
 echo $(date)" Waiting until server stops"
-if curl -s -w '%{http_code}' https://$ISServerHost:$ISServerPort/carbon -k | grep "000"
+if curl -s -w '%{http_code}' https://$serverHost:$serverPort/carbon -k | grep "000"
 then
  echo "Carbon server stopped...!"
  break
@@ -64,13 +61,13 @@ echo "copying the file........."
 cd $productHome/$folderPath
 touch oauth_proxy.properties
 
- echo "is_server_ep=https://"${ISServerHost}:${ISServerPort} >> oauth_proxy.properties
+ echo "is_server_ep=https://"${serverHost}:${serverPort} >> oauth_proxy.properties
 
  echo "client_id=6ktdbCJgmQIqlO1tNiHBQoVelkUlg" >> oauth_proxy.properties
 
  echo "client_secret=cg5Gg8PfwI28NjLRy64pyffcK4Ilg" >> oauth_proxy.properties
 
- echo "proxy_callback_url=https://"${ISServerHost}:${ISServerPort}"/oauth2-proxy/callback" >> oauth_proxy.properties
+ echo "proxy_callback_url=https://"${serverHost}:${serverPort}"/oauth2-proxy/callback" >> oauth_proxy.properties
 
  echo "sp_callback_url_mapping.sample1=http://"${TomcatServerHost}:${TomcatServerPort}"/Sol17amazon/in.html" >> oauth_proxy.properties
 
@@ -116,7 +113,7 @@ retry_count=20;
 while true
 do
 echo $(date)" waiting until server starts..."
-if curl -s -w '%{http_code}' https://$ISServerHost:$ISServerPort/carbon -k | grep "302"
+if curl -s -w '%{http_code}' https://$serverHost:$serverPort/carbon -k | grep "302"
 then
  echo "found server running..."
  echo "configurations Done...!"
