@@ -24,10 +24,7 @@ ETC_HOSTS=/etc/hosts
 # IP Name and IP Adress 
 # IP Address need to be set to a variable sent from the testgrid side including the IP Address of the Load balancer
 IPName="is.qa.com"
-IPAddress=$IPLoadBalancer
-
-
-HOSTS_LINE="$IPAddress\t$IPName"
+IPLoadBalancer=$serverHost
 
 if [ -z "$IPLoadBalancer" ]; then
    echo "IPLoadBalancer is empty, please initiate it and proceed."
@@ -36,6 +33,8 @@ else
 if [ -n "$(grep $IPName $ETC_HOSTS)" ]; then
 	echo "$IPName already exists : $(grep $IPName $ETC_HOSTS)"
 else
+    PublicIP="$(ping -c 1 $IPLoadBalancer | grep -oE '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}')"
+    HOSTS_LINE="$PublicIP\t$IPName"
 	echo "Adding $IPName to your $ETC_HOSTS";
    	sudo -- sh -c -e "echo '$HOSTS_LINE' >> $ETC_HOSTS";
    	if [ -n "$(grep $IPName $ETC_HOSTS)" ]; then
