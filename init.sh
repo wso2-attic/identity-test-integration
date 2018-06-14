@@ -30,17 +30,17 @@ if [ -z "$IPLoadBalancer" ]; then
    echo "IPLoadBalancer is empty, please initiate it and proceed."
    exit 1;
 else
-if [ -n "$(grep $IPName $ETC_HOSTS)" ]; then
-	echo "$IPName already exists : $(grep $IPName $ETC_HOSTS)"
-else
+    #Remove the host entry if exists
+    sudo sed -i '/is.qa.com/d' /etc/hosts
+    #Find the Public IP address of the ELB
     PublicIP="$(ping -c 1 $IPLoadBalancer | grep -oE '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}')"
     HOSTS_LINE="$PublicIP\t$IPName"
 	echo "Adding $IPName to your $ETC_HOSTS";
    	sudo -- sh -c -e "echo '$HOSTS_LINE' >> $ETC_HOSTS";
    	if [ -n "$(grep $IPName $ETC_HOSTS)" ]; then
-       		echo "$IPName was added succesfully \n $(grep $IPName $ETC_HOSTS)";
-    	else
-       		echo "Failed to Add $IPName, Try again!";
-    	fi
-fi
+       	echo "$IPName was added succesfully \n $(grep $IPName $ETC_HOSTS)";
+    else
+       	echo "Failed to Add $IPName, Try again!";
+       	exit 1;
+    fi
 fi
