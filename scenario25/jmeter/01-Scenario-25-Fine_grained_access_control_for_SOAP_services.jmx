@@ -95,6 +95,11 @@
             <stringProp name="Argument.value">${__property(secondUserPw)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
+          <elementProp name="userlist" elementType="Argument">
+            <stringProp name="Argument.name">userlist</stringProp>
+            <stringProp name="Argument.value">${__property(userlist)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
         </collectionProp>
       </Arguments>
       <hashTree/>
@@ -178,7 +183,7 @@
          &lt;!--Optional:--&gt;&#xd;
          &lt;xsd:roleName&gt;${role}&lt;/xsd:roleName&gt;&#xd;
          &lt;!--Zero or more repetitions:--&gt;&#xd;
-            &lt;xsd:userList&gt;admin&lt;/xsd:userList&gt;&#xd;
+            &lt;xsd:userList&gt;${userlist}&lt;/xsd:userList&gt;&#xd;
          &lt;xsd:permissions&gt;${permission}&lt;/xsd:permissions&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
          &lt;xsd:isSharedRole&gt;false&lt;/xsd:isSharedRole&gt;&#xd;
@@ -232,7 +237,7 @@
          &lt;!--Optional:--&gt;&#xd;
          &lt;xsd:roleName&gt;${role2}&lt;/xsd:roleName&gt;&#xd;
          &lt;!--Zero or more repetitions:--&gt;&#xd;
-            &lt;xsd:userList&gt;admin&lt;/xsd:userList&gt;&#xd;
+            &lt;xsd:userList&gt;${userlist}&lt;/xsd:userList&gt;&#xd;
          &lt;xsd:permissions&gt;${permission}&lt;/xsd:permissions&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
          &lt;xsd:isSharedRole&gt;false&lt;/xsd:isSharedRole&gt;&#xd;
@@ -445,7 +450,7 @@
 import java.util.concurrent.TimeUnit;
 
 Date timeNow=new Date();
-Date timeAfter=new Date(timeNow.getTime() + TimeUnit.MINUTES.toMillis(2));
+Date timeAfter=new Date(timeNow.getTime() + TimeUnit.MINUTES.toMillis(10));
 
 String timeNowDate=(timeNow.toString()).substring(11, 19);
 String timeAfterDate=(timeAfter.toString()).substring(11, 19);
@@ -1263,7 +1268,7 @@ vars.put(&quot;timeAfterDate&quot;, String.valueOf(timeAfterDate));
             <sampleCount>true</sampleCount>
           </value>
         </objProp>
-        <stringProp name="filename">scenario-25-results.jtl</stringProp>
+        <stringProp name="filename">/Users/IsuruUyanage/Desktop/RnD/identity-test-integration/scenario25/scenario-25-results.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
     </hashTree>

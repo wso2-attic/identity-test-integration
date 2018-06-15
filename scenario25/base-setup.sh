@@ -20,7 +20,7 @@ tomcatHost=$tomcatHost
 tomcatPort=$tomcatPort
 serverHost=$serverHost
 serverPort=$serverPort
-ei_host="54.144.46.10"
-ei_port=9443
+ei_host=$eiHost
+ei_port=$eiPort
 
 echo "BaseScript Done..."
