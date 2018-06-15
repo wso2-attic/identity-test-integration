@@ -1268,7 +1268,7 @@ vars.put(&quot;timeAfterDate&quot;, String.valueOf(timeAfterDate));
             <sampleCount>true</sampleCount>
           </value>
         </objProp>
-        <stringProp name="filename">/Users/IsuruUyanage/Desktop/RnD/identity-test-integration/scenario25/scenario-25-results.jtl</stringProp>
+        <stringProp name="filename">scenario-25-results.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
     </hashTree>
