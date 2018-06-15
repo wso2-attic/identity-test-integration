@@ -14,6 +14,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+prgdir=$(dirname "$0")
+scriptPath=$(cd "$prgdir"; pwd)
+
+
+sh $scriptPath/jmeter/22-pre-scenario-steps.sh
+
 $JMETER_HOME/bin/jmeter.sh -n -t jmeter/01-Scenario-22-Create-Test-Users.jmx -p resources/user.properties
 $JMETER_HOME/bin/jmeter.sh -n -t jmeter/02-Scenario-22-Create-IDP.jmx -p resources/user.properties
 $JMETER_HOME/bin/jmeter.sh -n -t jmeter/03-Scenario-22-Create-SP.jmx -p resources/user.properties
@@ -21,3 +27,5 @@ $JMETER_HOME/bin/jmeter.sh -n -t jmeter/04-Scenario-22-SAML2-Get-JWT-Token -p re
 $JMETER_HOME/bin/jmeter.sh -n -t jmeter/05-Scenario-22-Delete-IDP.jmx -p resources/user.properties
 $JMETER_HOME/bin/jmeter.sh -n -t jmeter/06-Scenario-22-Delete-SP.jmx -p resources/user.properties
 $JMETER_HOME/bin/jmeter.sh -n -t jmeter/07-Scenario-22-Remove-Test-Users.jmx -p resources/user.properties
+
+sh $scriptPath/jmeter/22-post-scenario-steps.sh
