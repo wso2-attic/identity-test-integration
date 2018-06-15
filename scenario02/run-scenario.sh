@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 # Copyright (c) 2017, WSO2 Inc. (http://wso2.com) All Rights Reserved.
 #
@@ -14,14 +14,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#tomcat properties
-tomcatHost=$tomcatHost
-tomcatPort=$tomcatPort
-tomcatUsername=$tomcatUsername
-tomcatPassword=$tomcatPassword
-appName="travelocity.com"
+prgdir=$(dirname "$0")
+scriptPath=$(cd "$prgdir"; pwd)
 
-#undeploy webapp from tomcat
-curl http://$tomcatUsername:$tomcatPassword@$tomcatHost:$tomcatPort/manager/text/undeploy?path=/$appName
-#clear temp direcotry
-rm -rf $scriptPath/../temp/
+sh $scriptPath/jmeter/02-pre-scenario-steps.sh
+
+$JMETER_HOME/bin/jmeter.sh -n -t $scriptPath/jmeter/01-Scenario-02-Facebook.jmx -p $scriptPath/resources/user.properties 
+
+$JMETER_HOME/bin/jmeter.sh -n -t $scriptPath/jmeter/03-Scenario-02-ISasIDP.jmx -p $scriptPath/resources/user.properties 
+
+sh $scriptPath/jmeter/02-post-scenario-steps.sh

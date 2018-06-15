@@ -12,20 +12,21 @@ Following scenarios are covered through this automation script.
   - If federated authentication is required, for example, login with Facebook, represent all federated identity providers in Identity Server, as Identity Providers and engage them with appropriate service providers under the appropriate authentication step.
   - In each service provider, configure WSO2 Identity Server as a trusted identity provider. For example in Google Apps, add WSO2 Identity Server as a trusted identity provider.
 ##### Scenario Details
-- Scenario 1 - Facebook as a federated authenticator.
-- Scenario 2 - Google as a federated authenticator.
+- Scenario 1 - Multi Factor Authenticator with Basic authentication and Facebook as a federated authenticator.
+- Scenario 2 - IS as a federated authenticator.
 
 #####  Pre - Requisites
 - Tomcat server should be up and running
--  Set the below property, inorder to access admin services in WSO2 IS product.
-```sh
-<HideAdminServiceWSDLs> element to false in the <PRODUCT_HOME>/repository/conf/carbon.xml file.
-```
+- A seperate Identitiy Server should be up and running.
+- Need to export several parameters with values before running the run-scenario.sh script
+= export serverHost=[HostNameOfThePrimaryISServer] serverPort=[PortOfThePrimaryISServer] tomcatHost=[HostNameOfTomcatServer] tomcatPort=[PortOfTomcatServer] tomcatUsername=[TomcatUsername] tomcatPassword=[TomcatPassword] serverHostSecondary=[HostNameOfTheSecondaryISServer] serverPortSecondary=[PortOfTheSecondaryISServer]
+- Map is.qa.com to nginx server url in /etc/hosts file
+
 ##### Configurations
 1. Follow the steps in this [1] and get a checkout of travelocity sample and build 
     [1]https://docs.wso2.com/display/IS500/Configuring+Single+Sign-On+with+SAML+2.0#ConfiguringSingleSign-OnwithSAML2.0-Prerequisites
 2. Deploy a travelocity web app (travelocity.com.war) in tomcat.
-3.Change the configurations according to the environment in *user.properties* under *scenario02*. (scenario02/src/test/resources/user.properties)
+3.Change the configurations according to the environment in *user.properties* under *scenario02*. (scenario02/src/test/resources/user.properties).
 ```sh
 #server
 scriptHost=<Host name of IS server>
@@ -63,19 +64,28 @@ FbCallbackUrl=<URL to which the browser should be redirected after the authentic
 FbScope=<Restrict the claims sent to the Identity Serve>
 FbUserInfoFields=<list of claims that you need to receive>
 
-#Google
-Gusername=<Username for user creation for Google> 
-Gpassword=<Password for user creation for Google> 
-Grole=<Role name for role creation for Google>
-Gpermission=<Permission for role>
-GoogleClientId=<Username from the Google app>
-GoogleSecret=<Password from the Google app>
-GoogleCallbackUrl=<URL to which the browser should be redirected after the authentication is successful>
-Googlescope	scope=<Restrict the claims sent to the Identity Serve>
-Alias=oauth2/token
+#ISasIDP
+
+ISIdentityProviderName=Secondary
+serverHostSecondary=<Hostname of the Secondary IS server>
+serverPortSecondary=9443
+serverSSOurlSecondary=samlsso
+ISIdPEntityId=Secondary IDP
+ISSPEntityId=Primary
+secondarySPName=PrimaryIDP
+secondaryspDescription=PrimaryIDP
+Primaryissuer=Primary
+SPNamePrimary=Travelocity
+SPDescriptionPrimary=Travelocity as the SP in the primary IS
+alias=oauth2/token
+secondaryUsername=testUser
+secondaryPassword=testUser_123
+secondaryIncorrectPassword=testUser_456
+adminUsernameSecondary=admin
+adminPasswordSecondary=admin
 ```
 ##### Run the test
-To run scenario 02 run the below command.
+To execute the scenario 02, run the below command inside the scenario folder.
 ```sh
-mvn clean verify --fae
+sh run-scenario.sh
 ```
