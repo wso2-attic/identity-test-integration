@@ -14,4 +14,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+prgdir=$(dirname "$0")
+scriptPath=$(cd "$prgdir"; pwd)
+
+echo "script path " $scriptPath;
+sh $scriptPath/jmeter/28-pre-scenario-steps.sh
+
 $JMETER_HOME/bin/jmeter.sh -n -t jmeter/01-Scenario-28-HomeRelam.jmx -p resources/user.properties
+
+sh $scriptPath/jmeter/28-post-scenario-steps.sh
