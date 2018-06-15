@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.2 r1790748">
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.3 r1808647">
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="MFA with Basic and Twitter" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
@@ -11,131 +11,6 @@
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
     </TestPlan>
     <hashTree>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Variables" enabled="false">
-        <collectionProp name="Arguments.arguments">
-          <elementProp name="is_host" elementType="Argument">
-            <stringProp name="Argument.name">is_host</stringProp>
-            <stringProp name="Argument.value">is550.qa.com</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="is_port" elementType="Argument">
-            <stringProp name="Argument.name">is_port</stringProp>
-            <stringProp name="Argument.value">443</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="adminusername" elementType="Argument">
-            <stringProp name="Argument.name">adminusername</stringProp>
-            <stringProp name="Argument.value">adminwso2</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="adminpassword" elementType="Argument">
-            <stringProp name="Argument.name">adminpassword</stringProp>
-            <stringProp name="Argument.value">admin</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="spname" elementType="Argument">
-            <stringProp name="Argument.name">spname</stringProp>
-            <stringProp name="Argument.value">MgtConsole</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="spdescription" elementType="Argument">
-            <stringProp name="Argument.name">spdescription</stringProp>
-            <stringProp name="Argument.value">This is the SP that will use to login to management console itself</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="carbonServer" elementType="Argument">
-            <stringProp name="Argument.name">carbonServer</stringProp>
-            <stringProp name="Argument.value">carbonServer</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="idpname" elementType="Argument">
-            <stringProp name="Argument.name">idpname</stringProp>
-            <stringProp name="Argument.value">facebook</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="idpdescription" elementType="Argument">
-            <stringProp name="Argument.name">idpdescription</stringProp>
-            <stringProp name="Argument.value">This is the Facebook federated IDP</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="fbclientID" elementType="Argument">
-            <stringProp name="Argument.name">fbclientID</stringProp>
-            <stringProp name="Argument.value">2064260000461890</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="fbclientSecret" elementType="Argument">
-            <stringProp name="Argument.name">fbclientSecret</stringProp>
-            <stringProp name="Argument.value">516241437cf3d9067dad45798f07e9be</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="rolename" elementType="Argument">
-            <stringProp name="Argument.name">rolename</stringProp>
-            <stringProp name="Argument.value">sol5admin</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="usernamePrefix" elementType="Argument">
-            <stringProp name="Argument.name">usernamePrefix</stringProp>
-            <stringProp name="Argument.value">sol5admin</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="testuserpass" elementType="Argument">
-            <stringProp name="Argument.name">testuserpass</stringProp>
-            <stringProp name="Argument.value">sol5admin1</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="noOfUsers" elementType="Argument">
-            <stringProp name="Argument.name">noOfUsers</stringProp>
-            <stringProp name="Argument.value">1</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="fbserver" elementType="Argument">
-            <stringProp name="Argument.name">fbserver</stringProp>
-            <stringProp name="Argument.value">facebook.com</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="redirect" elementType="Argument">
-            <stringProp name="Argument.name">redirect</stringProp>
-            <stringProp name="Argument.value">commonauth</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="FBLoginEmail" elementType="Argument">
-            <stringProp name="Argument.name">FBLoginEmail</stringProp>
-            <stringProp name="Argument.value">testuser@gmail.com</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="FBUsername" elementType="Argument">
-            <stringProp name="Argument.name">FBUsername</stringProp>
-            <stringProp name="Argument.value">testuser</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="FB_Password" elementType="Argument">
-            <stringProp name="Argument.name">FB_Password</stringProp>
-            <stringProp name="Argument.value">testuser</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="testAdminCredentials" elementType="Argument">
-            <stringProp name="Argument.name">testAdminCredentials</stringProp>
-            <stringProp name="Argument.value">c29sNWFkbWluMTphZG1pbg==</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="incorrectTwitter" elementType="Argument">
-            <stringProp name="Argument.name">incorrectTwitter</stringProp>
-            <stringProp name="Argument.value">admin991</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="twitterUserName" elementType="Argument">
-            <stringProp name="Argument.name">twitterUserName</stringProp>
-            <stringProp name="Argument.value">test_wso2qa</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="twitterPassword" elementType="Argument">
-            <stringProp name="Argument.name">twitterPassword</stringProp>
-            <stringProp name="Argument.value">Wso2qa@123</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-        </collectionProp>
-      </Arguments>
-      <hashTree/>
       <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Variables" enabled="true">
         <collectionProp name="Arguments.arguments">
           <elementProp name="is_host" elementType="Argument">
@@ -183,14 +58,14 @@
             <stringProp name="Argument.value">${__property(idpdescription)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="fbclientID" elementType="Argument">
-            <stringProp name="Argument.name">fbclientID</stringProp>
-            <stringProp name="Argument.value">${__property(fbclientID)}</stringProp>
+          <elementProp name="TwitterClientId" elementType="Argument">
+            <stringProp name="Argument.name">TwitterClientId</stringProp>
+            <stringProp name="Argument.value">${__property(TwitterClientId)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="fbclientSecret" elementType="Argument">
-            <stringProp name="Argument.name">fbclientSecret</stringProp>
-            <stringProp name="Argument.value">${__property(fbclientSecret)}</stringProp>
+          <elementProp name="TwitterSecret" elementType="Argument">
+            <stringProp name="Argument.name">TwitterSecret</stringProp>
+            <stringProp name="Argument.value">${__property(TwitterSecret)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="rolename" elementType="Argument">
@@ -213,29 +88,9 @@
             <stringProp name="Argument.value">${__property(noOfUsers)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="fbserver" elementType="Argument">
-            <stringProp name="Argument.name">fbserver</stringProp>
-            <stringProp name="Argument.value">${__property(fbserver)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
           <elementProp name="redirect" elementType="Argument">
             <stringProp name="Argument.name">redirect</stringProp>
             <stringProp name="Argument.value">${__property(redirect)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="FBLoginEmail" elementType="Argument">
-            <stringProp name="Argument.name">FBLoginEmail</stringProp>
-            <stringProp name="Argument.value">${__property(FBLoginEmail)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="FBUsername" elementType="Argument">
-            <stringProp name="Argument.name">FBUsername</stringProp>
-            <stringProp name="Argument.value">${__property(FBUsername)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="FB_Password" elementType="Argument">
-            <stringProp name="Argument.name">FB_Password</stringProp>
-            <stringProp name="Argument.value">${__property(FBPassword)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="testAdminCredentials" elementType="Argument">
@@ -279,7 +134,6 @@
         <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
           <collectionProp name="CookieManager.cookies"/>
           <boolProp name="CookieManager.clearEachIteration">false</boolProp>
-          <stringProp name="CookieManager.implementation">org.apache.jmeter.protocol.http.control.HC4CookieHandler</stringProp>
         </CookieManager>
         <hashTree/>
         <CacheManager guiclass="CacheManagerGui" testclass="CacheManager" testname="HTTP Cache Manager" enabled="true">
@@ -328,6 +182,8 @@ try {
 
 		WebElement signin =  driver.findElement(By.xpath(&quot;//button[@type=&apos;submit&apos;]&quot;));
 		signin.click();
+
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);		
 
 		WebElement username =  driver.findElement(By.id(&quot;username_or_email&quot;));
 		username.clear();
@@ -401,7 +257,6 @@ try {
         <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
           <collectionProp name="CookieManager.cookies"/>
           <boolProp name="CookieManager.clearEachIteration">false</boolProp>
-          <stringProp name="CookieManager.implementation">org.apache.jmeter.protocol.http.control.HC4CookieHandler</stringProp>
         </CookieManager>
         <hashTree/>
         <CacheManager guiclass="CacheManagerGui" testclass="CacheManager" testname="HTTP Cache Manager" enabled="true">
@@ -478,11 +333,11 @@ try {
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1481774650">The username and password you entered did not match our records. Please double-check and try again.</stringProp>
+              <stringProp name="1059223630">New to Twitter</stringProp>
             </collectionProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">16</intProp>
+            <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
@@ -505,7 +360,6 @@ try {
         <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
           <collectionProp name="CookieManager.cookies"/>
           <boolProp name="CookieManager.clearEachIteration">false</boolProp>
-          <stringProp name="CookieManager.implementation">org.apache.jmeter.protocol.http.control.HC4CookieHandler</stringProp>
         </CookieManager>
         <hashTree/>
         <CacheManager guiclass="CacheManagerGui" testclass="CacheManager" testname="HTTP Cache Manager" enabled="true">
@@ -787,7 +641,6 @@ try {
         <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
           <collectionProp name="CookieManager.cookies"/>
           <boolProp name="CookieManager.clearEachIteration">false</boolProp>
-          <stringProp name="CookieManager.implementation">org.apache.jmeter.protocol.http.control.HC4CookieHandler</stringProp>
         </CookieManager>
         <hashTree/>
         <CacheManager guiclass="CacheManagerGui" testclass="CacheManager" testname="HTTP Cache Manager" enabled="true">
@@ -871,6 +724,38 @@ try {
           <hashTree/>
         </hashTree>
       </hashTree>
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>true</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
       <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
@@ -902,39 +787,7 @@ try {
             <idleTime>true</idleTime>
           </value>
         </objProp>
-        <stringProp name="filename"></stringProp>
-      </ResultCollector>
-      <hashTree/>
-      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
-        <boolProp name="ResultCollector.error_logging">false</boolProp>
-        <objProp>
-          <name>saveConfig</name>
-          <value class="SampleSaveConfiguration">
-            <time>true</time>
-            <latency>true</latency>
-            <timestamp>true</timestamp>
-            <success>true</success>
-            <label>true</label>
-            <code>true</code>
-            <message>true</message>
-            <threadName>true</threadName>
-            <dataType>true</dataType>
-            <encoding>false</encoding>
-            <assertions>true</assertions>
-            <subresults>true</subresults>
-            <responseData>false</responseData>
-            <samplerData>false</samplerData>
-            <xml>true</xml>
-            <fieldNames>false</fieldNames>
-            <responseHeaders>false</responseHeaders>
-            <requestHeaders>false</requestHeaders>
-            <responseDataOnError>false</responseDataOnError>
-            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
-            <assertionsResultsToSave>0</assertionsResultsToSave>
-            <bytes>true</bytes>
-          </value>
-        </objProp>
-        <stringProp name="filename"></stringProp>
+        <stringProp name="filename">scenario-05-results.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
     </hashTree>
