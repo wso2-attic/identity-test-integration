@@ -13,20 +13,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
-#script properties
-scriptPath=$1
-
 #properties
 #TODO:read below property from infra.json file
 appName="travelocity.com"
-tomcatHost=$4
-tomcatPort=$5
+tomcatHost=$tomcatHost
+tomcatPort=$tomcatPort
 tomcatUsername=$tomcatUsername
 tomcatPassword=$tomcatPassword
 tomcatVersion=7
-serverHost=$6
-serverPort=$7
+serverHost=$serverHost
+serverPort=$serverPort
 solutionPath=/
 
 #travelocity properties
@@ -37,8 +33,8 @@ SkipURIs="/$appName/index.jsp"
 SAML2IdPEntityId=$serverHost
 EnableOAuth2SAML2Grant="true"
 SAML2IsPassiveAuthn="false"
-OAuth2ClientId=$2
-OAuth2ClientSecret=$3
+OAuth2ClientId="lKjE0YDVrXNJY8TN7AdzAgkgfJ0a"
+OAuth2ClientSecret="KiAnWzcf9NaKCdL7B8wjGqffE70a"
 
 
 #create temporary directory
@@ -64,8 +60,6 @@ sed -i "s|^\(SAML2\.SPEntityId\s*=\s*\).*\$|\1${SAML2SPEntityId}|" $scriptPath/.
 sed -i "s|^\(SkipURIs\s*=\s*\).*\$|\1${SkipURIs}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
 sed -i "s|^\(SAML2\.IdPEntityId\s*=\s*\).*\$|\1${SAML2IdPEntityId}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
-
-sed -i "s|^\(SkipURIs\s*=\s*\).*\$|\1${SkipURIs}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
 sed -i "s|^\(EnableOAuth2SAML2Grant\s*=\s*\).*\$|\1${EnableOAuth2SAML2Grant}|" $scriptPath/../temp/travelocity.com/WEB-INF/classes/travelocity.properties
 
