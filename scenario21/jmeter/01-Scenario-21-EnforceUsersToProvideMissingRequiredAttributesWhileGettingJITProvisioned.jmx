@@ -4627,7 +4627,7 @@ try {
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">01-scenario-21-results.jtl</stringProp>
+        <stringProp name="filename">scenario-21-results.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
     </hashTree>
