@@ -97,6 +97,11 @@
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">Secondary user store domain prefix</stringProp>
           </elementProp>
+          <elementProp name="userlist" elementType="Argument">
+            <stringProp name="Argument.name">userlist</stringProp>
+            <stringProp name="Argument.value">${__property(userlist)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
         </collectionProp>
         <stringProp name="TestPlan.comments">
 </stringProp>
@@ -204,7 +209,7 @@
    &lt;soapenv:Body&gt;&#xd;
       &lt;ser:addRole&gt;&#xd;
          &lt;ser:roleName&gt;${rolename}${roleNo}&lt;/ser:roleName&gt;   &#xd;
-         &lt;ser:userList&gt;adminwso2&lt;/ser:userList&gt;    &#xd;
+         &lt;ser:userList&gt;${userlist}&lt;/ser:userList&gt;    &#xd;
          &lt;ser:permissions&gt;&#xd;
             &lt;xsd:action&gt;ui.execute&lt;/xsd:action&gt;&#xd;
             &lt;xsd:resourceId&gt;/permission/admin/login&lt;/xsd:resourceId&gt;&#xd;
