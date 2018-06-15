@@ -24,7 +24,7 @@ Products: WSO2 Identity Server 4.0.0+, WSO2 ESB, Governance Registry
 
 1. SimpleStockQuoteService is up and runing in axis2Server. 
 2. EI is up and running. 
-3. Upload the capp to WSO2 EI. (please find the committed capp at: https://github.com/isuruuy429/Files)
+3. Upload the capp to WSO2 EI. (please find the capp at apps folder)
 4. SimpleStockQuoteService is secured with a proxy. The proxy endpoint: https://localhost:8243/services/criticalillnessproxy 
 5. Create two users in EI. sol25user(permitted user - sol25role) and fUser1(non permitted user - Finance)
 
