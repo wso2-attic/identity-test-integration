@@ -18,6 +18,9 @@ serverHost=$serverHost
 serverPort=$serverPort
 tomcatHost=$tomcatHost
 tomcatPort=$tomcatPort
+serverHostSecondary=$serverHostSecondary
+serverPortSecondary=$serverPortSecondary
+
 prgdir=$(dirname "$0")
 scriptPath=$(cd "$prgdir"; pwd)
 
@@ -28,8 +31,10 @@ sed -i "s|^\(serverHost\s*=\s*\).*\$|\1${serverHost}|" $scriptPath/../resources/
 sed -i "s|^\(serverPort\s*=\s*\).*\$|\1${serverPort}|" $scriptPath/../resources/user.properties
 sed -i "s|^\(tomcatHost\s*=\s*\).*\$|\1${tomcatHost}|" $scriptPath/../resources/user.properties
 sed -i "s|^\(tomcatPort\s*=\s*\).*\$|\1${tomcatPort}|" $scriptPath/../resources/user.properties
+sed -i "s|^\(serverHostSecondary\s*=\s*\).*\$|\1${serverHostSecondary}|" $scriptPath/../resources/user.properties
+sed -i "s|^\(serverPortSecondary\s*=\s*\).*\$|\1${serverPortSecondary}|" $scriptPath/../resources/user.properties
 
 #run base-setup.sh to deploy artifacts
-source $scriptPath/../base-setup.sh > $scriptPath/basesetup.log
+. $scriptPath/../base-setup.sh > $scriptPath/basesetup.log
 
 echo "pre-steps are done..."

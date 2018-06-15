@@ -18,6 +18,9 @@ Following scenarios are covered through this automation script.
 #####  Pre - Requisites
 - Tomcat server should be up and running
 - A seperate Identitiy Server should be up and running.
+- Need to export several parameters with values before running the run-scenario.sh script
+= export serverHost=[HostNameOfThePrimaryISServer] serverPort=[PortOfThePrimaryISServer] tomcatHost=[HostNameOfTomcatServer] tomcatPort=[PortOfTomcatServer] tomcatUsername=[TomcatUsername] tomcatPassword=[TomcatPassword] serverHostSecondary=[HostNameOfTheSecondaryISServer] serverPortSecondary=[PortOfTheSecondaryISServer]
+- Map is.qa.com to nginx server url in /etc/hosts file
 
 ##### Configurations
 1. Follow the steps in this [1] and get a checkout of travelocity sample and build 
