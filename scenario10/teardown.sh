@@ -16,7 +16,7 @@
 
 #tomcat properties
 tomcatHost=$tomcatHost
-tomcatPort=8080
+tomcatPort=$tomcatPort
 tomcatUsername=$tomcatUsername
 tomcatPassword=$tomcatPassword
 appName="travelocity.com"
