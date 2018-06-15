@@ -1258,7 +1258,7 @@ catch (Throwable ex) {
             <sampleCount>true</sampleCount>
           </value>
         </objProp>
-        <stringProp name="filename">/Users/IsuruUyanage/Desktop/RnD/identity-test-integration/scenario26/scenario-26-results.jtl</stringProp>
+        <stringProp name="filename">scenario-26-results.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
     </hashTree>
