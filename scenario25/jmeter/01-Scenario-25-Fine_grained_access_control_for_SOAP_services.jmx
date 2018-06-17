@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.2 r1790748">
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.3 r1808647">
   <hashTree>
-    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Fine-grained access control for service providers" enabled="true">
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Fine-grained access control for soap services" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
       <boolProp name="TestPlan.functional_mode">false</boolProp>
       <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
@@ -32,6 +32,16 @@
             <stringProp name="Argument.value">carbon</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
+          <elementProp name="eiHost" elementType="Argument">
+            <stringProp name="Argument.name">eiHost</stringProp>
+            <stringProp name="Argument.value">${__property(eiHost)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="eiPort" elementType="Argument">
+            <stringProp name="Argument.name">eiPort</stringProp>
+            <stringProp name="Argument.value">${__property(eiPort)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
         </collectionProp>
       </elementProp>
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
@@ -40,8 +50,6 @@
       <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
         <collectionProp name="CookieManager.cookies"/>
         <boolProp name="CookieManager.clearEachIteration">false</boolProp>
-        <stringProp name="CookieManager.policy">standard</stringProp>
-        <stringProp name="CookieManager.implementation">org.apache.jmeter.protocol.http.control.HC4CookieHandler</stringProp>
       </CookieManager>
       <hashTree/>
       <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
@@ -55,26 +63,6 @@
           <elementProp name="callback" elementType="Argument">
             <stringProp name="Argument.name">callback</stringProp>
             <stringProp name="Argument.value">https://{serverHost}/oauth2-proxy/callback</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="tomcat_host" elementType="Argument">
-            <stringProp name="Argument.name">tomcat_host</stringProp>
-            <stringProp name="Argument.value">${__property(tomcatHost)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="tomcat_port" elementType="Argument">
-            <stringProp name="Argument.name">tomcat_port</stringProp>
-            <stringProp name="Argument.value">${__property(tomcatPort)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="sp_name" elementType="Argument">
-            <stringProp name="Argument.name">sp_name</stringProp>
-            <stringProp name="Argument.value">${__property(spName)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="sp_description" elementType="Argument">
-            <stringProp name="Argument.name">sp_description</stringProp>
-            <stringProp name="Argument.value">${__property(spDescription)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="role" elementType="Argument">
@@ -92,19 +80,9 @@
             <stringProp name="Argument.value">${__property(createdPassword)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="ei_host" elementType="Argument">
-            <stringProp name="Argument.name">ei_host</stringProp>
-            <stringProp name="Argument.value">${__property(eiHost)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="ei_port" elementType="Argument">
-            <stringProp name="Argument.name">ei_port</stringProp>
-            <stringProp name="Argument.value">${__property(eiPort)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="adminRole" elementType="Argument">
-            <stringProp name="Argument.name">adminRole</stringProp>
-            <stringProp name="Argument.value">${__property(adminRole)}</stringProp>
+          <elementProp name="role2" elementType="Argument">
+            <stringProp name="Argument.name">role2</stringProp>
+            <stringProp name="Argument.value">${__property(financeRole)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="username2" elementType="Argument">
@@ -115,6 +93,11 @@
           <elementProp name="password2" elementType="Argument">
             <stringProp name="Argument.name">password2</stringProp>
             <stringProp name="Argument.value">${__property(secondUserPw)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="userlist" elementType="Argument">
+            <stringProp name="Argument.name">userlist</stringProp>
+            <stringProp name="Argument.value">${__property(userlist)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -187,7 +170,7 @@
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Role" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create permitted role" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -200,7 +183,7 @@
          &lt;!--Optional:--&gt;&#xd;
          &lt;xsd:roleName&gt;${role}&lt;/xsd:roleName&gt;&#xd;
          &lt;!--Zero or more repetitions:--&gt;&#xd;
-            &lt;xsd:userList&gt;admin&lt;/xsd:userList&gt;&#xd;
+            &lt;xsd:userList&gt;${userlist}&lt;/xsd:userList&gt;&#xd;
          &lt;xsd:permissions&gt;${permission}&lt;/xsd:permissions&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
          &lt;xsd:isSharedRole&gt;false&lt;/xsd:isSharedRole&gt;&#xd;
@@ -224,6 +207,61 @@
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">Users in this role are allowed to call the proxy</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">SOAPAction</stringProp>
+                <stringProp name="Header.value">urn:addRole</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">text/xml</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create not permitted role" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xsd=&quot;http://org.apache.axis2/xsd&quot;&gt;&#xd;
+   &lt;soapenv:Header/&gt;&#xd;
+   &lt;soapenv:Body&gt;&#xd;
+      &lt;xsd:addRole&gt;&#xd;
+         &lt;!--Optional:--&gt;&#xd;
+         &lt;xsd:roleName&gt;${role2}&lt;/xsd:roleName&gt;&#xd;
+         &lt;!--Zero or more repetitions:--&gt;&#xd;
+            &lt;xsd:userList&gt;${userlist}&lt;/xsd:userList&gt;&#xd;
+         &lt;xsd:permissions&gt;${permission}&lt;/xsd:permissions&gt;&#xd;
+         &lt;!--Optional:--&gt;&#xd;
+         &lt;xsd:isSharedRole&gt;false&lt;/xsd:isSharedRole&gt;&#xd;
+      &lt;/xsd:addRole&gt;&#xd;
+   &lt;/soapenv:Body&gt;&#xd;
+&lt;/soapenv:Envelope&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${host}</stringProp>
+          <stringProp name="HTTPSampler.port">${port}</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/services/UserAdmin.UserAdminHttpsSoap11Endpoint/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">This role is not permitted to call the proxy service. </stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -254,6 +292,59 @@
          &lt;xsd:password&gt;${password}&lt;/xsd:password&gt;&#xd;
          &lt;!--Zero or more repetitions:--&gt;&#xd;
          &lt;xsd:roles&gt;${role}&lt;/xsd:roles&gt;&#xd;
+         &lt;!--Zero or more repetitions:--&gt;&#xd;
+       &lt;xsd:profileName&gt;Default&lt;/xsd:profileName&gt;&#xd;
+      &lt;/xsd:addUser&gt;&#xd;
+   &lt;/soapenv:Body&gt;&#xd;
+&lt;/soapenv:Envelope&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${host}</stringProp>
+          <stringProp name="HTTPSampler.port">${port}</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/services/UserAdmin.UserAdminHttpsSoap11Endpoint/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">This is a permitted user</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">SOAPAction</stringProp>
+                <stringProp name="Header.value">urn:addUser</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">text/xml</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create user2-not permitted user" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xsd=&quot;http://org.apache.axis2/xsd&quot; xmlns:xsd1=&quot;http://common.mgt.user.carbon.wso2.org/xsd&quot;&gt;&#xd;
+   &lt;soapenv:Header/&gt;&#xd;
+   &lt;soapenv:Body&gt;&#xd;
+      &lt;xsd:addUser&gt;&#xd;
+         &lt;xsd:userName&gt;${username2}&lt;/xsd:userName&gt;&#xd;
+         &lt;xsd:password&gt;${password2}&lt;/xsd:password&gt;&#xd;
+         &lt;!--Zero or more repetitions:--&gt;&#xd;
+         &lt;xsd:roles&gt;${role2}&lt;/xsd:roles&gt;&#xd;
          &lt;!--Zero or more repetitions:--&gt;&#xd;
        &lt;xsd:profileName&gt;Default&lt;/xsd:profileName&gt;&#xd;
       &lt;/xsd:addUser&gt;&#xd;
@@ -312,7 +403,7 @@
             &lt;!--Optional:--&gt;&#xd;
             &lt;xsd1:lastModifiedUser&gt;true&lt;/xsd1:lastModifiedUser&gt;&#xd;
             &lt;!--Optional:--&gt;&#xd;
-            &lt;xsd1:policy&gt;&lt;![CDATA[&lt;Policy xmlns=&quot;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17&quot; PolicyId=&quot;sol25_XACMLPolicy&quot; RuleCombiningAlgId=&quot;urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable&quot; Version=&quot;1.0&quot;&gt;&lt;Target&gt;&lt;AnyOf&gt;&lt;AllOf&gt;&lt;Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-regexp-match&quot;&gt;&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;getFullQuote&lt;/AttributeValue&gt;&lt;AttributeDesignator AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:resource:resource-id&quot; Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot;/&gt;&lt;/Match&gt;&lt;/AllOf&gt;&lt;/AnyOf&gt;&lt;/Target&gt;&lt;Rule Effect=&quot;Permit&quot; RuleId=&quot;Rule-1&quot;&gt;&lt;Target&gt;&lt;AnyOf&gt;&lt;AllOf&gt;&lt;Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;read&lt;/AttributeValue&gt;&lt;AttributeDesignator AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:action:action-id&quot; Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:action&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot;/&gt;&lt;/Match&gt;&lt;/AllOf&gt;&lt;/AnyOf&gt;&lt;/Target&gt;&lt;Condition&gt;&lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:and&quot;&gt;&lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:and&quot;&gt;&lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:time-greater-than-or-equal&quot;&gt;&lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:time-one-and-only&quot;&gt;&lt;AttributeDesignator AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:environment:current-time&quot; Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:environment&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#time&quot; MustBePresent=&quot;true&quot;/&gt;&lt;/Apply&gt;&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#time&quot;&gt;09:00:00+05:30&lt;/AttributeValue&gt;&lt;/Apply&gt;&lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:time-less-than-or-equal&quot;&gt;&lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:time-one-and-only&quot;&gt;&lt;AttributeDesignator AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:environment:current-time&quot; Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:environment&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#time&quot; MustBePresent=&quot;true&quot;/&gt;&lt;/Apply&gt;&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#time&quot;&gt;17:00:00+05:30&lt;/AttributeValue&gt;&lt;/Apply&gt;&lt;/Apply&gt;&lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:any-of&quot;&gt;&lt;Function FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;/&gt;&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;sol25role&lt;/AttributeValue&gt;&lt;AttributeDesignator AttributeId=&quot;http://wso2.org/claims/role&quot; Category=&quot;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot;/&gt;&lt;/Apply&gt;&lt;/Apply&gt;&lt;/Condition&gt;&lt;/Rule&gt;&lt;Rule Effect=&quot;Deny&quot; RuleId=&quot;Deny-Rule&quot;/&gt;&lt;/Policy&gt;]]&gt;&lt;/xsd1:policy&gt;&#xd;
+            &lt;xsd1:policy&gt;&lt;![CDATA[&lt;Policy xmlns=&quot;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17&quot; PolicyId=&quot;sol25_XACMLPolicy&quot; RuleCombiningAlgId=&quot;urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable&quot; Version=&quot;1.0&quot;&gt;&lt;Target&gt;&lt;AnyOf&gt;&lt;AllOf&gt;&lt;Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-regexp-match&quot;&gt;&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;getFullQuote&lt;/AttributeValue&gt;&lt;AttributeDesignator AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:resource:resource-id&quot; Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot;/&gt;&lt;/Match&gt;&lt;/AllOf&gt;&lt;/AnyOf&gt;&lt;/Target&gt;&lt;Rule Effect=&quot;Permit&quot; RuleId=&quot;Rule-1&quot;&gt;&lt;Target&gt;&lt;AnyOf&gt;&lt;AllOf&gt;&lt;Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;read&lt;/AttributeValue&gt;&lt;AttributeDesignator AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:action:action-id&quot; Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:action&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot;/&gt;&lt;/Match&gt;&lt;/AllOf&gt;&lt;/AnyOf&gt;&lt;/Target&gt;&lt;Condition&gt;&lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:and&quot;&gt;&lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:and&quot;&gt;&lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:time-greater-than-or-equal&quot;&gt;&lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:time-one-and-only&quot;&gt;&lt;AttributeDesignator AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:environment:current-time&quot; Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:environment&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#time&quot; MustBePresent=&quot;true&quot;/&gt;&lt;/Apply&gt;&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#time&quot;&gt;${timeNowDate} +05:30&lt;/AttributeValue&gt;&lt;/Apply&gt;&lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:time-less-than-or-equal&quot;&gt;&lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:time-one-and-only&quot;&gt;&lt;AttributeDesignator AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:environment:current-time&quot; Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:environment&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#time&quot; MustBePresent=&quot;true&quot;/&gt;&lt;/Apply&gt;&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#time&quot;&gt;${timeAfterDate} +05:30&lt;/AttributeValue&gt;&lt;/Apply&gt;&lt;/Apply&gt;&lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:any-of&quot;&gt;&lt;Function FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;/&gt;&lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;sol25role&lt;/AttributeValue&gt;&lt;AttributeDesignator AttributeId=&quot;http://wso2.org/claims/role&quot; Category=&quot;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot;/&gt;&lt;/Apply&gt;&lt;/Apply&gt;&lt;/Condition&gt;&lt;/Rule&gt;&lt;Rule Effect=&quot;Deny&quot; RuleId=&quot;Deny-Rule&quot;/&gt;&lt;/Policy&gt;]]&gt;&lt;/xsd1:policy&gt;&#xd;
             &lt;!--Optional:--&gt;&#xd;
             &lt;xsd1:policyEditor&gt;true&lt;/xsd1:policyEditor&gt;&#xd;
             &lt;!--Zero or more repetitions:--&gt;&#xd;
@@ -351,6 +442,24 @@
           <stringProp name="TestPlan.comments">Create travelocity policy</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
+          <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="script">import java.util.Date;
+import java.util.concurrent.TimeUnit;
+
+Date timeNow=new Date();
+Date timeAfter=new Date(timeNow.getTime() + TimeUnit.MINUTES.toMillis(10));
+
+String timeNowDate=(timeNow.toString()).substring(11, 19);
+String timeAfterDate=(timeAfter.toString()).substring(11, 19);
+
+vars.put(&quot;timeNowDate&quot;, String.valueOf(timeNowDate));
+vars.put(&quot;timeAfterDate&quot;, String.valueOf(timeAfterDate));
+</stringProp>
+          </BeanShellPreProcessor>
+          <hashTree/>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
@@ -569,11 +678,21 @@
         <stringProp name="TestPlan.comments">This is the positive scenario - User should access SOAP services</stringProp>
       </ThreadGroup>
       <hashTree>
+        <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
+          <collectionProp name="AuthManager.auth_list">
+            <elementProp name="" elementType="Authorization">
+              <stringProp name="Authorization.url"></stringProp>
+              <stringProp name="Authorization.username">${username}</stringProp>
+              <stringProp name="Authorization.password">${password}</stringProp>
+              <stringProp name="Authorization.domain"></stringProp>
+              <stringProp name="Authorization.realm"></stringProp>
+            </elementProp>
+          </collectionProp>
+        </AuthManager>
+        <hashTree/>
         <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
           <collectionProp name="CookieManager.cookies"/>
           <boolProp name="CookieManager.clearEachIteration">false</boolProp>
-          <stringProp name="CookieManager.policy">standard</stringProp>
-          <stringProp name="CookieManager.implementation">org.apache.jmeter.protocol.http.control.HC4CookieHandler</stringProp>
         </CookieManager>
         <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Invoke Entitlement Proxy with permitted user" enabled="true">
@@ -598,11 +717,11 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${ei_host}</stringProp>
-          <stringProp name="HTTPSampler.port">${ei_port}</stringProp>
+          <stringProp name="HTTPSampler.domain">${eiHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${eiPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/services/EntitlementProxy</stringProp>
+          <stringProp name="HTTPSampler.path">/services/criticalillnessproxy</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -623,10 +742,6 @@
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Content-Type</stringProp>
                 <stringProp name="Header.value">text/xml</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">Basic c29sMjV1c2VyOnNvbDI1cHc=</stringProp>
               </elementProp>
             </collectionProp>
           </HeaderManager>
@@ -667,11 +782,21 @@
         <stringProp name="TestPlan.comments">This is the negative scenario - User should not access SOAP services</stringProp>
       </ThreadGroup>
       <hashTree>
+        <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
+          <collectionProp name="AuthManager.auth_list">
+            <elementProp name="" elementType="Authorization">
+              <stringProp name="Authorization.url"></stringProp>
+              <stringProp name="Authorization.username">${username2}</stringProp>
+              <stringProp name="Authorization.password">${password2}</stringProp>
+              <stringProp name="Authorization.domain"></stringProp>
+              <stringProp name="Authorization.realm"></stringProp>
+            </elementProp>
+          </collectionProp>
+        </AuthManager>
+        <hashTree/>
         <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
           <collectionProp name="CookieManager.cookies"/>
           <boolProp name="CookieManager.clearEachIteration">false</boolProp>
-          <stringProp name="CookieManager.policy">standard</stringProp>
-          <stringProp name="CookieManager.implementation">org.apache.jmeter.protocol.http.control.HC4CookieHandler</stringProp>
         </CookieManager>
         <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Invoke Entitlement Proxy with non permitted user" enabled="true">
@@ -696,11 +821,11 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${ei_host}</stringProp>
-          <stringProp name="HTTPSampler.port">${ei_port}</stringProp>
+          <stringProp name="HTTPSampler.domain">${eiHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${eiPort}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/services/EntitlementProxy2</stringProp>
+          <stringProp name="HTTPSampler.path">/services/criticalillnessproxy</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -722,30 +847,26 @@
                 <stringProp name="Header.name">Content-Type</stringProp>
                 <stringProp name="Header.value">text/xml</stringProp>
               </elementProp>
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Authorization</stringProp>
-                <stringProp name="Header.value">Basic YWRtaW46YWRtaW4=</stringProp>
-              </elementProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="202 Accepted HTTP Code Response Assertion" enabled="false">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="401 Unauthorized HTTP Code Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="1515659908">HTTP/1.1 202 Accepted
-</stringProp>
+              <stringProp name="51509">401</stringProp>
             </collectionProp>
-            <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
-            <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">6</intProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Content Response Assertion" enabled="false">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Content Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="67652098">Fault</stringProp>
+              <stringProp name="926594670">The security token could not be authenticated or authorized</stringProp>
             </collectionProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-            <boolProp name="Assertion.assume_success">false</boolProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
             <intProp name="Assertion.test_type">2</intProp>
+            <stringProp name="Assertion.scope">all</stringProp>
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
@@ -817,7 +938,7 @@
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Remove User" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Remove permitted user" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -865,7 +986,7 @@
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Remove Role" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Remove permitted role" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -877,6 +998,102 @@
       &lt;xsd:deleteRole&gt;&#xd;
          &lt;!--Optional:--&gt;&#xd;
          &lt;xsd:roleName&gt;${role}&lt;/xsd:roleName&gt;&#xd;
+      &lt;/xsd:deleteRole&gt;&#xd;
+   &lt;/soapenv:Body&gt;&#xd;
+&lt;/soapenv:Envelope&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${host}</stringProp>
+          <stringProp name="HTTPSampler.port">${port}</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">https://${host}:${port}/services/UserAdmin.UserAdminHttpsSoap11Endpoint/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">SOAPAction</stringProp>
+                <stringProp name="Header.value">urn:deleteRole</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">text/xml</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Remove not permitted user" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xsd=&quot;http://org.apache.axis2/xsd&quot;&gt;&#xd;
+   &lt;soapenv:Header/&gt;&#xd;
+   &lt;soapenv:Body&gt;&#xd;
+      &lt;xsd:deleteUser&gt;&#xd;
+         &lt;!--Optional:--&gt;&#xd;
+         &lt;xsd:userName&gt;${username2}&lt;/xsd:userName&gt;&#xd;
+      &lt;/xsd:deleteUser&gt;&#xd;
+   &lt;/soapenv:Body&gt;&#xd;
+&lt;/soapenv:Envelope&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${host}</stringProp>
+          <stringProp name="HTTPSampler.port">${port}</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/services/UserAdmin.UserAdminHttpsSoap11Endpoint/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">SOAPAction</stringProp>
+                <stringProp name="Header.value">urn:deleteUser</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">text/xml</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Remove not permitted role" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xsd=&quot;http://org.apache.axis2/xsd&quot;&gt;&#xd;
+   &lt;soapenv:Header/&gt;&#xd;
+   &lt;soapenv:Body&gt;&#xd;
+      &lt;xsd:deleteRole&gt;&#xd;
+         &lt;!--Optional:--&gt;&#xd;
+         &lt;xsd:roleName&gt;${role2}&lt;/xsd:roleName&gt;&#xd;
       &lt;/xsd:deleteRole&gt;&#xd;
    &lt;/soapenv:Body&gt;&#xd;
 &lt;/soapenv:Envelope&gt;</stringProp>
@@ -1019,76 +1236,39 @@
           <hashTree/>
         </hashTree>
       </hashTree>
-      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
-        <boolProp name="ResultCollector.error_logging">false</boolProp>
-        <objProp>
-          <name>saveConfig</name>
-          <value class="SampleSaveConfiguration">
-            <time>true</time>
-            <latency>true</latency>
-            <timestamp>true</timestamp>
-            <success>true</success>
-            <label>true</label>
-            <code>true</code>
-            <message>true</message>
-            <threadName>true</threadName>
-            <dataType>true</dataType>
-            <encoding>false</encoding>
-            <assertions>true</assertions>
-            <subresults>true</subresults>
-            <responseData>false</responseData>
-            <samplerData>false</samplerData>
-            <xml>false</xml>
-            <fieldNames>true</fieldNames>
-            <responseHeaders>false</responseHeaders>
-            <requestHeaders>false</requestHeaders>
-            <responseDataOnError>false</responseDataOnError>
-            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-            <assertionsResultsToSave>0</assertionsResultsToSave>
-            <bytes>true</bytes>
-            <sentBytes>true</sentBytes>
-            <threadCounts>true</threadCounts>
-            <idleTime>true</idleTime>
-            <connectTime>true</connectTime>
-          </value>
-        </objProp>
-        <stringProp name="filename"></stringProp>
-      </ResultCollector>
-      <hashTree/>
       <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
           <value class="SampleSaveConfiguration">
-            <time>true</time>
-            <latency>true</latency>
-            <timestamp>true</timestamp>
+            <time>false</time>
+            <latency>false</latency>
+            <timestamp>false</timestamp>
             <success>true</success>
             <label>true</label>
             <code>true</code>
             <message>true</message>
-            <threadName>true</threadName>
+            <threadName>false</threadName>
             <dataType>true</dataType>
-            <encoding>false</encoding>
+            <encoding>true</encoding>
             <assertions>true</assertions>
-            <subresults>true</subresults>
-            <responseData>false</responseData>
-            <samplerData>false</samplerData>
-            <xml>false</xml>
+            <subresults>false</subresults>
+            <responseData>true</responseData>
+            <samplerData>true</samplerData>
+            <xml>true</xml>
             <fieldNames>true</fieldNames>
-            <responseHeaders>false</responseHeaders>
-            <requestHeaders>false</requestHeaders>
+            <responseHeaders>true</responseHeaders>
+            <requestHeaders>true</requestHeaders>
             <responseDataOnError>false</responseDataOnError>
             <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
             <assertionsResultsToSave>0</assertionsResultsToSave>
-            <bytes>true</bytes>
-            <sentBytes>true</sentBytes>
-            <threadCounts>true</threadCounts>
-            <idleTime>true</idleTime>
-            <connectTime>true</connectTime>
+            <url>true</url>
+            <fileName>true</fileName>
+            <hostname>true</hostname>
+            <sampleCount>true</sampleCount>
           </value>
         </objProp>
-        <stringProp name="filename"></stringProp>
+        <stringProp name="filename">scenario-25-results.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
     </hashTree>

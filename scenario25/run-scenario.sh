@@ -14,13 +14,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#properties
-#TODO:read below property from infra.json file
-tomcatHost=$tomcatHost
-tomcatPort=$tomcatPort
-serverHost=$serverHost
-serverPort=$serverPort
-ei_host=$eiHost
-ei_port=$eiPort
+prgdir=$(dirname "$0")
+scriptPath=$(cd "$prgdir"; pwd)
 
-echo "BaseScript Done..."
+sh $scriptPath/jmeter/25-pre-scenario-steps.sh
+
+$JMETER_HOME/bin/jmeter.sh -n -t $scriptPath/jmeter/01-Scenario-25-Fine_grained_access_control_for_SOAP_services.jmx -p $scriptPath/resources/user.properties 
+
+sh $scriptPath/jmeter/25-post-scenario-steps.sh
