@@ -19,9 +19,6 @@ serverPort=$serverPort
 tomcatHost=$tomcatHost
 tomcatPort=$tomcatPort
 
-serverPort=$serverPort
-tomcatHost=$tomcatHost
-tomcatPort=$tomcatPort
 
 
 JDBCUserStoreUrl=$JDBCUserStoreUrl
@@ -53,6 +50,6 @@ sed -i "s|^\(LDAPUserStoreConnPassword\s*=\s*\).*\$|\1${LDAPUserStoreConnPasswor
 
 
 #run base-setup.sh to deploy artifacts
-. $scriptPath/../base-setup.sh > $scriptPath/basesetup.log
+source $scriptPath/../base-setup.sh > $scriptPath/basesetup.log
 
 echo "pre-steps are done..."
