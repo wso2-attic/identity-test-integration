@@ -17,11 +17,12 @@
 prgdir=$(dirname "$0")
 scriptPath=$(cd "$prgdir"; pwd)
 
-echo "working directory : "$scriptPath
-#run base-setup.sh to deploy artifacts
-source  $scriptPath/../teardown.sh
+
+sh $scriptPath/jmeter/27-pre-scenario-steps.sh
 
 
-echo "post-steps are done..."
+$JMETER_HOME/bin/jmeter.sh   -n -t jmeter/Scenario-27-AttributeStoreValidations.jmx -p resources/user.properties
 
 
+sh $scriptPath/jmeter/27-post-scenario-steps.sh
+                                                               
