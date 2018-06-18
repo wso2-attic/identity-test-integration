@@ -6,7 +6,69 @@
       <boolProp name="TestPlan.functional_mode">false</boolProp>
       <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+        <collectionProp name="CookieManager.cookies"/>
+        <boolProp name="CookieManager.clearEachIteration">false</boolProp>
+      </CookieManager>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
         <collectionProp name="Arguments.arguments">
+          <elementProp name="permission" elementType="Argument">
+            <stringProp name="Argument.name">permission</stringProp>
+            <stringProp name="Argument.value">${__property(permission)}</stringProp>
+            <stringProp name="Argument.desc">Permission for role</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="claimURI" elementType="Argument">
+            <stringProp name="Argument.name">claimURI</stringProp>
+            <stringProp name="Argument.value">${__property(claimURI)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="claimValue" elementType="Argument">
+            <stringProp name="Argument.name">claimValue</stringProp>
+            <stringProp name="Argument.value">${__property(claimValue)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="user1" elementType="Argument">
+            <stringProp name="Argument.name">user1</stringProp>
+            <stringProp name="Argument.value">${__property(user1)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="user1password" elementType="Argument">
+            <stringProp name="Argument.name">user1password</stringProp>
+            <stringProp name="Argument.value">${__property(user1password)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="user2" elementType="Argument">
+            <stringProp name="Argument.name">user2</stringProp>
+            <stringProp name="Argument.value">${__property(user2)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="user2password" elementType="Argument">
+            <stringProp name="Argument.name">user2password</stringProp>
+            <stringProp name="Argument.value">${__property(user2password)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="policyId" elementType="Argument">
+            <stringProp name="Argument.name">policyId</stringProp>
+            <stringProp name="Argument.value">${__property(policyId)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="financerole" elementType="Argument">
+            <stringProp name="Argument.name">financerole</stringProp>
+            <stringProp name="Argument.value">${__property(financerole)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="salesrole" elementType="Argument">
+            <stringProp name="Argument.name">salesrole</stringProp>
+            <stringProp name="Argument.value">${__property(salesrole)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
           <elementProp name="host" elementType="Argument">
             <stringProp name="Argument.name">host</stringProp>
             <stringProp name="Argument.value">${__property(serverHost)}</stringProp>
@@ -65,69 +127,6 @@
           <elementProp name="sp2" elementType="Argument">
             <stringProp name="Argument.name">sp2</stringProp>
             <stringProp name="Argument.value">${__property(sp2)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-        </collectionProp>
-      </elementProp>
-      <stringProp name="TestPlan.user_define_classpath"></stringProp>
-    </TestPlan>
-    <hashTree>
-      <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
-        <collectionProp name="CookieManager.cookies"/>
-        <boolProp name="CookieManager.clearEachIteration">false</boolProp>
-      </CookieManager>
-      <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-        <collectionProp name="Arguments.arguments">
-          <elementProp name="permission" elementType="Argument">
-            <stringProp name="Argument.name">permission</stringProp>
-            <stringProp name="Argument.value">/permission/admin</stringProp>
-            <stringProp name="Argument.desc">Permission for role</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="claimURI" elementType="Argument">
-            <stringProp name="Argument.name">claimURI</stringProp>
-            <stringProp name="Argument.value">http://wso2.org/claims/emailaddress</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="claimValue" elementType="Argument">
-            <stringProp name="Argument.name">claimValue</stringProp>
-            <stringProp name="Argument.value">user@wso2.com</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="user1" elementType="Argument">
-            <stringProp name="Argument.name">user1</stringProp>
-            <stringProp name="Argument.value">user1</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="user1password" elementType="Argument">
-            <stringProp name="Argument.name">user1password</stringProp>
-            <stringProp name="Argument.value">user1</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="user2" elementType="Argument">
-            <stringProp name="Argument.name">user2</stringProp>
-            <stringProp name="Argument.value">user2</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="user2password" elementType="Argument">
-            <stringProp name="Argument.name">user2password</stringProp>
-            <stringProp name="Argument.value">user2</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="policyId" elementType="Argument">
-            <stringProp name="Argument.name">policyId</stringProp>
-            <stringProp name="Argument.value">authn_travelocity_for_finance_team_policy</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="financerole" elementType="Argument">
-            <stringProp name="Argument.name">financerole</stringProp>
-            <stringProp name="Argument.value">finance</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="salesrole" elementType="Argument">
-            <stringProp name="Argument.name">salesrole</stringProp>
-            <stringProp name="Argument.value">sales</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
