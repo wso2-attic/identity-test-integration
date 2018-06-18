@@ -5,8 +5,8 @@
 #configSetHome=/home/shavantha/products/jmeter/apache-jmeter-3.3/bin/isscripts/shavantha/identity-test-integration/config-sets/config04
 ##################################################
 
-productHome=/home/shavantha/products/wso2is/550/wso2is-5.5.0
-configSetHome=/home/shavantha/products/jmeter/apache-jmeter-3.3/bin/isscripts/shavantha/identity-test-integration/config-sets/config05
+productHome=$productHome
+configSetHome=$configSetHome
 
 libPath=repository/components/lib/
 dropinsPath=repository/components/dropins/
