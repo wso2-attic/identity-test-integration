@@ -19,6 +19,23 @@ The following diagram will explain the scenario in detail.
 
 ![alt text](src/test/resources/Solution27.png "Description goes here")
 
+
+NOTE: 
+1.This sample requires the application of config05. In both apply-config and revert-config set the mysqlJAR to the version of the mysql jar that will be used.
+2.For 27-post-scenario-steps.sh please set the required values by export for 
+serverHost
+serverPort
+tomcatHost
+tomcatPort
+tomcatUsername
+tomcatPassword
+JDBCUserStoreUrl
+JDBCUserStoreUserName
+JDBCUserStorePassword
+LDAPUserStoreUrl
+LDAPUserStoreConnPassword
+
+
 ### Pre - Requisites
 1. Get a clone of the following repository and build
 ```sh 
@@ -26,22 +43,20 @@ https://github.com/dilinisg/attribute-store-extension
 ```
 2. Copy the created jar (org.soasecurity.user.mgt.attribute.store.extension-1.0.0.jar) into <IS_HOME>/repository/components/dropins directory
 3. Copy the required DB drivers to <IS_HOME>/repository/components/lib directory
-4. Set the below property, in order to access admin services in WSO2 IS product
-<HideAdminServiceWSDLs> element to false in the <PRODUCT_HOME>/repository/conf/carbon.xml file
-5. Restart the server
-6. A Read Write LDAP should be available
-7. Tomcat server should be up and running
-8. Follow the steps in [1] and get a checkout of the travelocity sample and build
+4. Restart the server
+5. A Read Write LDAP should be available
+6. Tomcat server should be up and running
+7. Follow the steps in [1] and get a checkout of the travelocity sample and build
 ```sh 
 [1]https://docs.wso2.com/display/IS540/Configuring+Single+Sign-On
 ```
-9. Deploy a travelocity web app (travelocity.com.war) in tomcat. 
-10. Change the configurations according to the environment in user.properties under scenario 27. (scenario27/src/test/resources/user.properties)
+8. Deploy a travelocity web app (travelocity.com.war) in tomcat. 
+9. Change the configurations according to the environment in user.properties under scenario 27. (scenario27/src/test/resources/user.properties)
 
 ### Run the test
 To run sthe olution 27, run the below command
-```sh 
-mvn clean install
+```sh run-scenario.sh
+
 ```
 
 ### References

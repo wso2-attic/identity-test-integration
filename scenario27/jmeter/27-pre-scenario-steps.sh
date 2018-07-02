@@ -18,6 +18,17 @@ serverHost=$serverHost
 serverPort=$serverPort
 tomcatHost=$tomcatHost
 tomcatPort=$tomcatPort
+
+
+
+JDBCUserStoreUrl=$JDBCUserStoreUrl
+JDBCUserStoreUserName=$JDBCUserStoreUserName
+JDBCUserStorePassword=$JDBCUserStorePassword
+
+
+LDAPUserStoreUrl=$LDAPUserStoreUrl
+LDAPUserStoreConnPassword=$LDAPUserStoreConnPassword
+
 prgdir=$(dirname "$0")
 scriptPath=$(cd "$prgdir"; pwd)
 
@@ -28,6 +39,15 @@ sed -i "s|^\(serverHost\s*=\s*\).*\$|\1${serverHost}|" $scriptPath/../resources/
 sed -i "s|^\(serverPort\s*=\s*\).*\$|\1${serverPort}|" $scriptPath/../resources/user.properties
 sed -i "s|^\(tomcatHost\s*=\s*\).*\$|\1${tomcatHost}|" $scriptPath/../resources/user.properties
 sed -i "s|^\(tomcatPort\s*=\s*\).*\$|\1${tomcatPort}|" $scriptPath/../resources/user.properties
+
+
+sed -i "s|^\(JDBCUserStoreUrl\s*=\s*\).*\$|\1${JDBCUserStoreUrl}|" $scriptPath/../resources/user.properties
+sed -i "s|^\(JDBCUserStoreUserName\s*=\s*\).*\$|\1${JDBCUserStoreUserName}|" $scriptPath/../resources/user.properties
+sed -i "s|^\(JDBCUserStorePassword\s*=\s*\).*\$|\1${JDBCUserStorePassword}|" $scriptPath/../resources/user.properties
+sed -i "s|^\(LDAPUserStoreUrl\s*=\s*\).*\$|\1${LDAPUserStoreUrl}|" $scriptPath/../resources/user.properties
+sed -i "s|^\(LDAPUserStoreConnPassword\s*=\s*\).*\$|\1${LDAPUserStoreConnPassword}|" $scriptPath/../resources/user.properties
+
+
 
 #run base-setup.sh to deploy artifacts
 source $scriptPath/../base-setup.sh > $scriptPath/basesetup.log
