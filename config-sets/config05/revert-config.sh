@@ -1,5 +1,5 @@
 #include the path of the IS Pack for the productHome variable when trying locally
-productHome=/home/shavantha/products/wso2is/550/wso2is-5.5.0
+productHome=$productHome
 configSetHome=$(pwd)
 
 libPath=repository/components/lib/
