@@ -6,7 +6,7 @@
 ##################################################
 
 productHome=$productHome
-configSetHome=$(pwd)
+configSetHome="$( cd "$(dirname "$0")" ; pwd -P )"
 
 libPath=repository/components/lib/
 dropinsPath=repository/components/dropins/

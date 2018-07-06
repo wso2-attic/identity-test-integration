@@ -6,7 +6,7 @@
 ##################################################
 
 productHome=$productHome
-configSetHome=$(pwd)
+configSetHome="$( cd "$(dirname "$0")" ; pwd -P )"
 folderPath=/repository/conf/
 webappPath=/repository/deployment/server/webapps/
 

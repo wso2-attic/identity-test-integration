@@ -1,6 +1,6 @@
 #include the path of the IS Pack for the productHome variable when trying locally
 productHome=$productHome
-configSetHome=$(pwd)
+configSetHome="$( cd "$(dirname "$0")" ; pwd -P )"
 
 libPath=repository/components/lib/
 dropinsPath=repository/components/dropins/
