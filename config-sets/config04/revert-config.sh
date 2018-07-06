@@ -2,8 +2,17 @@
 productHome=$productHome
 folderPath=/repository/conf/
 webappPath=repository/deployment/server/webapps/
-serverHost=$serverHost
-serverPort=$serverPort
+
+if [ -z "$serverHost" ]; then
+    serverHost=localhost
+else
+    serverHost=$serverHost
+fi
+if [ -z "$serverPort" ]; then
+    serverPort=9443
+else
+    serverPort=$serverPort
+fi
 
 file=$productHome/repository/conf/identity/identity.xml
 

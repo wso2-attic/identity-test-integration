@@ -1,14 +1,22 @@
 #include the path of the IS Pack for the productHome variable when trying locally
 productHome=/home/shavantha/products/wso2is/550/wso2is-5.5.0
-configSetHome=/home/shavantha/products/jmeter/apache-jmeter-3.3/bin/isscripts/shavantha/identity-test-integration/config-sets/config05
+configSetHome=$(pwd)
 
 libPath=repository/components/lib/
 dropinsPath=repository/components/dropins/
 
 mysqlJAR=mysql-connector-java-5.1.42-bin.jar
 
-serverHost=$serverHost
-serverPort=$serverPort
+if [ -z "$serverHost" ]; then
+    serverHost=localhost
+else
+    serverHost=$serverHost
+fi
+if [ -z "$serverPort" ]; then
+    serverPort=9443
+else
+    serverPort=$serverPort
+fi
 
 file=$productHome/repository/conf/identity/identity.xml
 
