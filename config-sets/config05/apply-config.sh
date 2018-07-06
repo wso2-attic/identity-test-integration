@@ -6,14 +6,22 @@
 ##################################################
 
 productHome=$productHome
-configSetHome=$configSetHome
+configSetHome="$( cd "$(dirname "$0")" ; pwd -P )"
 
 libPath=repository/components/lib/
 dropinsPath=repository/components/dropins/
 mysqlJAR=mysql-connector-java-5.1.42-bin.jar
 
-serverHost=$serverHost
-serverPort=$serverPort
+if [ -z "$serverHost" ]; then
+    serverHost=localhost
+else
+    serverHost=$serverHost
+fi
+if [ -z "$serverPort" ]; then
+    serverPort=9443
+else
+    serverPort=$serverPort
+fi
 
 
 

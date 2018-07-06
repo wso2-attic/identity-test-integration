@@ -1,8 +1,16 @@
 #include the path of the IS Pack for the productHome variable when trying locally
 productHome=$productHome
 
-serverHost=$serverHost
-serverPort=$serverPort
+if [ -z "$serverHost" ]; then
+    serverHost=localhost
+else
+    serverHost=$serverHost
+fi
+if [ -z "$serverPort" ]; then
+    serverPort=9443
+else
+    serverPort=$serverPort
+fi
 
 file=$productHome/repository/conf/security/authenticators.xml
 
