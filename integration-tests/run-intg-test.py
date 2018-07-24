@@ -28,7 +28,7 @@ import requests
 import configure_product as cp
 from subprocess import Popen, PIPE
 from const import TEST_PLAN_PROPERTY_FILE_NAME, INFRA_PROPERTY_FILE_NAME, LOG_FILE_NAME, DB_META_DATA, \
-    PRODUCT_STORAGE_DIR_NAME, DB_CARBON_DB, DB_STAT_DB, DB_AM_DB, DB_BPS_DB, DB_METRICS_DB, DEFAULT_DB_USERNAME, \
+    PRODUCT_STORAGE_DIR_NAME, DB_CARBON_DB, DB_STAT_DB, DB_PRODUCT_DB, DB_BPS_DB, DB_METRICS_DB, DEFAULT_DB_USERNAME, \
     LOG_STORAGE, LOG_FILE_PATHS, DIST_POM_PATH, NS
 
 git_repo_url = None
@@ -48,6 +48,7 @@ db_host = None
 db_port = None
 db_username = None
 db_password = None
+tag_name = None
 database_config = {}
 
 
@@ -111,11 +112,31 @@ def read_proprty_files():
 
 
 def validate_property_radings():
-    if None in (
-            db_engine_version, git_repo_url, product_id, git_branch, product_dist_download_api, sql_driver_location,
-            db_host, db_port, db_password):
+    missing_values = ""
+    if db_engine is None:
+        missing_values += " -DBEngine- "
+    if git_repo_url is None:
+        missing_values += " -gitURL- "
+    if product_id is None:
+        missing_values += " -product-id- "
+    if git_branch is None:
+        missing_values += " -gitBranch- "
+    if product_dist_download_api is None:
+        missing_values += " -productDistDownloadApi- "
+    if sql_driver_location is None:
+        missing_values += " -sqlDriversLocatio<OS_Type>- "
+    if db_host is None:
+        missing_values += " -DatabaseHost- "
+    if db_port is None:
+        missing_values += " -DatabasePort- "
+    if db_password is None:
+        missing_values += " -DBPassword- "
+
+    if missing_values != "":
+        logger.error('Invalid property file is found. Missing values: %s ', missing_values)
         return False
-    return True
+    else:
+        return True
 
 
 def get_db_meta_data(argument):
@@ -124,7 +145,7 @@ def get_db_meta_data(argument):
 
 
 def construct_url(prefix):
-    url = prefix + db_host + ":" + db_port + "/"
+    url = prefix + db_host + ":" + db_port
     return url
 
 
@@ -158,6 +179,7 @@ def download_file(url, destination):
     """Download a file using wget package.
     Download the given file in _url_ as the directory+name provided in _destination_
     """
+    logger.info('Downloading file URL: ' + url + ' destination: ' + destination)
     wget.download(url, destination)
 
 
@@ -314,31 +336,41 @@ def setup_databases(script_path, db_names):
                 run_sqlserver_commands('CREATE DATABASE {0}'.format(database))
                 # manipulate script path
                 scriptPath = script_path / 'mssql.sql'
+
+                # manipulate conent script path
+                scriptPathConsent = script_path / 'consent/mssql.sql'
                 # run db scripts
                 run_sqlserver_script_file(database, str(scriptPath))
+                run_sqlserver_script_file(database, str(scriptPathConsent))
             elif db_engine.upper() == 'MYSQL':
                 scriptPath = script_path / 'mysql5.7.sql'
+                # manipulate conent script path
+                scriptPathConsent = script_path / 'consent/mysql-5.7.sql'
                 # create database
                 run_mysql_commands('CREATE DATABASE IF NOT EXISTS {0};'.format(database))
                 # run db script
                 run_mysql_script_file(database, str(scriptPath))
+                run_mysql_script_file(database, str(scriptPathConsent))
 
             elif db_engine.upper() == 'ORACLE-SE2':
                 # create oracle schema
                 logger.info(create_oracle_user(database))
                 # run db script
                 scriptPath = script_path / 'oracle.sql'
+                # manipulate conent script path
+                scriptPathConsent = script_path / 'consent/oracle.sql'
                 logger.info(run_oracle_script('@{0}'.format(str(scriptPath)), database))
-        elif database == DB_AM_DB:
+                logger.info(run_oracle_script('@{0}'.format(str(scriptPathConsent)), database))
+        elif database == DB_PRODUCT_DB[product_id]:
             if db_engine.upper() == 'SQLSERVER-SE':
                 # create database
                 run_sqlserver_commands('CREATE DATABASE {0}'.format(database))
                 # manipulate script path
-                scriptPath = script_path / 'apimgt/mssql.sql'
+                scriptPath = script_path / 'identity/mssql.sql'
                 # run db scripts
                 run_sqlserver_script_file(database, str(scriptPath))
             elif db_engine.upper() == 'MYSQL':
-                scriptPath = script_path / 'apimgt/mysql5.7.sql'
+                scriptPath = script_path / 'identity/mysql5.7.sql'
                 # create database
                 run_mysql_commands('CREATE DATABASE IF NOT EXISTS {0};'.format(database))
                 # run db script
@@ -346,7 +378,7 @@ def setup_databases(script_path, db_names):
             elif db_engine.upper() == 'ORACLE-SE2':
                 logger.info(create_oracle_user(database))
                 # run db script
-                scriptPath = script_path / 'apimgt/oracle.sql'
+                scriptPath = script_path / 'identity/oracle.sql'
                 logger.info(run_oracle_script('@{0}'.format(str(scriptPath)), database))
         elif database == DB_STAT_DB:
             if db_engine.upper() == 'SQLSERVER-SE':
@@ -363,7 +395,7 @@ def setup_databases(script_path, db_names):
                 # create database
                 run_sqlserver_commands('CREATE DATABASE {0}'.format(database))
                 # manipulate script path
-                scriptPath = script_path / 'mb-store/mssql-mb.sql'
+                scriptPath = script_path / 'bps/bpel/create/mssql.sql'
                 # run db scripts
                 run_sqlserver_script_file(database, str(scriptPath))
             elif db_engine.upper() == 'MYSQL':
@@ -376,7 +408,7 @@ def setup_databases(script_path, db_names):
             elif db_engine.upper() == 'ORACLE-SE2':
                 logger.info(create_oracle_user(database))
                 # run db script
-                scriptPath = script_path / 'mb-store/oracle-mb.sql'
+                scriptPath = script_path / 'bps/bpel/create/oracle.sql'
                 logger.info(run_oracle_script('@{0}'.format(str(scriptPath)), database))
         elif database == DB_METRICS_DB:
             if db_engine.upper() == 'SQLSERVER-SE':
@@ -423,56 +455,56 @@ def run_integration_test():
     """
     integration_tests_path = Path(workspace + "/" + product_id + "/" + 'modules/integration')
     if sys.platform.startswith('win'):
-        subprocess.call(['mvn', '--batch-mode', 'clean', 'install'], shell=True, cwd=integration_tests_path)
+        subprocess.call(['mvn', 'clean', 'install', '-B',
+                         '-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn'],
+                        shell=True, cwd=integration_tests_path)
     else:
-        subprocess.call(['mvn', '--batch-mode', 'clean', 'install'], cwd=integration_tests_path)
+        subprocess.call(['mvn', 'clean', 'install', '-B',
+                         '-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn'],
+                        cwd=integration_tests_path)
     logger.info('Integration test Running is completed.')
-
-
-def build_import_export_module():
-    """Build the apim import export module.
-    """
-    integration_tests_path = Path(workspace + "/" + product_id + "/" + 'modules/api-import-export')
-    if sys.platform.startswith('win'):
-        subprocess.call(['mvn', '--batch-mode', 'clean', 'install'], shell=True, cwd=integration_tests_path)
-    else:
-        subprocess.call(['mvn', '--batch-mode', 'clean', 'install'], cwd=integration_tests_path)
-    logger.info('Integration test Running is completed.')
-
 
 def save_log_files():
     log_storage = Path(workspace + "/" + LOG_STORAGE)
     if not Path.exists(log_storage):
         Path(log_storage).mkdir(parents=True, exist_ok=True)
-
-    for file in LOG_FILE_PATHS:
-        absolute_file_path = Path(workspace + "/" + product_id + "/" + file)
-        if Path.exists(absolute_file_path):
-            copy_file(absolute_file_path, log_storage)
-        else:
-            logger.error("File doesn't contain in the given location: " + str(absolute_file_path))
+    log_file_paths = LOG_FILE_PATHS[product_id]
+    if log_file_paths:
+        for file in log_file_paths:
+            absolute_file_path = Path(workspace + "/" + product_id + "/" + file)
+            if Path.exists(absolute_file_path):
+                copy_file(absolute_file_path, log_storage)
+            else:
+                logger.error("File doesn't contain in the given location: " + str(absolute_file_path))
 
 
 def clone_repo():
     """Clone the product repo and checkout to the latest tag of the branch
     """
     try:
+        global tag_name
+        logger.info('cloning '+ git_repo_url + '@' + git_branch)
         subprocess.call(['git', 'clone', '--branch', git_branch, git_repo_url], cwd=workspace)
-        logger.info('cloning repo done.')
+        logger.info('cloning completed.')
         git_path = Path(workspace + "/" + product_id)
-        hash_number = subprocess.Popen(["git", "rev-list", "--tags", "--max-count=1"], stdout=subprocess.PIPE,
-                                       cwd=git_path)
-        string_val_of_hash = hash_number.stdout.read().strip().decode("utf-8")
-        tag_name = subprocess.Popen(["git", "describe", "--tags", string_val_of_hash], stdout=subprocess.PIPE,
-                                    cwd=git_path)
-        string_val_of_tag_name = tag_name.stdout.read().strip().decode("utf-8")
-        tag = "tags/" + string_val_of_tag_name
+        binary_val_of_tag_name = subprocess.Popen(["git", "describe", "--abbrev=0", "--tags"],
+                                                  stdout=subprocess.PIPE, cwd=git_path)
+        tag_name = binary_val_of_tag_name.stdout.read().strip().decode("utf-8")
+        tag = "tags/" + tag_name
         subprocess.call(["git", "fetch", "origin", tag], cwd=git_path)
-        subprocess.call(["git", "checkout", "-B", tag, string_val_of_tag_name], cwd=git_path)
+        subprocess.call(["git", "checkout", "-B", tag, tag_name], cwd=git_path)
         logger.info('checkout to the branch: ' + tag)
     except Exception as e:
         logger.error("Error occurred while cloning the product repo and checkout to the latest tag of the branch",
                      exc_info=True)
+
+
+def create_output_property_fle():
+    output_property_file = open("output.properties", "w+")
+    git_url = git_repo_url + "/tree/" + git_branch
+    output_property_file.write("GIT_LOCATION=%s\r\n" % git_url)
+    output_property_file.write("GIT_REVISION=%s\r\n" % tag_name)
+    output_property_file.close()
 
 
 def main():
@@ -507,7 +539,7 @@ def main():
         product_file_path = product_download_dir / product_zip_name
         # download the last released pack from Jenkins
         download_file(dist_downl_url, str(product_file_path))
-        logger.info('downloading the pack from Jenkins done.')
+        logger.info('Downloading the pack from Jenkins done.')
 
         # populate databases
         script_path = Path(workspace + "/" + PRODUCT_STORAGE_DIR_NAME + "/" + product_name + "/" + 'dbscripts')
@@ -520,6 +552,7 @@ def main():
         #run integration tests
         run_integration_test()
         save_log_files()
+        create_output_property_fle()
     except Exception as e:
         logger.error("Error occurred while running the run-intg.py script", exc_info=True)
     except BaseException as e:
