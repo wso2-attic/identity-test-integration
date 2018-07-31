@@ -38,11 +38,9 @@ MSSQL_DB_ENGINE = "SQLSERVER-SE"
 MYSQL_DB_ENGINE = "MYSQL"
 DEFAULT_ORACLE_SID = "orcl"
 DB_CARBON_DB = 'WSO2_CARBON_DB'
-#DB_AM_DB = 'WSO2AM_DB'
 DB_PRODUCT_DB = {"product-apim": "WSO2AM_DB",
                      "product-is": "WSO2IS_DB",
                      "product-ei": "WSO2EI_DB"}
-#DB_IS_DB = 'WSO2IS_DB'
 DB_STAT_DB = 'WSO2_STATS_DB'
 DB_BPS_DB = 'BPS_DS'
 DB_METRICS_DB = 'WSO2_METRICS_DB'
