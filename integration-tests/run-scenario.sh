@@ -26,6 +26,8 @@ FILE5=const.py
 FILE6=requirements.txt
 FILE7=intg-test-runner.sh
 FILE8=intg-test-runner.bat
+FILE9=testng.xml
+FILE10=testng-server-mgt.xml
 
 PROP_KEY=sshKeyFileLocation      #pem file
 PROP_OS=OS                       #OS name e.g. centos
@@ -144,6 +146,8 @@ if [ "${os}" = "Windows" ]; then
   echo $(sshpass -p "${password}" scp -q -o StrictHostKeyChecking=no ${FILE5} ${user}@${host}:${REM_DIR})
   echo $(sshpass -p "${password}" scp -q -o StrictHostKeyChecking=no ${FILE6} ${user}@${host}:${REM_DIR})
   echo $(sshpass -p "${password}" scp -q -o StrictHostKeyChecking=no ${FILE8} ${user}@${host}:${REM_DIR})
+  echo $(sshpass -p "${password}" scp -q -o StrictHostKeyChecking=no ${FILE9} ${user}@${host}:${REM_DIR})
+  echo $(sshpass -p "${password}" scp -q -o StrictHostKeyChecking=no ${FILE10} ${user}@${host}:${REM_DIR})
 
   echo "=== Files copying finished ==="
   echo "Execution begins.. "
@@ -166,6 +170,9 @@ else
   scp -o StrictHostKeyChecking=no -i ${key_pem} ${FILE5} ${user}@${host}:${REM_DIR}
   scp -o StrictHostKeyChecking=no -i ${key_pem} ${FILE6} ${user}@${host}:${REM_DIR}
   scp -o StrictHostKeyChecking=no -i ${key_pem} ${FILE7} ${user}@${host}:${REM_DIR}
+  scp -o StrictHostKeyChecking=no -i ${key_pem} ${FILE9} ${user}@${host}:${REM_DIR}
+  scp -o StrictHostKeyChecking=no -i ${key_pem} ${FILE10} ${user}@${host}:${REM_DIR}
+
   echo "=== Files copied successfully ==="
 
   ssh -o StrictHostKeyChecking=no -i ${key_pem} ${user}@${host} bash ${REM_DIR}/intg-test-runner.sh --wd ${REM_DIR}
