@@ -23,8 +23,10 @@ import os
 import shutil
 import pymysql
 import sqlparse
+import re
 from pathlib import Path
-import requests
+import urllib.request as urllib2
+from xml.dom import minidom
 import configure_product as cp
 from subprocess import Popen, PIPE
 from const import TEST_PLAN_PROPERTY_FILE_NAME, INFRA_PROPERTY_FILE_NAME, LOG_FILE_NAME, DB_META_DATA, \
@@ -42,13 +44,15 @@ log_file_name = None
 target_path = None
 db_engine = None
 db_engine_version = None
-product_dist_download_api = None
+latest_product_release_api = None
+latest_product_build_artifacts_api = None
 sql_driver_location = None
 db_host = None
 db_port = None
 db_username = None
 db_password = None
 tag_name = None
+test_mode = None
 database_config = {}
 
 
@@ -57,7 +61,8 @@ def read_proprty_files():
     global db_engine_version
     global git_repo_url
     global git_branch
-    global product_dist_download_api
+    global latest_product_release_api
+    global latest_product_build_artifacts_api
     global sql_driver_location
     global db_host
     global db_port
@@ -66,6 +71,7 @@ def read_proprty_files():
     global workspace
     global product_id
     global database_config
+    global test_mode
 
     workspace = os.getcwd()
     property_file_paths = []
@@ -88,16 +94,18 @@ def read_proprty_files():
                         db_engine = val.strip()
                     elif key == "DBEngineVersion":
                         db_engine_version = val
-                    elif key == "gitURL":
+                    elif key == "PRODUCT_GIT_URL":
                         git_repo_url = val.strip().replace('\\', '')
                         product_id = git_repo_url.split("/")[-1].split('.')[0]
-                    elif key == "gitBranch":
+                    elif key == "PRODUCT_GIT_BRANCH":
                         git_branch = val.strip()
-                    elif key == "productDistDownloadApi":
-                        product_dist_download_api = val.strip().replace('\\', '')
-                    elif key == "sqlDriversLocationUnix" and not sys.platform.startswith('win'):
+                    elif key == "LATEST_PRODUCT_RELEASE_API":
+                        latest_product_release_api = val.strip().replace('\\', '')
+                    elif key == "LATEST_PRODUCT_BUILD_ARTIFACTS_API":
+                        latest_product_build_artifacts_api = val.strip().replace('\\', '')
+                    elif key == "SQL_DRIVERS_LOCATION_UNIX" and not sys.platform.startswith('win'):
                         sql_driver_location = val.strip()
-                    elif key == "sqlDriversLocationWindows" and sys.platform.startswith('win'):
+                    elif key == "SQL_DRIVERS_LOCATION_WINDOWS" and sys.platform.startswith('win'):
                         sql_driver_location = val.strip()
                     elif key == "DatabaseHost":
                         db_host = val.strip()
@@ -107,6 +115,8 @@ def read_proprty_files():
                         db_username = val.strip()
                     elif key == "DBPassword":
                         db_password = val.strip()
+                    elif key == "TEST_MODE":
+                        test_mode = val.strip()
     else:
         raise Exception("Test Plan Property file or Infra Property file is not in the workspace: " + workspace)
 
@@ -116,21 +126,25 @@ def validate_property_radings():
     if db_engine is None:
         missing_values += " -DBEngine- "
     if git_repo_url is None:
-        missing_values += " -gitURL- "
+        missing_values += " -PRODUCT_GIT_URL- "
     if product_id is None:
         missing_values += " -product-id- "
     if git_branch is None:
-        missing_values += " -gitBranch- "
-    if product_dist_download_api is None:
-        missing_values += " -productDistDownloadApi- "
+        missing_values += " -PRODUCT_GIT_BRANCH- "
+    if latest_product_release_api is None:
+        missing_values += " -LATEST_PRODUCT_RELEASE_API- "
+    if latest_product_build_artifacts_api is None:
+        missing_values += " -LATEST_PRODUCT_BUILD_ARTIFACTS_API- "
     if sql_driver_location is None:
-        missing_values += " -sqlDriversLocatio<OS_Type>- "
+        missing_values += " -SQL_DRIVERS_LOCATION_<OS_Type>- "
     if db_host is None:
         missing_values += " -DatabaseHost- "
     if db_port is None:
         missing_values += " -DatabasePort- "
     if db_password is None:
         missing_values += " -DBPassword- "
+    if test_mode is None:
+        missing_values += " -TEST_MODE- "
 
     if missing_values != "":
         logger.error('Invalid property file is found. Missing values: %s ', missing_values)
@@ -284,6 +298,8 @@ def run_mysql_script_file(db_name, script_path):
 
 
 def copy_file(source, target):
+    """Copy the source file to the target.
+    """
     if sys.platform.startswith('win'):
         source = cp.winapi_path(source)
         target = cp.winapi_path(target)
@@ -293,6 +309,8 @@ def copy_file(source, target):
 
 
 def get_product_name():
+    """Get the product name by reading root pom.
+    """
     global product_name
     global product_zip_name
     dist_pom_path = Path(workspace + "/" + product_id + "/" + DIST_POM_PATH[product_id])
@@ -307,23 +325,6 @@ def get_product_name():
     product_name = artifact_id.text + "-" + version.text
     product_zip_name = product_name + ".zip"
     return product_name
-
-
-def get_product_dist_rel_path(jkns_api_url):
-    req_url = jkns_api_url + 'xml?xpath=/*/artifact[1]/relativePath'
-    headers = {'Accept': 'application/xml'}
-    response = requests.get(req_url, headers=headers)
-    if response.status_code == 200:
-        root = ET.fromstring(response.content)
-        dist_rel_path = root.text.split('wso2')[0]
-        return dist_rel_path
-    else:
-        logger.info('Failure on jenkins api call')
-
-
-def get_product_dist_artifact_path(jkns_api_url):
-    artifact_path = jkns_api_url.split('/api')[0] + '/artifact/'
-    return artifact_path
 
 
 def setup_databases(script_path, db_names):
@@ -432,6 +433,9 @@ def setup_databases(script_path, db_names):
 
 
 def construct_db_config():
+    """Use properties which are get by reading property files and construct the database config object which will use
+    when configuring the databases.
+    """
     db_meta_data = get_db_meta_data(db_engine.upper())
     if db_meta_data:
         database_config["driver_class_name"] = db_meta_data["driverClassName"]
@@ -479,32 +483,128 @@ def save_log_files():
 
 
 def clone_repo():
-    """Clone the product repo and checkout to the latest tag of the branch
+    """Clone the product repo
     """
     try:
         global tag_name
         logger.info('cloning '+ git_repo_url + '@' + git_branch)
         subprocess.call(['git', 'clone', '--branch', git_branch, git_repo_url], cwd=workspace)
-        logger.info('cloning completed.')
+        logger.info('product repository cloning is done.')
+    except Exception as e:
+        logger.error("Error occurred while cloning the product repo: ", exc_info=True)
+
+
+def checkout_to_tag(name):
+    """Checkout to the given tag
+    """
+    try:
         git_path = Path(workspace + "/" + product_id)
-        binary_val_of_tag_name = subprocess.Popen(["git", "describe", "--abbrev=0", "--tags"],
-                                                  stdout=subprocess.PIPE, cwd=git_path)
-        tag_name = binary_val_of_tag_name.stdout.read().strip().decode("utf-8")
-        tag = "tags/" + tag_name
+        tag = "tags/" + name
         subprocess.call(["git", "fetch", "origin", tag], cwd=git_path)
-        subprocess.call(["git", "checkout", "-B", tag, tag_name], cwd=git_path)
+        subprocess.call(["git", "checkout", "-B", tag, name], cwd=git_path)
         logger.info('checkout to the branch: ' + tag)
     except Exception as e:
         logger.error("Error occurred while cloning the product repo and checkout to the latest tag of the branch",
                      exc_info=True)
 
 
+def get_latest_tag_name(product):
+    """Get the latest tag name from git location
+    """
+    global tag_name
+    git_path = Path(workspace + "/" + product)
+    binary_val_of_tag_name = subprocess.Popen(["git", "describe", "--abbrev=0", "--tags"],
+                                              stdout=subprocess.PIPE, cwd=git_path)
+    tag_name = binary_val_of_tag_name.stdout.read().strip().decode("utf-8")
+    return tag_name
+
+
+def get_product_file_path():
+    """Get the latest tag name from git location
+    """
+    # product download path and file name constructing
+    product_download_dir = Path(workspace + "/" + PRODUCT_STORAGE_DIR_NAME)
+    if not Path.exists(product_download_dir):
+        Path(product_download_dir).mkdir(parents=True, exist_ok=True)
+    return product_download_dir / product_zip_name
+
+
+def get_relative_path_of_dist_storage(xml_path):
+    """Get the relative path of distribution storage
+    """
+    dom = minidom.parse(urllib2.urlopen(xml_path))  # parse the data
+    artifact_elements = dom.getElementsByTagName('artifact')
+
+    for artifact in artifact_elements:
+        file_name_elements = artifact.getElementsByTagName("fileName")
+        for file_name in file_name_elements:
+            if file_name.firstChild.nodeValue == product_zip_name:
+                parent_node = file_name.parentNode
+                return parent_node.getElementsByTagName("relativePath")[0].firstChild.nodeValue
+    return None
+
+
+def get_latest_released_dist():
+    """Get the latest released distribution
+    """
+    # construct the distribution downloading url
+    relative_path = get_relative_path_of_dist_storage(latest_product_release_api + "xml")
+    if relative_path is None:
+        raise Exception("Error occured while getting relative path")
+    dist_downl_url = latest_product_release_api.split('/api')[0] + "/artifact/" + relative_path
+    # download the last released pack from Jenkins
+    download_file(dist_downl_url, str(get_product_file_path()))
+    logger.info('downloading the latest released pack from Jenkins is completed.')
+
+
+def get_latest_stable_artifacts_api():
+    """Get the API of the latest stable artifacts
+    """
+    dom = minidom.parse(urllib2.urlopen(latest_product_build_artifacts_api + "xml"))
+    main_artifact_elements = dom.getElementsByTagName('mainArtifact')
+
+    for main_artifact in main_artifact_elements:
+        canonical_name_elements = main_artifact.getElementsByTagName("canonicalName")
+        for canonical_name in canonical_name_elements:
+            if canonical_name.firstChild.nodeValue == product_name + ".pom":
+                parent_node = main_artifact.parentNode
+                return parent_node.getElementsByTagName("url")[0].firstChild.nodeValue
+    return None
+
+
+def get_latest_stable_dist():
+    """Download the latest stable distribution
+    """
+    build_num_artifact = get_latest_stable_artifacts_api()
+    build_num_artifact = re.sub(r'http.//(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):(\d{1,5})', "https://wso2.org", build_num_artifact)
+    if build_num_artifact is None:
+        raise Exception("Error occured while getting latest stable build artifact API path")
+    relative_path = get_relative_path_of_dist_storage(build_num_artifact + "api/xml")
+    if relative_path is None:
+        raise Exception("Error occured while getting relative path")
+    dist_downl_url = build_num_artifact + "artifact/" + relative_path
+    download_file(dist_downl_url, str(get_product_file_path()))
+    logger.info('downloading the latest stable pack from Jenkins is completed.')
+
+
 def create_output_property_fle():
+    """Create output property file which is used when generating email
+    """
     output_property_file = open("output.properties", "w+")
     git_url = git_repo_url + "/tree/" + git_branch
     output_property_file.write("GIT_LOCATION=%s\r\n" % git_url)
     output_property_file.write("GIT_REVISION=%s\r\n" % tag_name)
     output_property_file.close()
+
+
+def replace_file(source, destination):
+    """Replace source file to the destination
+    """
+    logger.info('replacing files from:' + str(source) + "to: " + str(destination))
+    if sys.platform.startswith('win'):
+        source = cp.winapi_path(source)
+        destination = cp.winapi_path(destination)
+    shutil.move(source, destination)
 
 
 def main():
@@ -525,21 +625,35 @@ def main():
         # clone the repository
         clone_repo()
 
-        # product name retrieve from product pom files
-        product_name = get_product_name()
-
-        # construct the distribution downloading url
-        dist_downl_url = get_product_dist_artifact_path(product_dist_download_api) + get_product_dist_rel_path(
-            product_dist_download_api) + product_zip_name
-
-        # product download path and file name constructing
-        product_download_dir = Path(workspace + "/" + PRODUCT_STORAGE_DIR_NAME)
-        if not Path.exists(product_download_dir):
-            Path(product_download_dir).mkdir(parents=True, exist_ok=True)
-        product_file_path = product_download_dir / product_zip_name
-        # download the last released pack from Jenkins
-        download_file(dist_downl_url, str(product_file_path))
-        logger.info('Downloading the pack from Jenkins done.')
+        if test_mode == "DEBUG":
+            checkout_to_tag(get_latest_tag_name(product_id))
+            # product name retrieve from product pom files
+            product_name = get_product_name()
+            get_latest_released_dist()
+            testng_source = Path(workspace + "/" + "testng.xml")
+            testng_destination = Path(workspace + "/" + product_id + "/" +
+                                      'modules/integration/tests-integration/tests-backend/src/test/resources/testng.xml')
+            testng_server_mgt_source = Path(workspace + "/" + "testng-server-mgt.xml")
+            testng_server_mgt_destination = Path(workspace + "/" + product_id + "/" +
+                                                 'modules/integration/tests-integration/tests-backend/src/test/resources/testng-server-mgt.xml')
+            # replace testng source
+            replace_file(testng_source, testng_destination)
+            # replace testng server mgt source
+            replace_file(testng_server_mgt_source, testng_server_mgt_destination)
+        elif test_mode == "RELEASE":
+            checkout_to_tag(get_latest_tag_name(product_id))
+            # product name retrieve from product pom files
+            product_name = get_product_name()
+            get_latest_released_dist()
+        elif test_mode == "SNAPSHOT":
+            # product name retrieve from product pom files
+            product_name = get_product_name()
+            get_latest_stable_dist()
+        elif test_mode == "WUM":
+            # todo after identify specific steps that are related to WUM, add them to here
+            # product name retrieve from product pom files
+            product_name = get_product_name()
+            logger.info("WUM specific steps are empty")
 
         # populate databases
         script_path = Path(workspace + "/" + PRODUCT_STORAGE_DIR_NAME + "/" + product_name + "/" + 'dbscripts')
