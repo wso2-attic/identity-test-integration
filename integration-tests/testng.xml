@@ -19,7 +19,7 @@
 
     <test name="is-tests-consent" parallel="false" group-by-instances="true">
         <classes>
-            <!--class name="org.wso2.identity.integration.test.consent.ConsentMgtTestCase"/-->
+            <class name="org.wso2.identity.integration.test.consent.ConsentMgtTestCase"/>
             <class name="org.wso2.identity.integration.test.user.export.UserInfoExportTestCase" />
             <!--class name="org.wso2.identity.integration.test.consent.SelfSignUpConsentTest"/-->
         </classes>
@@ -119,7 +119,7 @@
             <!--class name="org.wso2.identity.integration.test.user.store.JDBCUserStoreAddingTestCase"/-->
             <!--Provisioning Test Cases-->
             <!--class name="org.wso2.identity.integration.test.provisioning.ProvisioningTestCase"/-->
-            <class name="org.wso2.identity.integration.test.provisioning.DBSeperationTestCase"/>
+            <!--class name="org.wso2.identity.integration.test.provisioning.DBSeperationTestCase"/-->
             <!--OAuth Test Cases-->
             <!--class name="org.wso2.identity.integration.test.oauth2.OAuth2ServiceAuthCodeGrantOpenIdTestCase"/-->
             <!--class name="org.wso2.identity.integration.test.oauth2.OAuth2ServiceAuthCodeGrantOpenIdRequestObjectTestCase"/-->
