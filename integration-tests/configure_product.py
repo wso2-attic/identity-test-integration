@@ -25,7 +25,7 @@ import shutil
 import logging
 from const import ZIP_FILE_EXTENSION, NS, SURFACE_PLUGIN_ARTIFACT_ID, CARBON_NAME, VALUE_TAG, \
     DEFAULT_ORACLE_SID, DATASOURCE_PATHS, MYSQL_DB_ENGINE, ORACLE_DB_ENGINE, LIB_PATH, PRODUCT_STORAGE_DIR_NAME, \
-    DISTRIBUTION_PATH, MSSQL_DB_ENGINE
+    DISTRIBUTION_PATH, MSSQL_DB_ENGINE, WSO2SERVER
 
 datasource_paths = None
 database_url = None
@@ -139,6 +139,20 @@ def modify_pom_files():
         artifact_tree.write(file_path)
 
 
+def attach_jolokia_agent(spath):
+    logger.info('attaching jolokia agent as a java agent')
+    sp = str(spath)
+    with open(sp, "r") as in_file:
+        buf = in_file.readlines()
+
+    with open(sp, "w") as out_file:
+        for line in buf:
+            if line == "    $JAVACMD \\\n":
+                line = line + "    -javaagent:/opt/wso2/jolokia-jvm-1.6.0-agent.jar=port=8778,host=localhost,protocol=http \\\n"
+                logger.info(line)
+            out_file.write(line)
+
+
 def modify_datasources():
     for data_source in datasource_paths:
         file_path = Path(product_home_path / data_source)
@@ -228,8 +242,11 @@ def configure_product(product, id, db_config, ws):
         zip_name = product_name + ZIP_FILE_EXTENSION
         product_location = Path(product_storage / zip_name)
         configured_product_path = Path(distribution_storage / product_name)
+        script_name = Path(WSO2SERVER)
+        script_path = Path(product_home_path / script_name)
         logger.info(product_location)
         extract_product(product_location)
+        attach_jolokia_agent(script_path)
         copy_jar_file(Path(database_config['sql_driver_location']), Path(product_home_path / lib_path))
         if datasource_paths is not None:
             modify_datasources()
