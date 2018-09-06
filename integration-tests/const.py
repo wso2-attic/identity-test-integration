@@ -15,6 +15,7 @@
 NS = {'d': 'http://maven.apache.org/POM/4.0.0'}
 ZIP_FILE_EXTENSION = ".zip"
 CARBON_NAME = "carbon.zip"
+WSO2SERVER = "bin/wso2server.sh"
 VALUE_TAG = "{http://maven.apache.org/POM/4.0.0}value"
 SURFACE_PLUGIN_ARTIFACT_ID = "maven-surefire-plugin"
 DATASOURCE_PATHS = {"product-apim": ["repository/conf/datasources/master-datasources.xml",
