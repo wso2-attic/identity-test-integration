@@ -607,6 +607,20 @@ def replace_file(source, destination):
         destination = cp.winapi_path(destination)
     shutil.move(source, destination)
 
+def build_module(module_path):
+    """Build a given module.
+    """
+    logger.info('Start building a module. Module: ' + str(module_path))
+    if sys.platform.startswith('win'):
+        subprocess.call(['mvn', 'clean', 'install', '-B',
+                         '-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn'],
+                        shell=True, cwd=module_path)
+    else:
+        subprocess.call(['mvn', 'clean', 'install', '-B',
+                         '-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn'],
+                        cwd=module_path)
+    logger.info('Module build is completed. Module: ' + str(module_path))
+
 
 def main():
     try:
@@ -663,6 +677,10 @@ def main():
             raise Exception("Failed the product configuring")
         setup_databases(script_path, db_names)
         logger.info('Database setting up is done.')
+        logger.info('Building dependency modules for intg-module.')
+        if product_id == "product-is":
+            module_path = Path(workspace + "/" + product_id + "/" + 'modules/samples')
+            build_module(module_path)
         logger.info('Starting Integration test running.')
         #run integration tests
         run_integration_test()
