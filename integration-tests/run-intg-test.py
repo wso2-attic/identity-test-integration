@@ -313,6 +313,7 @@ def get_product_name():
     """
     global product_name
     global product_zip_name
+    global version
     dist_pom_path = Path(workspace + "/" + product_id + "/" + DIST_POM_PATH[product_id])
     if sys.platform.startswith('win'):
         dist_pom_path = cp.winapi_path(dist_pom_path)
@@ -657,7 +658,7 @@ def main():
 
         # populate databases
         script_path = Path(workspace + "/" + PRODUCT_STORAGE_DIR_NAME + "/" + product_name + "/" + 'dbscripts')
-        db_names = cp.configure_product(product_name, product_id, database_config, workspace)
+        db_names = cp.configure_product(product_name, version, product_id, database_config, workspace)
         if db_names is None or not db_names:
             raise Exception("Failed the product configuring")
         setup_databases(script_path, db_names)
