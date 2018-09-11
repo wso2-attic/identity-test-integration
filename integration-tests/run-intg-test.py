@@ -620,19 +620,25 @@ def replace_file(source, destination):
         destination = cp.winapi_path(destination)
     shutil.move(source, destination)
 
-def build_module(module_path):
+def build_source(source_path):
     """Build a given module.
     """
-    logger.info('Start building a module. Module: ' + str(module_path))
+    logger.info('Building the source excluding test module: ' + str(source_path))
+    custom_maven_command_args = "-pl \"!modules/integration\""
     if sys.platform.startswith('win'):
         subprocess.call(['mvn', 'clean', 'install', '-B',
                          '-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn'],
-                        shell=True, cwd=module_path)
+                         '-Dmaven.test.skip=true',
+                        custom_maven_command_args,
+                        shell=True, cwd=source_path)
     else:
         subprocess.call(['mvn', 'clean', 'install', '-B',
                          '-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn'],
-                        cwd=module_path)
-    logger.info('Module build is completed. Module: ' + str(module_path))
+                         '-Dmaven.test.skip=true',
+                        custom_maven_command_args,
+                        cwd=source_path)
+    logger.info('Module build is completed. Module: ' + str(source_path))
+
 
 def add_m2_settings_xml(customRepoUrl):
     """Add a settings xml file to m2 repository including custom remote m2 repository
@@ -716,6 +722,13 @@ def main():
             # this is required when building release-candidates (since RC candidates are added only to staging nexus)
             if custom_m2_remote_repository is not None:
                 add_m2_settings_xml(custom_m2_remote_repository)
+        elif test_mode == "BUILDFROMSOURCE":
+            checkout_to_tag(get_latest_tag_name(product_id))
+            product_name = get_product_name()
+            source_path = Path(workspace + "/" + product_id)
+            build_source(source_path)
+            get_latest_released_dist()
+
         elif test_mode == "SNAPSHOT":
             # product name retrieve from product pom files
             product_name = get_product_name()
