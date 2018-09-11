@@ -24,6 +24,8 @@ import shutil
 import pymysql
 import sqlparse
 import re
+import lxml.etree
+import lxml.builder
 from pathlib import Path
 import urllib.request as urllib2
 from xml.dom import minidom
@@ -45,6 +47,7 @@ target_path = None
 db_engine = None
 db_engine_version = None
 latest_product_release_api = None
+custom_m2_remote_repository = None
 latest_product_build_artifacts_api = None
 sql_driver_location = None
 db_host = None
@@ -62,6 +65,7 @@ def read_proprty_files():
     global git_repo_url
     global git_branch
     global latest_product_release_api
+    global custom_m2_remote_repository
     global latest_product_build_artifacts_api
     global sql_driver_location
     global db_host
@@ -101,6 +105,8 @@ def read_proprty_files():
                         git_branch = val.strip()
                     elif key == "LATEST_PRODUCT_RELEASE_API":
                         latest_product_release_api = val.strip().replace('\\', '')
+                    elif key == "CUSTOM_M2_REMOTE_REPOSITORY":
+                        custom_m2_remote_repository = val.strip().replace('\\', '')
                     elif key == "LATEST_PRODUCT_BUILD_ARTIFACTS_API":
                         latest_product_build_artifacts_api = val.strip().replace('\\', '')
                     elif key == "SQL_DRIVERS_LOCATION_UNIX" and not sys.platform.startswith('win'):
@@ -313,6 +319,7 @@ def get_product_name():
     """
     global product_name
     global product_zip_name
+    global version
     dist_pom_path = Path(workspace + "/" + product_id + "/" + DIST_POM_PATH[product_id])
     if sys.platform.startswith('win'):
         dist_pom_path = cp.winapi_path(dist_pom_path)
@@ -458,13 +465,20 @@ def run_integration_test():
     """Run integration tests.
     """
     integration_tests_path = Path(workspace + "/" + product_id + "/" + 'modules/integration')
+    custom_maven_command_args = ""
+    if custom_m2_remote_repository is not None:
+        #As a good practice, change the default local repository since the remote repository is going to be changed.
+        custom_maven_command_args = "-PcustomProfile"
+
     if sys.platform.startswith('win'):
         subprocess.call(['mvn', 'clean', 'install', '-B',
-                         '-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn'],
+                         '-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn',
+                         custom_maven_command_args],
                         shell=True, cwd=integration_tests_path)
     else:
         subprocess.call(['mvn', 'clean', 'install', '-B',
-                         '-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn'],
+                         '-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn',
+                         custom_maven_command_args],
                         cwd=integration_tests_path)
     logger.info('Integration test Running is completed.')
 
@@ -606,6 +620,65 @@ def replace_file(source, destination):
         destination = cp.winapi_path(destination)
     shutil.move(source, destination)
 
+def build_source(source_path):
+    """Build a given module.
+    """
+    logger.info('Building the source excluding test module: ' + str(source_path))
+    custom_maven_command_args = "-pl \"!modules/integration\""
+    if sys.platform.startswith('win'):
+        subprocess.call(['mvn', 'clean', 'install', '-B',
+                         '-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn'],
+                         '-Dmaven.test.skip=true',
+                        custom_maven_command_args,
+                        shell=True, cwd=source_path)
+    else:
+        subprocess.call(['mvn', 'clean', 'install', '-B',
+                         '-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn'],
+                         '-Dmaven.test.skip=true',
+                        custom_maven_command_args,
+                        cwd=source_path)
+    logger.info('Module build is completed. Module: ' + str(source_path))
+
+
+def add_m2_settings_xml(customRepoUrl):
+    """Add a settings xml file to m2 repository including custom remote m2 repository
+    """
+    elementMaker = lxml.builder.ElementMaker()
+    settings = elementMaker.settings
+    profiles = elementMaker.profiles
+    profile = elementMaker.profile
+    repositories = elementMaker.repositories
+    repository = elementMaker.repository
+    id = elementMaker.id
+    name = elementMaker.name
+    url = elementMaker.url
+
+    xmlContent = settings(
+        profiles(
+            profile(
+                id('customProfile'),
+                repositories(
+                    repository(
+                        id('custom-nexus-repository'),
+                        name('Custom Nexus Repository'),
+                        url(customRepoUrl)
+                    )	)
+            )
+        )
+    )
+
+    print lxml.etree.tostring(xmlContent, pretty_print=True)
+
+    if sys.platform.startswith('win'):
+        m2_home = Path("/Documents and Settings/Administrator/.m2/")
+        m2_home = cp.winapi_path(m2_home)
+    else:
+        m2_home = Path.home() / ".m2/"
+    m2_settings_file = open(m2_home + "settings.xml", "w")
+    m2_settings_file.write(lxml.etree.tostring(xmlContent, pretty_print=True))
+    m2_settings_file.close()
+    logger.info("Added settings.xml to m2 repository changing remote m2 location to " + customRepoUrl)
+
 
 def main():
     try:
@@ -645,6 +718,17 @@ def main():
             # product name retrieve from product pom files
             product_name = get_product_name()
             get_latest_released_dist()
+            # if custom_m2_repository is given, the build will point there
+            # this is required when building release-candidates (since RC candidates are added only to staging nexus)
+            if custom_m2_remote_repository is not None:
+                add_m2_settings_xml(custom_m2_remote_repository)
+        elif test_mode == "BUILDFROMSOURCE":
+            checkout_to_tag(get_latest_tag_name(product_id))
+            product_name = get_product_name()
+            source_path = Path(workspace + "/" + product_id)
+            build_source(source_path)
+            get_latest_released_dist()
+
         elif test_mode == "SNAPSHOT":
             # product name retrieve from product pom files
             product_name = get_product_name()
@@ -657,11 +741,15 @@ def main():
 
         # populate databases
         script_path = Path(workspace + "/" + PRODUCT_STORAGE_DIR_NAME + "/" + product_name + "/" + 'dbscripts')
-        db_names = cp.configure_product(product_name, product_id, database_config, workspace)
+        db_names = cp.configure_product(product_name, version, product_id, database_config, workspace)
         if db_names is None or not db_names:
             raise Exception("Failed the product configuring")
         setup_databases(script_path, db_names)
         logger.info('Database setting up is done.')
+        # logger.info('Building dependency modules for intg-module.')
+        # if product_id == "product-is":
+        #     module_path = Path(workspace + "/" + product_id + "/" + 'modules/samples')
+        #     build_module(module_path)
         logger.info('Starting Integration test running.')
         #run integration tests
         run_integration_test()
