@@ -121,8 +121,8 @@
             <class name="org.wso2.identity.integration.test.user.store.config.UserStoreDeployerTestCase"/>
             <class name="org.wso2.identity.integration.test.user.store.JDBCUserStoreAddingTestCase"/>
             <!--Provisioning Test Cases-->
-            <class name="org.wso2.identity.integration.test.provisioning.ProvisioningTestCase"/>
-            <class name="org.wso2.identity.integration.test.provisioning.DBSeperationTestCase"/>
+            <!--class name="org.wso2.identity.integration.test.provisioning.ProvisioningTestCase"/-->
+            <!--class name="org.wso2.identity.integration.test.provisioning.DBSeperationTestCase"/-->
             <!--OAuth Test Cases-->
             <class name="org.wso2.identity.integration.test.oauth2.OAuth2ServiceAuthCodeGrantOpenIdTestCase"/>
             <class name="org.wso2.identity.integration.test.oauth2.OAuth2ServiceAuthCodeGrantOpenIdRequestObjectTestCase"/>
@@ -166,7 +166,7 @@
             <class name="org.wso2.identity.integration.test.openid.OpenIDSSOTestCase" />
             <!--PassiveSTS Test Cases-->
             <class name="org.wso2.identity.integration.test.sts.TestPassiveSTS"/>
-            <class name="org.wso2.identity.integration.test.sts.TestPassiveSTSFederation"/>
+            <!--class name="org.wso2.identity.integration.test.sts.TestPassiveSTSFederation"/-->
             <!--User Profile Management Test Cases-->
             <class name="org.wso2.identity.integration.test.user.profile.mgt.UserProfileMgtTestCase"/>
             <!--SAML Test Cases-->
@@ -176,12 +176,12 @@
             <class name="org.wso2.identity.integration.test.saml.SPMetadataTestCase"/>
             <!-- <class name="org.wso2.identity.integration.test.saml.SPMetaDataTenantTestCase"/>-->
             <class name="org.wso2.identity.integration.test.saml.IDPMetadataTestCase"/>
-            <class name="org.wso2.identity.integration.test.saml.SAMLFederationDynamicQueryParametersTestCase"/>
+            <!--class name="org.wso2.identity.integration.test.saml.SAMLFederationDynamicQueryParametersTestCase"/-->
 
             <class name="org.wso2.identity.integration.test.provisioning.JustInTimeProvisioningTestCase"/>
 
             <!--Workflow Management test case-->
-            <class name="org.wso2.identity.integration.test.workflow.mgt.WorkflowManagementTestCase"/>
+            <!--class name="org.wso2.identity.integration.test.workflow.mgt.WorkflowManagementTestCase"/-->
 
             <!--Identity Provider Management Test Cases-->
             <class name="org.wso2.identity.integration.test.idp.mgt.IdentityProviderManagementTestCase" />
@@ -194,8 +194,8 @@
             <class name="org.wso2.identity.integration.test.requestPathAuthenticator.SAMLWithRequestPathAuthenticationTest" />
             <class name="org.wso2.identity.integration.test.idp.mgt.IdentityProviderMgtServiceTestCase" />
             <class name="org.wso2.identity.integration.test.dashboard.IDENTITY5811TestCase" />
-            <class name="org.wso2.identity.integration.test.auth.ConditionalAuthenticationTestCase" />
-            <class name="org.wso2.identity.integration.test.auth.IdentifierFirstLoginTestCase" />
+            <!--class name="org.wso2.identity.integration.test.auth.ConditionalAuthenticationTestCase" /-->
+            <!--class name="org.wso2.identity.integration.test.auth.IdentifierFirstLoginTestCase" /-->
             <class name="org.wso2.identity.integration.test.auth.RiskBasedLoginTestCase" />
         </classes>
     </test>
@@ -220,9 +220,9 @@
     </test>
     <test name="is-tests-saml-sequential" preserve-order="true" parallel="false">
         <classes>
-            <class name="org.wso2.identity.integration.test.saml.ChangeACSUrlTestCase"/>
-            <class name="org.wso2.identity.integration.test.saml.SAMLFederationWithFileBasedSPAndIDPTestCase"/>
-            <class name="org.wso2.identity.integration.test.user.profile.mgt.UserProfileAdminTestCase"/>
+            <!--class name="org.wso2.identity.integration.test.saml.ChangeACSUrlTestCase"/-->
+            <!--class name="org.wso2.identity.integration.test.saml.SAMLFederationWithFileBasedSPAndIDPTestCase"/-->
+            <!--<class name="org.wso2.identity.integration.test.user.profile.mgt.UserProfileAdminTestCase"/>-->
         </classes>
     </test>
     <test name="is-tests-oauth2-encryption" preserve-order="true" parallel="false">
