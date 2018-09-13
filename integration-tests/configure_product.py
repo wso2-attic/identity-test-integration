@@ -139,18 +139,7 @@ def modify_pom_files():
         artifact_tree.write(file_path)
 
 
-def attach_jolokia_agent(spath):
-    logger.info('attaching jolokia agent as a java agent')
-    sp = str(spath)
-    with open(sp, "r") as in_file:
-        buf = in_file.readlines()
-
-    with open(sp, "w") as out_file:
-        for line in buf:
-            if line == "    $JAVACMD \\\n":
-                line = line + "    -javaagent:/opt/wso2/jolokia-jvm-1.6.0-agent.jar=port=8778,host=localhost,protocol=http \\\n"
-                logger.info(line)
-            out_file.write(line)
+git
 
 
 def modify_datasources():
