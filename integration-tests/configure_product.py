@@ -139,7 +139,34 @@ def modify_pom_files():
         artifact_tree.write(file_path)
 
 
-git
+def attach_jolokia_agent(spath):
+    logger.info('attaching jolokia agent as a java agent')
+    sp = str(spath)
+
+    if sys.platform.startswith('win'):
+        sp = sp + ".bat"
+        jolokia_agent = "-javaagent:C:\\testgrid\\jolokia-jvm-1.6.0-agent.jar=port=8778,host=localhost,protocol=http "
+        with open(sp, "r") as in_file:
+            buf = in_file.readlines()
+        with open(sp, "w") as out_file:
+            for line in buf:
+                if line.startswith("set CMD_LINE_ARGS"):
+                    newline = str(line).replace("CMD_LINE_ARGS=", 'CMD_LINE_ARGS='+jolokia_agent)
+                    line = newline
+                    logger.info(newline)
+                out_file.write(line)
+    else:
+        sp = sp + ".sh"
+        jolokia_agent = \
+            "    -javaagent:/opt/wso2/jolokia-jvm-1.6.0-agent.jar=port=8778,host=localhost,protocol=http \\\n"
+        with open(sp, "r") as in_file:
+            buf = in_file.readlines()
+        with open(sp, "w") as out_file:
+            for line in buf:
+                if line == "    $JAVACMD \\\n":
+                    line = line + jolokia_agent
+                    logger.info(line)
+                out_file.write(line)
 
 
 def modify_datasources():
