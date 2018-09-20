@@ -33,6 +33,7 @@ database_user = None
 database_pwd = None
 database_drive_class_name = None
 product_name = None
+product_version = None
 product_home_path = None
 distribution_storage = None
 database_config = None
@@ -215,10 +216,9 @@ def modify_datasources():
         artifact_tree.write(file_path)
 
 
-def copy_distribution_to_m2(storage, name):
+def copy_distribution_to_m2(storage, name, version):
     # todo need to generalize this method
     home = Path.home()
-    version = name.split("-")[1] + "-" + name.split("-")[2]
     linux_m2_path = home / ".m2/repository/org/wso2/is/wso2is" / version / name
     windows_m2_path = Path(
         "/Documents and Settings/Administrator/.m2/repository/org/wso2/is/wso2is" + "/" + version + "/" + name)
@@ -232,9 +232,10 @@ def copy_distribution_to_m2(storage, name):
         shutil.rmtree(linux_m2_path, onerror=on_rm_error)
 
 
-def configure_product(product, id, db_config, ws):
+def configure_product(product, version, id, db_config, ws):
     logger.info('Configuring product: ' + product)
     try:
+        global product_version
         global product_name
         global product_id
         global database_config
@@ -249,6 +250,7 @@ def configure_product(product, id, db_config, ws):
         product_name = product
         product_id = id
         database_config = db_config
+        product_version = version
         workspace = ws
         datasource_paths = DATASOURCE_PATHS[product_id]
         lib_path = LIB_PATH
@@ -270,7 +272,7 @@ def configure_product(product, id, db_config, ws):
             logger.info("Datasource paths are not defined in the config file")
         os.remove(str(product_location))
         compress_distribution(configured_product_path, product_storage)
-        copy_distribution_to_m2(product_storage, product_name)
+        copy_distribution_to_m2(product_storage, product_name, product_version)
         shutil.rmtree(configured_product_path, onerror=on_rm_error)
         return database_names
     except FileNotFoundError as e:

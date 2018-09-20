@@ -53,8 +53,9 @@ db_username = None
 db_password = None
 tag_name = None
 test_mode = None
+build_from_source = None
 database_config = {}
-
+version = None
 
 def read_proprty_files():
     global db_engine
@@ -72,6 +73,7 @@ def read_proprty_files():
     global product_id
     global database_config
     global test_mode
+    global build_from_source
 
     workspace = os.getcwd()
     property_file_paths = []
@@ -117,6 +119,8 @@ def read_proprty_files():
                         db_password = val.strip()
                     elif key == "TEST_MODE":
                         test_mode = val.strip()
+                    elif key == "BUILD_FROM_SOURCE":
+                        build_from_source = val.strip()
     else:
         raise Exception("Test Plan Property file or Infra Property file is not in the workspace: " + workspace)
 
@@ -313,6 +317,7 @@ def get_product_name():
     """
     global product_name
     global product_zip_name
+    global version
     dist_pom_path = Path(workspace + "/" + product_id + "/" + DIST_POM_PATH[product_id])
     if sys.platform.startswith('win'):
         dist_pom_path = cp.winapi_path(dist_pom_path)
@@ -321,8 +326,8 @@ def get_product_name():
     artifact_root = artifact_tree.getroot()
     parent = artifact_root.find('d:parent', NS)
     artifact_id = artifact_root.find('d:artifactId', NS)
-    version = parent.find('d:version', NS)
-    product_name = artifact_id.text + "-" + version.text
+    version = parent.find('d:version', NS).text
+    product_name = artifact_id.text + "-" + version
     product_zip_name = product_name + ".zip"
     return product_name
 
@@ -606,6 +611,20 @@ def replace_file(source, destination):
         destination = cp.winapi_path(destination)
     shutil.move(source, destination)
 
+def build_source(source_path):
+    """Build the product-source.
+    """
+    logger.info('Building the source skipping tests')
+    if sys.platform.startswith('win'):
+        subprocess.call(['mvn', 'clean', 'install', '-B', '-e',
+                         '-Dmaven.test.skip=true'],
+                        shell=True, cwd=source_path)
+    else:
+        subprocess.call(['mvn', 'clean', 'install', '-B', '-e',
+                         '-Dmaven.test.skip=true'],
+                        cwd=source_path)
+    logger.info('Module build is completed. Module: ' + str(source_path))
+
 
 def main():
     try:
@@ -644,6 +663,9 @@ def main():
             checkout_to_tag(get_latest_tag_name(product_id))
             # product name retrieve from product pom files
             product_name = get_product_name()
+            if build_from_source == "TRUE":
+                source_path = Path(workspace + "/" + product_id)
+                build_source(source_path)
             get_latest_released_dist()
         elif test_mode == "SNAPSHOT":
             # product name retrieve from product pom files
@@ -657,7 +679,7 @@ def main():
 
         # populate databases
         script_path = Path(workspace + "/" + PRODUCT_STORAGE_DIR_NAME + "/" + product_name + "/" + 'dbscripts')
-        db_names = cp.configure_product(product_name, product_id, database_config, workspace)
+        db_names = cp.configure_product(product_name, version, product_id, database_config, workspace)
         if db_names is None or not db_names:
             raise Exception("Failed the product configuring")
         setup_databases(script_path, db_names)
