@@ -1,0 +1,1784 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.3 r1808647">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="MFA authetication for IS login - user, IDP and SP creation" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Variables" enabled="false">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="serverHost" elementType="Argument">
+            <stringProp name="Argument.name">serverHost</stringProp>
+            <stringProp name="Argument.value">${__property(serverHost)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="serverPort" elementType="Argument">
+            <stringProp name="Argument.name">serverPort</stringProp>
+            <stringProp name="Argument.value">${__property(serverPort)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="adminusername" elementType="Argument">
+            <stringProp name="Argument.name">adminusername</stringProp>
+            <stringProp name="Argument.value">${__property(adminusername)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="adminpassword" elementType="Argument">
+            <stringProp name="Argument.name">adminpassword</stringProp>
+            <stringProp name="Argument.value">${__property(adminpassword)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="spname" elementType="Argument">
+            <stringProp name="Argument.name">spname</stringProp>
+            <stringProp name="Argument.value">${__property(spname)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="spdescription" elementType="Argument">
+            <stringProp name="Argument.name">spdescription</stringProp>
+            <stringProp name="Argument.value">${__property(spdescription)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="carbonServer" elementType="Argument">
+            <stringProp name="Argument.name">carbonServer</stringProp>
+            <stringProp name="Argument.value">${__property(carbonServer)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="idpname" elementType="Argument">
+            <stringProp name="Argument.name">idpname</stringProp>
+            <stringProp name="Argument.value">${__property(idpname)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="idpdescription" elementType="Argument">
+            <stringProp name="Argument.name">idpdescription</stringProp>
+            <stringProp name="Argument.value">${__property(idpdescription)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="TwitterClientId" elementType="Argument">
+            <stringProp name="Argument.name">TwitterClientId</stringProp>
+            <stringProp name="Argument.value">${__property(TwitterClientId)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="TwitterSecret" elementType="Argument">
+            <stringProp name="Argument.name">TwitterSecret</stringProp>
+            <stringProp name="Argument.value">${__property(TwitterSecret)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="rolename" elementType="Argument">
+            <stringProp name="Argument.name">rolename</stringProp>
+            <stringProp name="Argument.value">${__property(rolename)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="usernamePrefix" elementType="Argument">
+            <stringProp name="Argument.name">usernamePrefix</stringProp>
+            <stringProp name="Argument.value">${__property(usernamePrefix)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="testuserpass" elementType="Argument">
+            <stringProp name="Argument.name">testuserpass</stringProp>
+            <stringProp name="Argument.value">${__property(testuserpass)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="redirect" elementType="Argument">
+            <stringProp name="Argument.name">redirect</stringProp>
+            <stringProp name="Argument.value">${__property(redirect)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="testAdminCredentials" elementType="Argument">
+            <stringProp name="Argument.name">testAdminCredentials</stringProp>
+            <stringProp name="Argument.value">${__property(testAdminCredentials)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="incorrectadmin" elementType="Argument">
+            <stringProp name="Argument.name">incorrectadmin</stringProp>
+            <stringProp name="Argument.value">${__property(incorrectadmin)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="metadataFilePath" elementType="Argument">
+            <stringProp name="Argument.name">metadataFilePath</stringProp>
+            <stringProp name="Argument.value">${__property(metadataFilePath)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="managmentConsole" elementType="Argument">
+            <stringProp name="Argument.name">managmentConsole</stringProp>
+            <stringProp name="Argument.value">${__property(managmentConsole)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="spListUrlCarbon" elementType="Argument">
+            <stringProp name="Argument.name">spListUrlCarbon</stringProp>
+            <stringProp name="Argument.value">${__property(spListUrlCarbon)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="loadSpUrlCarbon" elementType="Argument">
+            <stringProp name="Argument.name">loadSpUrlCarbon</stringProp>
+            <stringProp name="Argument.value">${__property(loadSpUrlCarbon)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="addSamlSpUrlCarbon" elementType="Argument">
+            <stringProp name="Argument.name">addSamlSpUrlCarbon</stringProp>
+            <stringProp name="Argument.value">${__property(addSamlSpUrlCarbon)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="serverHost" elementType="Argument">
+            <stringProp name="Argument.name">serverHost</stringProp>
+            <stringProp name="Argument.value">localhost</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="serverPort" elementType="Argument">
+            <stringProp name="Argument.name">serverPort</stringProp>
+            <stringProp name="Argument.value">9443</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="adminusername" elementType="Argument">
+            <stringProp name="Argument.name">adminusername</stringProp>
+            <stringProp name="Argument.value">admin</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="adminpassword" elementType="Argument">
+            <stringProp name="Argument.name">adminpassword</stringProp>
+            <stringProp name="Argument.value">admin</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="spname" elementType="Argument">
+            <stringProp name="Argument.name">spname</stringProp>
+            <stringProp name="Argument.value">carbonServer</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="spdescription" elementType="Argument">
+            <stringProp name="Argument.name">spdescription</stringProp>
+            <stringProp name="Argument.value">This is the SP that will use to login to management console itself</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="carbonServer" elementType="Argument">
+            <stringProp name="Argument.name">carbonServer</stringProp>
+            <stringProp name="Argument.value">carbonServer</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="idpname" elementType="Argument">
+            <stringProp name="Argument.name">idpname</stringProp>
+            <stringProp name="Argument.value">twitter</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="idpdescription" elementType="Argument">
+            <stringProp name="Argument.name">idpdescription</stringProp>
+            <stringProp name="Argument.value">This is the Twitter federated IDP</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="TwitterClientId" elementType="Argument">
+            <stringProp name="Argument.name">TwitterClientId</stringProp>
+            <stringProp name="Argument.value">WWdo748rnXiF8BkExp7ziVYNm</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="TwitterSecret" elementType="Argument">
+            <stringProp name="Argument.name">TwitterSecret</stringProp>
+            <stringProp name="Argument.value">uaOruL1g2AYaCh5aHBrTKDDuAw6Skl4oq8BiyZsQ7oJw8uk1sW</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="rolename" elementType="Argument">
+            <stringProp name="Argument.name">rolename</stringProp>
+            <stringProp name="Argument.value">sol5admin</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="usernamePrefix" elementType="Argument">
+            <stringProp name="Argument.name">usernamePrefix</stringProp>
+            <stringProp name="Argument.value">sol5admin</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="testuserpass" elementType="Argument">
+            <stringProp name="Argument.name">testuserpass</stringProp>
+            <stringProp name="Argument.value">sol5admin1</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="noOfUsers" elementType="Argument">
+            <stringProp name="Argument.name">noOfUsers</stringProp>
+            <stringProp name="Argument.value">1</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="redirect" elementType="Argument">
+            <stringProp name="Argument.name">redirect</stringProp>
+            <stringProp name="Argument.value">commonauth</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="testAdminCredentials" elementType="Argument">
+            <stringProp name="Argument.name">testAdminCredentials</stringProp>
+            <stringProp name="Argument.value">c29sNWFkbWluMTphZG1pbg==</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="metadataFilePath" elementType="Argument">
+            <stringProp name="Argument.name">metadataFilePath</stringProp>
+            <stringProp name="Argument.value">http://localhost:8080/spmetadata/metadataIsItselfAsSp.xml</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="managmentConsole" elementType="Argument">
+            <stringProp name="Argument.name">managmentConsole</stringProp>
+            <stringProp name="Argument.value">/carbon</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="spListUrlCarbon" elementType="Argument">
+            <stringProp name="Argument.name">spListUrlCarbon</stringProp>
+            <stringProp name="Argument.value">/application/list-service-providers.jsp?region=region1&amp;item=list_service_providers_menu</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="loadSpUrlCarbon" elementType="Argument">
+            <stringProp name="Argument.name">loadSpUrlCarbon</stringProp>
+            <stringProp name="Argument.value">/application/load-service-provider.jsp?spName=carbonServer</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="addSamlSpUrlCarbon" elementType="Argument">
+            <stringProp name="Argument.name">addSamlSpUrlCarbon</stringProp>
+            <stringProp name="Argument.value">/sso-saml/add_service_provider.jsp?spName=carbonServer</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="login" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">5</stringProp>
+        <longProp name="ThreadGroup.start_time">1464340313000</longProp>
+        <longProp name="ThreadGroup.end_time">1464340313000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <boolProp name="resetInterpreter">false</boolProp>
+          <stringProp name="script">import org.apache.commons.codec.binary.Base64;
+byte[] encodedUsernamePassword = Base64.encodeBase64(&quot;${adminusername}:${adminpassword}&quot;.getBytes());
+vars.put(&quot;adminCredentials&quot;,new String(encodedUsernamePassword));</stringProp>
+          <stringProp name="TestPlan.comments">This is use to base64 encode the username and password</stringProp>
+        </BeanShellPreProcessor>
+        <hashTree/>
+        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+          <collectionProp name="CookieManager.cookies"/>
+          <boolProp name="CookieManager.clearEachIteration">false</boolProp>
+        </CookieManager>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:aut=&quot;http://authentication.services.core.carbon.wso2.org&quot;&gt;&#xd;
+   &lt;soapenv:Header/&gt;&#xd;
+   &lt;soapenv:Body&gt;&#xd;
+      &lt;aut:login&gt;&#xd;
+         &lt;aut:username&gt;${adminusername}&lt;/aut:username&gt;&#xd;
+         &lt;aut:password&gt;${adminpassword}&lt;/aut:password&gt;&#xd;
+      &lt;/aut:login&gt;&#xd;
+   &lt;/soapenv:Body&gt;&#xd;
+&lt;/soapenv:Envelope&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/services/AuthenticationAdmin.AuthenticationAdminHttpsSoap11Endpoint/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200 OK HTTP Code Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1606201635">HTTP/1.1 200 OK</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Basic ${adminCredentials}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">SOAPAction</stringProp>
+                <stringProp name="Header.value">urn:login</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">text/xml</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Create IDP for Twitter" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">5</stringProp>
+        <longProp name="ThreadGroup.start_time">1464340313000</longProp>
+        <longProp name="ThreadGroup.end_time">1464340313000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <boolProp name="resetInterpreter">false</boolProp>
+          <stringProp name="script">import org.apache.commons.codec.binary.Base64;
+byte[] encodedUsernamePassword = Base64.encodeBase64(&quot;${adminusername}:${adminpassword}&quot;.getBytes());
+vars.put(&quot;adminCredentials&quot;,new String(encodedUsernamePassword));</stringProp>
+          <stringProp name="TestPlan.comments">This is use to base64 encode the username and password</stringProp>
+        </BeanShellPreProcessor>
+        <hashTree/>
+        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+          <collectionProp name="CookieManager.cookies"/>
+          <boolProp name="CookieManager.clearEachIteration">false</boolProp>
+        </CookieManager>
+        <hashTree/>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Authorization</stringProp>
+              <stringProp name="Header.value">Basic ${adminCredentials}</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="true">
+          <stringProp name="CounterConfig.start">1</stringProp>
+          <stringProp name="CounterConfig.end">${maxsp}</stringProp>
+          <stringProp name="CounterConfig.incr">1</stringProp>
+          <stringProp name="CounterConfig.name">counter</stringProp>
+          <stringProp name="CounterConfig.format"></stringProp>
+          <boolProp name="CounterConfig.per_user">false</boolProp>
+        </CounterConfig>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create IDP" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:mgt=&quot;http://mgt.idp.carbon.wso2.org&quot; xmlns:xsd=&quot;http://model.common.application.identity.carbon.wso2.org/xsd&quot;&gt;  &#xd;
+   &lt;soapenv:Header/&gt;&#xd;
+   &lt;soapenv:Body&gt;     &#xd;
+      &lt;mgt:addIdP&gt;        &#xd;
+         &lt;!--Optional:--&gt;&#xd;
+         &lt;mgt:identityProvider&gt;&#xd;
+            &lt;xsd:identityProviderName&gt;${idpname}&lt;/xsd:identityProviderName&gt;           &#xd;
+            &lt;xsd:displayName&gt;${idpname}&lt;/xsd:displayName&gt;&#xd;
+            &lt;xsd:enable&gt;true&lt;/xsd:enable&gt;&#xd;
+            &lt;xsd:identityProviderDescription&gt;${idpdescription}&lt;/xsd:identityProviderDescription&gt;&#xd;
+            &lt;xsd:alias&gt;https://${serverHost}:${serverPort}/oauth2/token/&lt;/xsd:alias&gt;&#xd;
+            &lt;xsd:primary&gt;false&lt;/xsd:primary&gt;&#xd;
+            &lt;xsd:provisioningRole&gt;-&lt;/xsd:provisioningRole&gt;&#xd;
+         &lt;/mgt:identityProvider&gt;&#xd;
+      &lt;/mgt:addIdP&gt;&#xd;
+   &lt;/soapenv:Body&gt;&#xd;
+&lt;/soapenv:Envelope&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/services/IdentityProviderMgtService.IdentityProviderMgtServiceHttpsSoap11Endpoint/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200 OK HTTP Code Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1606201635">HTTP/1.1 200 OK</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Basic ${adminCredentials}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">SOAPAction</stringProp>
+                <stringProp name="Header.value">urn:addIdP</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">text/xml</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Update IDP" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:mgt=&quot;http://mgt.idp.carbon.wso2.org&quot; xmlns:xsd=&quot;http://model.common.application.identity.carbon.wso2.org/xsd&quot;&gt;&#xd;
+   &lt;soapenv:Header/&gt;&#xd;
+   &lt;soapenv:Body&gt;&#xd;
+      &lt;mgt:updateIdP&gt;&#xd;
+         &lt;!--Optional:--&gt;&#xd;
+         &lt;mgt:oldIdPName&gt;${idpname}&lt;/mgt:oldIdPName&gt;&#xd;
+         &lt;!--Optional:--&gt;&#xd;
+         &lt;mgt:identityProvider&gt;&#xd;
+            &lt;xsd:identityProviderName&gt;${idpname}&lt;/xsd:identityProviderName&gt;           &#xd;
+            &lt;xsd:displayName&gt;${idpname}&lt;/xsd:displayName&gt;&#xd;
+            &lt;xsd:enable&gt;true&lt;/xsd:enable&gt;&#xd;
+            &lt;xsd:identityProviderDescription&gt;${idpdescription}&lt;/xsd:identityProviderDescription&gt;&#xd;
+            &lt;xsd:alias&gt;https://${serverHost}:${serverPort}/oauth2/token/&lt;/xsd:alias&gt;&#xd;
+            &lt;xsd:primary&gt;false&lt;/xsd:primary&gt;&#xd;
+            &lt;xsd:provisioningRole&gt;-&lt;/xsd:provisioningRole&gt;&#xd;
+&#xd;
+	/** Configure Claims */&#xd;
+			 	  &#xd;
+	   &lt;xsd:claimConfig&gt;&#xd;
+    	       &lt;xsd:alwaysSendMappedLocalSubjectId&gt;true&lt;/xsd:alwaysSendMappedLocalSubjectId&gt;&#xd;
+               &lt;!--Zero or more repetitions:--&gt;&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/nickname&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;id&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+	   &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/fullname&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;name&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/gender&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;gender&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/emailaddress&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;email&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/givenname&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;first_name&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/lastname&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;last_name&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/dob&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;age_range&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/url&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;0&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;link&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+        		&lt;xsd:idpClaims&gt;&#xd;
+                  &lt;xsd:claimId&gt;16&lt;/xsd:claimId&gt;&#xd;
+                  &lt;xsd:claimUri&gt;id&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+               &lt;xsd:idpClaims&gt;&#xd;
+                  &lt;xsd:claimId&gt;17&lt;/xsd:claimId&gt;&#xd;
+                  &lt;xsd:claimUri&gt;name&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+               &lt;xsd:idpClaims&gt;&#xd;
+                  &lt;xsd:claimId&gt;18&lt;/xsd:claimId&gt;&#xd;
+                  &lt;xsd:claimUri&gt;gender&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+               &lt;xsd:idpClaims&gt;&#xd;
+                  &lt;xsd:claimId&gt;19&lt;/xsd:claimId&gt;&#xd;
+                  &lt;xsd:claimUri&gt;email&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+               &lt;xsd:idpClaims&gt;&#xd;
+                  &lt;xsd:claimId&gt;20&lt;/xsd:claimId&gt;&#xd;
+                  &lt;xsd:claimUri&gt;first_name&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+               &lt;xsd:idpClaims&gt;&#xd;
+                  &lt;xsd:claimId&gt;21&lt;/xsd:claimId&gt;&#xd;
+                  &lt;xsd:claimUri&gt;last_name&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+               &lt;xsd:idpClaims&gt;&#xd;
+                  &lt;xsd:claimId&gt;22&lt;/xsd:claimId&gt;&#xd;
+                  &lt;xsd:claimUri&gt;age_range&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+               &lt;xsd:idpClaims&gt;&#xd;
+                  &lt;xsd:claimId&gt;23&lt;/xsd:claimId&gt;&#xd;
+                  &lt;xsd:claimUri&gt;link&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+ &#xd;
+               &#xd;
+               &lt;xsd:localClaimDialect&gt;false&lt;/xsd:localClaimDialect&gt;&#xd;
+               &lt;xsd:userClaimURI&gt;id&lt;/xsd:userClaimURI&gt;               &#xd;
+               &#xd;
+        &lt;/xsd:claimConfig&gt;&#xd;
+      &#xd;
+		   &lt;xsd:federatedAuthenticatorConfigs&gt;&#xd;
+               &lt;xsd:displayName&gt;twitter&lt;/xsd:displayName&gt;&#xd;
+               &lt;xsd:enabled&gt;true&lt;/xsd:enabled&gt;&#xd;
+               &lt;xsd:name&gt;TwitterAuthenticator&lt;/xsd:name&gt;&#xd;
+               &lt;xsd:properties&gt;&#xd;
+                  &lt;xsd:name&gt;APIKey&lt;/xsd:name&gt;&#xd;
+                  &lt;xsd:value&gt;${TwitterClientId}&lt;/xsd:value&gt;&#xd;
+               &lt;/xsd:properties&gt;&#xd;
+               &lt;xsd:properties&gt;&#xd;
+                  &lt;xsd:name&gt;APISecret&lt;/xsd:name&gt;&#xd;
+                  &lt;xsd:value&gt;${TwitterSecret}&lt;/xsd:value&gt;&#xd;
+               &lt;/xsd:properties&gt;&#xd;
+               &lt;xsd:properties&gt;&#xd;
+                  &lt;xsd:name&gt;callbackUrl&lt;/xsd:name&gt;&#xd;
+                  &lt;xsd:value&gt;https://${serverHost}:${serverPort}/commonauth&lt;/xsd:value&gt;&#xd;
+               &lt;/xsd:properties&gt;&#xd;
+            &lt;/xsd:federatedAuthenticatorConfigs&gt;&#xd;
+         &lt;/mgt:identityProvider&gt;&#xd;
+      &lt;/mgt:updateIdP&gt;&#xd;
+   &lt;/soapenv:Body&gt;&#xd;
+&lt;/soapenv:Envelope&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">services/IdentityProviderMgtService.IdentityProviderMgtServiceHttpsSoap11Endpoint/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200 OK HTTP Code Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1606201635">HTTP/1.1 200 OK</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Basic ${adminCredentials}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">SOAPAction</stringProp>
+                <stringProp name="Header.value">urn:updateIdP</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">text/xml</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Create SP for CabonServer" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">5</stringProp>
+        <longProp name="ThreadGroup.start_time">1464340313000</longProp>
+        <longProp name="ThreadGroup.end_time">1464340313000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <boolProp name="resetInterpreter">false</boolProp>
+          <stringProp name="script">import org.apache.commons.codec.binary.Base64;
+byte[] encodedUsernamePassword = Base64.encodeBase64(&quot;${adminusername}:${adminpassword}&quot;.getBytes());
+vars.put(&quot;adminCredentials&quot;,new String(encodedUsernamePassword));</stringProp>
+          <stringProp name="TestPlan.comments">This is use to base64 encode the username and password</stringProp>
+        </BeanShellPreProcessor>
+        <hashTree/>
+        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+          <collectionProp name="CookieManager.cookies"/>
+          <boolProp name="CookieManager.clearEachIteration">false</boolProp>
+        </CookieManager>
+        <hashTree/>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Authorization</stringProp>
+              <stringProp name="Header.value">Basic ${adminCredentials}</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="true">
+          <stringProp name="CounterConfig.start">1</stringProp>
+          <stringProp name="CounterConfig.end">${maxsp}</stringProp>
+          <stringProp name="CounterConfig.incr">1</stringProp>
+          <stringProp name="CounterConfig.name">counter</stringProp>
+          <stringProp name="CounterConfig.format"></stringProp>
+          <boolProp name="CounterConfig.per_user">false</boolProp>
+        </CounterConfig>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Creating a SP ( travelocity ) - SP configuration  from url " enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xsd=&quot;http://org.apache.axis2/xsd&quot; xmlns:xsd1=&quot;http://model.common.application.identity.carbon.wso2.org/xsd&quot;&gt;&#xd;
+   &lt;soapenv:Header/&gt;&#xd;
+   &lt;soapenv:Body&gt;&#xd;
+       &lt;xsd:createApplication&gt; &#xd;
+      &lt;xsd:serviceProvider&gt; &#xd;
+            &lt;xsd1:applicationName&gt;${spname}&lt;/xsd1:applicationName&gt; &#xd;
+            &lt;xsd1:description&gt;${spdescription}&lt;/xsd1:description&gt;           &#xd;
+         &lt;/xsd:serviceProvider&gt; &#xd;
+      &lt;/xsd:createApplication&gt; &#xd;
+   &lt;/soapenv:Body&gt;&#xd;
+&lt;/soapenv:Envelope&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService.IdentityApplicationManagementServiceHttpsSoap11Endpoint/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200 OK HTTP Code Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1606201635">HTTP/1.1 200 OK</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">SOAPAction</stringProp>
+                <stringProp name="Header.value">urn:createApplication</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">text/xml</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get ServiceIndex" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xsd=&quot;http://org.apache.axis2/xsd&quot;&gt;&#xd;
+   &lt;soapenv:Header/&gt;&#xd;
+   &lt;soapenv:Body&gt;&#xd;
+      &lt;xsd:getServiceProviders/&gt;&#xd;
+   &lt;/soapenv:Body&gt;&#xd;
+&lt;/soapenv:Envelope&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/services/IdentitySAMLSSOConfigService.IdentitySAMLSSOConfigServiceHttpsSoap11Endpoint/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200 OK HTTP Code Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1606201635">HTTP/1.1 200 OK</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Service Index Extractor" enabled="true">
+            <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+            <stringProp name="RegexExtractor.refname">serviceIndex</stringProp>
+            <stringProp name="RegexExtractor.regex">attributeConsumingServiceIndex&gt;(.*?)&lt;/</stringProp>
+            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.default">NP_ServiceIndex</stringProp>
+            <stringProp name="RegexExtractor.match_number">1</stringProp>
+            <stringProp name="Sample.scope">all</stringProp>
+          </RegexExtractor>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Basic ${adminCredentials}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">SOAPAction</stringProp>
+                <stringProp name="Header.value">urn:getServiceProviders</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">text/xml</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get SP ID" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xsd=&quot;http://org.apache.axis2/xsd&quot;&gt;&#xd;
+   &lt;soapenv:Header/&gt;&#xd;
+   &lt;soapenv:Body&gt;&#xd;
+      &lt;xsd:getApplication&gt;&#xd;
+         &lt;!--Optional:--&gt;&#xd;
+         &lt;xsd:applicationName&gt;${spname}&lt;/xsd:applicationName&gt;&#xd;
+      &lt;/xsd:getApplication&gt;&#xd;
+   &lt;/soapenv:Body&gt;&#xd;
+&lt;/soapenv:Envelope&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService.IdentityApplicationManagementServiceHttpsSoap11Endpoint/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200 OK HTTP Code Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1606201635">HTTP/1.1 200 OK</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="true">
+            <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+            <stringProp name="RegexExtractor.refname">appID</stringProp>
+            <stringProp name="RegexExtractor.regex">applicationID&gt;(.*?)&lt;/</stringProp>
+            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.default">NP_AppID</stringProp>
+            <stringProp name="RegexExtractor.match_number">1</stringProp>
+            <stringProp name="Sample.scope">all</stringProp>
+          </RegexExtractor>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Basic ${adminCredentials}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">SOAPAction</stringProp>
+                <stringProp name="Header.value">urn:getApplication</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">text/xml</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="SP (Travelocity) configuration  from url " enabled="true">
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.*;
+import java.lang.String;
+import java.util.concurrent.*;
+import com.gargoylesoftware.htmlunit.*;
+import com.gargoylesoftware.htmlunit.BrowserVersion;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+try {
+		public HtmlUnitDriver driver = new HtmlUnitDriver(BrowserVersion.CHROME, true);
+
+		String protocole = &quot;http://&quot;;
+		String protocole1 = &quot;https://&quot;;
+		String tomcathost = vars.get(&quot;tomcatHost&quot;);
+		String seperator = &quot;:&quot;;
+		String tomcatport = vars.get(&quot;tomcatPort&quot;);
+		String travelcoityurl = &quot;/travelocity.com/index.jsp&quot;;
+		String userNamePrefix = vars.get(&quot;usernamePrefix&quot;) + vars.get(&quot;counter&quot;); 
+		String userPassword = vars.get(&quot;userpassword&quot;) + vars.get(&quot;counter&quot;);   
+		String sreverHost=vars.get(&quot;serverHost&quot;);
+		String serverPort= vars.get(&quot;serverPort&quot;);    
+		String is=vars.get(&quot;managmentConsole&quot;);        	
+		String spListUrlCarbon=vars.get(&quot;spListUrlCarbon&quot;);
+		String loadSpUrlCarbon=vars.get(&quot;loadSpUrlCarbon&quot;);
+		String addSamlSpUrlCarbon=vars.get(&quot;addSamlSpUrlCarbon&quot;);
+		String travAppName=vars.get(&quot;spName&quot;);
+		
+		String isCarbonUrl=protocole1 + sreverHost + seperator + serverPort + is;
+
+		driver.get(isCarbonUrl);
+		
+		WebElement username =  driver.findElement(By.id(&quot;txtUserName&quot;));
+		username.clear();
+		username.sendKeys(new String[]{&quot;admin&quot;});
+
+		WebElement password =  driver.findElement(By.id(&quot;txtPassword&quot;));
+		password.clear();
+		password.sendKeys(new String[]{vars.get(&quot;adminpassword&quot;)});
+
+		WebElement signin =  driver.findElement(By.xpath(&quot;//input[@value=&apos;Sign-in&apos;]&quot;));
+		signin.click();
+
+		String spListurl=protocole1 + sreverHost + seperator + serverPort +is+ spListUrlCarbon;
+		driver.get(spListurl);
+		System.out.println(spListurl);
+
+		String loadSpurl=protocole1 + sreverHost + seperator + serverPort +is+ loadSpUrlCarbon;
+		driver.get(loadSpurl);
+		System.out.println(loadSpurl);
+
+		String addSamlSpurl=protocole1 + sreverHost + seperator + serverPort +is+ addSamlSpUrlCarbon;
+		driver.get(addSamlSpurl);
+		System.out.println(addSamlSpurl);
+			
+         	WebElement clickRadioBtn =  driver.findElement(By.id(&quot;url-option&quot;));
+		clickRadioBtn.click();
+
+		WebElement txtUrl =  driver.findElement(By.id(&quot;metadataFromUrl&quot;));
+		txtUrl.clear();
+		txtUrl.sendKeys(new String[] { vars.get(&quot;metadataFilePath&quot;) });
+
+		WebElement upload =  driver.findElement(By.xpath(&quot;//span[text()=&apos;URL: &apos;]/../../../tr[2]//td/input[1]&quot;));
+		upload.click();
+
+          return driver.getPageSource();
+      	
+
+} catch (Exception ex) {
+    ex.printStackTrace();
+    log.error(ex.getMessage());
+     SampleResult.setSuccessful(false);
+     SampleResult.setResponseCode(&quot;500&quot;);
+     SampleResult.setResponseMessage(ex.getMessage());
+} </stringProp>
+          <stringProp name="scriptLanguage">java</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Update SP" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xsd=&quot;http://org.apache.axis2/xsd&quot; xmlns:xsd1=&quot;http://model.common.application.identity.carbon.wso2.org/xsd&quot;&gt;&#xd;
+   &lt;soapenv:Header/&gt;&#xd;
+   &lt;soapenv:Body&gt;&#xd;
+      &lt;xsd:updateApplication&gt;&#xd;
+         &lt;!--Optional:--&gt;&#xd;
+         &lt;xsd:serviceProvider&gt;&#xd;
+            &lt;!--Optional:--&gt;&#xd;
+            &lt;xsd1:applicationID&gt;${appID}&lt;/xsd1:applicationID&gt;&#xd;
+            &lt;xsd1:applicationName&gt;${spname}&lt;/xsd1:applicationName&gt;&#xd;
+            /** Configure Claims */&#xd;
+            &lt;xsd:claimConfig&gt;&#xd;
+               &lt;xsd:alwaysSendMappedLocalSubjectId&gt;true&lt;/xsd:alwaysSendMappedLocalSubjectId&gt;&#xd;
+               &lt;!--Zero or more repetitions:--&gt;&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;1&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/nickname&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;1&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;id&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+               &lt;/xsd:claimMappings&gt;&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;2&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/fullname&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;2&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;name&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+               &lt;/xsd:claimMappings&gt;&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;3&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/gender&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;3&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;gender&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+               &lt;/xsd:claimMappings&gt;&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;4&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/emailaddress&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;4&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;email&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+               &lt;/xsd:claimMappings&gt;&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;5&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/givenname&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;5&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;first_name&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+               &lt;/xsd:claimMappings&gt;&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;6&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/lastname&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;6&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;last_name&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+               &lt;/xsd:claimMappings&gt;&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;7&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/dob&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;7&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;age_range&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+               &lt;/xsd:claimMappings&gt;&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;8&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/url&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;8&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;link&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+               &lt;/xsd:claimMappings&gt;&#xd;
+               &lt;xsd:idpClaims&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:claimId&gt;1&lt;/xsd:claimId&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:claimUri&gt;ids&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+               &lt;xsd:localClaimDialect&gt;false&lt;/xsd:localClaimDialect&gt;&#xd;
+               &lt;xsd:roleClaimURI&gt;email&lt;/xsd:roleClaimURI&gt;&#xd;
+            &lt;/xsd:claimConfig&gt;&#xd;
+            &lt;xsd1:description&gt;${spdescription}&lt;/xsd1:description&gt;&#xd;
+            &lt;xsd1:inboundAuthenticationConfig&gt;&#xd;
+               &lt;xsd1:inboundAuthenticationRequestConfigs&gt;&#xd;
+                  &lt;xsd1:inboundAuthKey&gt;${carbonServer}&lt;/xsd1:inboundAuthKey&gt;&#xd;
+                  &lt;xsd1:inboundAuthType&gt;samlsso&lt;/xsd1:inboundAuthType&gt;&#xd;
+                  &lt;xsd1:inboundConfigType&gt;standardAPP&lt;/xsd1:inboundConfigType&gt;&#xd;
+                  &lt;xsd1:properties&gt;&#xd;
+                     &lt;xsd1:confidential&gt;false&lt;/xsd1:confidential&gt;&#xd;
+                     &lt;xsd1:defaultValue xsd:nil=&quot;true&quot;/&gt;&#xd;
+                     &lt;xsd1:description xsd:nil=&quot;true&quot;/&gt;&#xd;
+                     &lt;xsd1:displayName xsd:nil=&quot;true&quot;/&gt;&#xd;
+                     &lt;xsd1:displayOrder&gt;0&lt;/xsd1:displayOrder&gt;&#xd;
+                     &lt;xsd1:name&gt;attrConsumServiceIndex&lt;/xsd1:name&gt;&#xd;
+                     &lt;xsd1:required&gt;false&lt;/xsd1:required&gt;&#xd;
+                     &lt;xsd1:type xsd:nil=&quot;true&quot;/&gt;&#xd;
+                     &lt;xsd1:value&gt;${serviceIndex}&lt;/xsd1:value&gt;&#xd;
+                  &lt;/xsd1:properties&gt;&#xd;
+               &lt;/xsd1:inboundAuthenticationRequestConfigs&gt;&#xd;
+               &lt;xsd1:inboundAuthenticationRequestConfigs&gt;&#xd;
+                  &lt;xsd1:friendlyName xsd:nil=&quot;true&quot;/&gt;&#xd;
+                  &lt;xsd1:inboundAuthKey&gt;${carbonServer}&lt;/xsd1:inboundAuthKey&gt;&#xd;
+                  &lt;xsd1:inboundAuthType&gt;openid&lt;/xsd1:inboundAuthType&gt;&#xd;
+                  &lt;xsd1:inboundConfigType&gt;standardAPP&lt;/xsd1:inboundConfigType&gt;&#xd;
+               &lt;/xsd1:inboundAuthenticationRequestConfigs&gt;&#xd;
+               &lt;xsd1:inboundAuthenticationRequestConfigs&gt;&#xd;
+                  &lt;xsd1:friendlyName xsd:nil=&quot;true&quot;/&gt;&#xd;
+                  &lt;xsd1:inboundAuthKey&gt;${carbonServer}&lt;/xsd1:inboundAuthKey&gt;&#xd;
+                  &lt;xsd1:inboundAuthType&gt;passivests&lt;/xsd1:inboundAuthType&gt;&#xd;
+                  &lt;xsd1:inboundConfigType&gt;standardAPP&lt;/xsd1:inboundConfigType&gt;&#xd;
+               &lt;/xsd1:inboundAuthenticationRequestConfigs&gt;&#xd;
+            &lt;/xsd1:inboundAuthenticationConfig&gt;&#xd;
+            &lt;xsd1:inboundProvisioningConfig&gt;&#xd;
+               &lt;xsd1:provisioningEnabled&gt;false&lt;/xsd1:provisioningEnabled&gt;&#xd;
+               &lt;xsd1:provisioningUserStore/&gt;&#xd;
+            &lt;/xsd1:inboundProvisioningConfig&gt;&#xd;
+&#xd;
+&#xd;
+&#xd;
+            	/** Configure Multi Steps */&#xd;
+&lt;xsd1:localAndOutBoundAuthenticationConfig&gt;&#xd;
+    &lt;!--Optional:--&gt;&#xd;
+    &lt;xsd1:alwaysSendBackAuthenticatedListOfIdPs&gt;false&lt;/xsd1:alwaysSendBackAuthenticatedListOfIdPs&gt;&#xd;
+    &lt;!--Zero or more repetitions:--&gt;  &#xd;
+    &lt;xsd1:authenticationSteps&gt;&#xd;
+        &lt;!--Optional:--&gt;&#xd;
+        &lt;xsd1:attributeStep&gt;false&lt;/xsd1:attributeStep&gt;&#xd;
+	   &lt;xsd1:subjectStep&gt;false&lt;/xsd1:subjectStep&gt;&#xd;
+        &lt;!--Zero or more repetitions:--&gt;&#xd;
+        &#xd;
+        &lt;xsd1:federatedIdentityProviders&gt;&#xd;
+        &#xd;
+            &lt;xsd1:defaultAuthenticatorConfig&gt;&#xd;
+                &lt;xsd1:alais/&gt;&#xd;
+                &lt;xsd1:certificate/&gt;            &#xd;
+                &lt;xsd1:claimConfig/&gt;            &#xd;
+                &lt;xsd1:displayName&gt;${carbonServer}&lt;/xsd1:displayName&gt;&#xd;
+                &lt;xsd1:enabled&gt;false&lt;/xsd1:enabled&gt;            &#xd;
+                &lt;xsd1:name&gt;TwitterAuthenticator&lt;/xsd1:name&gt;&#xd;
+                &lt;xsd1:valid&gt;true&lt;/xsd1:valid&gt;&#xd;
+            &lt;/xsd1:defaultAuthenticatorConfig&gt;&#xd;
+&#xd;
+            &lt;!--Zero or more repetitions:--&gt;&#xd;
+        &lt;xsd1:federatedAuthenticatorConfigs&gt;&#xd;
+              &lt;xsd1:displayName&gt;${carbonServer}&lt;/xsd1:displayName&gt;&#xd;
+                &lt;xsd1:enabled&gt;false&lt;/xsd1:enabled&gt;            &#xd;
+                &lt;xsd1:name&gt;TwitterAuthenticator&lt;/xsd1:name&gt;&#xd;
+                &lt;xsd1:valid&gt;true&lt;/xsd1:valid&gt;           &#xd;
+        &lt;/xsd1:federatedAuthenticatorConfigs&gt;&#xd;
+            &lt;!--Optional:--&gt;&#xd;
+        &lt;xsd1:identityProviderName&gt;${carbonServer}&lt;/xsd1:identityProviderName&gt;&#xd;
+        &lt;xsd1:enable&gt;false&lt;/xsd1:enable&gt;     &#xd;
+        &lt;xsd1:primary&gt;false&lt;/xsd1:primary&gt; &#xd;
+        &lt;xsd1:federationHub&gt;false&lt;/xsd1:federationHub&gt;                     &#xd;
+        &lt;/xsd1:federatedIdentityProviders&gt;&#xd;
+           &lt;!--Optional:--&gt;&#xd;
+        &lt;xsd1:stepOrder&gt;2&lt;/xsd1:stepOrder&gt;&#xd;
+        &lt;!--Optional:--&gt;&#xd;
+    &lt;/xsd1:authenticationSteps&gt;&#xd;
+&#xd;
+    &lt;xsd1:authenticationSteps&gt;&#xd;
+        &lt;!--Optional:--&gt;&#xd;
+        &lt;xsd1:attributeStep&gt;true&lt;/xsd1:attributeStep&gt;&#xd;
+	&lt;xsd1:subjectStep&gt;true&lt;/xsd1:subjectStep&gt;&#xd;
+        &lt;!--Zero or more repetitions:--&gt;&#xd;
+       &#xd;
+        &lt;!--Zero or more repetitions:--&gt;&#xd;
+        &lt;xsd1:localAuthenticatorConfigs&gt;&#xd;
+	        &lt;!--Optional:--&gt;&#xd;
+	        &lt;xsd1:displayName&gt;basic&lt;/xsd1:displayName&gt;&#xd;
+	        &lt;!--Optional:--&gt;&#xd;
+	        &lt;xsd1:enabled&gt;false&lt;/xsd1:enabled&gt;&#xd;
+	        &lt;!--Optional:--&gt;&#xd;
+	        &lt;xsd1:name&gt;BasicAuthenticator&lt;/xsd1:name&gt;&#xd;
+	        &lt;!--Zero or more repetitions:--&gt;&#xd;
+	        &lt;!--Optional:--&gt;&#xd;
+	        &lt;xsd1:valid&gt;true&lt;/xsd1:valid&gt;&#xd;
+        &lt;/xsd1:localAuthenticatorConfigs&gt;&#xd;
+        &lt;!--Optional:--&gt;&#xd;
+        &lt;xsd1:stepOrder&gt;1&lt;/xsd1:stepOrder&gt;&#xd;
+        &lt;!--Optional:--&gt;&#xd;
+&#xd;
+    &lt;/xsd1:authenticationSteps&gt;&#xd;
+ &#xd;
+    &lt;!--Optional:--&gt;&#xd;
+    &lt;xsd1:authenticationType&gt;flow&lt;/xsd1:authenticationType&gt;&#xd;
+    &lt;xsd1:subjectClaimUri&gt;id&lt;/xsd1:subjectClaimUri&gt;&#xd;
+&lt;/xsd1:localAndOutBoundAuthenticationConfig&gt;&#xd;
+            &lt;xsd1:outboundProvisioningConfig&gt;&#xd;
+               &lt;xsd1:provisionByRoleList xsd:nil=&quot;true&quot;/&gt;&#xd;
+            &lt;/xsd1:outboundProvisioningConfig&gt;&#xd;
+            &lt;xsd1:owner&gt;&#xd;
+            &#xd;
+               &lt;xsd1:userName&gt;${adminusername}&lt;/xsd1:userName&gt;&#xd;
+                      &lt;/xsd1:owner&gt;&#xd;
+            &lt;xsd1:permissionAndRoleConfig&gt;&#xd;
+               &lt;xsd1:idpRoles&gt;myapp1&lt;/xsd1:idpRoles&gt;&#xd;
+            &lt;/xsd1:permissionAndRoleConfig&gt;&#xd;
+            &lt;xsd1:requestPathAuthenticatorConfigs&gt;&#xd;
+               &lt;xsd1:displayName&gt;?&lt;/xsd1:displayName&gt;&#xd;
+               &lt;xsd1:enabled&gt;true&lt;/xsd1:enabled&gt;&#xd;
+               &lt;xsd1:name&gt;BasicAuthRequestPathAuthenticator&lt;/xsd1:name&gt;&#xd;
+               &lt;xsd1:valid&gt;true&lt;/xsd1:valid&gt;&#xd;
+            &lt;/xsd1:requestPathAuthenticatorConfigs&gt;&#xd;
+            &lt;xsd1:saasApp&gt;true&lt;/xsd1:saasApp&gt;&#xd;
+         &lt;/xsd:serviceProvider&gt;&#xd;
+      &lt;/xsd:updateApplication&gt;&#xd;
+   &lt;/soapenv:Body&gt;&#xd;
+&lt;/soapenv:Envelope&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">SOAPAction</stringProp>
+                <stringProp name="Header.value">urn:updateApplication</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">text/xml</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200 OK HTTP Code Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1606201635">HTTP/1.1 200 OK</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Update SP" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xsd=&quot;http://org.apache.axis2/xsd&quot; xmlns:xsd1=&quot;http://model.common.application.identity.carbon.wso2.org/xsd&quot;&gt;&#xd;
+   &lt;soapenv:Header/&gt;&#xd;
+   &lt;soapenv:Body&gt;&#xd;
+      &lt;xsd:updateApplication&gt;&#xd;
+         &lt;!--Optional:--&gt;&#xd;
+         &lt;xsd:serviceProvider&gt;&#xd;
+            &lt;!--Optional:--&gt;&#xd;
+            &lt;xsd1:applicationID&gt;${appID}&lt;/xsd1:applicationID&gt;&#xd;
+            &lt;xsd1:applicationName&gt;${spname}&lt;/xsd1:applicationName&gt; &#xd;
+	   &#xd;
+	/** Configure Claims */	   &#xd;
+	   &lt;xsd:claimConfig&gt;&#xd;
+    	       &lt;xsd:alwaysSendMappedLocalSubjectId&gt;true&lt;/xsd:alwaysSendMappedLocalSubjectId&gt;&#xd;
+               &lt;!--Zero or more repetitions:--&gt;&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;1&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/nickname&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;1&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;id&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+        		               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;2&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/fullname&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;2&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;name&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;3&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/gender&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;3&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;gender&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;4&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/emailaddress&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;4&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;email&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;5&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/givenname&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;5&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;first_name&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;6&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/lastname&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;6&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;last_name&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;7&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/dob&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;7&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;age_range&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+&#xd;
+               &lt;xsd:claimMappings&gt;&#xd;
+                  &lt;xsd:localClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;8&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;http://wso2.org/claims/url&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:localClaim&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:mandatory&gt;false&lt;/xsd:mandatory&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:remoteClaim&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimId&gt;8&lt;/xsd:claimId&gt;&#xd;
+                     &lt;!--Optional:--&gt;&#xd;
+                     &lt;xsd:claimUri&gt;link&lt;/xsd:claimUri&gt;&#xd;
+                  &lt;/xsd:remoteClaim&gt;&#xd;
+        		&lt;/xsd:claimMappings&gt; &#xd;
+        		&#xd;
+        	 &lt;xsd:idpClaims&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:claimId&gt;1&lt;/xsd:claimId&gt;&#xd;
+                  &lt;!--Optional:--&gt;&#xd;
+                  &lt;xsd:claimUri&gt;ids&lt;/xsd:claimUri&gt;&#xd;
+               &lt;/xsd:idpClaims&gt;&#xd;
+               &#xd;
+               &lt;xsd:localClaimDialect&gt;false&lt;/xsd:localClaimDialect&gt;&#xd;
+               &lt;xsd:roleClaimURI&gt;email&lt;/xsd:roleClaimURI&gt;&#xd;
+               &#xd;
+        &lt;/xsd:claimConfig&gt;&#xd;
+&#xd;
+&#xd;
+&#xd;
+            &lt;xsd1:description&gt;${spdescription}&lt;/xsd1:description&gt; &#xd;
+            &lt;xsd1:inboundAuthenticationConfig&gt;            &#xd;
+                &lt;xsd1:inboundAuthenticationRequestConfigs&gt;&#xd;
+                  &lt;xsd1:inboundAuthKey&gt;${carbonServer}&lt;/xsd1:inboundAuthKey&gt;&#xd;
+                  &lt;xsd1:inboundAuthType&gt;samlsso&lt;/xsd1:inboundAuthType&gt;                  &#xd;
+                  &lt;xsd1:inboundConfigType&gt;standardAPP&lt;/xsd1:inboundConfigType&gt;&#xd;
+			   &lt;xsd1:properties&gt;&#xd;
+                     &lt;xsd1:confidential&gt;false&lt;/xsd1:confidential&gt;&#xd;
+                     &lt;xsd1:defaultValue xsd:nil=&quot;true&quot;/&gt;&#xd;
+                     &lt;xsd1:description xsd:nil=&quot;true&quot;/&gt;&#xd;
+                     &lt;xsd1:displayName xsd:nil=&quot;true&quot;/&gt;&#xd;
+                     &lt;xsd1:displayOrder&gt;0&lt;/xsd1:displayOrder&gt;                      &#xd;
+                     &lt;xsd1:name&gt;attrConsumServiceIndex&lt;/xsd1:name&gt;&#xd;
+                     &lt;xsd1:required&gt;false&lt;/xsd1:required&gt;&#xd;
+                     &lt;xsd1:type xsd:nil=&quot;true&quot;/&gt;&#xd;
+                     &lt;xsd1:value&gt;${serviceIndex}&lt;/xsd1:value&gt;&#xd;
+                  &lt;/xsd1:properties&gt;                  &#xd;
+               &lt;/xsd1:inboundAuthenticationRequestConfigs&gt;    &#xd;
+&#xd;
+                &lt;xsd1:inboundAuthenticationRequestConfigs&gt;&#xd;
+                  &lt;xsd1:friendlyName xsd:nil=&quot;true&quot;/&gt;&#xd;
+                  &lt;xsd1:inboundAuthKey&gt;${carbonServer}&lt;/xsd1:inboundAuthKey&gt;&#xd;
+                  &lt;xsd1:inboundAuthType&gt;openid&lt;/xsd1:inboundAuthType&gt;&#xd;
+                  &lt;xsd1:inboundConfigType&gt;standardAPP&lt;/xsd1:inboundConfigType&gt;&#xd;
+               &lt;/xsd1:inboundAuthenticationRequestConfigs&gt;&#xd;
+               &lt;xsd1:inboundAuthenticationRequestConfigs&gt;&#xd;
+                  &lt;xsd1:friendlyName xsd:nil=&quot;true&quot;/&gt;&#xd;
+                  &lt;xsd1:inboundAuthKey&gt;${carbonServer}&lt;/xsd1:inboundAuthKey&gt;&#xd;
+                  &lt;xsd1:inboundAuthType&gt;passivests&lt;/xsd1:inboundAuthType&gt;&#xd;
+                  &lt;xsd1:inboundConfigType&gt;standardAPP&lt;/xsd1:inboundConfigType&gt;&#xd;
+               &lt;/xsd1:inboundAuthenticationRequestConfigs&gt;              &#xd;
+                        &#xd;
+           &lt;/xsd1:inboundAuthenticationConfig&gt; &#xd;
+            &lt;xsd1:inboundProvisioningConfig&gt; &#xd;
+               &lt;xsd1:provisioningEnabled&gt;false&lt;/xsd1:provisioningEnabled&gt; &#xd;
+               &lt;xsd1:provisioningUserStore/&gt; &#xd;
+            &lt;/xsd1:inboundProvisioningConfig&gt; &#xd;
+&#xd;
+	/** Configure Multi Steps */&#xd;
+&lt;xsd1:localAndOutBoundAuthenticationConfig&gt;&#xd;
+    &lt;!--Optional:--&gt;&#xd;
+    &lt;xsd1:alwaysSendBackAuthenticatedListOfIdPs&gt;false&lt;/xsd1:alwaysSendBackAuthenticatedListOfIdPs&gt;&#xd;
+    &lt;!--Zero or more repetitions:--&gt;&#xd;
+    &lt;xsd1:authenticationSteps&gt;&#xd;
+        &lt;!--Optional:--&gt;&#xd;
+        &lt;xsd1:attributeStep&gt;true&lt;/xsd1:attributeStep&gt;&#xd;
+	&lt;xsd1:subjectStep&gt;true&lt;/xsd1:subjectStep&gt;&#xd;
+        &lt;!--Zero or more repetitions:--&gt;&#xd;
+       &#xd;
+        &lt;!--Zero or more repetitions:--&gt;&#xd;
+        &lt;xsd1:localAuthenticatorConfigs&gt;&#xd;
+	        &lt;!--Optional:--&gt;&#xd;
+	        &lt;xsd1:displayName&gt;basic&lt;/xsd1:displayName&gt;&#xd;
+	        &lt;!--Optional:--&gt;&#xd;
+	        &lt;xsd1:enabled&gt;false&lt;/xsd1:enabled&gt;&#xd;
+	        &lt;!--Optional:--&gt;&#xd;
+	        &lt;xsd1:name&gt;BasicAuthenticator&lt;/xsd1:name&gt;&#xd;
+	        &lt;!--Zero or more repetitions:--&gt;&#xd;
+	        &lt;!--Optional:--&gt;&#xd;
+	        &lt;xsd1:valid&gt;true&lt;/xsd1:valid&gt;&#xd;
+        &lt;/xsd1:localAuthenticatorConfigs&gt;&#xd;
+        &lt;!--Optional:--&gt;&#xd;
+        &lt;xsd1:stepOrder&gt;1&lt;/xsd1:stepOrder&gt;&#xd;
+        &lt;!--Optional:--&gt;&#xd;
+&#xd;
+    &lt;/xsd1:authenticationSteps&gt;&#xd;
+    &#xd;
+    &lt;xsd1:authenticationSteps&gt;&#xd;
+        &lt;!--Optional:--&gt;&#xd;
+        &lt;xsd1:attributeStep&gt;false&lt;/xsd1:attributeStep&gt;&#xd;
+	   &lt;xsd1:subjectStep&gt;false&lt;/xsd1:subjectStep&gt;&#xd;
+        &lt;!--Zero or more repetitions:--&gt;&#xd;
+        &#xd;
+        &lt;xsd1:federatedIdentityProviders&gt;&#xd;
+        &#xd;
+            &lt;xsd1:defaultAuthenticatorConfig&gt;&#xd;
+                &lt;xsd1:alais/&gt;&#xd;
+                &lt;xsd1:certificate/&gt;            &#xd;
+                &lt;xsd1:claimConfig/&gt;            &#xd;
+                &lt;xsd1:displayName&gt;${idpname}&lt;/xsd1:displayName&gt;&#xd;
+                &lt;xsd1:enabled&gt;false&lt;/xsd1:enabled&gt;            &#xd;
+                &lt;xsd1:name&gt;TwitterAuthenticator&lt;/xsd1:name&gt;&#xd;
+                &lt;xsd1:valid&gt;true&lt;/xsd1:valid&gt;&#xd;
+            &lt;/xsd1:defaultAuthenticatorConfig&gt;&#xd;
+&#xd;
+            &lt;!--Zero or more repetitions:--&gt;&#xd;
+        &lt;xsd1:federatedAuthenticatorConfigs&gt;&#xd;
+              &lt;xsd1:displayName&gt;${idpname}&lt;/xsd1:displayName&gt;&#xd;
+                &lt;xsd1:enabled&gt;false&lt;/xsd1:enabled&gt;            &#xd;
+                &lt;xsd1:name&gt;TwitterAuthenticator&lt;/xsd1:name&gt;&#xd;
+                &lt;xsd1:valid&gt;true&lt;/xsd1:valid&gt;           &#xd;
+        &lt;/xsd1:federatedAuthenticatorConfigs&gt;&#xd;
+            &lt;!--Optional:--&gt;&#xd;
+        &lt;xsd1:identityProviderName&gt;${idpname}&lt;/xsd1:identityProviderName&gt;&#xd;
+        &lt;xsd1:enable&gt;false&lt;/xsd1:enable&gt;     &#xd;
+        &lt;xsd1:primary&gt;false&lt;/xsd1:primary&gt; &#xd;
+        &lt;xsd1:federationHub&gt;false&lt;/xsd1:federationHub&gt;                     &#xd;
+        &lt;/xsd1:federatedIdentityProviders&gt;&#xd;
+           &lt;!--Optional:--&gt;&#xd;
+        &lt;xsd1:stepOrder&gt;2&lt;/xsd1:stepOrder&gt;&#xd;
+        &lt;!--Optional:--&gt;&#xd;
+    &lt;/xsd1:authenticationSteps&gt;&#xd;
+ &#xd;
+    &lt;!--Optional:--&gt;&#xd;
+    &lt;xsd1:authenticationType&gt;flow&lt;/xsd1:authenticationType&gt;&#xd;
+    &lt;xsd1:subjectClaimUri&gt;id&lt;/xsd1:subjectClaimUri&gt;&#xd;
+&lt;/xsd1:localAndOutBoundAuthenticationConfig&gt;&#xd;
+&#xd;
+            &lt;xsd1:outboundProvisioningConfig&gt; &#xd;
+               &lt;xsd1:provisionByRoleList xsd:nil=&quot;true&quot;/&gt; &#xd;
+            &lt;/xsd1:outboundProvisioningConfig&gt; &#xd;
+            &lt;xsd1:permissionAndRoleConfig&gt; &#xd;
+             &lt;xsd1:idpRoles/&gt; &#xd;
+            &lt;/xsd1:permissionAndRoleConfig&gt; &#xd;
+          &#xd;
+            &lt;xsd1:saasApp&gt;false&lt;/xsd1:saasApp&gt; &#xd;
+         &lt;/xsd:serviceProvider&gt;&#xd;
+      &lt;/xsd:updateApplication&gt;&#xd;
+   &lt;/soapenv:Body&gt;&#xd;
+&lt;/soapenv:Envelope&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${serverHost}</stringProp>
+          <stringProp name="HTTPSampler.port">${serverPort}</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/services/IdentityApplicationManagementService.IdentityApplicationManagementServiceHttpsSoap11Endpoint/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200 OK HTTP Code Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1606201635">HTTP/1.1 200 OK</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Basic ${adminCredentials}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">SOAPAction</stringProp>
+                <stringProp name="Header.value">urn:updateApplication</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">text/xml</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+          </value>
+        </objProp>
+        <stringProp name="filename">scenario-05-results.jtl</stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench" enabled="true">
+      <boolProp name="WorkBench.save">true</boolProp>
+    </WorkBench>
+    <hashTree/>
+  </hashTree>
+</jmeterTestPlan>
