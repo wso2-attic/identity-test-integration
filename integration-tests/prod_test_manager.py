@@ -37,14 +37,11 @@ from intg_test_constant import NS, ZIP_FILE_EXTENSION, CARBON_NAME, VALUE_TAG, S
     INFRA_PROPERTY_FILE_NAME, LOG_FILE_NAME, PRODUCT_STORAGE_DIR_NAME, DEFAULT_DB_USERNAME, LOG_STORAGE, TEST_OUTPUT_DIR_NAME, \
     DEFAULT_ORACLE_SID, MYSQL_DB_ENGINE, ORACLE_DB_ENGINE, PRODUCT_STORAGE_DIR_NAME, MSSQL_DB_ENGINE
 
-
 database_names = []
 storage_dir_abs_path = None
 use_custom_testng_file=None
 db_engine = None
 sql_driver_location = None
-
-
 
 def get_db_meta_data(argument):
     switcher = DB_META_DATA
@@ -167,18 +164,17 @@ def configure_product():
         global storage_dist_abs_path
         global pom_file_paths
 
-
         datasource_paths = DATASOURCE_PATHS[cm.product_id]
+        zip_name = dist_name + ZIP_FILE_EXTENSION
+
         storage_dir_abs_path = Path(cm.workspace + "/" + PRODUCT_STORAGE_DIR_NAME)
-        #product_storage = Path(workspace + "/" + PRODUCT_STORAGE_DIR_NAME)
         target_dir_abs_path = Path(cm.workspace + "/" + cm.product_id + "/" + DISTRIBUTION_PATH[cm.product_id])
         storage_dist_abs_path = Path(storage_dir_abs_path / dist_name)
-        zip_name = dist_name + ZIP_FILE_EXTENSION
         storage_zip_abs_path = Path(storage_dir_abs_path / zip_name)
         configured_dist_storing_loc = Path(target_dir_abs_path / dist_name)
         script_name = Path(WSO2SERVER)
-
         script_path = Path(storage_dist_abs_path / script_name)
+
         cm.extract_product(storage_dir_abs_path, storage_zip_abs_path)
         cm.attach_jolokia_agent(script_path)
         cm.copy_jar_file(Path(cm.database_config['sql_driver_location']), Path(storage_dist_abs_path / LIB_PATH))
@@ -219,10 +215,11 @@ def main():
         db_meta_data = get_db_meta_data(engine)
         distribution_path = DISTRIBUTION_PATH[cm.product_id]
 
+        # construct the DB configurations
         cm.construct_db_config(db_meta_data)
 
         # clone the repository
-        #cm.clone_repo()
+        cm.clone_repo()
 
         if cm.test_mode == "RELEASE":
             cm.checkout_to_tag()
@@ -232,7 +229,7 @@ def main():
         elif cm.test_mode == "SNAPSHOT":
             # product name retrieve from product pom files
             dist_name = cm.get_dist_name(pom_path)
-            #cm.build_snapshot_dist(distribution_path)
+            cm.build_snapshot_dist(distribution_path)
         elif cm.test_mode == "WUM":
             # todo after identify specific steps that are related to WUM, add them to here
             # product name retrieve from product pom files
@@ -240,11 +237,12 @@ def main():
             logger.info("WUM specific steps are empty")
 
         # populate databases
-        # db_names = configure_product()
-        # logger.info("================db names : " + str(db_names))
-        # if db_names is None or not db_names:
-        #     raise Exception("Failed the product configuring")
-        # cm.setup_databases(db_names, db_meta_data)
+        db_names = configure_product()
+        logger.info("================db names : " + str(db_names))
+        if db_names is None or not db_names:
+            raise Exception("Failed the product configuring")
+        cm.setup_databases(db_names, db_meta_data)
+
         # run integration tests
         if cm.product_id == "product-apim":
             module_path = Path(cm.workspace + "/" + cm.product_id + "/" + 'modules/api-import-export')
@@ -257,7 +255,6 @@ def main():
         logger.error("Error occurred while running the run-intg.py script", exc_info=True)
     except BaseException as e:
         logger.error("Error occurred while doing the configuration", exc_info=True)
-
 
 if __name__ == "__main__":
     main()
