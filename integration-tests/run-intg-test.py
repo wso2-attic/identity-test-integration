@@ -337,6 +337,7 @@ def setup_databases(script_path, db_names):
     """
     for database in db_names:
         if database == DB_CARBON_DB:
+            logger.info('Starting WSO2CARBON DB running............')
             if db_engine.upper() == 'SQLSERVER-SE':
                 # create database
                 run_sqlserver_commands('CREATE DATABASE {0}'.format(database))
@@ -345,18 +346,26 @@ def setup_databases(script_path, db_names):
 
                 # manipulate conent script path
                 scriptPathConsent = script_path / 'consent/mssql.sql'
+                # manipulate identity script path
+                scriptPathIdentity = script_path / 'identity/mssql.sql'
+
                 # run db scripts
                 run_sqlserver_script_file(database, str(scriptPath))
                 run_sqlserver_script_file(database, str(scriptPathConsent))
+                run_sqlserver_script_file(database, str(scriptPathIdentity))
+
             elif db_engine.upper() == 'MYSQL':
                 scriptPath = script_path / 'mysql5.7.sql'
                 # manipulate conent script path
                 scriptPathConsent = script_path / 'consent/mysql-5.7.sql'
+                # manipulate identity script path
+                scriptPathIdentity = script_path / 'identity/mysql-5.7.sql'
                 # create database
                 run_mysql_commands('CREATE DATABASE IF NOT EXISTS {0};'.format(database))
                 # run db script
                 run_mysql_script_file(database, str(scriptPath))
                 run_mysql_script_file(database, str(scriptPathConsent))
+                run_mysql_script_file(database, str(scriptPathIdentity))
 
             elif db_engine.upper() == 'ORACLE-SE2':
                 # create oracle schema
@@ -365,8 +374,11 @@ def setup_databases(script_path, db_names):
                 scriptPath = script_path / 'oracle.sql'
                 # manipulate conent script path
                 scriptPathConsent = script_path / 'consent/oracle.sql'
+                # manipulate identity script path
+                scriptPathIdentity = script_path / 'identity/oracle.sql'
                 logger.info(run_oracle_script('@{0}'.format(str(scriptPath)), database))
                 logger.info(run_oracle_script('@{0}'.format(str(scriptPathConsent)), database))
+                logger.info(run_oracle_script('@{0}'.format(str(scriptPathIdentity)), database))
         elif database == DB_PRODUCT_DB[product_id]:
             if db_engine.upper() == 'SQLSERVER-SE':
                 # create database
@@ -397,6 +409,7 @@ def setup_databases(script_path, db_names):
                 # create database
                 logger.info(create_oracle_user(database))
         elif database == DB_BPS_DB:
+            logger.info('Starting WSO2BPS DB running..........')
             if db_engine.upper() == 'SQLSERVER-SE':
                 # create database
                 run_sqlserver_commands('CREATE DATABASE {0}'.format(database))
@@ -417,6 +430,7 @@ def setup_databases(script_path, db_names):
                 scriptPath = script_path / 'bps/bpel/create/oracle.sql'
                 logger.info(run_oracle_script('@{0}'.format(str(scriptPath)), database))
         elif database == DB_METRICS_DB:
+            logger.info('Starting WSO2 METRICS DB running..........')
             if db_engine.upper() == 'SQLSERVER-SE':
                 # create database
                 run_sqlserver_commands('CREATE DATABASE {0}'.format(database))
@@ -435,6 +449,7 @@ def setup_databases(script_path, db_names):
                 # run db script
                 scriptPath = script_path / 'metrics/oracle.sql'
                 logger.info(run_oracle_script('@{0}'.format(str(scriptPath)), database))
+
 
 
 def construct_db_config():
