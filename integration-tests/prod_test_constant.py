@@ -13,82 +13,53 @@
 # limitations under the License.
 
 WSO2SERVER = "bin/wso2server"
-DATASOURCE_PATHS = {"product-apim": [],
-                    "product-is":  ["repository/conf/datasources/master-datasources.xml",
-                                    "repository/conf/datasources/metrics-datasources.xml",
-                                    "repository/conf/datasources/bps-datasources.xml"],
-                    "product-ei": []}
-M2_PATH = {"product-is": "is/wso2is",
-           "product-apim": "am/wso2am",
-           "product-ei": "ei/wso2ei"}
-DIST_POM_PATH = {"product-is": "modules/distribution/pom.xml", "product-apim": "modules/distribution/product/pom.xml",
-                 "product-ei": "distribution/pom.xml"}
+DATASOURCE_PATHS = {"repository/conf/datasources/master-datasources.xml",
+                    "repository/conf/datasources/metrics-datasources.xml",
+                    "repository/conf/datasources/bps-datasources.xml"}
+M2_PATH = "is/wso2is"
+DIST_POM_PATH = "modules/distribution/pom.xml"
 LIB_PATH = "repository/components/lib"
-DISTRIBUTION_PATH = {"product-apim": "modules/distribution/product/target",
-                     "product-is": "modules/distribution/target",
-                     "product-ei": "modules/distribution/target"}
-INTEGRATION_PATH = {"product-apim": "modules/integration",
-                    "product-is": "modules/integration/tests-integration/tests-backend",
-                    "product-ei": "integration"}
-POM_FILE_PATHS = {"product-is": "",
-                  "product-apim": "",
-                  "product-ei": ""}
-DB_PRODUCT_DB = {"product-apim": "WSO2AM_DB",
-                 "product-is": "WSO2IS_DB",
-                 "product-ei": "WSO2EI_DB"}
-ARTIFACT_REPORTS_PATHS = {
-    "product-apim": [],
-    "product-is": ["modules/integration/tests-integration/tests-backend/target/logs/automation.log",
+DISTRIBUTION_PATH = "modules/distribution/target"
+INTEGRATION_PATH = "modules/integration/tests-integration/tests-backend"
+POM_FILE_PATHS = {}
+TESTNG_DIST_XML_PATHS = {}
+TESTNG_SERVER_MGT_DIST = {}
+ARTIFACT_REPORTS_PATHS = {"modules/integration/tests-integration/tests-backend/target/logs/automation.log",
         "modules/integration/tests-integration/tests-backend/target/surefire-reports/emailable-report.html",
         "modules/integration/tests-integration/tests-backend/target/surefire-reports/index.html",
         "modules/integration/tests-integration/tests-backend/target/surefire-reports/TEST-TestSuite.xml",
         "modules/integration/tests-integration/tests-backend/target/surefire-reports/testng.css",
         "modules/integration/tests-integration/tests-backend/target/surefire-reports/testng-results.xml",
-        "modules/integration/tests-integration/tests-backend/target/surefire-reports/TestSuite.txt"],
-    "product-ei": []}
+        "modules/integration/tests-integration/tests-backend/target/surefire-reports/TestSuite.txt"}
 DB_META_DATA = {
     "MYSQL": {"prefix": "jdbc:mysql://", "driverClassName": "com.mysql.jdbc.Driver", "jarName": "mysql.jar",
-              "DB_SETUP": {
-                  "product-apim": {},
-                  "product-is": {"WSO2_CARBON_DB": ['dbscripts/mysql5.7.sql'],
-                                 "WSO2_METRICS_DB": ['dbscripts/metrics/mysql.sql'],
-                                 "BPS_DS": ['dbscripts/bps/bpel/create/mysql.sql']},
-                  "product-ei": {}
-              }},
+              "DB_SETUP": {"WSO2_CARBON_DB": ['dbscripts/mysql5.7.sql',
+                                              'dbscripts/identity/mysql-5.7.sql'],
+                           "WSO2_METRICS_DB": ['dbscripts/metrics/mysql.sql'],
+                           "BPS_DS": ['dbscripts/bps/bpel/create/mysql.sql']}
+              },
 
     "SQLSERVER-SE": {"prefix": "jdbc:sqlserver://",
                      "driverClassName": "com.microsoft.sqlserver.jdbc.SQLServerDriver", "jarName": "sqlserver-ex.jar",
-                     "DB_SETUP": {
-                         "product-apim": {},
-                         "product-is": {
-                             "WSO2_CARBON_DB": ['dbscripts/mssql.sql'],
-                             "WSO2_METRICS_DB": ['dbscripts/metrics/mssql.sql'],
-                             "BPS_DS": ['dbscripts/bps/bpel/create/mssql.sql']
-                         },
-                         "product-ei": {}
-                     }},
+                     "DB_SETUP": {"WSO2_CARBON_DB": ['dbscripts/mssql.sql',
+                                                     'dbscripts/identity/mssql.sql'],
+                                  "WSO2_METRICS_DB": ['dbscripts/metrics/mssql.sql'],
+                                  "BPS_DS": ['dbscripts/bps/bpel/create/mssql.sql']}
+                     },
 
     "ORACLE-SE2": {"prefix": "jdbc:oracle:thin:@", "driverClassName": "oracle.jdbc.OracleDriver",
                    "jarName": "oracle-se.jar",
-                   "DB_SETUP": {
-                       "product-apim": {},
-                       "product-is": {
-                           "WSO2_CARBON_DB": ['dbscripts/oracle.sql'],
-                           "WSO2_METRICS_DB": ['dbscripts/metrics/oracle.sql'],
-                           "BPS_DS": ['dbscripts/bps/bpel/create/oracle.sql']
-                       },
-                       "product-ei": {}
-                   }},
+                   "DB_SETUP": {"WSO2_CARBON_DB": ['dbscripts/oracle.sql',
+                                                   'dbscripts/identity/oracle.sql'],
+                                "WSO2_METRICS_DB": ['dbscripts/metrics/oracle.sql'],
+                                "BPS_DS": ['dbscripts/bps/bpel/create/oracle.sql']}
+                   },
 
     "POSTGRESQL": {"prefix": "jdbc:postgresql://", "driverClassName": "org.postgresql.Driver",
                    "jarName": "postgres.jar",
-                   "DB_SETUP": {"product-apim": {},
-                                "product-is": {
-                                    "WSO2_CARBON_DB": ['dbscripts/postgresql.sql'],
-                                    "WSO2_METRICS_DB": ['dbscripts/metrics/postgresql.sql'],
-                                    "BPS_DS": ['dbscripts/bps/bpel/create/postgresql.sql']
-                                },
-                                "product-ei": {}
-                                }
+                   "DB_SETUP": {"WSO2_CARBON_DB": ['dbscripts/postgresql.sql',
+                                                   'dbscripts/identity/postgresql.sql'],
+                                "WSO2_METRICS_DB": ['dbscripts/metrics/postgresql.sql'],
+                                "BPS_DS": ['dbscripts/bps/bpel/create/postgresql.sql']}
                    }
 }
