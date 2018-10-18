@@ -298,6 +298,7 @@ def run_mysql_script_file(db_name, script_path):
         if sql_part.strip() == '':
             continue
         connector.execute(sql_part)
+    conn.commit();
     conn.close()
 
 
