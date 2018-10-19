@@ -17,17 +17,28 @@
 set -e
 set -o xtrace
 
+#Download the common scripts to working directory
+get_cmn_scripts_dwld(){
+git clone https://github.com/wso2-incubator/test-integration-tests-runner.git
+cp test-integration-tests-runner/intg_test_manager.py test-integration-tests-runner/intg_test_constant.py .
+echo "=== Copied common scripts. ==="
+}
+
+get_cmn_scripts_dwld
+
 DIR=$2
 FILE1=${DIR}/infrastructure.properties
 FILE2=${DIR}/testplan-props.properties
 FILE3=run-intg-test.py
-FILE4=configure_product.py
-FILE5=const.py
+FILE4=intg_test_manager.py
+FILE5=intg_test_constant.py
 FILE6=requirements.txt
 FILE7=intg-test-runner.sh
 FILE8=intg-test-runner.bat
 FILE9=testng.xml
 FILE10=testng-server-mgt.xml
+#FILE11=$wum_path
+FILE12=prod_test_constant.py
 
 PROP_KEY=keyFileLocation      #pem file
 PROP_OS=OS                       #OS name e.g. centos
@@ -148,6 +159,7 @@ if [ "${os}" = "Windows" ]; then
   echo $(sshpass -p "${password}" scp -q -o StrictHostKeyChecking=no ${FILE8} ${user}@${host}:${REM_DIR})
   echo $(sshpass -p "${password}" scp -q -o StrictHostKeyChecking=no ${FILE9} ${user}@${host}:${REM_DIR})
   echo $(sshpass -p "${password}" scp -q -o StrictHostKeyChecking=no ${FILE10} ${user}@${host}:${REM_DIR})
+  echo $(sshpass -p "${password}" scp -q -o StrictHostKeyChecking=no ${FILE12} ${user}@${host}:${REM_DIR})
 
   echo "=== Files copying finished ==="
   echo "Execution begins.. "
@@ -174,6 +186,7 @@ else
   scp -o StrictHostKeyChecking=no -i ${key_pem} ${FILE7} ${user}@${host}:${REM_DIR}
   scp -o StrictHostKeyChecking=no -i ${key_pem} ${FILE9} ${user}@${host}:${REM_DIR}
   scp -o StrictHostKeyChecking=no -i ${key_pem} ${FILE10} ${user}@${host}:${REM_DIR}
+  scp -o StrictHostKeyChecking=no -i ${key_pem} ${FILE12} ${user}@${host}:${REM_DIR}
 
   echo "=== Files copied successfully ==="
   
