@@ -26,19 +26,19 @@ echo "=== Copied common scripts. ==="
 
 get_cmn_scripts_dwld
 
-DIR=$2
-FILE1=${DIR}/infrastructure.properties
-FILE2=${DIR}/testplan-props.properties
-FILE3=run-intg-test.py
-FILE4=intg_test_manager.py
-FILE5=intg_test_constant.py
-FILE6=requirements.txt
-FILE7=intg-test-runner.sh
-FILE8=intg-test-runner.bat
-FILE9=testng.xml
-FILE10=testng-server-mgt.xml
-#FILE11=$wum_path
-FILE12=prod_test_constant.py
+INPUTS_DIR=$2
+OUTPUTS_DIR=$4
+FILE1=${INPUTS_DIR}/deployment.properties
+FILE2=run-intg-test.py
+FILE3=intg_test_manager.py
+FILE4=intg_test_constant.py
+FILE5=requirements.txt
+FILE6=intg-test-runner.sh
+FILE7=intg-test-runner.bat
+FILE8=testng.xml
+FILE9=testng-server-mgt.xml
+#FILE10=$wum_path
+FILE11=prod_test_constant.py
 
 PROP_KEY=keyFileLocation      #pem file
 PROP_OS=OS                       #OS name e.g. centos
@@ -48,13 +48,13 @@ PROP_INSTANCE_ID=WSO2InstanceId  #Physical ID (Resource ID) of WSO2 EC2 Instance
 #----------------------------------------------------------------------
 # getting data from databuckets
 #----------------------------------------------------------------------
-key_pem=`grep -w "$PROP_KEY" ${FILE1} ${FILE2} | cut -d'=' -f2`
-os=`cat ${FILE2} | grep -w "$PROP_OS" ${FILE1} | cut -d'=' -f2`
+key_pem=`grep -w "$PROP_KEY" ${FILE1} | cut -d'=' -f2`
+os=`grep -w "$PROP_OS" ${FILE1} | cut -d'=' -f2`
 #user=`cat ${FILE2} | grep -w "$PROP_USER" ${FILE1} ${FILE2} | cut -d'=' -f2`
-instance_id=`cat ${FILE2} | grep -w "$PROP_INSTANCE_ID" ${FILE1} ${FILE2} | cut -d'=' -f2`
+instance_id=`grep -w "$PROP_INSTANCE_ID" ${FILE1} | cut -d'=' -f2`
 user=''
 password=''
-host=`grep -w "$PROP_HOST" ${FILE1} ${FILE2} | cut -d'=' -f2`
+host=`grep -w "$PROP_HOST" ${FILE1} | cut -d'=' -f2`
 CONNECT_RETRY_COUNT=20
 
 #=== FUNCTION ==================================================================
@@ -131,7 +131,7 @@ case "${os}" in
         PROP_REMOTE_DIR=REMOTE_WORKSPACE_DIR_UNIX ;;
 esac
 
-REM_DIR=`grep -w "$PROP_REMOTE_DIR" ${FILE1} ${FILE2} | cut -d'=' -f2`
+REM_DIR=`grep -w "$PROP_REMOTE_DIR" ${FILE1} | cut -d'=' -f2`
 
 #----------------------------------------------------------------------
 # wait till port 22 is opened for SSH
@@ -158,23 +158,22 @@ if [ "${os}" = "Windows" ]; then
   echo $(sshpass -p "${password}" scp -q -o StrictHostKeyChecking=no ${FILE3} ${user}@${host}:${REM_DIR})
   echo $(sshpass -p "${password}" scp -q -o StrictHostKeyChecking=no ${FILE4} ${user}@${host}:${REM_DIR})
   echo $(sshpass -p "${password}" scp -q -o StrictHostKeyChecking=no ${FILE5} ${user}@${host}:${REM_DIR})
-  echo $(sshpass -p "${password}" scp -q -o StrictHostKeyChecking=no ${FILE6} ${user}@${host}:${REM_DIR})
+  echo $(sshpass -p "${password}" scp -q -o StrictHostKeyChecking=no ${FILE7} ${user}@${host}:${REM_DIR})
   echo $(sshpass -p "${password}" scp -q -o StrictHostKeyChecking=no ${FILE8} ${user}@${host}:${REM_DIR})
   echo $(sshpass -p "${password}" scp -q -o StrictHostKeyChecking=no ${FILE9} ${user}@${host}:${REM_DIR})
-  echo $(sshpass -p "${password}" scp -q -o StrictHostKeyChecking=no ${FILE10} ${user}@${host}:${REM_DIR})
-  echo $(sshpass -p "${password}" scp -q -o StrictHostKeyChecking=no ${FILE12} ${user}@${host}:${REM_DIR})
+  echo $(sshpass -p "${password}" scp -q -o StrictHostKeyChecking=no ${FILE11} ${user}@${host}:${REM_DIR})
 
   echo "=== Files copying finished ==="
   echo "Execution begins.. "
   
   set +e #avoid exiting before files are copied from remote server
   
-  sshpass -p "${password}" ssh -o StrictHostKeyChecking=no ${user}@${host} "${REM_DIR}/${FILE8}" ${REM_DIR}
+  sshpass -p "${password}" ssh -o StrictHostKeyChecking=no ${user}@${host} "${REM_DIR}/${FILE7}" ${REM_DIR}
   echo "=== End of execution ==="
   echo "Retrieving reports from instance.. "
-  echo $(sshpass -p "${password}" scp -r -q -o StrictHostKeyChecking=no ${user}@${host}:${REM_DIR}/product-is/modules/integration/tests-integration/tests-backend/target/surefire-reports ${DIR})
-  echo $(sshpass -p "${password}" scp -q -o StrictHostKeyChecking=no ${user}@${host}:${REM_DIR}/product-is/modules/integration/tests-integration/tests-backend/target/logs/automation.log ${DIR})
-  echo $(sshpass -p "${password}" scp -q -o StrictHostKeyChecking=no ${user}@${host}:${REM_DIR}/output.properties ${DIR})
+  echo $(sshpass -p "${password}" scp -r -q -o StrictHostKeyChecking=no ${user}@${host}:${REM_DIR}/product-is/modules/integration/tests-integration/tests-backend/target/surefire-reports ${OUTPUTS_DIR})
+  echo $(sshpass -p "${password}" scp -q -o StrictHostKeyChecking=no ${user}@${host}:${REM_DIR}/product-is/modules/integration/tests-integration/tests-backend/target/logs/automation.log ${OUTPUTS_DIR})
+  echo $(sshpass -p "${password}" scp -q -o StrictHostKeyChecking=no ${user}@${host}:${REM_DIR}/output.properties ${OUTPUTS_DIR})
   echo "=== Reports retrieved successfully ==="
   set -o xtrace
 else
@@ -186,10 +185,9 @@ else
   scp -o StrictHostKeyChecking=no -i ${key_pem} ${FILE4} ${user}@${host}:${REM_DIR}
   scp -o StrictHostKeyChecking=no -i ${key_pem} ${FILE5} ${user}@${host}:${REM_DIR}
   scp -o StrictHostKeyChecking=no -i ${key_pem} ${FILE6} ${user}@${host}:${REM_DIR}
-  scp -o StrictHostKeyChecking=no -i ${key_pem} ${FILE7} ${user}@${host}:${REM_DIR}
+  scp -o StrictHostKeyChecking=no -i ${key_pem} ${FILE8} ${user}@${host}:${REM_DIR}
   scp -o StrictHostKeyChecking=no -i ${key_pem} ${FILE9} ${user}@${host}:${REM_DIR}
-  scp -o StrictHostKeyChecking=no -i ${key_pem} ${FILE10} ${user}@${host}:${REM_DIR}
-  scp -o StrictHostKeyChecking=no -i ${key_pem} ${FILE12} ${user}@${host}:${REM_DIR}
+  scp -o StrictHostKeyChecking=no -i ${key_pem} ${FILE11} ${user}@${host}:${REM_DIR}
 
   echo "=== Files copied successfully ==="
   
@@ -198,9 +196,9 @@ else
   ssh -o StrictHostKeyChecking=no -i ${key_pem} ${user}@${host} bash ${REM_DIR}/intg-test-runner.sh --wd ${REM_DIR}
 
   #Get the reports from integration test
-  scp -o StrictHostKeyChecking=no -r -i ${key_pem} ${user}@${host}:${REM_DIR}/product-is/modules/integration/tests-integration/tests-backend/target/surefire-reports ${DIR}
-  scp -o StrictHostKeyChecking=no -r -i ${key_pem} ${user}@${host}:${REM_DIR}/product-is/modules/integration/tests-integration/tests-backend/target/logs/automation.log ${DIR}
-  scp -o StrictHostKeyChecking=no -r -i ${key_pem} ${user}@${host}:${REM_DIR}/output.properties ${DIR}
+  scp -o StrictHostKeyChecking=no -r -i ${key_pem} ${user}@${host}:${REM_DIR}/product-is/modules/integration/tests-integration/tests-backend/target/surefire-reports ${OUTPUTS_DIR}
+  scp -o StrictHostKeyChecking=no -r -i ${key_pem} ${user}@${host}:${REM_DIR}/product-is/modules/integration/tests-integration/tests-backend/target/logs/automation.log ${OUTPUTS_DIR}
+  scp -o StrictHostKeyChecking=no -r -i ${key_pem} ${user}@${host}:${REM_DIR}/output.properties ${OUTPUTS_DIR}
   echo "=== Reports are copied success ==="
 fi
 ##script ends
