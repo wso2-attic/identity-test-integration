@@ -239,7 +239,7 @@ def main():
         if cm.test_mode == "RELEASE":
             cm.checkout_to_tag()
             
-            product name retrieve from product pom files
+            # product name retrieve from product pom files
             dist_name = cm.get_dist_name(pom_path)
             cm.get_latest_released_dist()
         elif cm.test_mode == "SNAPSHOT":
