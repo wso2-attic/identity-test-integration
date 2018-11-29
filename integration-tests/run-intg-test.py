@@ -234,17 +234,18 @@ def main():
         cm.construct_db_config(db_meta_data)
 
         # clone the repository
-        #cm.clone_repo()
+        cm.clone_repo()
 
         if cm.test_mode == "RELEASE":
             cm.checkout_to_tag()
-            # product name retrieve from product pom files
+            
+            product name retrieve from product pom files
             dist_name = cm.get_dist_name(pom_path)
             cm.get_latest_released_dist()
         elif cm.test_mode == "SNAPSHOT":
             # product name retrieve from product pom files
             dist_name = cm.get_dist_name(pom_path)
-            #cm.build_snapshot_dist(distribution_path)
+            cm.build_snapshot_dist(distribution_path)
         elif cm.test_mode == "WUM":
             dist_name = cm.get_dist_name_wum()
 
@@ -258,9 +259,9 @@ def main():
             module_path = Path(cm.workspace + "/" + cm.product_id + "/" + 'modules/api-import-export')
             cm.build_module(module_path)
         intg_module_path = Path(cm.workspace + "/" + cm.product_id + "/" + INTEGRATION_PATH)
-        #cm.build_module(intg_module_path)
-        #save_test_output()
-        #cm.create_output_property_fle()
+        cm.build_module(intg_module_path)
+        save_test_output()
+        cm.create_output_property_fle()
     except Exception as e:
         logger.error("Error occurred while running the run-intg.py script", exc_info=True)
     except BaseException as e:
