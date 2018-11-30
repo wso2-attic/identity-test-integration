@@ -255,9 +255,9 @@ def main():
             raise Exception("Failed the product configuring")
         cm.setup_databases(db_names, db_meta_data)
         # run integration tests
-        if cm.product_id == "product-apim":
-            module_path = Path(cm.workspace + "/" + cm.product_id + "/" + 'modules/api-import-export')
-            cm.build_module(module_path)
+        # Buld Common module
+        module_path = Path(cm.workspace + "/" + cm.product_id + "/" + 'modules/integration/tests-common')
+        cm.build_module(module_path)
         intg_module_path = Path(cm.workspace + "/" + cm.product_id + "/" + INTEGRATION_PATH)
         cm.build_module(intg_module_path)
         save_test_output()
