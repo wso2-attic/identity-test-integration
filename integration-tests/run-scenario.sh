@@ -171,9 +171,10 @@ if [ "${os}" = "Windows" ]; then
   sshpass -p "${password}" ssh -o StrictHostKeyChecking=no ${user}@${host} "${REM_DIR}/${FILE7}" ${REM_DIR}
   echo "=== End of execution ==="
   echo "Retrieving reports from instance.. "
-  echo $(sshpass -p "${password}" scp -r -q -o StrictHostKeyChecking=no ${user}@${host}:${REM_DIR}/product-is/modules/integration/tests-integration/tests-backend/target/surefire-reports ${OUTPUTS_DIR})
-  echo $(sshpass -p "${password}" scp -q -o StrictHostKeyChecking=no ${user}@${host}:${REM_DIR}/product-is/modules/integration/tests-integration/tests-backend/target/logs/automation.log ${OUTPUTS_DIR})
-  echo $(sshpass -p "${password}" scp -q -o StrictHostKeyChecking=no ${user}@${host}:${REM_DIR}/output.properties ${OUTPUTS_DIR})
+  mkdir -p ${OUTPUTS_DIR}/integration-tests
+  echo $(sshpass -p "${password}" scp -r -q -o StrictHostKeyChecking=no ${user}@${host}:${REM_DIR}/product-is/modules/integration/tests-integration/tests-backend/target/surefire-reports ${OUTPUTS_DIR}/integration-tests)
+  echo $(sshpass -p "${password}" scp -q -o StrictHostKeyChecking=no ${user}@${host}:${REM_DIR}/product-is/modules/integration/tests-integration/tests-backend/target/logs/automation.log ${OUTPUTS_DIR}/integration-tests)
+  echo $(sshpass -p "${password}" scp -q -o StrictHostKeyChecking=no ${user}@${host}:${REM_DIR}/output.properties ${OUTPUTS_DIR}/integration-tests)
   echo "=== Reports retrieved successfully ==="
   set -o xtrace
 else
@@ -195,10 +196,11 @@ else
 
   ssh -o StrictHostKeyChecking=no -i ${key_pem} ${user}@${host} bash ${REM_DIR}/intg-test-runner.sh --wd ${REM_DIR}
 
+  mkdir -p ${OUTPUTS_DIR}/integration-tests
   #Get the reports from integration test
-  scp -o StrictHostKeyChecking=no -r -i ${key_pem} ${user}@${host}:${REM_DIR}/product-is/modules/integration/tests-integration/tests-backend/target/surefire-reports ${OUTPUTS_DIR}
-  scp -o StrictHostKeyChecking=no -r -i ${key_pem} ${user}@${host}:${REM_DIR}/product-is/modules/integration/tests-integration/tests-backend/target/logs/automation.log ${OUTPUTS_DIR}
-  scp -o StrictHostKeyChecking=no -r -i ${key_pem} ${user}@${host}:${REM_DIR}/output.properties ${OUTPUTS_DIR}
+  scp -o StrictHostKeyChecking=no -r -i ${key_pem} ${user}@${host}:${REM_DIR}/product-is/modules/integration/tests-integration/tests-backend/target/surefire-reports ${OUTPUTS_DIR}/integration-tests
+  scp -o StrictHostKeyChecking=no -r -i ${key_pem} ${user}@${host}:${REM_DIR}/product-is/modules/integration/tests-integration/tests-backend/target/logs/automation.log ${OUTPUTS_DIR}/integration-tests
+  scp -o StrictHostKeyChecking=no -r -i ${key_pem} ${user}@${host}:${REM_DIR}/output.properties ${OUTPUTS_DIR}/integration-tests
   echo "=== Reports are copied success ==="
 fi
 ##script ends
