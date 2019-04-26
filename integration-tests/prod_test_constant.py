@@ -34,7 +34,9 @@ ARTIFACT_REPORTS_PATHS = {"modules/integration/tests-integration/tests-backend/t
 DB_META_DATA = {
     "MYSQL": {"prefix": "jdbc:mysql://", "driverClassName": "com.mysql.jdbc.Driver", "jarName": "mysql.jar",
               "DB_SETUP": {"WSO2_CARBON_DB": ['dbscripts/mysql5.7.sql',
-                                              'dbscripts/identity/mysql-5.7.sql'],
+                                              'dbscripts/identity/mysql-5.7.sql',
+                                              'dbscripts/identity/uma/mysql5.7.sql',
+                                              'dbscripts/consent/mysql-5.7.sql'],
                            "WSO2_METRICS_DB": ['dbscripts/metrics/mysql.sql'],
                            "BPS_DS": ['dbscripts/bps/bpel/create/mysql.sql']}
               },
@@ -42,7 +44,9 @@ DB_META_DATA = {
     "SQLSERVER-SE": {"prefix": "jdbc:sqlserver://",
                      "driverClassName": "com.microsoft.sqlserver.jdbc.SQLServerDriver", "jarName": "sqlserver-ex.jar",
                      "DB_SETUP": {"WSO2_CARBON_DB": ['dbscripts/mssql.sql',
-                                                     'dbscripts/identity/mssql.sql'],
+                                                     'dbscripts/identity/mssql.sql',
+                                                     'dbscripts/identity/uma/mssql.sql',
+                                                     'dbscripts/consent/mssql.sql'],
                                   "WSO2_METRICS_DB": ['dbscripts/metrics/mssql.sql'],
                                   "BPS_DS": ['dbscripts/bps/bpel/create/mssql.sql']}
                      },
@@ -50,7 +54,9 @@ DB_META_DATA = {
     "ORACLE-SE2": {"prefix": "jdbc:oracle:thin:@", "driverClassName": "oracle.jdbc.OracleDriver",
                    "jarName": "oracle-se.jar",
                    "DB_SETUP": {"WSO2_CARBON_DB": ['dbscripts/oracle.sql',
-                                                   'dbscripts/identity/oracle.sql'],
+                                                   'dbscripts/identity/oracle.sql',
+                                                   'dbscripts/identity/uma/oracle.sql',
+                                                   'dbscripts/consent/oracle.sql'],
                                 "WSO2_METRICS_DB": ['dbscripts/metrics/oracle.sql'],
                                 "BPS_DS": ['dbscripts/bps/bpel/create/oracle.sql']}
                    },
@@ -58,7 +64,9 @@ DB_META_DATA = {
     "POSTGRESQL": {"prefix": "jdbc:postgresql://", "driverClassName": "org.postgresql.Driver",
                    "jarName": "postgres.jar",
                    "DB_SETUP": {"WSO2_CARBON_DB": ['dbscripts/postgresql.sql',
-                                                   'dbscripts/identity/postgresql.sql'],
+                                                   'dbscripts/identity/postgresql.sql',
+                                                   'dbscripts/identity/uma/postgresql.sql',
+                                                   'dbscripts/consent/postgresql.sql'],
                                 "WSO2_METRICS_DB": ['dbscripts/metrics/postgresql.sql'],
                                 "BPS_DS": ['dbscripts/bps/bpel/create/postgresql.sql']}
                    }
