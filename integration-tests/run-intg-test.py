@@ -210,6 +210,16 @@ def configure_product():
         logger.error("Error occurred while configuring the product", exc_info=True)
 
 
+def build_source_without_tests(source_path):
+    """Build the product-source.
+    """
+    logger.info('Building the source skipping tests')
+    if sys.platform.startswith('win'):
+        subprocess.call(['mvn', 'clean', 'install', '-B', '-e','-Dmaven.test.skip=true'], shell=True, cwd=source_path)
+    else:
+        subprocess.call(['mvn', 'clean', 'install', '-B', '-e', '-Dmaven.test.skip=true'], cwd=source_path)
+    logger.info('Module build is completed. Module: ' + str(source_path))
+
 def main():
     try:
         global logger
@@ -238,9 +248,10 @@ def main():
 
         if cm.test_mode == "RELEASE":
             cm.checkout_to_tag()
-            
             # product name retrieve from product pom files
             dist_name = cm.get_dist_name(pom_path)
+            # build the product without test once to make samples and required artifacts to be available.
+            build_source_without_tests(cm.workspace + "/" + cm.product_id + "/")
             cm.get_latest_released_dist()
         elif cm.test_mode == "SNAPSHOT":
             # product name retrieve from product pom files
