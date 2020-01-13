@@ -65,9 +65,19 @@ set_product_pack(){
 
 #Defining Test Modes
 TEST_MODE_1="WUM"
-
+os=`grep -w "OS" ${input_file} | cut -d'=' -f2`
 #WUM product pack directory to check if its already exist
 PRODUCT_FILE_DIR="/home/ubuntu/.wum3/products/${PRODUCT_NAME}"
+
+if [ ${os} == "Ubuntu" ] ; then
+  PRODUCT_FILE_DIR="/home/ubuntu/.wum3/products/${PRODUCT_NAME}"
+elif [ ${os} == "CentOS" ] ; then
+  PRODUCT_FILE_DIR="/home/centos/.wum3/products/${PRODUCT_NAME}"
+elif [ ${os} == "Windows" ] ; then
+  PRODUCT_FILE_DIR="C:\users\Administrator\.wum3\products\${PRODUCT_NAME}"
+fi
+
+echo "Product file directory: ${PRODUCT_FILE_DIR}"
 
 if [ ${TEST_TYPE} == "$TEST_MODE_1" ]; then
    wget -nv -nc https://product-dist.wso2.com/downloads/wum/3.0.2/wum-3.0.2-linux-x64.tar.gz
@@ -155,6 +165,7 @@ user=''
 password=''
 host=`grep -w "$PROP_HOST" ${FILE1} | cut -d'=' -f2`
 CONNECT_RETRY_COUNT=20
+echo "Operating System is set to: ${os}"
 
 #=== FUNCTION ==================================================================
 # NAME: request_ec2_password
@@ -225,12 +236,16 @@ case "${os}" in
    "Windows")
     	user=Administrator
         PROP_REMOTE_DIR=REMOTE_WORKSPACE_DIR_WINDOWS ;;
-   "UBUNTU")
+   "Ubuntu")
         user=ubuntu
         PROP_REMOTE_DIR=REMOTE_WORKSPACE_DIR_UNIX ;;
 esac
 
+echo "User is set to: ${user}"
+
 REM_DIR=`grep -w "$PROP_REMOTE_DIR" ${FILE1} | cut -d'=' -f2`
+
+echo "REM_DIR is set to: ${REM_DIR}"
 
 #----------------------------------------------------------------------
 # wait till port 22 is opened for SSH
