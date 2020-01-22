@@ -13,9 +13,7 @@
 # limitations under the License.
 
 WSO2SERVER = "bin/wso2server"
-DATASOURCE_PATHS = {"repository/conf/datasources/master-datasources.xml",
-                    "repository/conf/datasources/metrics-datasources.xml",
-                    "repository/conf/datasources/bps-datasources.xml"}
+DATASOURCE_PATHS = "repository/conf/deployment.toml"
 M2_PATH = "is/wso2is"
 DIST_POM_PATH = "modules/distribution/pom.xml"
 LIB_PATH = "repository/components/lib"
@@ -33,41 +31,35 @@ ARTIFACT_REPORTS_PATHS = {"modules/integration/tests-integration/tests-backend/t
         "modules/integration/tests-integration/tests-backend/target/surefire-reports/TestSuite.txt"}
 DB_META_DATA = {
     "MYSQL": {"prefix": "jdbc:mysql://", "driverClassName": "com.mysql.jdbc.Driver", "jarName": "mysql.jar",
-              "DB_SETUP": {"WSO2_CARBON_DB": ['dbscripts/mysql5.7.sql',
-                                              'dbscripts/identity/mysql-5.7.sql',
-                                              'dbscripts/identity/uma/mysql5.7.sql',
-                                              'dbscripts/consent/mysql-5.7.sql'],
-                           "WSO2_METRICS_DB": ['dbscripts/metrics/mysql.sql'],
-                           "BPS_DS": ['dbscripts/bps/bpel/create/mysql.sql']}
+              "DB_SETUP": {"WSO2_IDENTITY_DB": ['dbscripts/identity/mysql.sql',
+                                              'dbscripts/identity/uma/mysql.sql',
+                                              'dbscripts/consent/mysql.sql'],
+                           "WSO2_SHARED_DB": ['dbscripts/mysql.sql']}
               },
 
     "SQLSERVER-SE": {"prefix": "jdbc:sqlserver://",
                      "driverClassName": "com.microsoft.sqlserver.jdbc.SQLServerDriver", "jarName": "sqlserver-ex.jar",
-                     "DB_SETUP": {"WSO2_CARBON_DB": ['dbscripts/mssql.sql',
-                                                     'dbscripts/identity/mssql.sql',
+                     "DB_SETUP": {"WSO2_IDENTITY_DB": ['dbscripts/identity/mssql.sql',
                                                      'dbscripts/identity/uma/mssql.sql',
                                                      'dbscripts/consent/mssql.sql'],
-                                  "WSO2_METRICS_DB": ['dbscripts/metrics/mssql.sql'],
-                                  "BPS_DS": ['dbscripts/bps/bpel/create/mssql.sql']}
+                                  "WSO2_SHARED_DB": ['dbscripts/mssql.sql']}
+
                      },
 
     "ORACLE-SE2": {"prefix": "jdbc:oracle:thin:@", "driverClassName": "oracle.jdbc.OracleDriver",
                    "jarName": "oracle-se.jar",
-                   "DB_SETUP": {"WSO2_CARBON_DB": ['dbscripts/oracle.sql',
-                                                   'dbscripts/identity/oracle.sql',
+                   "DB_SETUP": {"WSO2_IDENTITY_DB": ['dbscripts/identity/oracle.sql',
                                                    'dbscripts/identity/uma/oracle.sql',
                                                    'dbscripts/consent/oracle.sql'],
-                                "WSO2_METRICS_DB": ['dbscripts/metrics/oracle.sql'],
-                                "BPS_DS": ['dbscripts/bps/bpel/create/oracle.sql']}
+                                "WSO2_SHARED_DB": ['dbscripts/oracle.sql']}
                    },
 
     "POSTGRESQL": {"prefix": "jdbc:postgresql://", "driverClassName": "org.postgresql.Driver",
                    "jarName": "postgres.jar",
-                   "DB_SETUP": {"WSO2_CARBON_DB": ['dbscripts/postgresql.sql',
+                   "DB_SETUP": {"WSO2_IDENTITY_DB": [
                                                    'dbscripts/identity/postgresql.sql',
                                                    'dbscripts/identity/uma/postgresql.sql',
                                                    'dbscripts/consent/postgresql.sql'],
-                                "WSO2_METRICS_DB": ['dbscripts/metrics/postgresql.sql'],
-                                "BPS_DS": ['dbscripts/bps/bpel/create/postgresql.sql']}
+                                "WSO2_SHARED_DB": ['dbscripts/postgresql.sql']}
                    }
 }
