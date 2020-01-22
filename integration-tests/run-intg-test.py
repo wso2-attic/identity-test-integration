@@ -176,8 +176,11 @@ def save_log_files():
 #TODO: Improve the method in generic way to support all products
 def save_test_output():
     report_folder = Path(cm.workspace + "/" + TEST_OUTPUT_DIR_NAME)
+    logger.info(str(report_folder))
     if Path.exists(report_folder):
         shutil.rmtree(report_folder)
+    logger.info(str(ARTIFACT_REPORTS_PATHS))
+    logger.info(str(type(ARTIFACT_REPORTS_PATHS)))
     report_file_paths = ARTIFACT_REPORTS_PATHS
     for key, value in report_file_paths.items():
         for file in value:
@@ -300,13 +303,16 @@ def main():
         # Buld Common module
         add_environmental_variables()
         module_path = Path(cm.workspace + "/" + cm.product_id + "/" + 'modules/integration/tests-common')
+        logger.info('Building common module. Build path: '+ str(module_path) + ' \n')
+
         cm.build_module(module_path)
         intg_module_path = Path(cm.workspace + "/" + cm.product_id + "/" + INTEGRATION_PATH)
+        logger.info('Building integration module. Build path: '+ str(intg_module_path) + ' \n')
         cm.build_module(intg_module_path)
         save_test_output()
         cm.create_output_property_fle()
     except Exception as e:
-        logger.error("Error occurred while running the run-intg.py script", exc_info=True)
+        logger.error("Error occurred while running the run-intg-test.py script", exc_info=True)
     except BaseException as e:
         logger.error("Error occurred while doing the configuration", exc_info=True)
 
