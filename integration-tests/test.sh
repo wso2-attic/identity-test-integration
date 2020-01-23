@@ -19,7 +19,7 @@ set -o xtrace
 
 #Download the common scripts to working directory
 get_cmn_scripts_dwld(){
-git clone https://github.com/wso2-incubator/test-integration-tests-runner.git
+git clone  --branch=public-new-config https://github.com/wso2-incubator/test-integration-tests-runner.git
 cp test-integration-tests-runner/intg_test_manager.py test-integration-tests-runner/intg_test_constant.py .
 echo "=== Copied common scripts. ==="
 }
