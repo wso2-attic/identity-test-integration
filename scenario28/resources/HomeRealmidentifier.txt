@@ -1,6 +1,0 @@
-TwitterIdentityProviderName,TwitterHomeRelam
-Sol28TwitterIDP1,twitter
-Sol28TwitterIDP2,tweet1
-Sol28TwitterIDP3,tweet2
-Sol28TwitterIDP4,tweet@t#
-Sol28TwitterIDP5,tweetresident
