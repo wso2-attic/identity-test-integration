@@ -32,7 +32,7 @@ INT_TEST_MODULE_DIR="$WORKING_DIR/$PRODUCT_REPOSITORY_NAME/modules/integration"
 NEXUS_SCRIPT_NAME="uat-nexus-settings.xml"
 INFRA_JSON="infra.json"
 
-# cloud formation properties
+# CloudFormation properties
 CFN_PROP_FILE="${WORKING_DIR}/cfn-props.properties"
 JDK_TYPE=$(grep -w "JDK_TYPE" ${CFN_PROP_FILE} | cut -d"=" -f2)
 DB_TYPE=$(grep -w "DB_TYPE" ${CFN_PROP_FILE} | cut -d"=" -f2)
